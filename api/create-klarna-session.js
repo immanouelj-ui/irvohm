@@ -1,26 +1,20 @@
 const Stripe = require('stripe');
 
-exports.handler = async function(event) {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+module.exports = async (req, res) => {
+  if (req.method !== 'POST') {
+    return res.status(405).send('Method Not Allowed');
   }
 
   const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-  let body;
-  try {
-    body = JSON.parse(event.body);
-  } catch {
-    return { statusCode: 400, body: JSON.stringify({ error: 'Corps de requête invalide.' }) };
-  }
-
-  const { borne, totalTTC, client, date, heure } = body;
+  const { borne, totalTTC, client, date, heure } = req.body;
 
   if (!totalTTC || !client) {
-    return { statusCode: 400, body: JSON.stringify({ error: 'Données manquantes.' }) };
+    return res.status(400).json({
+      error: 'Données manquantes.'
+    });
   }
 
-  // Klarna 3× : Stripe Checkout gère les 3 mensualités automatiquement
   const montantCentimes = Math.round(totalTTC * 100);
   const siteUrl = process.env.SITE_URL || 'https://irvohm.fr';
 
@@ -52,21 +46,21 @@ exports.handler = async function(event) {
         nom: client.nom,
         tel: client.tel,
         adresse: client.adresse,
+        email: client.email,
       },
       success_url: `${siteUrl}/confirmation.html?mode=klarna`,
       cancel_url: `${siteUrl}/particulier.html`,
     });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ url: session.url }),
-    };
+    return res.status(200).json({
+      url: session.url
+    });
 
   } catch (err) {
     console.error('Stripe Klarna error:', err);
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ error: err.message || 'Erreur lors de la création de la session Klarna.' }),
-    };
+
+    return res.status(500).json({
+      error: err.message || 'Erreur lors de la création de la session Klarna.'
+    });
   }
 };
