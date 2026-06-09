@@ -4,327 +4,240 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-<!-- ✅ SEO : Title et meta description optimisés -->
+<!-- SEO -->
 <title>IRV'OHM – Installation Borne de Recharge IRVE | Sarcelles & Île-de-France</title>
 <meta name="description" content="IRV'OHM installe vos bornes de recharge pour véhicules électriques. Particuliers et entreprises. Certifiés IRVE, devis gratuit sous 48h. Sarcelles et Île-de-France."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://irvohm.fr/"/>
-
-<!-- ✅ Open Graph (partage réseaux sociaux) -->
 <meta property="og:title" content="IRV'OHM – Installation Borne de Recharge IRVE"/>
 <meta property="og:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
 <meta property="og:url" content="https://irvohm.fr/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://irvohm.fr/borne-recharge.webp"/>
 
-<!-- ✅ PERF n°1 : PRELOAD de l'image LCP (la plus grosse image visible au chargement).
-     C'est LE correctif principal pour faire baisser ton LCP de 4,4 s.
-     Le navigateur la télécharge immédiatement, sans attendre le CSS. -->
+<!-- ✅ PERF : preload de l'image LCP -->
 <link rel="preload" as="image" href="borne-recharge.webp" fetchpriority="high"/>
 
-<!-- ✅ PERF : preconnect Google Fonts AVANT les liens (réduit la latence) -->
+<!-- ✅ PERF : polices chargées en ASYNCHRONE (ne bloque plus le rendu = -450 ms) -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
 
-<!-- ✅ PERF : les 2 familles en 1 seule requête + display=swap (évite le texte invisible) -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-
-<!-- ✅ PERF : Material Symbols en async (non bloquant) -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/></noscript>
-
-<!-- ✅ PERF : Tailwind CDN remplacé par CSS inline (élimine le rendu côté client qui bloquait l'affichage) -->
+<!-- ✅ PERF : plus de police d'icônes Material Symbols. Icônes en SVG inline (voir <body>) -->
 <style>
-  /* Reset & base */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 16px; }
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f7f9fb;
-    color: #191c1e;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f7f9fb; color: #191c1e; line-height: 1.5; -webkit-font-smoothing: antialiased;
   }
   img { max-width: 100%; display: block; }
   a { text-decoration: none; color: inherit; }
 
-  /* Tokens couleur */
   :root {
-    --primary: #006d37;
-    --secondary: #006397;
-    --tertiary: #006b58;
-    --surface: #f7f9fb;
-    --surface-container-low: #f2f4f6;
-    --surface-container: #eceef0;
-    --on-surface: #191c1e;
-    --on-surface-variant: #3d4a3e;
-    --outline-variant: #bbcbbb;
-    --inverse-surface: #2d3133;
-    --inverse-on-surface: #eff1f3;
+    --primary:#006d37; --secondary:#006397; --tertiary:#006b58;
+    --surface:#f7f9fb; --surface-container-low:#f2f4f6; --surface-container:#eceef0;
+    --on-surface:#191c1e; --on-surface-variant:#3d4a3e; --outline-variant:#bbcbbb;
+    --inverse-surface:#2d3133; --inverse-on-surface:#eff1f3;
+    --display:'Montserrat', -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  /* Utilitaires layout */
-  .max-w { max-width: 1280px; margin-inline: auto; }
-  .px-page { padding-inline: 16px; }
-  @media (min-width: 768px) { .px-page { padding-inline: 64px; } }
-  .py-xl { padding-block: 80px; }
+  /* Icônes SVG inline */
+  .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
 
-  /* Gradient brand */
-  .gradient-brand { background: linear-gradient(135deg, #006d37 0%, #006397 100%); }
-  .text-gradient-brand {
-    background: linear-gradient(135deg, #2ecc71 0%, #5cb8fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .glass-card {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(226,232,240,0.5);
-  }
+  .max-w { max-width:1280px; margin-inline:auto; }
+  .px-page { padding-inline:16px; }
+  @media (min-width:768px){ .px-page{ padding-inline:64px; } }
+  .py-xl { padding-block:80px; }
 
-  /* Material icons */
-  .material-symbols-outlined {
-    font-family: 'Material Symbols Outlined';
-    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
-    font-size: 24px;
-    line-height: 1;
-    display: inline-block;
-    vertical-align: middle;
-  }
+  .gradient-brand { background:linear-gradient(135deg,#006d37 0%,#006397 100%); }
+  .text-gradient-brand { background:linear-gradient(135deg,#2ecc71 0%,#5cb8fd 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .glass-card { background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border:1px solid rgba(226,232,240,0.5); }
 
-  /* ── Header ── */
-  .header {
-    background: rgba(247,249,251,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(187,203,187,0.3);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
-  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-  .logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px; font-weight: 700;
-    background: linear-gradient(135deg, #006d37, #006397);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .nav-desktop { display: none; gap: 24px; align-items: center; }
-  @media (min-width: 768px) { .nav-desktop { display: flex; } }
-  .nav-link {
-    font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
-    color: var(--on-surface-variant); transition: color 0.2s;
-  }
-  .nav-link:hover { color: var(--primary); }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 24px; border-radius: 8px;
-    font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
-    color: #fff; transition: opacity 0.2s, transform 0.1s; cursor: pointer; border: none;
-  }
-  .btn-primary:hover { opacity: 0.9; }
-  .btn-primary:active { transform: scale(0.97); }
-  .btn-menu { background: none; border: none; cursor: pointer; color: var(--on-surface); }
-  @media (min-width: 768px) { .btn-menu { display: none; } }
+  /* Header */
+  .header { background:rgba(247,249,251,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(187,203,187,0.3); box-shadow:0 1px 3px rgba(0,0,0,0.06); position:sticky; top:0; z-index:50; }
+  .header-inner { display:flex; justify-content:space-between; align-items:center; height:80px; }
+  .logo { font-family:var(--display); font-size:24px; font-weight:700; background:linear-gradient(135deg,#006d37,#006397); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .nav-desktop { display:none; gap:24px; align-items:center; }
+  @media (min-width:768px){ .nav-desktop{ display:flex; } }
+  .nav-link { font-size:14px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--on-surface-variant); transition:color .2s; }
+  .nav-link:hover { color:var(--primary); }
+  .btn-primary { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:8px; font-size:14px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:#fff; transition:opacity .2s,transform .1s; cursor:pointer; border:none; }
+  .btn-primary:hover { opacity:.9; }
+  .btn-primary:active { transform:scale(.97); }
+  .btn-menu { background:none; border:none; cursor:pointer; color:var(--on-surface); font-size:24px; display:flex; }
+  @media (min-width:768px){ .btn-menu{ display:none; } }
 
-  /* ── Hero ── */
-  .hero { position: relative; overflow: hidden; background: var(--surface); }
-  .hero-bg-icon {
-    position: absolute; top: -80px; right: -80px;
-    opacity: 0.03; pointer-events: none; font-size: 400px;
-    font-family: 'Material Symbols Outlined';
-    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48; line-height: 1;
-  }
-  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
-  @media (min-width: 768px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
-  .hero-logo { width: 256px; height: auto; }
-  @media (min-width: 768px) { .hero-logo { width: 320px; } }
-  .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.2; color: var(--on-surface); margin-top: 24px; }
-  @media (min-width: 768px) { .hero h1 { font-size: 48px; letter-spacing: -0.02em; line-height: 1.1; } }
-  .hero-desc { font-size: 18px; line-height: 1.6; color: var(--on-surface-variant); max-width: 32rem; margin-top: 24px; }
-  .hero-actions { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
-  @media (min-width: 640px) { .hero-actions { flex-direction: row; } }
-  .btn-outline-secondary {
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 12px 40px; border-radius: 12px; border: 2px solid var(--secondary);
-    color: var(--secondary); font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; transition: background 0.2s;
-  }
-  .btn-outline-secondary:hover { background: rgba(92,184,253,0.1); }
-  .hero-social-proof { display: flex; align-items: center; gap: 24px; margin-top: 24px; }
-  .avatar-stack { display: flex; }
-  .avatar-stack img { width: 40px; height: 40px; border-radius: 9999px; border: 2px solid white; object-fit: cover; margin-left: -12px; }
-  .avatar-stack img:first-child { margin-left: 0; }
-  .proof-label { font-size: 12px; font-weight: 600; color: var(--on-surface-variant); line-height: 1.2; }
-  .proof-label strong { color: var(--primary); }
-
-  /* Hero image card */
-  .hero-img-wrap { position: relative; }
-  .hero-img-glow { position: absolute; inset: -16px; background: linear-gradient(135deg, #006d37, #006397); border-radius: 32px; opacity: 0.1; filter: blur(32px); transition: opacity 0.3s; }
-  .hero-img-wrap:hover .hero-img-glow { opacity: 0.2; }
-  .hero-img-card { position: relative; background: white; padding: 8px; border-radius: 32px; border: 1px solid rgba(187,203,187,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.12); overflow: hidden; }
-  .hero-img-card img { width: 100%; height: 500px; object-fit: cover; border-radius: 24px; }
-  .hero-badge { position: absolute; bottom: 24px; right: 24px; left: 24px; padding: 16px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; }
-  .badge-label { font-size: 12px; color: var(--on-surface-variant); margin-bottom: 4px; }
-  .badge-status { display: flex; align-items: center; gap: 4px; }
-  .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); animation: pulse 2s infinite; }
+  /* Hero */
+  .hero { position:relative; overflow:hidden; background:var(--surface); }
+  .hero-bg-icon { position:absolute; top:-60px; right:-60px; opacity:0.03; pointer-events:none; color:var(--primary); }
+  .hero-grid { display:grid; grid-template-columns:1fr; gap:80px; align-items:center; position:relative; z-index:1; }
+  @media (min-width:768px){ .hero-grid{ grid-template-columns:1fr 1fr; } }
+  .hero-logo { width:256px; height:auto; }
+  @media (min-width:768px){ .hero-logo{ width:320px; } }
+  .hero h1 { font-family:var(--display); font-size:32px; font-weight:700; line-height:1.2; color:var(--on-surface); margin-top:24px; }
+  @media (min-width:768px){ .hero h1{ font-size:48px; letter-spacing:-0.02em; line-height:1.1; } }
+  .hero-desc { font-size:18px; line-height:1.6; color:var(--on-surface-variant); max-width:32rem; margin-top:24px; }
+  .hero-actions { display:flex; flex-direction:column; gap:24px; margin-top:32px; }
+  @media (min-width:640px){ .hero-actions{ flex-direction:row; } }
+  .btn-hero { display:inline-flex; align-items:center; gap:8px; padding:12px 40px; border-radius:12px; font-family:var(--display); font-size:24px; font-weight:600; }
+  .btn-hero-primary { color:#fff; box-shadow:0 8px 24px rgba(0,109,55,0.25); }
+  .btn-outline-secondary { display:inline-flex; align-items:center; justify-content:center; padding:12px 40px; border-radius:12px; border:2px solid var(--secondary); color:var(--secondary); font-family:var(--display); font-size:24px; font-weight:600; transition:background .2s; }
+  .btn-outline-secondary:hover { background:rgba(92,184,253,0.1); }
+  .hero-social-proof { display:flex; align-items:center; gap:24px; margin-top:24px; }
+  .avatar-stack { display:flex; }
+  .avatar-stack img { width:40px; height:40px; border-radius:9999px; border:2px solid #fff; object-fit:cover; margin-left:-12px; }
+  .avatar-stack img:first-child { margin-left:0; }
+  .proof-label { font-size:12px; font-weight:600; color:var(--on-surface-variant); line-height:1.2; }
+  .proof-label strong { color:var(--primary); }
+  .hero-img-wrap { position:relative; }
+  .hero-img-glow { position:absolute; inset:-16px; background:linear-gradient(135deg,#006d37,#006397); border-radius:32px; opacity:.1; filter:blur(32px); transition:opacity .3s; }
+  .hero-img-wrap:hover .hero-img-glow { opacity:.2; }
+  .hero-img-card { position:relative; background:#fff; padding:8px; border-radius:32px; border:1px solid rgba(187,203,187,0.3); box-shadow:0 20px 60px rgba(0,0,0,0.12); overflow:hidden; }
+  .hero-img-card img { width:100%; height:500px; object-fit:cover; border-radius:24px; }
+  .hero-badge { position:absolute; bottom:24px; right:24px; left:24px; padding:16px; border-radius:12px; display:flex; align-items:center; justify-content:space-between; }
+  .badge-label { font-size:12px; color:var(--on-surface-variant); margin-bottom:4px; }
+  .badge-status { display:flex; align-items:center; gap:4px; }
+  .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--primary); animation:pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
-  @media (prefers-reduced-motion: reduce) { .pulse-dot { animation: none; } }
-  .badge-text { font-size: 14px; font-weight: 500; color: var(--primary); }
+  @media (prefers-reduced-motion:reduce){ .pulse-dot{ animation:none; } }
+  .badge-text { font-size:14px; font-weight:500; color:var(--primary); }
 
-  /* ── Avantages ── */
-  .advantages { background: white; }
-  .advantages-eyebrow { color: var(--primary); font-size: 14px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; display: block; text-align: center; margin-bottom: 8px; }
-  .advantages h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 600; text-align: center; color: var(--on-surface); margin-bottom: 80px; }
-  .cards-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-  @media (min-width: 768px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
-  .adv-card { padding: 48px; background: var(--surface); border-radius: 24px; border: 1px solid rgba(187,203,187,0.2); transition: border-color 0.2s; }
-  .adv-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 36px; transition: transform 0.2s; }
-  .adv-card:hover .adv-icon { transform: scale(1.1); }
-  @media (min-width: 768px) { .adv-icon { margin: 0 0 24px; } }
-  .adv-icon-1 { background: rgba(0,109,55,0.1); color: var(--primary); }
-  .adv-icon-2 { background: rgba(0,99,151,0.1); color: var(--secondary); }
-  .adv-icon-3 { background: rgba(0,107,88,0.1); color: var(--tertiary); }
-  .adv-card h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; color: var(--on-surface); margin-bottom: 12px; text-align: center; }
-  @media (min-width: 768px) { .adv-card h3 { text-align: left; } }
-  .adv-card p { font-size: 16px; color: var(--on-surface-variant); text-align: center; }
-  @media (min-width: 768px) { .adv-card p { text-align: left; } }
+  /* Avantages */
+  .advantages { background:#fff; }
+  .advantages-eyebrow { color:var(--primary); font-size:14px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; display:block; text-align:center; margin-bottom:8px; }
+  .advantages h2 { font-family:var(--display); font-size:32px; font-weight:600; text-align:center; color:var(--on-surface); margin-bottom:80px; }
+  .cards-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+  @media (min-width:768px){ .cards-grid{ grid-template-columns:repeat(3,1fr); } }
+  .adv-card { padding:48px; background:var(--surface); border-radius:24px; border:1px solid rgba(187,203,187,0.2); transition:border-color .2s; }
+  .adv-icon { width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:36px; transition:transform .2s; }
+  .adv-card:hover .adv-icon { transform:scale(1.1); }
+  @media (min-width:768px){ .adv-icon{ margin:0 0 24px; } }
+  .adv-icon-1 { background:rgba(0,109,55,0.1); color:var(--primary); }
+  .adv-icon-2 { background:rgba(0,99,151,0.1); color:var(--secondary); }
+  .adv-icon-3 { background:rgba(0,107,88,0.1); color:var(--tertiary); }
+  .adv-card h3 { font-family:var(--display); font-size:24px; font-weight:600; color:var(--on-surface); margin-bottom:12px; text-align:center; }
+  @media (min-width:768px){ .adv-card h3{ text-align:left; } }
+  .adv-card p { font-size:16px; color:var(--on-surface-variant); text-align:center; }
+  @media (min-width:768px){ .adv-card p{ text-align:left; } }
 
-  /* ── Services ── */
-  .services { background: var(--surface-container-low); }
-  .services-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-  @media (min-width: 768px) { .services-grid { grid-template-columns: 7fr 5fr; } }
-  .service-card { position: relative; border-radius: 32px; overflow: hidden; min-height: 400px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-  .service-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; }
-  .service-card:hover img { transform: scale(1.08); }
-  .service-overlay-1 { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%); }
-  .service-overlay-2 { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,99,151,0.8) 0%, rgba(0,99,151,0.2) 50%, transparent 100%); }
-  .service-content { position: absolute; bottom: 0; left: 0; padding: 48px; color: white; max-width: 28rem; }
-  .service-tag { display: inline-block; padding: 4px 12px; border-radius: 9999px; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); font-size: 12px; font-weight: 600; margin-bottom: 8px; }
-  .service-content h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 600; margin-bottom: 12px; }
-  .service-content p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 24px; }
-  .service-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
-  .service-link-1 { color: #2ecc71; }
-  .service-link-1:hover { color: white; }
-  .service-link-2 { color: #92ccff; }
-  .service-link-2:hover { color: white; }
+  /* Services */
+  .services { background:var(--surface-container-low); }
+  .services-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+  @media (min-width:768px){ .services-grid{ grid-template-columns:7fr 5fr; } }
+  .service-card { position:relative; border-radius:32px; overflow:hidden; min-height:400px; box-shadow:0 20px 60px rgba(0,0,0,0.15); }
+  .service-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .7s; }
+  .service-card:hover img { transform:scale(1.08); }
+  .service-overlay-1 { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 50%,transparent 100%); }
+  .service-overlay-2 { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,99,151,0.8) 0%,rgba(0,99,151,0.2) 50%,transparent 100%); }
+  .service-content { position:absolute; bottom:0; left:0; padding:48px; color:#fff; max-width:28rem; }
+  .service-tag { display:inline-block; padding:4px 12px; border-radius:9999px; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); font-size:12px; font-weight:600; margin-bottom:8px; }
+  .service-content h2 { font-family:var(--display); font-size:32px; font-weight:600; margin-bottom:12px; }
+  .service-content p { font-size:16px; color:rgba(255,255,255,0.8); margin-bottom:24px; }
+  .service-link { display:inline-flex; align-items:center; gap:4px; font-size:14px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; transition:color .2s; }
+  .service-link-1 { color:#2ecc71; } .service-link-1:hover { color:#fff; }
+  .service-link-2 { color:#92ccff; } .service-link-2:hover { color:#fff; }
 
-  /* ── Stats ── */
-  .stats-card { background: white; border-radius: 40px; padding: 80px; border: 1px solid rgba(187,203,187,0.3); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-  @media (min-width: 768px) { .stats-card { grid-template-columns: repeat(4, 1fr); } }
-  .stat-val { font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 4px; }
-  .stat-val-1 { color: var(--primary); }
-  .stat-val-2 { color: var(--secondary); }
-  .stat-label { font-size: 14px; font-weight: 500; color: var(--on-surface-variant); letter-spacing: 0.1em; text-transform: uppercase; }
+  /* Stats */
+  .stats-card { background:#fff; border-radius:40px; padding:80px; border:1px solid rgba(187,203,187,0.3); display:grid; grid-template-columns:1fr 1fr; gap:80px; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+  @media (min-width:768px){ .stats-card{ grid-template-columns:repeat(4,1fr); } }
+  .stat-val { font-family:var(--display); font-size:48px; font-weight:700; line-height:1.1; letter-spacing:-0.02em; margin-bottom:4px; }
+  .stat-val-1 { color:var(--primary); } .stat-val-2 { color:var(--secondary); }
+  .stat-label { font-size:14px; font-weight:500; color:var(--on-surface-variant); letter-spacing:0.1em; text-transform:uppercase; }
 
-  /* ── CTA ── */
-  .cta-section { padding-block: 80px; padding-inline: 16px; }
-  .cta-box { background: var(--inverse-surface); border-radius: 40px; padding: 48px; text-align: center; position: relative; overflow: hidden; }
-  @media (min-width: 768px) { .cta-box { padding: 80px; } }
-  .cta-bg-icon { position: absolute; top: 0; right: 0; padding: 24px; opacity: 0.1; font-size: 200px; line-height: 1; font-family: 'Material Symbols Outlined'; font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48; }
-  .cta-box h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 600; color: var(--inverse-on-surface); margin-bottom: 24px; position: relative; z-index: 1; }
-  .cta-box p { font-size: 18px; color: rgba(239,241,243,0.8); max-width: 42rem; margin-inline: auto; margin-bottom: 80px; position: relative; z-index: 1; }
-  .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 24px; position: relative; z-index: 1; }
-  @media (min-width: 640px) { .cta-actions { flex-direction: row; justify-content: center; } }
-  .btn-cta-main { display: inline-flex; align-items: center; gap: 8px; padding: 12px 40px; border-radius: 12px; background: #2ecc71; color: #00210c; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; transition: transform 0.2s; }
-  .btn-cta-main:hover { transform: scale(1.03); }
-  .btn-cta-tel { display: inline-flex; align-items: center; gap: 8px; color: var(--inverse-on-surface); font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; transition: opacity 0.2s; }
-  .btn-cta-tel:hover { opacity: 0.8; }
+  /* CTA */
+  .cta-section { padding-block:80px; padding-inline:16px; }
+  .cta-box { background:var(--inverse-surface); border-radius:40px; padding:48px; text-align:center; position:relative; overflow:hidden; }
+  @media (min-width:768px){ .cta-box{ padding:80px; } }
+  .cta-bg-icon { position:absolute; top:24px; right:24px; opacity:.1; color:#fff; }
+  .cta-box h2 { font-family:var(--display); font-size:32px; font-weight:600; color:var(--inverse-on-surface); margin-bottom:24px; position:relative; z-index:1; }
+  .cta-box p { font-size:18px; color:rgba(239,241,243,0.8); max-width:42rem; margin-inline:auto; margin-bottom:80px; position:relative; z-index:1; }
+  .cta-actions { display:flex; flex-direction:column; align-items:center; gap:24px; position:relative; z-index:1; }
+  @media (min-width:640px){ .cta-actions{ flex-direction:row; justify-content:center; } }
+  .btn-cta-main { display:inline-flex; align-items:center; gap:8px; padding:12px 40px; border-radius:12px; background:#2ecc71; color:#00210c; font-family:var(--display); font-size:24px; font-weight:600; transition:transform .2s; }
+  .btn-cta-main:hover { transform:scale(1.03); }
+  .btn-cta-tel { display:inline-flex; align-items:center; gap:8px; color:var(--inverse-on-surface); font-family:var(--display); font-size:24px; font-weight:600; transition:opacity .2s; }
+  .btn-cta-tel:hover { opacity:.8; }
 
-  /* ── Footer ── */
-  footer { background: var(--surface-container); padding-block: 48px; margin-top: 80px; border-top: 1px solid var(--outline-variant); }
-  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-  @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
-  .footer-logo { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: var(--on-surface); margin-bottom: 12px; }
-  .footer-desc { font-size: 16px; color: var(--on-surface-variant); }
-  .footer-title { font-size: 14px; font-weight: 700; color: var(--on-surface); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-  .footer-nav { display: flex; flex-direction: column; gap: 8px; }
-  .footer-nav a { color: var(--on-surface-variant); font-size: 16px; transition: color 0.2s; }
-  .footer-nav a:hover { color: var(--primary); }
-  .footer-contact p { display: flex; align-items: center; gap: 8px; font-size: 16px; color: var(--on-surface-variant); margin-bottom: 8px; }
-  .footer-copy { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(187,203,187,0.3); }
-  .footer-copy p { font-size: 16px; color: rgba(61,74,62,0.6); }
+  /* Footer */
+  footer { background:var(--surface-container); padding-block:48px; margin-top:80px; border-top:1px solid var(--outline-variant); }
+  .footer-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+  @media (min-width:768px){ .footer-grid{ grid-template-columns:repeat(4,1fr); } }
+  .footer-logo { font-family:var(--display); font-size:24px; font-weight:700; color:var(--on-surface); margin-bottom:12px; }
+  .footer-desc { font-size:16px; color:var(--on-surface-variant); }
+  .footer-title { font-size:14px; font-weight:700; color:var(--on-surface); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px; }
+  .footer-nav { display:flex; flex-direction:column; gap:8px; }
+  .footer-nav a { color:var(--on-surface-variant); font-size:16px; transition:color .2s; }
+  .footer-nav a:hover { color:var(--primary); }
+  .footer-contact p { display:flex; align-items:center; gap:8px; font-size:16px; color:var(--on-surface-variant); margin-bottom:8px; }
+  .footer-copy { text-align:center; padding-top:24px; margin-top:24px; border-top:1px solid rgba(187,203,187,0.3); }
+  .footer-copy p { font-size:16px; color:rgba(61,74,62,0.6); }
 </style>
 
-<!-- ✅ SEO : Schema.org LocalBusiness -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "IRV'OHM",
-  "url": "https://irvohm.fr",
-  "telephone": "+33651078828",
-  "email": "contact@irvohm.fr",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Sarcelles",
-    "postalCode": "95200",
-    "addressRegion": "Île-de-France",
-    "addressCountry": "FR"
-  },
-  "description": "Installation de bornes de recharge IRVE pour particuliers et entreprises en Île-de-France.",
-  "areaServed": ["Sarcelles", "Val-d'Oise", "Île-de-France"],
-  "openingHours": "Mo-Fr 09:00-18:00",
-  "priceRange": "€€"
+  "@context":"https://schema.org","@type":"LocalBusiness","name":"IRV'OHM","url":"https://irvohm.fr",
+  "telephone":"+33651078828","email":"contact@irvohm.fr",
+  "address":{"@type":"PostalAddress","addressLocality":"Sarcelles","postalCode":"95200","addressRegion":"Île-de-France","addressCountry":"FR"},
+  "description":"Installation de bornes de recharge IRVE pour particuliers et entreprises en Île-de-France.",
+  "areaServed":["Sarcelles","Val-d'Oise","Île-de-France"],
+  "openingHours":"Mo-Fr 09:00-18:00","priceRange":"€€"
 }
 </script>
 </head>
 
 <body>
 
-<!-- Header -->
+<!-- ✅ Sprite SVG des icônes (chargé instantanément, aucun décalage de layout) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-savings" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01"/><path d="M18 12h.01"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 0 1 2.8 2.8L12 14.5 8 15.5l1-4z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+</svg>
+
 <header class="header">
   <div class="max-w px-page header-inner">
     <div class="logo">IRV'OHM</div>
     <nav class="nav-desktop" aria-label="Navigation principale">
-      <a class="nav-link" href="index.html">Accueil</a>
-      <a class="nav-link" href="particulier.html">Particuliers</a>
-      <a class="nav-link" href="entreprise.html">Entreprises</a>
-      <a class="nav-link" href="devis.html">Devis</a>
+      <a class="nav-link" href="/">Accueil</a>
+      <a class="nav-link" href="/particulier">Particuliers</a>
+      <a class="nav-link" href="/entreprise">Entreprises</a>
+      <a class="nav-link" href="/devis">Devis</a>
     </nav>
     <div style="display:flex;align-items:center;gap:12px;">
-      <a href="devis.html" class="btn-primary gradient-brand">Devis Gratuit</a>
+      <a href="/devis" class="btn-primary gradient-brand">Devis Gratuit</a>
       <button class="btn-menu" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="material-symbols-outlined">menu</span>
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
       </button>
     </div>
   </div>
 </header>
 
 <main>
-  <!-- Hero -->
   <section class="hero py-xl">
-    <div class="hero-bg-icon" aria-hidden="true">electric_car</div>
+    <svg class="hero-bg-icon" width="380" height="380" aria-hidden="true"><use href="#i-car"/></svg>
     <div class="max-w px-page hero-grid">
-      <!-- Colonne texte -->
       <div>
-        <!-- ✅ Image locale + dimensions explicites (évite le CLS). Pas de fetchpriority ici
-             pour ne pas concurrencer la vraie image LCP (celle de droite). -->
-        <img
-          src="logo-irvohm.webp"
-          alt="Logo IRV'OHM, installateur de bornes de recharge"
-          class="hero-logo"
-          width="320" height="120"
-        />
-        <h1>
-          Rechargez l'avenir,<br/>
-          <span class="text-gradient-brand">simplement chez vous.</span>
-        </h1>
-        <p class="hero-desc">
-          Installation de bornes de recharge intelligentes pour véhicules électriques.
-          Profitez d'une recharge rapide, sécurisée et éco-responsable.
-        </p>
+        <img src="logo-irvohm.webp" alt="Logo IRV'OHM, installateur de bornes de recharge" class="hero-logo" width="320" height="120"/>
+        <h1>Rechargez l'avenir,<br/><span class="text-gradient-brand">simplement chez vous.</span></h1>
+        <p class="hero-desc">Installation de bornes de recharge intelligentes pour véhicules électriques. Profitez d'une recharge rapide, sécurisée et éco-responsable.</p>
         <div class="hero-actions">
-          <a href="devis.html" class="btn-primary gradient-brand" style="padding:12px 40px;border-radius:12px;font-family:'Montserrat',sans-serif;font-size:24px;font-weight:600;box-shadow:0 8px 24px rgba(0,109,55,0.25);">
-            Demander un devis
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
-          <a href="particulier.html" class="btn-outline-secondary">Nos solutions</a>
+          <a href="/devis" class="btn-hero btn-hero-primary gradient-brand">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="/particulier" class="btn-outline-secondary">Nos solutions</a>
         </div>
         <div class="hero-social-proof">
           <div class="avatar-stack">
-            <!-- ✅ Images locales + dimensions. Au-dessus de la ligne de flottaison :
-                 decoding="async" plutôt que lazy pour ne pas retarder leur affichage. -->
             <img src="client-1.webp" alt="Client IRV'OHM satisfait" decoding="async" width="40" height="40"/>
             <img src="client-2.webp" alt="Client IRV'OHM satisfait" decoding="async" width="40" height="40"/>
             <img src="client-3.webp" alt="Client IRV'OHM satisfait" decoding="async" width="40" height="40"/>
@@ -332,52 +245,39 @@
           <p class="proof-label"><strong>+500 installations</strong><br/>réalisées avec succès</p>
         </div>
       </div>
-
-      <!-- Colonne image -->
       <div class="hero-img-wrap">
         <div class="hero-img-glow" aria-hidden="true"></div>
         <div class="hero-img-card">
-          <!-- ✅ IMAGE LCP : locale + WebP + preload (dans le <head>) + fetchpriority="high"
-               + dimensions explicites. C'est l'élément qui plombait ton LCP à 4,4 s. -->
-          <img
-            src="borne-recharge.webp"
-            alt="Borne de recharge pour véhicule électrique installée par IRV'OHM"
-            fetchpriority="high"
-            width="800" height="500"
-          />
+          <img src="borne-recharge.webp" alt="Borne de recharge pour véhicule électrique installée par IRV'OHM" fetchpriority="high" width="800" height="500"/>
           <div class="hero-badge glass-card">
             <div>
               <p class="badge-label">Disponibilité</p>
-              <div class="badge-status">
-                <span class="pulse-dot"></span>
-                <span class="badge-text">Bornes disponibles</span>
-              </div>
+              <div class="badge-status"><span class="pulse-dot"></span><span class="badge-text">Bornes disponibles</span></div>
             </div>
-            <span class="material-symbols-outlined" style="color:var(--secondary)">electric_bolt</span>
+            <svg class="ic" style="font-size:24px;color:var(--secondary)" aria-hidden="true"><use href="#i-bolt"/></svg>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Avantages -->
   <section class="advantages py-xl" aria-labelledby="avantages-title">
     <div class="max-w px-page">
       <span class="advantages-eyebrow">Pourquoi nous ?</span>
       <h2 id="avantages-title">L'excellence au service de votre mobilité</h2>
       <div class="cards-grid">
         <div class="adv-card">
-          <div class="adv-icon adv-icon-1"><span class="material-symbols-outlined" style="font-size:36px">speed</span></div>
+          <div class="adv-icon adv-icon-1"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></div>
           <h3>Rapidité</h3>
           <p>Une charge optimisée pour réduire votre temps d'attente. Bornes intelligentes adaptées à la puissance de votre compteur.</p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon adv-icon-2"><span class="material-symbols-outlined" style="font-size:36px">shield</span></div>
+          <div class="adv-icon adv-icon-2"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></div>
           <h3>Sécurité</h3>
           <p>Installations certifiées IRVE par des experts. Protection contre les surtensions et contrôle thermique intégré.</p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon adv-icon-3"><span class="material-symbols-outlined" style="font-size:36px">savings</span></div>
+          <div class="adv-icon adv-icon-3"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></div>
           <h3>Économie</h3>
           <p>Optimisez votre consommation d'énergie et profitez du crédit d'impôt pour votre installation à domicile.</p>
         </div>
@@ -385,12 +285,10 @@
     </div>
   </section>
 
-  <!-- Services -->
   <section class="services py-xl" aria-labelledby="services-title">
     <div class="max-w px-page">
       <h2 id="services-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Nos solutions</h2>
       <div class="services-grid">
-        <!-- Particuliers -->
         <div class="service-card">
           <img src="particuliers.webp" alt="Installation d'une borne de recharge dans un garage de particulier" loading="lazy" width="900" height="600"/>
           <div class="service-overlay-1" aria-hidden="true"></div>
@@ -398,10 +296,9 @@
             <span class="service-tag">Habitat Individuel</span>
             <h2>Pour les Particuliers</h2>
             <p>Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place de parking privée. Solutions clé en main incluant conseil, matériel et installation.</p>
-            <a href="particulier.html" class="service-link service-link-1">Découvrir l'offre <span class="material-symbols-outlined">chevron_right</span></a>
+            <a href="/particulier" class="service-link service-link-1">Découvrir l'offre <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
           </div>
         </div>
-        <!-- Entreprises -->
         <div class="service-card">
           <img src="entreprises.webp" alt="Bornes de recharge installées sur un parking d'entreprise" loading="lazy" width="700" height="600"/>
           <div class="service-overlay-2" aria-hidden="true"></div>
@@ -409,14 +306,13 @@
             <span class="service-tag">Tertiaire &amp; Flottes</span>
             <h2>Pour les Entreprises</h2>
             <p>Valorisez vos parkings, proposez un service à vos clients et électrifiez votre flotte de véhicules.</p>
-            <a href="entreprise.html" class="service-link service-link-2">Solutions business <span class="material-symbols-outlined">chevron_right</span></a>
+            <a href="/entreprise" class="service-link service-link-2">Solutions business <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
   <section class="stats py-xl" aria-label="Chiffres clés IRV'OHM">
     <div class="max-w px-page">
       <div class="stats-card">
@@ -428,23 +324,21 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta-section" aria-labelledby="cta-title">
     <div class="max-w">
       <div class="cta-box">
-        <div class="cta-bg-icon" aria-hidden="true">bolt</div>
+        <svg class="cta-bg-icon" width="180" height="180" aria-hidden="true"><use href="#i-bolt"/></svg>
         <h2 id="cta-title">Prêt à passer à l'électrique ?</h2>
         <p>Nos techniciens experts vous accompagnent de l'étude de faisabilité jusqu'à la mise en service de votre borne de recharge.</p>
         <div class="cta-actions">
-          <a href="devis.html" class="btn-cta-main">Mon devis personnalisé <span class="material-symbols-outlined">edit_note</span></a>
-          <a href="tel:+33651078828" class="btn-cta-tel"><span class="material-symbols-outlined">call</span> 06 51 07 88 28</a>
+          <a href="/devis" class="btn-cta-main">Mon devis personnalisé <svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></a>
+          <a href="tel:+33651078828" class="btn-cta-tel"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<!-- Footer -->
 <footer>
   <div class="max-w px-page">
     <div class="footer-grid">
@@ -455,7 +349,7 @@
       <div>
         <h4 class="footer-title">Services</h4>
         <nav class="footer-nav" aria-label="Services">
-          <a href="particulier.html">Installation Bornes</a>
+          <a href="/particulier">Installation Bornes</a>
           <a href="#">Maintenance</a>
           <a href="#">Audit Énergétique</a>
         </nav>
@@ -471,15 +365,13 @@
       <div>
         <h4 class="footer-title">Contact</h4>
         <address class="footer-contact" style="font-style:normal;">
-          <p><span class="material-symbols-outlined" style="font-size:16px">location_on</span> 95200 Sarcelles, France</p>
-          <p><span class="material-symbols-outlined" style="font-size:16px">mail</span> contact@irvohm.fr</p>
-          <p><span class="material-symbols-outlined" style="font-size:16px">schedule</span> Lun - Ven : 09h - 18h</p>
+          <p><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> 95200 Sarcelles, France</p>
+          <p><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> contact@irvohm.fr</p>
+          <p><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Lun - Ven : 09h - 18h</p>
         </address>
       </div>
     </div>
-    <div class="footer-copy">
-      <p>© 2026 IRV'OHM – Solutions de Recharge Électrique. Tous droits réservés.</p>
-    </div>
+    <div class="footer-copy"><p>© 2026 IRV'OHM – Solutions de Recharge Électrique. Tous droits réservés.</p></div>
   </div>
 </footer>
 
