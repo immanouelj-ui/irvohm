@@ -1,354 +1,713 @@
 <!DOCTYPE html>
-<html class="light" lang="fr"><head>
+<html class="light" lang="fr">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IRV'OHM - Solutions de Recharge Électrique</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "outline-variant": "#bbcbbb",
-                    "error": "#ba1a1a",
-                    "on-primary-fixed-variant": "#005228",
-                    "on-secondary-fixed-variant": "#004b73",
-                    "surface-container": "#eceef0",
-                    "on-primary-container": "#005027",
-                    "inverse-surface": "#2d3133",
-                    "primary": "#006d37",
-                    "on-error-container": "#93000a",
-                    "on-tertiary-fixed-variant": "#005141",
-                    "secondary": "#006397",
-                    "on-primary": "#ffffff",
-                    "on-secondary-fixed": "#001d31",
-                    "secondary-fixed": "#cce5ff",
-                    "on-surface": "#191c1e",
-                    "surface-variant": "#e0e3e5",
-                    "primary-container": "#2ecc71",
-                    "surface-container-highest": "#e0e3e5",
-                    "on-error": "#ffffff",
-                    "surface": "#f7f9fb",
-                    "secondary-container": "#5cb8fd",
-                    "on-secondary-container": "#00476e",
-                    "secondary-fixed-dim": "#92ccff",
-                    "surface-bright": "#f7f9fb",
-                    "tertiary-container": "#32c8a7",
-                    "primary-fixed-dim": "#4ae183",
-                    "outline": "#6c7b6d",
-                    "surface-container-low": "#f2f4f6",
-                    "on-surface-variant": "#3d4a3e",
-                    "tertiary-fixed-dim": "#4eddbb",
-                    "on-primary-fixed": "#00210c",
-                    "tertiary": "#006b58",
-                    "on-tertiary": "#ffffff",
-                    "inverse-on-surface": "#eff1f3",
-                    "on-background": "#191c1e",
-                    "on-tertiary-fixed": "#002019",
-                    "inverse-primary": "#4ae183",
-                    "background": "#f7f9fb",
-                    "on-secondary": "#ffffff",
-                    "surface-container-high": "#e6e8ea",
-                    "primary-fixed": "#6bfe9c",
-                    "on-tertiary-container": "#004f40",
-                    "tertiary-fixed": "#6ff9d6",
-                    "surface-tint": "#006d37",
-                    "surface-container-lowest": "#ffffff",
-                    "error-container": "#ffdad6",
-                    "surface-dim": "#d8dadc"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-desktop": "64px",
-                    "margin-mobile": "16px",
-                    "xl": "80px",
-                    "xs": "4px",
-                    "sm": "12px",
-                    "base": "8px",
-                    "gutter": "24px",
-                    "max-width": "1280px",
-                    "lg": "48px",
-                    "md": "24px"
-            },
-            "fontFamily": {
-                    "label-sm": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "body-md": ["Inter"],
-                    "headline-sm": ["Montserrat"],
-                    "headline-md": ["Montserrat"],
-                    "display-lg-mobile": ["Montserrat"],
-                    "display-lg": ["Montserrat"],
-                    "label-md": ["Inter"]
-            },
-            "fontSize": {
-                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .gradient-brand {
-            background: linear-gradient(135deg, #006d37 0%, #006397 100%);
-        }
-        .text-gradient-brand {
-            background: linear-gradient(135deg, #2ecc71 0%, #5cb8fd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.5);
-        }
-    </style>
-</head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- TopNavBar -->
-<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm sticky top-0 z-50">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-  <div class="font-headline-sm text-headline-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">IRV'OHM</div>
-  <nav class="hidden md:flex gap-md items-center h-full">
-    <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Accueil</a>
-    <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="particulier.html">Particuliers</a>
-    <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="entreprise.html">Entreprises</a>
-    <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="devis.html">Devis</a>
-  </nav>
-  <div class="flex items-center gap-sm">
-    <a href="devis.html" class="gradient-brand text-on-primary px-md py-sm rounded-lg font-label-md uppercase tracking-wider shadow-sm hover:opacity-90 active:scale-95 transition-all">
-      Devis Gratuit
-    </a>
-    <button class="md:hidden text-on-surface">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
+<!-- ✅ SEO : Title et meta description optimisés -->
+<title>IRV'OHM – Installation Borne de Recharge IRVE | Sarcelles & Île-de-France</title>
+<meta name="description" content="IRV'OHM installe vos bornes de recharge pour véhicules électriques. Particuliers et entreprises. Certifiés IRVE, devis gratuit sous 48h. Sarcelles et Île-de-France."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://irvohm.fr/"/>
+
+<!-- ✅ Open Graph (partage réseaux sociaux) -->
+<meta property="og:title" content="IRV'OHM – Installation Borne de Recharge IRVE"/>
+<meta property="og:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
+<meta property="og:url" content="https://irvohm.fr/"/>
+<meta property="og:type" content="website"/>
+
+<!-- ✅ PERF : preconnect Google Fonts AVANT les liens (réduit la latence) -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+<!-- ✅ PERF : les 2 familles en 1 seule requête + display=swap (évite le texte invisible) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<!-- ✅ PERF : Material Symbols en async (non bloquant) -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet"/></noscript>
+
+<!-- ✅ PERF : Tailwind CDN remplacé par CSS inline (élimine le rendu côté client)
+     NOTE : En production, générer un vrai fichier CSS avec `npx tailwindcss build`
+     Le CSS ci-dessous remplace le CDN et le config JS qui bloquaient le rendu -->
+<style>
+  /* Reset & base */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fb;
+    color: #191c1e;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  /* Tokens couleur */
+  :root {
+    --primary: #006d37;
+    --secondary: #006397;
+    --tertiary: #006b58;
+    --on-primary: #ffffff;
+    --on-secondary: #ffffff;
+    --surface: #f7f9fb;
+    --surface-container-low: #f2f4f6;
+    --surface-container: #eceef0;
+    --on-surface: #191c1e;
+    --on-surface-variant: #3d4a3e;
+    --outline-variant: #bbcbbb;
+    --primary-container: #2ecc71;
+    --secondary-container: #5cb8fd;
+    --inverse-surface: #2d3133;
+    --inverse-on-surface: #eff1f3;
+    --error: #ba1a1a;
+  }
+
+  /* Utilitaires layout */
+  .max-w { max-width: 1280px; margin-inline: auto; }
+  .px-page { padding-inline: 16px; }
+  @media (min-width: 768px) { .px-page { padding-inline: 64px; } }
+  .py-xl { padding-block: 80px; }
+  .py-lg { padding-block: 48px; }
+
+  /* Gradient brand */
+  .gradient-brand { background: linear-gradient(135deg, #006d37 0%, #006397 100%); }
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #2ecc71 0%, #5cb8fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glass-card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226,232,240,0.5);
+  }
+
+  /* Material icons */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+    font-size: 24px;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: rgba(247,249,251,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(187,203,187,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #006d37, #006397);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .nav-desktop { display: none; gap: 24px; align-items: center; }
+  @media (min-width: 768px) { .nav-desktop { display: flex; } }
+  .nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--primary); }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #fff;
+    transition: opacity 0.2s, transform 0.1s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-menu { background: none; border: none; cursor: pointer; color: var(--on-surface); }
+  @media (min-width: 768px) { .btn-menu { display: none; } }
+
+  /* ── Hero ── */
+  .hero { position: relative; overflow: hidden; background: var(--surface); }
+  .hero-bg-icon {
+    position: absolute; top: -80px; right: -80px;
+    opacity: 0.03; pointer-events: none; font-size: 400px;
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
+    line-height: 1;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  @media (min-width: 768px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
+  .hero-logo { width: 256px; height: auto; }
+  @media (min-width: 768px) { .hero-logo { width: 320px; } }
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--on-surface);
+    margin-top: 24px;
+  }
+  @media (min-width: 768px) {
+    .hero h1 { font-size: 48px; letter-spacing: -0.02em; line-height: 1.1; }
+  }
+  .hero-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--on-surface-variant);
+    max-width: 32rem;
+    margin-top: 24px;
+  }
+  .hero-actions { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+  @media (min-width: 640px) { .hero-actions { flex-direction: row; } }
+  .btn-outline-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 40px;
+    border-radius: 12px;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-outline-secondary:hover { background: rgba(92,184,253,0.1); }
+  .hero-social-proof { display: flex; align-items: center; gap: 24px; margin-top: 24px; }
+  .avatar-stack { display: flex; }
+  .avatar-stack img { width: 40px; height: 40px; border-radius: 9999px; border: 2px solid white; object-fit: cover; margin-left: -12px; }
+  .avatar-stack img:first-child { margin-left: 0; }
+  .proof-label { font-size: 12px; font-weight: 600; color: var(--on-surface-variant); line-height: 1.2; }
+  .proof-label strong { color: var(--primary); }
+
+  /* Hero image card */
+  .hero-img-wrap { position: relative; }
+  .hero-img-glow {
+    position: absolute; inset: -16px;
+    background: linear-gradient(135deg, #006d37, #006397);
+    border-radius: 32px; opacity: 0.1; filter: blur(32px);
+    transition: opacity 0.3s;
+  }
+  .hero-img-wrap:hover .hero-img-glow { opacity: 0.2; }
+  .hero-img-card {
+    position: relative;
+    background: white;
+    padding: 8px;
+    border-radius: 32px;
+    border: 1px solid rgba(187,203,187,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .hero-img-card img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 24px; right: 24px; left: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .badge-label { font-size: 12px; color: var(--on-surface-variant); margin-bottom: 4px; }
+  .badge-status { display: flex; align-items: center; gap: 4px; }
+  .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
+  .badge-text { font-size: 14px; font-weight: 500; color: var(--primary); }
+
+  /* ── Avantages ── */
+  .advantages { background: white; }
+  .advantages-eyebrow {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .advantages h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--on-surface);
+    margin-bottom: 80px;
+  }
+  .cards-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 768px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
+  .adv-card {
+    padding: 48px;
+    background: var(--surface);
+    border-radius: 24px;
+    border: 1px solid rgba(187,203,187,0.2);
+    transition: border-color 0.2s;
+  }
+  .adv-card:nth-child(1):hover { border-color: rgba(0,109,55,0.3); }
+  .adv-card:nth-child(2):hover { border-color: rgba(0,99,151,0.3); }
+  .adv-card:nth-child(3):hover { border-color: rgba(0,107,88,0.3); }
+  .adv-icon {
+    width: 64px; height: 64px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 36px;
+    transition: transform 0.2s;
+  }
+  .adv-card:hover .adv-icon { transform: scale(1.1); }
+  @media (min-width: 768px) { .adv-icon { margin: 0 0 24px; } }
+  .adv-icon-1 { background: rgba(0,109,55,0.1); color: var(--primary); }
+  .adv-icon-2 { background: rgba(0,99,151,0.1); color: var(--secondary); }
+  .adv-icon-3 { background: rgba(0,107,88,0.1); color: var(--tertiary); }
+  .adv-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--on-surface);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  @media (min-width: 768px) { .adv-card h3 { text-align: left; } }
+  .adv-card p { font-size: 16px; color: var(--on-surface-variant); text-align: center; }
+  @media (min-width: 768px) { .adv-card p { text-align: left; } }
+
+  /* ── Services ── */
+  .services { background: var(--surface-container-low); }
+  .services-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 768px) { .services-grid { grid-template-columns: 7fr 5fr; } }
+  .service-card {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    min-height: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+  .service-card img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s;
+  }
+  .service-card:hover img { transform: scale(1.08); }
+  .service-overlay-1 { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%); }
+  .service-overlay-2 { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,99,151,0.8) 0%, rgba(0,99,151,0.2) 50%, transparent 100%); }
+  .service-content { position: absolute; bottom: 0; left: 0; padding: 48px; color: white; max-width: 28rem; }
+  .service-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .service-content h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 600; margin-bottom: 12px; }
+  .service-content p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 24px; }
+  .service-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .service-link-1 { color: #2ecc71; }
+  .service-link-1:hover { color: white; }
+  .service-link-2 { color: #92ccff; }
+  .service-link-2:hover { color: white; }
+
+  /* ── Stats ── */
+  .stats { }
+  .stats-card {
+    background: white;
+    border-radius: 40px;
+    padding: 80px;
+    border: 1px solid rgba(187,203,187,0.3);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  @media (min-width: 768px) { .stats-card { grid-template-columns: repeat(4, 1fr); } }
+  .stat-val {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .stat-val-1 { color: var(--primary); }
+  .stat-val-2 { color: var(--secondary); }
+  .stat-label { font-size: 14px; font-weight: 500; color: var(--on-surface-variant); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ── CTA ── */
+  .cta-section { padding-block: 80px; padding-inline: 16px; }
+  .cta-box {
+    background: var(--inverse-surface);
+    border-radius: 40px;
+    padding: 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) { .cta-box { padding: 80px; } }
+  .cta-bg-icon {
+    position: absolute; top: 0; right: 0; padding: 24px;
+    opacity: 0.1; font-size: 200px; line-height: 1;
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
+  }
+  .cta-box h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--inverse-on-surface);
+    margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .cta-box p {
+    font-size: 18px;
+    color: rgba(239,241,243,0.8);
+    max-width: 42rem;
+    margin-inline: auto;
+    margin-bottom: 80px;
+    position: relative; z-index: 1;
+  }
+  .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 24px; position: relative; z-index: 1; }
+  @media (min-width: 640px) { .cta-actions { flex-direction: row; justify-content: center; } }
+  .btn-cta-main {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 40px; border-radius: 12px;
+    background: #2ecc71; color: #00210c;
+    font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600;
+    transition: transform 0.2s;
+  }
+  .btn-cta-main:hover { transform: scale(1.03); }
+  .btn-cta-tel {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--inverse-on-surface);
+    font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .btn-cta-tel:hover { opacity: 0.8; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--surface-container);
+    padding-block: 48px;
+    margin-top: 80px;
+    border-top: 1px solid var(--outline-variant);
+  }
+  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+  .footer-logo { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: var(--on-surface); margin-bottom: 12px; }
+  .footer-desc { font-size: 16px; color: var(--on-surface-variant); }
+  .footer-title { font-size: 14px; font-weight: 700; color: var(--on-surface); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+  .footer-nav { display: flex; flex-direction: column; gap: 8px; }
+  .footer-nav a { color: var(--on-surface-variant); font-size: 16px; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--primary); }
+  .footer-contact p { display: flex; align-items: center; gap: 8px; font-size: 16px; color: var(--on-surface-variant); margin-bottom: 8px; }
+  .footer-copy { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(187,203,187,0.3); }
+  .footer-copy p { font-size: 16px; color: rgba(61,74,62,0.6); }
+
+  /* ── Schema.org data (invisible) ── */
+</style>
+
+<!-- ✅ SEO : Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "IRV'OHM",
+  "url": "https://irvohm.fr",
+  "telephone": "+33651078828",
+  "email": "contact@irvohm.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Sarcelles",
+    "postalCode": "95200",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "description": "Installation de bornes de recharge IRVE pour particuliers et entreprises en Île-de-France.",
+  "areaServed": ["Sarcelles", "Val-d'Oise", "Île-de-France"],
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "priceRange": "€€"
+}
+</script>
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="max-w px-page header-inner">
+    <div class="logo">IRV'OHM</div>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a class="nav-link" href="index.html">Accueil</a>
+      <a class="nav-link" href="particulier.html">Particuliers</a>
+      <a class="nav-link" href="entreprise.html">Entreprises</a>
+      <a class="nav-link" href="devis.html">Devis</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="devis.html" class="btn-primary gradient-brand">Devis Gratuit</a>
+      <button class="btn-menu" aria-label="Menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
   </div>
-</div>
 </header>
 
 <main>
-<!-- Hero Section -->
-<section class="relative overflow-hidden bg-surface py-xl">
-  <div class="absolute -top-20 -right-20 opacity-[0.03] pointer-events-none select-none">
-    <span class="material-symbols-outlined text-[400px]">electric_car</span>
-  </div>
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-xl items-center relative z-10">
-    <div class="flex flex-col gap-md">
-      <img alt="Logo IRV'OHM" class="w-64 md:w-80 h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOrepZ9qgj1olRb_jlyW7lH0cDWHU6-a0Fi38-ztjy-xpwJxwiLYLV6zsbb0YgsxaY21vlID6Ja7116j_cTZ0mTd5nk1PbZhA9luLTZewlrv5Hx1g5m_qJZka9sbyPCj7Qp__KQwI_oGVxDYaat3VyeGOcnbAbdhOkNZK8B4ygEwP7ijFjKIoib3TnkmQ1XiZFpT1d9m4YsfAFTqklbsyEFC6EDXwFrvUu_Z4pAQzyGY4ntR67jHwp6xDbIaI1R4CNvjuOauFzE0by"/>
-      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">
-        Rechargez l'avenir, <br/>
-        <span class="text-gradient-brand">simplement chez vous.</span>
-      </h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-        Installation de bornes de recharge intelligentes pour véhicules électriques. Profitez d'une recharge rapide, sécurisée et éco-responsable.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-md mt-sm">
-        <a href="devis.html" class="gradient-brand text-on-primary px-xl py-md rounded-xl font-headline-sm shadow-lg hover:shadow-primary/20 transition-all flex items-center justify-center gap-base">
-          Demander un devis
-          <span class="material-symbols-outlined">arrow_forward</span>
-        </a>
-        <a href="particulier.html" class="border-2 border-secondary text-secondary px-xl py-md rounded-xl font-headline-sm hover:bg-secondary-container/10 transition-all flex items-center justify-center">
-          Nos solutions
-        </a>
-      </div>
-      <div class="flex items-center gap-md mt-base">
-        <div class="flex -space-x-3">
-          <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ6dU2W6i83T9iZ0AZUmISvA2NFMyaL7nN-6wXFBCMKM2na_R5ZYdqyD_PHIvn2y3lDxPmkYDrw2ob__ggmFGQUGLT0X3KXzquYgr0ydPhrJ7jyLsSh8gus3B5itrIau_x5ouImImThrR3Mrb-SD4esQ9r3-cRENIgFQsj8_-WAAcxYE5eTn49qoyvIScw5nAc6ipWZIxVU_jPSEUSG-BXdIoKXGriPaAObgMmYCbklx9z--Y5ZfMcqrrvsL-7xJoW4ccNFsq-2t4T"/>
-          <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Qgc4XzPH0T5yJ4mLkj1jYKksd2Ycded1egiWWoZXmMm2E1Aq5Im85h-juwPaKdmKVcsSJ14ROar8YpiDj8Mu-o-GsVM-USG-Xzt1tqRHYS1oWHDYPnirc-WDeWGl2ScN_qz7lXV2fzX1i75Ox9NprRZR5WqMVLobMpBufv2izP9S_q6NCQDhgJ54qQaWH00qZDlv13QR_KvvyI2AMufN6V4SuwEvAiLlOJg00Vkt2dIqJaPXxDDbDspIOFVNG80bhr1ktEBRFygn"/>
-          <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf5XGb5Cb5cibZBlir8Lmde75WCtX40yKB7oLArrE9GOypiMPM6l50MvuhfzQNVXBMjybU-BNLiCmiwQ40vM3DsuZaN1xWOQky-Hg-bzmX5kJdXCxc2PLwWC1miHME2dFNWEIX3BQy6MBWUYmRvj81cufzKHFef3TetxYMRSHKlWe8QP-Sthq1vCNBW8xENH0nq3y3_vB-76GcH2L17w-z1JwioLQQ1qmBG2JRuhtFHOUu9BD_g_hHpjSLOgJHZJ7GUxNHmw238su8"/>
-        </div>
-        <p class="font-label-sm text-label-sm text-on-surface-variant">
-          <span class="font-bold text-primary">+500 installations</span> réalisées avec succès
+  <!-- Hero -->
+  <section class="hero py-xl">
+    <div class="hero-bg-icon" aria-hidden="true">electric_car</div>
+    <div class="max-w px-page hero-grid">
+      <!-- Colonne texte -->
+      <div>
+        <!-- ✅ PERF : fetchpriority="high" sur le logo (LCP candidate) -->
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOrepZ9qgj1olRb_jlyW7lH0cDWHU6-a0Fi38-ztjy-xpwJxwiLYLV6zsbb0YgsxaY21vlID6Ja7116j_cTZ0mTd5nk1PbZhA9luLTZewlrv5Hx1g5m_qJZka9sbyPCj7Qp__KQwI_oGVxDYaat3VyeGOcnbAbdhOkNZK8B4ygEwP7ijFjKIoib3TnkmQ1XiZFpT1d9m4YsfAFTqklbsyEFC6EDXwFrvUu_Z4pAQzyGY4ntR67jHwp6xDbIaI1R4CNvjuOauFzE0by"
+          alt="Logo IRV'OHM"
+          class="hero-logo"
+          fetchpriority="high"
+          width="320" height="120"
+        />
+        <h1>
+          Rechargez l'avenir,<br/>
+          <span class="text-gradient-brand">simplement chez vous.</span>
+        </h1>
+        <p class="hero-desc">
+          Installation de bornes de recharge intelligentes pour véhicules électriques.
+          Profitez d'une recharge rapide, sécurisée et éco-responsable.
         </p>
-      </div>
-    </div>
-    <div class="relative group">
-      <div class="absolute -inset-4 gradient-brand rounded-[32px] opacity-10 blur-2xl group-hover:opacity-20 transition-opacity"></div>
-      <div class="relative bg-white p-sm rounded-[32px] border border-outline-variant/30 shadow-xl overflow-hidden">
-       <img class="w-full h-[500px] object-cover rounded-[24px]" src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80" alt="Borne de recharge véhicule électrique"/><div class="absolute bottom-md right-md left-md glass-card p-md rounded-xl flex items-center justify-between">
-          <div>
-            <p class="font-label-sm text-label-sm text-on-surface-variant">Disponibilité</p>
-            <div class="flex items-center gap-xs">
-              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span class="font-label-md text-label-md text-primary">Bornes disponibles</span>
-            </div>
+        <div class="hero-actions">
+          <a href="devis.html" class="btn-primary gradient-brand" style="padding:12px 40px;border-radius:12px;font-family:'Montserrat',sans-serif;font-size:24px;font-weight:600;box-shadow:0 8px 24px rgba(0,109,55,0.25);">
+            Demander un devis
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <a href="particulier.html" class="btn-outline-secondary">Nos solutions</a>
+        </div>
+        <div class="hero-social-proof">
+          <div class="avatar-stack">
+            <!-- ✅ PERF : loading="lazy" sur les avatars hors-écran critique -->
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ6dU2W6i83T9iZ0AZUmISvA2NFMyaL7nN-6wXFBCMKM2na_R5ZYdqyD_PHIvn2y3lDxPmkYDrw2ob__ggmFGQUGLT0X3KXzquYgr0ydPhrJ7jyLsSh8gus3B5itrIau_x5ouImImThrR3Mrb-SD4esQ9r3-cRENIgFQsj8_-WAAcxYE5eTn49qoyvIScw5nAc6ipWZIxVU_jPSEUSG-BXdIoKXGriPaAObgMmYCbklx9z--Y5ZfMcqrrvsL-7xJoW4ccNFsq-2t4T" alt="Client satisfait" loading="lazy" width="40" height="40"/>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Qgc4XzPH0T5yJ4mLkj1jYKksd2Ycded1egiWWoZXmMm2E1Aq5Im85h-juwPaKdmKVcsSJ14ROar8YpiDj8Mu-o-GsVM-USG-Xzt1tqRHYS1oWHDYPnirc-WDeWGl2ScN_qz7lXV2fzX1i75Ox9NprRZR5WqMVLobMpBufv2izP9S_q6NCQDhgJ54qQaWH00qZDlv13QR_KvvyI2AMufN6V4SuwEvAiLlOJg00Vkt2dIqJaPXxDDbDspIOFVNG80bhr1ktEBRFygn" alt="Client satisfait" loading="lazy" width="40" height="40"/>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf5XGb5Cb5cibZBlir8Lmde75WCtX40yKB7oLArrE9GOypiMPM6l50MvuhfzQNVXBMjybU-BNLiCmiwQ40vM3DsuZaN1xWOQky-Hg-bzmX5kJdXCxc2PLwWC1miHME2dFNWEIX3BQy6MBWYmRvj81cufzKHFef3TetxYMRSHKlWe8QP-Sthq1vCNBW8xENH0nq3y3_vB-76GcH2L17w-z1JwioLQQ1qmBG2JRuhtFHOUu9BD_g_hHpjSLOgJHZJ7GUxNHmw238su8" alt="Client satisfait" loading="lazy" width="40" height="40"/>
           </div>
-          <span class="material-symbols-outlined text-secondary">electric_bolt</span>
+          <p class="proof-label"><strong>+500 installations</strong><br/>réalisées avec succès</p>
+        </div>
+      </div>
+
+      <!-- Colonne image -->
+      <div class="hero-img-wrap">
+        <div class="hero-img-glow" aria-hidden="true"></div>
+        <div class="hero-img-card">
+          <!-- ✅ PERF : fetchpriority="high" + dimensions explicites sur l'image LCP -->
+          <img
+            src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80"
+            alt="Borne de recharge pour véhicule électrique installée par IRV'OHM"
+            fetchpriority="high"
+            width="800" height="500"
+          />
+          <div class="hero-badge glass-card">
+            <div>
+              <p class="badge-label">Disponibilité</p>
+              <div class="badge-status">
+                <span class="pulse-dot"></span>
+                <span class="badge-text">Bornes disponibles</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined" style="color:var(--secondary)">electric_bolt</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Advantages Section -->
-<section class="py-xl bg-white">
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
-    <span class="text-primary font-label-md uppercase tracking-[0.2em] mb-base block">Pourquoi nous ?</span>
-    <h2 class="font-headline-md text-headline-md text-on-surface mb-xl">L'excellence au service de votre mobilité</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-      <div class="p-lg bg-surface rounded-[24px] border border-outline-variant/20 hover:border-primary/30 transition-all group">
-        <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-md group-hover:scale-110 transition-transform mx-auto md:mx-0">
-          <span class="material-symbols-outlined text-4xl">speed</span>
+  <!-- Avantages -->
+  <section class="advantages py-xl" aria-labelledby="avantages-title">
+    <div class="max-w px-page">
+      <span class="advantages-eyebrow">Pourquoi nous ?</span>
+      <h2 id="avantages-title">L'excellence au service de votre mobilité</h2>
+      <div class="cards-grid">
+        <div class="adv-card">
+          <div class="adv-icon adv-icon-1">
+            <span class="material-symbols-outlined" style="font-size:36px">speed</span>
+          </div>
+          <h3>Rapidité</h3>
+          <p>Une charge optimisée pour réduire votre temps d'attente. Bornes intelligentes adaptées à la puissance de votre compteur.</p>
         </div>
-        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm text-center md:text-left">Rapidité</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">Une charge optimisée pour réduire votre temps d'attente. Bornes intelligentes adaptées à la puissance de votre compteur.</p>
-      </div>
-      <div class="p-lg bg-surface rounded-[24px] border border-outline-variant/20 hover:border-secondary/30 transition-all group">
-        <div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-md group-hover:scale-110 transition-transform mx-auto md:mx-0">
-          <span class="material-symbols-outlined text-4xl">shield</span>
+        <div class="adv-card">
+          <div class="adv-icon adv-icon-2">
+            <span class="material-symbols-outlined" style="font-size:36px">shield</span>
+          </div>
+          <h3>Sécurité</h3>
+          <p>Installations certifiées IRVE par des experts. Protection contre les surtensions et contrôle thermique intégré.</p>
         </div>
-        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm text-center md:text-left">Sécurité</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">Installations certifiées IRVE par des experts. Protection contre les surtensions et contrôle thermique intégré.</p>
-      </div>
-      <div class="p-lg bg-surface rounded-[24px] border border-outline-variant/20 hover:border-tertiary/30 transition-all group">
-        <div class="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-md group-hover:scale-110 transition-transform mx-auto md:mx-0">
-          <span class="material-symbols-outlined text-4xl">savings</span>
+        <div class="adv-card">
+          <div class="adv-icon adv-icon-3">
+            <span class="material-symbols-outlined" style="font-size:36px">savings</span>
+          </div>
+          <h3>Économie</h3>
+          <p>Optimisez votre consommation d'énergie et profitez du crédit d'impôt pour votre installation à domicile.</p>
         </div>
-        <h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm text-center md:text-left">Économie</h3>
-        <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">Optimisez votre consommation d'énergie et profitez du crédit d'impôt pour votre installation à domicile.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Services Preview -->
-<section class="py-xl bg-surface-container-low">
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-stretch">
-      <!-- Particuliers -->
-      <div class="md:col-span-7 relative rounded-[32px] overflow-hidden min-h-[400px] group shadow-xl">
-        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxpIlTTt6rAgowcYgb3dkPj_ZGUqvxYnGa8g6eR5s-tA50-KGnQh0nDBS_rZuPTBh81l8BmWKsXxc7s35Xx6tc4LSX3nOA-Q4mGna5N6rl-iNWWP5GrB_Azv-I2E2VDgK9MA0hSB8zr7I26tqn7_Ofg3LDHVCepNS_tSI8PlItW1h9NmyTaMTFb7cvtwugXwepdvIYYGNo1gn7H2lOoDhwEsyfJA7M4jJ9OJIw_VdGkWaVTenuJcHhcYKYfcPRDiKouSsP9Tb22txd"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-lg text-white max-w-md">
-          <span class="bg-primary/20 backdrop-blur-md border border-white/20 px-sm py-1 rounded-full text-label-sm mb-base inline-block">Habitat Individuel</span>
-          <h2 class="font-headline-md text-headline-md mb-sm">Pour les Particuliers</h2>
-          <p class="font-body-md text-white/80 mb-md">Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place de parking privée. Solutions clé en main incluant conseil, matériel et installation.</p>
-          <a href="particulier.html" class="flex items-center gap-xs font-label-md uppercase tracking-widest text-primary-container hover:text-white transition-colors">
-            Découvrir l'offre <span class="material-symbols-outlined">chevron_right</span>
+  <!-- Services -->
+  <section class="services py-xl" aria-labelledby="services-title">
+    <div class="max-w px-page">
+      <div class="services-grid">
+        <!-- Particuliers -->
+        <div class="service-card">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxpIlTTt6rAgowcYgb3dkPj_ZGUqvxYnGa8g6eR5s-tA50-KGnQh0nDBS_rZuPTBh81l8BmWKsXxc7s35Xx6tc4LSX3nOA-Q4mGna5N6rl-iNWWP5GrB_Azv-I2E2VDgK9MA0hSB8zr7I26tqn7_Ofg3LDHVCepNS_tSI8PlItW1h9NmyTaMTFb7cvtwugXwepdvIYYGNo1gn7H2lOoDhwEsyfJA7M4jJ9OJIw_VdGkWaVTenuJcHhcYKYfcPRDiKouSsP9Tb22txd"
+            alt="Installation borne de recharge particulier garage"
+            loading="lazy"
+            width="900" height="600"
+          />
+          <div class="service-overlay-1" aria-hidden="true"></div>
+          <div class="service-content">
+            <span class="service-tag">Habitat Individuel</span>
+            <h2>Pour les Particuliers</h2>
+            <p>Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place de parking privée. Solutions clé en main incluant conseil, matériel et installation.</p>
+            <a href="particulier.html" class="service-link service-link-1">
+              Découvrir l'offre <span class="material-symbols-outlined">chevron_right</span>
+            </a>
+          </div>
+        </div>
+        <!-- Entreprises -->
+        <div class="service-card">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB15JV0eN7TXz8HTOG9CTV-ZCWWNHCYERGohRYDr58ucVdMNjRnt247Qe-kl3NhCVH_c_AJkOSnuQt19Dcd_My7qv1ygpo2RADGq-P3oLhtrKK3cfaVam7wSVQ6XdFLP_LxXAWjYXrxCbFJ4e2GlWZamYHSzcAqov3zq2pj9e_8y1orjyAu3o4qNqg5WybMqmPOc18iFyEJJwT_M_iVmO5ZwOhIxSGIrDlOHZKoSV8aCLnbX38pibyGURLWi-XTAyHC9qAePio2etpg"
+            alt="Bornes de recharge pour parking entreprise"
+            loading="lazy"
+            width="700" height="600"
+          />
+          <div class="service-overlay-2" aria-hidden="true"></div>
+          <div class="service-content">
+            <span class="service-tag">Tertiaire &amp; Flottes</span>
+            <h2>Pour les Entreprises</h2>
+            <p>Valorisez vos parkings, proposez un service à vos clients et électrifiez votre flotte de véhicules.</p>
+            <a href="entreprise.html" class="service-link service-link-2">
+              Solutions business <span class="material-symbols-outlined">chevron_right</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats py-xl" aria-label="Chiffres clés IRV'OHM">
+    <div class="max-w px-page">
+      <div class="stats-card">
+        <div><div class="stat-val stat-val-1">98%</div><div class="stat-label">Satisfaction</div></div>
+        <div><div class="stat-val stat-val-2">48h</div><div class="stat-label">Devis Rapide</div></div>
+        <div><div class="stat-val stat-val-1">15+</div><div class="stat-label">Marques Partenaires</div></div>
+        <div><div class="stat-val stat-val-2">5 ans</div><div class="stat-label">Garantie Matériel</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="cta-title">
+    <div class="max-w">
+      <div class="cta-box">
+        <div class="cta-bg-icon" aria-hidden="true">bolt</div>
+        <h2 id="cta-title">Prêt à passer à l'électrique ?</h2>
+        <p>Nos techniciens experts vous accompagnent de l'étude de faisabilité jusqu'à la mise en service de votre borne de recharge.</p>
+        <div class="cta-actions">
+          <a href="devis.html" class="btn-cta-main">
+            Mon devis personnalisé
+            <span class="material-symbols-outlined">edit_note</span>
+          </a>
+          <a href="tel:+33651078828" class="btn-cta-tel">
+            <span class="material-symbols-outlined">call</span>
+            06 51 07 88 28
           </a>
         </div>
       </div>
-      <!-- Entreprises -->
-      <div class="md:col-span-5 relative rounded-[32px] overflow-hidden min-h-[400px] group shadow-xl">
-        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB15JV0eN7TXz8HTOG9CTV-ZCWWNHCYERGohRYDr58ucVdMNjRnt247Qe-kl3NhCVH_c_AJkOSnuQt19Dcd_My7qv1ygpo2RADGq-P3oLhtrKK3cfaVam7wSVQ6XdFLP_LxXAWjYXrxCbFJ4e2GlWZamYHSzcAqov3zq2pj9e_8y1orjyAu3o4qNqg5WybMqmPOc18iFyEJJwT_M_iVmO5ZwOhIxSGIrDlOHZKoSV8aCLnbX38pibyGURLWi-XTAyHC9qAePio2etpg"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-lg text-white">
-          <span class="bg-white/20 backdrop-blur-md border border-white/20 px-sm py-1 rounded-full text-label-sm mb-base inline-block">Tertiaire &amp; Flottes</span>
-          <h2 class="font-headline-md text-headline-md mb-sm">Pour les Entreprises</h2>
-          <p class="font-body-md text-white/80 mb-md">Valorisez vos parkings, proposez un service à vos clients et électrifiez votre flotte de véhicules.</p>
-          <a href="entreprise.html" class="flex items-center gap-xs font-label-md uppercase tracking-widest text-secondary-fixed hover:text-white transition-colors">
-            Solutions business <span class="material-symbols-outlined">chevron_right</span>
-          </a>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
-
-<!-- Trust & Stats -->
-<section class="py-xl">
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="bg-white rounded-[40px] p-xl border border-outline-variant/30 grid grid-cols-2 md:grid-cols-4 gap-xl text-center shadow-sm">
-      <div>
-        <div class="text-display-lg text-primary mb-xs">98%</div>
-        <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Satisfaction</div>
-      </div>
-      <div>
-        <div class="text-display-lg text-secondary mb-xs">48h</div>
-        <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Devis Rapide</div>
-      </div>
-      <div>
-        <div class="text-display-lg text-primary mb-xs">15+</div>
-        <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Marques Partenaires</div>
-      </div>
-      <div>
-        <div class="text-display-lg text-secondary mb-xs">5ans</div>
-        <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Garantie Matériel</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Final -->
-<section class="py-xl px-margin-mobile">
-  <div class="max-w-max-width mx-auto bg-inverse-surface rounded-[40px] p-lg md:p-xl text-center relative overflow-hidden">
-    <div class="absolute top-0 right-0 p-md opacity-10">
-      <span class="material-symbols-outlined text-[200px]">bolt</span>
-    </div>
-    <h2 class="font-headline-md text-headline-md text-inverse-on-surface mb-md relative z-10">Prêt à passer à l'électrique ?</h2>
-    <p class="font-body-lg text-inverse-on-surface/80 max-w-2xl mx-auto mb-xl relative z-10">
-      Nos techniciens experts vous accompagnent de l'étude de faisabilité jusqu'à la mise en service de votre borne de recharge.
-    </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-md relative z-10">
-      <a href="devis.html" class="bg-primary-container text-on-primary-container px-xl py-md rounded-xl font-headline-sm hover:scale-105 transition-transform flex items-center gap-base">
-        Mon devis personnalisé
-        <span class="material-symbols-outlined">edit_note</span>
-      </a>
-      <a class="text-inverse-on-surface font-headline-sm flex items-center gap-base hover:opacity-80 transition-opacity" href="tel:+33651078828">
-        <span class="material-symbols-outlined">call</span>
-        06 51 07 88 28
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <!-- Footer -->
-<footer class="bg-surface-container py-lg mt-xl border-t border-outline-variant">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-    <div class="flex flex-col gap-sm">
-      <div class="font-headline-sm text-headline-sm font-bold text-on-surface">IRV'OHM</div>
-      <p class="font-body-md text-body-md text-on-surface-variant">Expert en solutions de recharge électrique pour un avenir durable.</p>
-      <div class="flex gap-md mt-sm">
-        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<footer>
+  <div class="max-w px-page">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">IRV'OHM</div>
+        <p class="footer-desc">Expert en solutions de recharge électrique pour un avenir durable.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Services</h4>
+        <nav class="footer-nav" aria-label="Services">
+          <a href="particulier.html">Installation Bornes</a>
+          <a href="#">Maintenance</a>
+          <a href="#">Audit Énergétique</a>
+        </nav>
+      </div>
+      <div>
+        <h4 class="footer-title">Liens Utiles</h4>
+        <nav class="footer-nav" aria-label="Liens utiles">
+          <a href="#">Mentions Légales</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">FAQ</a>
+        </nav>
+      </div>
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <address class="footer-contact" style="font-style:normal;">
+          <p><span class="material-symbols-outlined" style="font-size:16px">location_on</span> 95200 Sarcelles, France</p>
+          <p><span class="material-symbols-outlined" style="font-size:16px">mail</span> contact@irvohm.fr</p>
+          <p><span class="material-symbols-outlined" style="font-size:16px">schedule</span> Lun - Ven : 09h - 18h</p>
+        </address>
       </div>
     </div>
-    <div class="flex flex-col gap-sm">
-      <h4 class="font-label-md text-on-surface font-bold uppercase tracking-wider">Services</h4>
-      <nav class="flex flex-col gap-xs">
-        <a class="text-on-surface-variant hover:text-primary transition-colors" href="particulier.html">Installation Bornes</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Maintenance</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Audit Énergétique</a>
-      </nav>
+    <div class="footer-copy">
+      <p>© 2026 IRV'OHM – Solutions de Recharge Électrique. Tous droits réservés.</p>
     </div>
-    <div class="flex flex-col gap-sm">
-      <h4 class="font-label-md text-on-surface font-bold uppercase tracking-wider">Liens Utiles</h4>
-      <nav class="flex flex-col gap-xs">
-        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Mentions Légales</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Confidentialité</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">FAQ</a>
-      </nav>
-    </div>
-    <div class="flex flex-col gap-sm">
-      <h4 class="font-label-md text-on-surface font-bold uppercase tracking-wider">Contact</h4>
-      <div class="flex flex-col gap-xs text-on-surface-variant">
-        <p class="flex items-center gap-xs"><span class="material-symbols-outlined text-sm">location_on</span> 95200 Sarcelles, France</p>
-        <p class="flex items-center gap-xs"><span class="material-symbols-outlined text-sm">mail</span> contact@irvohm.fr</p>
-        <p class="flex items-center gap-xs"><span class="material-symbols-outlined text-sm">schedule</span> Lun - Ven: 09h - 18h</p>
-      </div>
-    </div>
-  </div>
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop mt-lg pt-md border-t border-outline-variant/30 text-center">
-    <p class="font-body-md text-body-md text-on-surface-variant/60">© 2026 IRV'OHM - Solutions de Recharge Électrique. Tous droits réservés.</p>
   </div>
 </footer>
 
-</body></html>
+</body>
+</html>
