@@ -192,7 +192,7 @@ tailwind.config = {
         <div>
           <p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Wallbox</p>
           <h4 class="font-headline-sm text-headline-sm">Pulsar Max</h4>
-        </div>
+        </div>Logo IRV'OHM
         <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP55</span>
       </div>
       <p class="font-body-md text-on-surface-variant mb-md">La plus compacte du marché, connectée en Wi-Fi et Bluetooth, idéale pour maison individuelle et garage.</p>
@@ -616,7 +616,65 @@ function fmt(n){ return n.toLocaleString('fr-FR')+'€'; }
 function buildRecap(){ computeTotal(); var baseHT=GRILLE[state.borneBrand][state.distanceIndex]||GRILLE[state.borneBrand][0]; var lines=[{label:state.borne+' — installation complète (HT)',val:fmt(baseHT)}]; if(state.terreSurcharge>0)lines.push({label:'Mise à la terre (HT)',val:'+'+fmt(state.terreSurcharge)}); lines.push({label:'TVA 5,5%',val:'+'+fmt(state.tvaAmount)}); if(state.deduction>0)lines.push({label:'Prime copropriété (50%, plafond 1 000 €)',val:'−'+fmt(state.deduction)}); var html=''; lines.forEach(function(l){html+='<div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:#3d4a3e">'+l.label+'</span><span style="font-weight:600">'+l.val+'</span></div>';}); document.getElementById('recap-lines').innerHTML=html; document.getElementById('total-label').textContent=state.deduction>0?'Total à payer (après prime)':'Total TTC (TVA 5,5%)'; document.getElementById('total-ttc').textContent=fmt(state.totalAPayer); document.getElementById('pay-full-amount').textContent=fmt(state.totalAPayer); document.getElementById('pay-acompte-amount').textContent=fmt(Math.ceil(state.totalAPayer*0.4))+' maintenant'; document.getElementById('pay-3-amount').textContent=Math.ceil(state.totalAPayer/3)+' €×3'; }
 var MONTHS=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 var SLOTS=['08h00–10h00','10h00–12h00','14h00–16h00','16h00–18h00'];
-function renderCalendar(){ var y=state.calYear,m=state.calMonth; document.getElementById('cal-month-label').textContent=MONTHS[m]+' '+y; var first=new Date(y,m,1).getDay(); first=(first+6)%7; var days=new Date(y,m+1,0).getDate(); var now=new Date(); var todayY=now.getFullYear(),todayM=now.getMonth(),todayD=now.getDate(); var html=''; for(var i=0;i<first;i++)html+='<div></div>'; for(var d=1;d<=days;d++){var isPast=(y<todayY)||(y===todayY&&m<todayM)||(y===todayY&&m===todayM&&d<todayD+1); var dd=new Date(y,m,d).getDay(); var isWE=dd===0; var isSelected=state.date&&state.date===y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'); var disabled=isPast||isWE; var bg=isSelected?'#006d37':disabled?'#f2f4f6':'#fff'; var col=isSelected?'#fff':disabled?'#c0c0c0':'#191c1e'; var border=isSelected?'2px solid #006d37':disabled?'2px solid transparent':'2px solid #e0e3e5'; var cursor=disabled?'default':'pointer'; html+='<div onclick="'+(disabled?'':'selectDate('+y+','+m+','+d+')')+'" style="text-align:center;padding:8px 0;border-radius:10px;font-size:14px;font-weight:500;background:'+bg+';color:'+col+';border:'+border+';cursor:'+cursor+'">'+d+'</div>';} document.getElementById('cal-grid').innerHTML=html; document.getElementById('time-slots-section').style.display=state.date?'block':'none'; if(state.date)renderSlots(); }
+// === GOOGLE CALENDAR — à remplir après configuration ===
+var GCAL_API_KEY = 'AIzaSyCyHPczjzLlR_ktXeuTLOVws1oRyRKqB2g';
+var GCAL_ID = '8ab7f2171e818df6d15765427101d7cbc2b2af47043c4b3fbdf0b7592b3957ba@group.calendar.google.com';
+// =======================================================
+var busyDaysCache = {};
+function fetchBusyDays(year, month, callback) {
+  var cacheKey = year + '-' + month;
+  if (busyDaysCache[cacheKey]) { callback(busyDaysCache[cacheKey]); return; }
+  if (!GCAL_API_KEY || GCAL_API_KEY === 'VOTRE_CLE_API_GOOGLE') { callback([]); return; }
+  var firstDay = new Date(year, month, 1).toISOString();
+  var lastDay = new Date(year, month + 1, 0, 23, 59, 59).toISOString();
+  var url = 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(GCAL_ID) + '/events?key=' + GCAL_API_KEY + '&timeMin=' + encodeURIComponent(firstDay) + '&timeMax=' + encodeURIComponent(lastDay) + '&singleEvents=true&maxResults=100';
+  fetch(url).then(function(r){return r.json();}).then(function(data){
+    var busy = [];
+    if (data.items) {
+      data.items.forEach(function(ev) {
+        var start = ev.start.date || ev.start.dateTime.substring(0,10);
+        var end = ev.end.date || ev.end.dateTime.substring(0,10);
+        var d = new Date(start + 'T12:00:00');
+        var endD = new Date(end + 'T12:00:00');
+        while (d < endD) {
+          busy.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'));
+          d.setDate(d.getDate()+1);
+        }
+      });
+    }
+    busyDaysCache[cacheKey] = busy;
+    callback(busy);
+  }).catch(function(){ callback([]); });
+}
+function renderCalendar() {
+  var y=state.calYear, m=state.calMonth;
+  document.getElementById('cal-month-label').textContent=MONTHS[m]+' '+y;
+  document.getElementById('cal-grid').innerHTML='<div style="grid-column:span 7;text-align:center;padding:20px;color:#6c7b6d;font-size:13px">Chargement des disponibilités...</div>';
+  fetchBusyDays(y, m, function(busyDays) {
+    var first=new Date(y,m,1).getDay(); first=(first+6)%7;
+    var days=new Date(y,m+1,0).getDate();
+    var now=new Date(); var todayY=now.getFullYear(),todayM=now.getMonth(),todayD=now.getDate();
+    var html='';
+    for(var i=0;i<first;i++) html+='<div></div>';
+    for(var d=1;d<=days;d++){
+      var dateKey=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+      var isPast=(y<todayY)||(y===todayY&&m<todayM)||(y===todayY&&m===todayM&&d<todayD+1);
+      var dd=new Date(y,m,d).getDay(); var isWE=dd===0;
+      var isBusy=busyDays.indexOf(dateKey)>=0;
+      var isSelected=state.date&&state.date===dateKey;
+      var disabled=isPast||isWE||isBusy;
+      var bg=isSelected?'#006d37':disabled?'#f2f4f6':'#fff';
+      var col=isSelected?'#fff':disabled?'#c0c0c0':'#191c1e';
+      var border=isSelected?'2px solid #006d37':disabled?'2px solid transparent':'2px solid #e0e3e5';
+      var cursor=disabled?'default':'pointer';
+      var titleAttr=isBusy&&!isPast&&!isWE?' title="Indisponible"':'';
+      html+='<div onclick="'+(disabled?'':'selectDate('+y+','+m+','+d+')')+'"'+titleAttr+' style="text-align:center;padding:8px 0;border-radius:10px;font-size:14px;font-weight:500;background:'+bg+';color:'+col+';border:'+border+';cursor:'+cursor+'">'+d+'</div>';
+    }
+    document.getElementById('cal-grid').innerHTML=html;
+    document.getElementById('time-slots-section').style.display=state.date?'block':'none';
+    if(state.date)renderSlots();
+  });
+}
 function selectDate(y,m,d){ state.date=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'); state.heure=null; document.getElementById('selected-slot-display').style.display='none'; renderCalendar(); renderSlots(); }
 function renderSlots(){ var container=document.getElementById('time-slots'); container.innerHTML=''; SLOTS.forEach(function(s){var sel=state.heure===s; var btn=document.createElement('button'); btn.textContent=s; btn.onclick=function(){selectSlot(s);}; btn.style.cssText='padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;border:2px solid '+(sel?'#006d37':'#e0e3e5')+';background:'+(sel?'#006d37':'#fff')+';color:'+(sel?'#fff':'#191c1e')+';cursor:pointer;font-family:Inter,sans-serif'; container.appendChild(btn);}); }
 function selectSlot(s){ state.heure=s; var d=new Date(state.date); var opts={weekday:'long',day:'numeric',month:'long',year:'numeric'}; document.getElementById('selected-slot-display').style.display='block'; document.getElementById('selected-slot-display').innerHTML='✅ Intervention prévue le <strong>'+d.toLocaleDateString('fr-FR',opts)+'</strong> de <strong>'+s+'</strong>'; renderSlots(); }
