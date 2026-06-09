@@ -3,192 +3,140 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact &amp; Devis - IRV'OHM</title>
+<title>IRV'OHM - Devis Gratuit IRVE</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "outline-variant": "#bbcbbb",
-          "error": "#ba1a1a",
-          "surface-container": "#eceef0",
-          "on-primary-container": "#005027",
-          "primary": "#006d37",
-          "secondary": "#006397",
-          "on-primary": "#ffffff",
-          "on-surface": "#191c1e",
-          "surface-variant": "#e0e3e5",
-          "primary-container": "#2ecc71",
-          "surface-container-highest": "#e0e3e5",
-          "surface": "#f7f9fb",
-          "secondary-container": "#5cb8fd",
-          "on-secondary-container": "#00476e",
-          "tertiary-container": "#32c8a7",
-          "outline": "#6c7b6d",
-          "surface-container-low": "#f2f4f6",
-          "on-surface-variant": "#3d4a3e",
-          "tertiary": "#006b58",
-          "on-tertiary": "#ffffff",
-          "on-background": "#191c1e",
-          "inverse-primary": "#4ae183",
-          "background": "#f7f9fb",
-          "on-secondary": "#ffffff",
-          "surface-container-high": "#e6e8ea",
-          "surface-container-lowest": "#ffffff",
-          "surface-dim": "#d8dadc"
-        },
-        borderRadius: {
-          DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"
-        },
-        spacing: {
-          "margin-desktop": "64px", "margin-mobile": "16px",
-          xl: "80px", xs: "4px", sm: "12px", base: "8px",
-          gutter: "24px", "max-width": "1280px", lg: "48px", md: "24px"
-        },
-        fontFamily: {
-          "label-sm": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"],
-          "headline-sm": ["Montserrat"], "headline-md": ["Montserrat"],
-          "display-lg-mobile": ["Montserrat"], "display-lg": ["Montserrat"], "label-md": ["Inter"]
-        },
-        fontSize: {
-          "label-sm": ["12px", {lineHeight:"1.2",fontWeight:"600"}],
-          "body-lg": ["18px", {lineHeight:"1.6",fontWeight:"400"}],
-          "body-md": ["16px", {lineHeight:"1.5",fontWeight:"400"}],
-          "headline-sm": ["24px", {lineHeight:"1.3",fontWeight:"600"}],
-          "headline-md": ["32px", {lineHeight:"1.2",fontWeight:"600"}],
-          "display-lg-mobile": ["32px", {lineHeight:"1.2",fontWeight:"700"}],
-          "display-lg": ["48px", {lineHeight:"1.1",letterSpacing:"-0.02em",fontWeight:"700"}],
-          "label-md": ["14px", {lineHeight:"1.4",letterSpacing:"0.01em",fontWeight:"500"}]
-        }
-      }
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "outline-variant": "#bbcbbb","error": "#ba1a1a","on-primary-fixed-variant": "#005228","on-secondary-fixed-variant": "#004b73","surface-container": "#eceef0","on-primary-container": "#005027","inverse-surface": "#2d3133","primary": "#006d37","on-error-container": "#93000a","on-tertiary-fixed-variant": "#005141","secondary": "#006397","on-primary": "#ffffff","on-secondary-fixed": "#001d31","secondary-fixed": "#cce5ff","on-surface": "#191c1e","surface-variant": "#e0e3e5","primary-container": "#2ecc71","surface-container-highest": "#e0e3e5","on-error": "#ffffff","surface": "#f7f9fb","secondary-container": "#5cb8fd","on-secondary-container": "#00476e","secondary-fixed-dim": "#92ccff","surface-bright": "#f7f9fb","tertiary-container": "#32c8a7","primary-fixed-dim": "#4ae183","outline": "#6c7b6d","surface-container-low": "#f2f4f6","on-surface-variant": "#3d4a3e","tertiary-fixed-dim": "#4eddbb","on-primary-fixed": "#00210c","tertiary": "#006b58","on-tertiary": "#ffffff","inverse-on-surface": "#eff1f3","on-background": "#191c1e","on-tertiary-fixed": "#002019","inverse-primary": "#4ae183","background": "#f7f9fb","on-secondary": "#ffffff","surface-container-high": "#e6e8ea","primary-fixed": "#6bfe9c","on-tertiary-container": "#004f40","tertiary-fixed": "#6ff9d6","surface-tint": "#006d37","surface-container-lowest": "#ffffff","error-container": "#ffdad6","surface-dim": "#d8dadc",
+        "card": "#ffffff","muted": "#f1f5f9","muted-foreground": "#64748b","border": "#e2e8f0","foreground": "#0f172a"
+      },
+      "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+      "spacing": {"margin-desktop": "64px","margin-mobile": "16px","xl": "80px","xs": "4px","sm": "12px","base": "8px","gutter": "24px","max-width": "1280px","lg": "48px","md": "24px"},
+      "fontFamily": {"label-sm": ["Inter"],"body-lg": ["Inter"],"body-md": ["Inter"],"headline-sm": ["Montserrat"],"headline-md": ["Montserrat"],"display-lg-mobile": ["Montserrat"],"display-lg": ["Montserrat"],"label-md": ["Inter"]},
+      "fontSize": {"label-sm": ["12px", {"lineHeight": "1.2","fontWeight": "600"}],"body-lg": ["18px", {"lineHeight": "1.6","fontWeight": "400"}],"body-md": ["16px", {"lineHeight": "1.5","fontWeight": "400"}],"headline-sm": ["24px", {"lineHeight": "1.3","fontWeight": "600"}],"headline-md": ["32px", {"lineHeight": "1.2","fontWeight": "600"}],"display-lg-mobile": ["32px", {"lineHeight": "1.2","fontWeight": "700"}],"display-lg": ["48px", {"lineHeight": "1.1","letterSpacing": "-0.02em","fontWeight": "700"}],"label-md": ["14px", {"lineHeight": "1.4","letterSpacing": "0.01em","fontWeight": "500"}]}
     }
   }
+}
 </script>
 <style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  .omega-watermark { position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.05;pointer-events:none;z-index:0;width:600px;height:600px; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.omega-watermark { position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.05;pointer-events:none;z-index:0;width:600px;height:600px; }
 
-  /* Wizard styles */
-  .wiz-step { display: none; animation: wiz-in .25s ease; }
-  .wiz-step.active { display: block; }
-  @keyframes wiz-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes stepIn     { from { opacity:0; transform:translateX(32px);  } to { opacity:1; transform:translateX(0); } }
+@keyframes stepInBack { from { opacity:0; transform:translateX(-32px); } to { opacity:1; transform:translateX(0); } }
+.step-enter      { animation: stepIn     0.28s cubic-bezier(0.16,1,0.3,1) both; }
+.step-enter-back { animation: stepInBack 0.28s cubic-bezier(0.16,1,0.3,1) both; }
 
-  .option-card {
-    position: relative;
-    border: 1.5px solid #e0e3e5;
-    border-radius: 12px;
-    padding: 1rem;
-    cursor: pointer;
-    transition: border-color .15s, background .15s;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .option-card:hover { border-color: #006d37; background: #f0faf4; }
-  .option-card.selected { border-color: #006d37; background: #f0faf4; }
-  .option-card .oc-check {
-    position: absolute; top: 10px; right: 10px;
-    width: 20px; height: 20px; border-radius: 50%;
-    border: 1.5px solid #d0d9d1;
-    display: flex; align-items: center; justify-content: center;
-    transition: all .15s;
-  }
-  .option-card.selected .oc-check { background: #006d37; border-color: #006d37; color: white; }
-  .option-card .oc-icon { font-size: 20px; margin-bottom: 2px; color: #6c7b6d; }
-  .option-card.selected .oc-icon { color: #006d37; }
-  .option-card .oc-label { font-size: 14px; font-weight: 600; color: #191c1e; }
-  .option-card .oc-desc { font-size: 12px; color: #6c7b6d; line-height: 1.4; }
+/* OptionCard — matches React OptionCard component */
+.opt-card {
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-radius: 1rem;
+  border: 1.5px solid #e2e8f0;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  transition: all 0.15s;
+}
+.opt-card:hover { border-color: rgba(15,23,42,0.3); background: #f8fafc; }
+.opt-card.sel   { border-color: #006d37; background: rgba(0,109,55,0.05); }
 
-  /* Progress dots */
-  .step-dot { width:8px;height:8px;border-radius:50%;background:#e0e3e5;transition:all .3s; }
-  .step-dot.done { background:#4ae183; }
-  .step-dot.active { width:24px;border-radius:4px;background:#006d37; }
+/* Pill — matches React Pill component */
+.pill {
+  cursor: pointer;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #0f172a;
+  background: #ffffff;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.pill:hover { border-color: rgba(15,23,42,0.3); }
+.pill.sel   { border-color: #006d37; background: #006d37; color: #ffffff; }
 
-  /* Form inputs override */
-  .wiz-input {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1.5px solid #e0e3e5;
-    border-radius: 10px;
-    font-size: 14px;
-    color: #191c1e;
-    background: #fff;
-    outline: none;
-    transition: border-color .15s, box-shadow .15s;
-    font-family: Inter, sans-serif;
-  }
-  .wiz-input:focus { border-color: #006d37; box-shadow: 0 0 0 3px rgba(0,109,55,.1); }
+/* Input — matches React Input component */
+.field-in {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field-in:focus { border-color: #006d37; box-shadow: 0 0 0 3px rgba(0,109,55,0.15); }
+.field-in::placeholder { color: rgba(100,116,139,0.6); }
 
-  .wiz-btn-primary {
-    background: linear-gradient(135deg, #006d37 0%, #006397 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 28px;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: Inter, sans-serif;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: opacity .15s, transform .1s;
-    letter-spacing: .03em;
-  }
-  .wiz-btn-primary:hover { opacity: .9; }
-  .wiz-btn-primary:active { transform: scale(.98); }
-  .wiz-btn-primary:disabled { background: #d0d9d1; cursor: not-allowed; opacity: 1; }
+.btn-main {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: linear-gradient(135deg, #006d37 0%, #006397 100%);
+  color: #ffffff; border-radius: 9999px;
+  padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 500;
+  border: none; cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(0,109,55,0.35);
+}
+.btn-main:hover:not(:disabled) { opacity: 0.9; }
+.btn-main:active:not(:disabled) { transform: scale(0.97); }
+.btn-main:disabled { opacity: 0.4; pointer-events: none; cursor: default; }
 
-  .wiz-btn-back {
-    background: none;
-    border: none;
-    font-size: 14px;
-    color: #6c7b6d;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 0;
-    font-family: Inter, sans-serif;
-    transition: color .15s;
-  }
-  .wiz-btn-back:hover { color: #191c1e; }
+.btn-back {
+  display: inline-flex; align-items: center; gap: 0.375rem;
+  font-size: 0.875rem; font-weight: 500; color: #3d4a3e;
+  padding: 0.5rem 0.75rem; border-radius: 0.5rem;
+  background: none; border: none; cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+.btn-back:hover:not(:disabled) { color: #191c1e; background: rgba(0,0,0,0.05); }
+.btn-back:disabled { opacity: 0.3; pointer-events: none; cursor: default; }
 
-  .recap-row { display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eceef0;font-size:14px; }
-  .recap-row:last-child { border-bottom:none; }
+.photo-zone {
+  cursor: pointer; border-radius: 1rem;
+  border: 2px dashed rgba(107,123,109,0.35);
+  padding: 1.25rem 1rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; min-height: 110px;
+  transition: border-color 0.15s, background 0.15s;
+  position: relative;
+}
+.photo-zone:hover { border-color: rgba(0,109,55,0.55); background: rgba(0,109,55,0.03); }
 
-  /* Progress bar */
-  .prog-bar { height:3px;background:#eceef0;border-radius:2px;overflow:hidden;margin-bottom:2rem; }
-  .prog-fill { height:100%;background:linear-gradient(90deg,#006d37,#006397);border-radius:2px;transition:width .4s ease; }
+.spinner { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-  .tag-badge {
-    display:inline-flex;align-items:center;gap:4px;
-    font-size:12px;padding:4px 10px;border-radius:99px;
-    background:#e7f5ed;color:#005228;font-weight:600;
-    margin:2px;
-  }
+.success-bounce { animation: sBounce 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+@keyframes sBounce { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
 </style>
 </head>
-<body class="bg-surface font-body-md text-on-surface">
+<body class="bg-surface-container-low text-on-background font-body-md overflow-x-hidden min-h-screen">
 
-<!-- TopNavBar -->
-<header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm">
+<!-- ===== NAV ===== -->
+<header class="bg-surface/90 backdrop-blur-md font-label-md text-label-md uppercase tracking-wider shadow-sm top-0 sticky z-50 border-b border-outline-variant/30">
   <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-    <div class="font-headline-sm text-headline-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">IRV'OHM</div>
+    <a href="index.html" class="font-headline-sm text-headline-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">IRV'OHM</a>
     <nav class="hidden md:flex gap-md items-center h-full">
       <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Accueil</a>
       <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="particulier.html">Particuliers</a>
       <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="entreprise.html">Entreprises</a>
-      <a class="font-label-md text-label-md uppercase tracking-wider text-primary transition-colors" href="devis.html">Devis</a>
+      <a class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold" href="devis.html">Devis</a>
     </nav>
-    <button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider shadow-sm hover:opacity-90 active:scale-95 transition-all">Devis Gratuit</button>
+    <span class="bg-gradient-to-r from-primary to-secondary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider shadow-sm select-none">Devis Gratuit</span>
   </div>
 </header>
 
+<!-- ===== MAIN ===== -->
 <main class="relative overflow-hidden">
   <svg class="omega-watermark" fill="currentColor" viewBox="0 0 100 100">
     <path d="M50 10C27.9 10 10 27.9 10 50c0 14.1 7.3 26.5 18.3 33.6l5.7-9.8C25.7 68.9 20 60.1 20 50c0-16.6 13.4-30 30-30s30 13.4 30 30c0 10.1-5.7 18.9-14 23.8l5.7 9.8C82.7 76.5 90 64.1 90 50c0-22.1-17.9-40-40-40zM35 80h30v10H35z"/>
@@ -206,304 +154,41 @@
     <!-- Main layout -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 
-      <!-- Wizard Card -->
-      <div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-md md:p-lg shadow-sm">
+      <!-- Funnel card -->
+      <div class="lg:col-span-7">
+        <div class="bg-background rounded-3xl shadow-2xl flex flex-col overflow-hidden" style="min-height:580px">
 
-        <!-- Progress bar -->
-        <div class="prog-bar"><div class="prog-fill" id="prog" style="width:16.66%"></div></div>
-
-        <!-- Step dots + label -->
-        <div class="flex items-center gap-3 mb-lg">
-          <div class="flex items-center gap-2" id="dots">
-            <div class="step-dot active" data-dot="1"></div>
-            <div class="step-dot" data-dot="2"></div>
-            <div class="step-dot" data-dot="3"></div>
-            <div class="step-dot" data-dot="4"></div>
-            <div class="step-dot" data-dot="5"></div>
-            <div class="step-dot" data-dot="6"></div>
-          </div>
-          <span class="font-label-md text-label-md text-on-surface-variant" id="stepLabel">Étape 1 sur 6 · Votre profil</span>
-        </div>
-
-        <!-- STEP 1: Profil -->
-        <div class="wiz-step active" id="s1">
-          <h2 class="font-headline-sm text-headline-sm mb-xs">Vous êtes…</h2>
-          <p class="text-on-surface-variant text-body-md mb-md">Cela nous permet d'adapter votre devis aux solutions les plus adaptées.</p>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="option-card" data-group="profil" data-val="particulier" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">home</span>
-              <div class="oc-label">Particulier</div>
-              <div class="oc-desc">Maison individuelle ou appartement</div>
+          <!-- Header -->
+          <div class="px-5 sm:px-7 pt-5 pb-3 border-b border-outline-variant/20">
+            <div class="flex items-center justify-between mb-3">
+              <div id="step-label" class="text-xs font-semibold text-on-surface-variant"></div>
             </div>
-            <div class="option-card" data-group="profil" data-val="copropriete" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">apartment</span>
-              <div class="oc-label">Copropriété</div>
-              <div class="oc-desc">Immeuble, résidence</div>
-            </div>
-            <div class="option-card" data-group="profil" data-val="entreprise" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">business</span>
-              <div class="oc-label">Entreprise</div>
-              <div class="oc-desc">Parking salarié, flotte VE</div>
-            </div>
-            <div class="option-card" data-group="profil" data-val="commerce" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">storefront</span>
-              <div class="oc-label">Commerce / ERP</div>
-              <div class="oc-desc">Parking client, hôtel, commerce</div>
+            <div class="h-1 rounded-full bg-surface-container overflow-hidden">
+              <div id="progress-fill" class="h-full rounded-full transition-all duration-500 ease-out" style="width:0%;background:linear-gradient(90deg,#006d37,#006397)"></div>
             </div>
           </div>
-          <div class="flex justify-end mt-lg pt-md border-t border-outline-variant/20">
-            <button class="wiz-btn-primary" id="n1" disabled onclick="goNext(2)">
+
+          <!-- Body -->
+          <div id="funnel-body" class="flex-1 overflow-y-auto px-5 sm:px-7 py-6 sm:py-8">
+            <div id="step-content" class="step-enter"></div>
+          </div>
+
+          <!-- Footer -->
+          <div id="funnel-footer" class="px-5 sm:px-7 py-4 border-t border-outline-variant/20 flex items-center justify-between">
+            <button id="prev-btn" class="btn-back" onclick="prev()">
+              <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Retour
+            </button>
+            <button id="next-btn" class="btn-main" onclick="nextStep()">
               Continuer <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
             </button>
           </div>
+
         </div>
-
-        <!-- STEP 2: Installation -->
-        <div class="wiz-step" id="s2">
-          <h2 class="font-headline-sm text-headline-sm mb-xs">Votre installation</h2>
-          <p class="text-on-surface-variant text-body-md mb-md">Combien de bornes souhaitez-vous installer et quelle puissance ?</p>
-          <p class="font-label-md text-label-md text-on-surface-variant mb-sm">Nombre de bornes</p>
-          <div class="grid grid-cols-5 gap-2 mb-md">
-            <div class="option-card" style="padding:.75rem;align-items:center;flex-direction:row;justify-content:center" data-group="nb" data-val="1" onclick="pick(this)">
-              <span class="oc-label">1</span>
-            </div>
-            <div class="option-card" style="padding:.75rem;align-items:center;flex-direction:row;justify-content:center" data-group="nb" data-val="2" onclick="pick(this)">
-              <span class="oc-label">2</span>
-            </div>
-            <div class="option-card" style="padding:.75rem;align-items:center;flex-direction:row;justify-content:center" data-group="nb" data-val="3-5" onclick="pick(this)">
-              <span class="oc-label">3–5</span>
-            </div>
-            <div class="option-card" style="padding:.75rem;align-items:center;flex-direction:row;justify-content:center" data-group="nb" data-val="6-10" onclick="pick(this)">
-              <span class="oc-label">6–10</span>
-            </div>
-            <div class="option-card" style="padding:.75rem;align-items:center;flex-direction:row;justify-content:center" data-group="nb" data-val="10+" onclick="pick(this)">
-              <span class="oc-label">10+</span>
-            </div>
-          </div>
-          <p class="font-label-md text-label-md text-on-surface-variant mb-sm">Puissance souhaitée</p>
-          <div class="grid grid-cols-3 gap-3">
-            <div class="option-card" data-group="puissance" data-val="3.7kW" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">bolt</span>
-              <div class="oc-label">3,7 kW</div>
-              <div class="oc-desc">Hybride rechargeable, usage léger</div>
-            </div>
-            <div class="option-card" data-group="puissance" data-val="7.4kW" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">bolt</span>
-              <div class="oc-label">7,4 kW</div>
-              <div class="oc-desc">Standard, 100% électrique</div>
-            </div>
-            <div class="option-card" data-group="puissance" data-val="22kW" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">bolt</span>
-              <div class="oc-label">22 kW</div>
-              <div class="oc-desc">Triphasé, recharge rapide</div>
-            </div>
-          </div>
-          <div class="flex justify-between items-center mt-lg pt-md border-t border-outline-variant/20">
-            <button class="wiz-btn-back" onclick="goBack(1)">
-              <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Retour
-            </button>
-            <button class="wiz-btn-primary" id="n2" disabled onclick="goNext(3)">
-              Continuer <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- STEP 3: Électricité -->
-        <div class="wiz-step" id="s3">
-          <h2 class="font-headline-sm text-headline-sm mb-xs">Votre installation électrique</h2>
-          <p class="text-on-surface-variant text-body-md mb-md">Ces informations nous permettent d'évaluer les travaux nécessaires.</p>
-          <p class="font-label-md text-label-md text-on-surface-variant mb-sm">Distance entre la borne et le tableau électrique</p>
-          <div class="grid grid-cols-2 gap-3 mb-md">
-            <div class="option-card" data-group="distance" data-val="Moins de 5 m" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <div class="oc-label">Moins de 5 m</div>
-              <div class="oc-desc">Tableau dans le même espace</div>
-            </div>
-            <div class="option-card" data-group="distance" data-val="5 à 10 m" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <div class="oc-label">5 à 10 m</div>
-              <div class="oc-desc">Couloir ou pièce adjacente</div>
-            </div>
-            <div class="option-card" data-group="distance" data-val="10 à 20 m" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <div class="oc-label">10 à 20 m</div>
-              <div class="oc-desc">Autre étage ou bout du couloir</div>
-            </div>
-            <div class="option-card" data-group="distance" data-val="Plus de 20 m" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <div class="oc-label">Plus de 20 m</div>
-              <div class="oc-desc">Garage séparé, extérieur</div>
-            </div>
-          </div>
-          <div class="space-y-xs">
-            <label class="font-label-md text-label-md text-on-surface-variant">Type de borne souhaité <span style="font-weight:400;opacity:.7">(optionnel)</span></label>
-            <select id="sel_borne" class="wiz-input" style="margin-top:6px">
-              <option value="">— Pas de préférence —</option>
-              <option value="Wallbox Pulsar Max">Wallbox Pulsar Max</option>
-              <option value="Schneider Electric Standard">Schneider Electric Standard</option>
-              <option value="Hager Witty Home">Hager Witty Home</option>
-            </select>
-          </div>
-          <div class="flex justify-between items-center mt-lg pt-md border-t border-outline-variant/20">
-            <button class="wiz-btn-back" onclick="goBack(2)">
-              <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Retour
-            </button>
-            <button class="wiz-btn-primary" id="n3" disabled onclick="goNext(4)">
-              Continuer <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- STEP 4: Délai & localisation -->
-        <div class="wiz-step" id="s4">
-          <h2 class="font-headline-sm text-headline-sm mb-xs">Délai & localisation</h2>
-          <p class="text-on-surface-variant text-body-md mb-md">Quand souhaitez-vous réaliser les travaux ?</p>
-          <div class="grid grid-cols-3 gap-3 mb-md">
-            <div class="option-card" data-group="delai" data-val="Urgent" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">local_fire_department</span>
-              <div class="oc-label">Urgent</div>
-              <div class="oc-desc">Le plus tôt possible</div>
-            </div>
-            <div class="option-card" data-group="delai" data-val="Dans le mois" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">calendar_month</span>
-              <div class="oc-label">Ce mois-ci</div>
-              <div class="oc-desc">Dans le mois</div>
-            </div>
-            <div class="option-card" data-group="delai" data-val="Dans 3 mois" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">schedule</span>
-              <div class="oc-label">3 mois</div>
-              <div class="oc-desc">Dans les 3 mois</div>
-            </div>
-            <div class="option-card" data-group="delai" data-val="Dans 6 mois" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">schedule</span>
-              <div class="oc-label">6 mois</div>
-              <div class="oc-desc">Dans les 6 mois</div>
-            </div>
-            <div class="option-card" data-group="delai" data-val="Sans délai précis" onclick="pick(this)">
-              <div class="oc-check"><span class="material-symbols-outlined text-xs" style="font-size:12px">check</span></div>
-              <span class="material-symbols-outlined oc-icon">help_outline</span>
-              <div class="oc-label">Pas de délai</div>
-              <div class="oc-desc">Je compare les offres</div>
-            </div>
-          </div>
-          <div class="space-y-xs">
-            <label class="font-label-md text-label-md text-on-surface-variant">Adresse du chantier <span style="font-weight:400;opacity:.7">(optionnel)</span></label>
-            <input type="text" id="inp_adresse" class="wiz-input" style="margin-top:6px" placeholder="123 rue de la Paix, 75000 Paris"/>
-          </div>
-          <div class="flex justify-between items-center mt-lg pt-md border-t border-outline-variant/20">
-            <button class="wiz-btn-back" onclick="goBack(3)">
-              <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Retour
-            </button>
-            <button class="wiz-btn-primary" id="n4" disabled onclick="goNext(5)">
-              Continuer <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- STEP 5: Contact -->
-        <div class="wiz-step" id="s5">
-          <h2 class="font-headline-sm text-headline-sm mb-xs">Vos coordonnées</h2>
-          <p class="text-on-surface-variant text-body-md mb-md">Nous vous envoyons votre devis personnalisé sous 48h.</p>
-          <div class="grid grid-cols-2 gap-3 mb-3">
-            <div>
-              <label class="font-label-md text-label-md text-on-surface-variant block mb-xs">Prénom</label>
-              <input type="text" id="inp_prenom" class="wiz-input" placeholder="Jean"/>
-            </div>
-            <div>
-              <label class="font-label-md text-label-md text-on-surface-variant block mb-xs">Nom</label>
-              <input type="text" id="inp_nom" class="wiz-input" placeholder="Dupont"/>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="font-label-md text-label-md text-on-surface-variant block mb-xs">Email <span style="color:#ba1a1a">*</span></label>
-            <input type="email" id="inp_email" class="wiz-input" placeholder="jean.dupont@exemple.fr"/>
-          </div>
-          <div class="mb-3">
-            <label class="font-label-md text-label-md text-on-surface-variant block mb-xs">Téléphone</label>
-            <input type="tel" id="inp_tel" class="wiz-input" placeholder="+33 6 00 00 00 00" value="+33 "/>
-          </div>
-          <div class="mb-3">
-            <label class="font-label-md text-label-md text-on-surface-variant block mb-xs">Message complémentaire <span style="font-weight:400;opacity:.7">(optionnel)</span></label>
-            <textarea id="inp_msg" class="wiz-input" rows="3" placeholder="Précisez votre situation, contraintes techniques, etc." style="resize:none;line-height:1.5"></textarea>
-          </div>
-          <label class="flex items-start gap-sm cursor-pointer mt-md">
-            <input type="checkbox" id="chk_rgpd" class="mt-1" style="width:16px;height:16px;accent-color:#006d37"/>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">J'accepte que mes données soient utilisées par IRV'OHM pour traiter ma demande de devis conformément à notre politique de confidentialité.</span>
-          </label>
-          <div class="flex justify-between items-center mt-lg pt-md border-t border-outline-variant/20">
-            <button class="wiz-btn-back" onclick="goBack(4)">
-              <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Retour
-            </button>
-            <button class="wiz-btn-primary" id="n5" disabled onclick="goNext(6)">
-              Vérifier mon devis <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- STEP 6: Récapitulatif -->
-        <div class="wiz-step" id="s6">
-          <h2 class="font-headline-sm text-headline-sm mb-xs">Récapitulatif</h2>
-          <p class="text-on-surface-variant text-body-md mb-md">Vérifiez vos informations avant envoi.</p>
-          <div class="bg-surface-container-low rounded-xl p-md mb-md" id="recap_box"></div>
-          <div id="tags_box" class="mb-md"></div>
-
-          <!-- Hidden Netlify form -->
-          <form name="devis" method="POST" data-netlify="true" id="netlify_form" style="display:none">
-            <input type="hidden" name="form-name" value="devis"/>
-            <input type="hidden" name="profil" id="f_profil"/>
-            <input type="hidden" name="nombre_bornes" id="f_nb"/>
-            <input type="hidden" name="puissance" id="f_puissance"/>
-            <input type="hidden" name="distance_tableau" id="f_distance"/>
-            <input type="hidden" name="type_borne" id="f_borne"/>
-            <input type="hidden" name="delai" id="f_delai"/>
-            <input type="hidden" name="adresse" id="f_adresse"/>
-            <input type="hidden" name="prenom" id="f_prenom"/>
-            <input type="hidden" name="nom" id="f_nom"/>
-            <input type="hidden" name="email" id="f_email"/>
-            <input type="hidden" name="telephone" id="f_tel"/>
-            <input type="hidden" name="message" id="f_msg"/>
-          </form>
-
-          <div class="flex justify-between items-center mt-lg pt-md border-t border-outline-variant/20">
-            <button class="wiz-btn-back" onclick="goBack(5)">
-              <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Modifier
-            </button>
-            <button class="wiz-btn-primary" onclick="submitForm()">
-              <span class="material-symbols-outlined" style="font-size:18px">send</span> Envoyer ma demande
-            </button>
-          </div>
-        </div>
-
-        <!-- STEP 7: Succès -->
-        <div class="wiz-step" id="s7">
-          <div class="text-center py-xl">
-            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-container/30 mb-lg">
-              <span class="material-symbols-outlined text-primary" style="font-size:40px;font-variation-settings:'FILL' 1">check_circle</span>
-            </div>
-            <h2 class="font-headline-md text-headline-md mb-sm">Demande envoyée !</h2>
-            <p class="text-on-surface-variant text-body-lg mb-lg max-w-md mx-auto">Merci pour votre confiance. Un expert IRV'OHM vous contacte sous <strong class="text-on-surface">48h</strong> avec un devis personnalisé.</p>
-            <div class="inline-flex items-center gap-sm bg-surface-container-low rounded-xl px-md py-sm">
-              <span class="material-symbols-outlined text-primary" style="font-size:20px">phone</span>
-              <span class="font-body-md text-body-md">Besoin urgent ? <strong>06 51 07 88 28</strong></span>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <!-- Sidebar -->
       <div class="lg:col-span-5 flex flex-col gap-gutter">
+
         <!-- Coordonnées -->
         <div class="bg-surface-container border border-outline-variant/30 rounded-xl p-md shadow-sm">
           <h3 class="font-headline-sm text-headline-sm mb-md">Nos Coordonnées</h3>
@@ -545,7 +230,7 @@
         </div>
 
         <!-- Carte zone d'intervention -->
-        <div class="flex-grow bg-white border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm relative min-h-[300px]">
+        <div class="flex-grow bg-white border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm relative min-h-[260px]">
           <div class="absolute inset-0 z-0">
             <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQUVPFa7UBRJUC7HJqGARQu-thDEqLSYo6I7SDDUX6Akq4-Z-v2PrnEvK5p6kfIUxLRByCFycqMXoxQIJtzp2OOyprW_EkVoXq4fJHU7LJzZZa0V-x0BgLAdPuWN4_4yDlk351a9u5OeFgOYBCcwBZkm3pCLM_DlDdoDnD6Ryy-1b4wkMTo6sKrQ9yGWZoe6YY9W98Y4k4QVZlT8cfzbKJtSF055yFtP6Vc1xlX256uz-lgrbGYkOKmD4B1fWhIkVI5T2rQsshcw" alt="Zone d'intervention Grand Paris"/>
           </div>
@@ -581,6 +266,7 @@
             </li>
           </ul>
         </div>
+
       </div>
     </div>
 
@@ -593,8 +279,519 @@
         <img alt="Renault" class="h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd1RHs53QhJ-iX22mWHAz6bOc-97hOe77fXbV-sceAh_ydRpTTpyvRrIc6y2WTEZt7Z4o62YBdyhh2rA74L0Nj1lluMaVzTpdMidr0eE1QyhfRrUJHtrPWTW-ED8-aBvi1qg4D-NjvTevYnf4CaOkAQw1P9_NuxraO6G6f9-ggGNsWHsBCKj3ZDDH8qtSHBymx5UA_joudOXvZZlk9YGJF9ru3iXW1hWeIpFhQv3DV4zJo2LctlPumRvkEQtEyshdJ41yac03BDdFQ"/>
       </div>
     </div>
+
   </div>
 </main>
+
+<script>
+/* =========================================================
+   CONFIGURATION — modifier ces URLs ici
+   ========================================================= */
+const WEBHOOK_URL       = 'https://hook.eu1.make.com/7c7yt2mqc1eqy13ilp4xb41l7kyn5ic9';
+const UPLOADCARE_KEY    = '482ddcbf9c71fdf5fd89';
+const UPLOADCARE_CDN    = 'https://2cbbtu0mnx.ucarecd.net/';
+
+/* =========================================================
+   STATE
+   ========================================================= */
+let currentStep = 0;
+let goingBack = false;
+let stepTransition = false;  // true only on actual step change
+let arrivedViaBack = false;
+let autoTimer = null;
+let autoAdvancedSteps = new Set();
+let isDone = false;
+let isSubmitting = false;
+
+const state = {
+  logement: '', role: '', codePostal: '',
+  vehicule: '', marque: '', marqueAutre: '', puissance: '', nbBornes: null,
+  compteur: '', distance: '', delai: '',
+  photos: [],
+  nom: '', telephone: '', email: '', rgpd: false,
+};
+
+const STEPS = ['Logement', 'Véhicule', 'Projet', 'Photos', 'Contact'];
+const MARQUES = ['Tesla', 'Renault', 'Peugeot', 'BMW', 'Hyundai', 'Kia', 'Autre'];
+const PUISSANCES = [
+  { v: '7.4', l: '7,4 kW' }, { v: '11', l: '11 kW' },
+  { v: '22', l: '22 kW' }, { v: 'unknown', l: 'Je ne sais pas' },
+];
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
+function isPro() { return state.role === 'syndic'; }
+
+function canNext() {
+  if (currentStep === 0)
+    return !!state.logement && !!state.role && /^\d{5}$/.test(state.codePostal);
+  if (currentStep === 1) {
+    if (isPro()) return !!state.puissance && state.nbBornes > 0;
+    const marqueOk = !!state.marque && (state.marque !== 'Autre' || state.marqueAutre.trim().length > 0);
+    return !!state.vehicule && marqueOk && !!state.puissance;
+  }
+  if (currentStep === 2) {
+    if (isPro()) return !!state.compteur && !!state.delai;
+    return !!state.compteur && !!state.distance && !!state.delai;
+  }
+  if (currentStep === 3) return true;
+  if (currentStep === 4)
+    return state.nom.trim().length > 1 &&
+      /^[0-9 +.]{8,}$/.test(state.telephone) &&
+      /.+@.+\..+/.test(state.email) &&
+      state.rgpd;
+  return false;
+}
+
+/* =========================================================
+   DOM HELPERS
+   ========================================================= */
+function e(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* Targeted update: toggle sel class + icon colors on existing DOM elements.
+   Used by setters to avoid full HTML re-render (no flash, no vibration). */
+function quickUpdate(key, val) {
+  const sval = String(val);
+  document.querySelectorAll('.pill[data-key="' + key + '"]').forEach(btn => {
+    btn.classList.toggle('sel', btn.dataset.val === sval);
+  });
+  document.querySelectorAll('.opt-card[data-key="' + key + '"]').forEach(card => {
+    const active = card.dataset.val === sval;
+    card.classList.toggle('sel', active);
+    const icon = card.querySelector('.ci');
+    if (icon) {
+      icon.style.background = active ? '#006d37' : '#f1f5f9';
+      const sp = icon.querySelector('span');
+      if (sp) sp.style.color = active ? '#ffffff' : '#0f172a';
+    }
+  });
+  clearAutoAdvance();
+  updateHeader();
+  updateFooter();
+  checkAutoAdvance();
+}
+
+/* Full re-render of current step (only when layout actually changes) */
+function fullRender() {
+  clearAutoAdvance();
+  updateHeader();
+  updateFooter();
+  const content = document.getElementById('step-content');
+  if (isDone) { renderSuccess(); return; }
+  const renderers = [renderStep1, renderStep2, renderStep3, renderStep4, renderStep5];
+  content.innerHTML = renderers[currentStep]();
+  checkAutoAdvance();
+}
+
+/* =========================================================
+   UPDATE FUNCTIONS
+   ========================================================= */
+/* Full re-render needed: layout changes */
+function setLogement(v) {
+  arrivedViaBack = false;
+  state.logement = v; state.role = '';
+  fullRender();
+}
+function setMarque(v) {
+  arrivedViaBack = false;
+  const needsRebuild = (v === 'Autre') !== (state.marque === 'Autre');
+  state.marque = v;
+  needsRebuild ? fullRender() : quickUpdate('marque', v);
+}
+function handlePhotos(files) {
+  if (!files || !files.length) return;
+  state.photos = [...state.photos, ...Array.from(files)].slice(0, 8);
+  fullRender();
+}
+
+/* Targeted DOM update: no layout change */
+function setRole(v)     { arrivedViaBack = false; state.role = v;      quickUpdate('role', v); }
+function setVehicule(v) { arrivedViaBack = false; state.vehicule = v;  quickUpdate('vehicule', v); }
+function setPuissance(v){ arrivedViaBack = false; state.puissance = v; quickUpdate('puissance', v); }
+function setNbBornes(n) { arrivedViaBack = false; state.nbBornes = n;  quickUpdate('nbBornes', n); }
+function setCompteur(v) { arrivedViaBack = false; state.compteur = v;  quickUpdate('compteur', v); }
+function setDistance(v) { arrivedViaBack = false; state.distance = v;  quickUpdate('distance', v); }
+function setDelai(v)    { arrivedViaBack = false; state.delai = v;     quickUpdate('delai', v); }
+
+function toggleRgpd() {
+  arrivedViaBack = false;
+  state.rgpd = !state.rgpd;
+  const card = document.querySelector('.opt-card[data-key="rgpd"]');
+  if (!card) { fullRender(); return; }
+  card.classList.toggle('sel', state.rgpd);
+  const icon = card.querySelector('.ci');
+  if (icon) {
+    icon.style.background = state.rgpd ? '#006d37' : '#f1f5f9';
+    const sp = icon.querySelector('span');
+    if (sp) sp.style.color = state.rgpd ? '#ffffff' : '#0f172a';
+  }
+  const chk = card.querySelector('.rgpd-chk');
+  if (chk) chk.style.display = state.rgpd ? '' : 'none';
+  clearAutoAdvance();
+  updateHeader();
+  updateFooter();
+  checkAutoAdvance();
+}
+
+/* Text inputs — no DOM re-render */
+function softUpdate(key, val) {
+  arrivedViaBack = false;
+  state[key] = val;
+  clearAutoAdvance(); updateHeader(); updateFooter(); checkAutoAdvance();
+}
+function setCP(el) { const v = el.value.replace(/\D/g,'').slice(0,5); el.value=v; softUpdate('codePostal',v); }
+function setMarqueAutre(val) { softUpdate('marqueAutre', val); }
+function setNom(val)  { softUpdate('nom', val); }
+function setTel(val)  { softUpdate('telephone', val); }
+function setMail(val) { softUpdate('email', val); }
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+function nextStep() {
+  if (!canNext() || isSubmitting) return;
+  if (currentStep < STEPS.length - 1) {
+    goingBack = false;
+    stepTransition = true;
+    currentStep++;
+    render();
+  } else {
+    submit();
+  }
+}
+
+function prev() {
+  if (currentStep === 0) return;
+  goingBack = true;
+  arrivedViaBack = true;
+  stepTransition = true;
+  autoAdvancedSteps.delete(currentStep);
+  autoAdvancedSteps.delete(currentStep - 1);
+  currentStep--;
+  render();
+}
+
+/* =========================================================
+   AUTO-ADVANCE
+   ========================================================= */
+function checkAutoAdvance() {
+  if (!canNext() || isDone || isSubmitting) return;
+  if (autoAdvancedSteps.has(currentStep)) return;
+  if (currentStep === 3) return;
+  if (arrivedViaBack) return;
+  const delay = currentStep === 4 ? 1400 : 550;
+  autoTimer = setTimeout(() => {
+    autoAdvancedSteps.add(currentStep);
+    nextStep();
+  }, delay);
+}
+
+function clearAutoAdvance() {
+  if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+}
+
+/* =========================================================
+   SUBMIT
+   ========================================================= */
+async function submit() {
+  isSubmitting = true;
+  updateFooter();
+  try {
+    const photoUrls = [];
+    for (const photo of state.photos) {
+      const fd = new FormData();
+      fd.append('UPLOADCARE_PUB_KEY', UPLOADCARE_KEY);
+      fd.append('UPLOADCARE_STORE', '1');
+      fd.append('file', photo);
+      const res = await fetch('https://upload.uploadcare.com/base/', { method: 'POST', body: fd });
+      const json = await res.json();
+      if (json.file) photoUrls.push(UPLOADCARE_CDN + json.file + '/' + photo.name);
+    }
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nom: state.nom, email: state.email, telephone: state.telephone,
+        logement: state.logement, role: state.role, codePostal: state.codePostal,
+        vehicule: state.vehicule,
+        marque: state.marque === 'Autre' ? state.marqueAutre : state.marque,
+        puissance: state.puissance, nbBornes: state.nbBornes,
+        compteur: state.compteur, distance: state.distance, delai: state.delai,
+        photos: photoUrls,
+      }),
+    });
+  } catch (err) { console.error('Erreur envoi:', err); }
+  isSubmitting = false;
+  isDone = true;
+  stepTransition = true;
+  render();
+}
+
+/* =========================================================
+   RENDER — animates only on step transitions
+   ========================================================= */
+function render() {
+  clearAutoAdvance();
+  updateHeader();
+  updateFooter();
+  const content = document.getElementById('step-content');
+  if (stepTransition) {
+    content.classList.remove('step-enter', 'step-enter-back');
+    void content.offsetWidth;
+    content.classList.add(goingBack ? 'step-enter-back' : 'step-enter');
+    stepTransition = false;
+  }
+  if (isDone) { renderSuccess(); return; }
+  const renderers = [renderStep1, renderStep2, renderStep3, renderStep4, renderStep5];
+  content.innerHTML = renderers[currentStep]();
+  checkAutoAdvance();
+}
+
+function updateHeader() {
+  const lbl = document.getElementById('step-label');
+  const fill = document.getElementById('progress-fill');
+  if (!lbl || !fill) return;
+  if (isDone) { lbl.textContent = 'Demande envoyée'; fill.style.width = '100%'; return; }
+  lbl.textContent = 'Étape ' + (currentStep + 1) + ' sur ' + STEPS.length + ' · ' + STEPS[currentStep];
+  fill.style.width = ((currentStep + (canNext() ? 1 : 0)) / STEPS.length * 100) + '%';
+}
+
+function updateFooter() {
+  const footer = document.getElementById('funnel-footer');
+  if (!footer) return;
+  if (isDone) { footer.style.display = 'none'; return; }
+  footer.style.display = 'flex';
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  if (!prevBtn || !nextBtn) return;
+  prevBtn.disabled = currentStep === 0;
+  nextBtn.disabled = !canNext() || isSubmitting;
+  if (isSubmitting)
+    nextBtn.innerHTML = '<span class="material-symbols-outlined spinner" style="font-size:18px">sync</span> Envoi…';
+  else if (currentStep === STEPS.length - 1)
+    nextBtn.innerHTML = 'Envoyer ma demande <span class="material-symbols-outlined" style="font-size:18px">send</span>';
+  else
+    nextBtn.innerHTML = 'Continuer <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>';
+}
+
+/* =========================================================
+   STEP RENDERERS
+   ========================================================= */
+function stepTitle(kicker, title, sub) {
+  return '<div style="margin-bottom:1.75rem">'
+    + '<div style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#006d37;font-weight:500">' + kicker + '</div>'
+    + '<h2 style="margin-top:0.5rem;font-size:1.5rem;font-weight:600;letter-spacing:-0.025em;color:#0f172a;line-height:1.25' + (sub ? ';margin-bottom:0.375rem' : '') + '">' + title + '</h2>'
+    + (sub ? '<p style="font-size:0.875rem;color:#64748b">' + sub + '</p>' : '')
+    + '</div>';
+}
+
+/* data-key + data-val enable quickUpdate() to find elements without re-render */
+function optCard(key, value, label, desc, icon, active) {
+  const ib = active ? '#006d37' : '#f1f5f9', ic = active ? '#ffffff' : '#0f172a';
+  return '<div onclick="' + key + 'Handler(\'' + e(String(value)) + '\')" data-key="' + key + '" data-val="' + e(String(value)) + '" class="opt-card' + (active ? ' sel' : '') + '">'
+    + '<div style="display:flex;align-items:center;gap:0.75rem">'
+    + '<div class="ci" style="width:2.5rem;height:2.5rem;border-radius:0.75rem;display:grid;place-items:center;flex-shrink:0;background:' + ib + ';transition:background 0.15s">'
+    + '<span class="material-symbols-outlined" style="font-size:20px;color:' + ic + '">' + icon + '</span>'
+    + '</div>'
+    + '<div style="flex:1"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;letter-spacing:-0.01em">' + label + '</div>'
+    + (desc ? '<div style="font-size:0.75rem;color:#64748b;margin-top:2px">' + desc + '</div>' : '')
+    + '</div></div></div>';
+}
+
+function pill(key, value, label, active) {
+  return '<button onclick="' + key + 'Handler(\'' + e(String(value)) + '\')" data-key="' + key + '" data-val="' + e(String(value)) + '" class="pill' + (active ? ' sel' : '') + '">' + label + '</button>';
+}
+
+/* Per-key handler dispatch (avoids eval, keeps onclick concise) */
+const HANDLERS = {
+  logement: setLogement, role: setRole, vehicule: setVehicule,
+  marque: setMarque, puissance: setPuissance,
+  compteur: setCompteur, distance: setDistance, delai: setDelai,
+};
+function logementHandler(v) { setLogement(v); }
+function roleHandler(v)     { setRole(v); }
+function vehiculeHandler(v) { setVehicule(v); }
+function marqueHandler(v)   { setMarque(v); }
+function puissanceHandler(v){ setPuissance(v); }
+function nbBornesHandler(v) { setNbBornes(+v); }
+function compteurHandler(v) { setCompteur(v); }
+function distanceHandler(v) { setDistance(v); }
+function delaiHandler(v)    { setDelai(v); }
+
+function lbl(key) { return '<div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">'; }
+
+/* ---- Step 1 ---- */
+function renderStep1() {
+  let h = stepTitle('Étape 1 · Logement', 'Où souhaitez-vous installer votre borne ?',
+    'Ces informations nous permettent de qualifier votre projet en quelques secondes.');
+
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">';
+  h += optCard('logement', 'domicile',    'Borne à domicile', 'Maison individuelle',     'home',      state.logement === 'domicile');
+  h += optCard('logement', 'copropriete', 'Copropriété',       'Immeuble, parking commun', 'apartment', state.logement === 'copropriete');
+  h += '</div>';
+
+  if (state.logement) {
+    const cols = state.logement === 'copropriete' ? 3 : 2;
+    h += '<div style="padding-top:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Vous êtes…</div>'
+      + '<div style="display:grid;grid-template-columns:repeat(' + cols + ',1fr);gap:0.75rem">';
+    h += optCard('role', 'proprietaire', 'Propriétaire', '', 'key',    state.role === 'proprietaire');
+    h += optCard('role', 'locataire',    'Locataire',    '', 'person', state.role === 'locataire');
+    if (state.logement === 'copropriete')
+      h += optCard('role', 'syndic', 'Syndic', '', 'work', state.role === 'syndic');
+    h += '</div></div>';
+  }
+
+  h += '<div style="padding-top:1.5rem">'
+    + '<label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.25rem">Code postal</label>'
+    + '<div style="font-size:0.75rem;color:#64748b;margin-bottom:0.5rem">Pour identifier les installateurs près de chez vous.</div>'
+    + '<input type="text" inputmode="numeric" maxlength="5" placeholder="75001" value="' + e(state.codePostal) + '" oninput="setCP(this)" class="field-in" /></div>';
+  return h;
+}
+
+/* ---- Step 2 ---- */
+function renderStep2() {
+  const pro = isPro();
+  let h = stepTitle(
+    pro ? 'Étape 2 · Projet' : 'Étape 2 · Véhicule',
+    pro ? "Parlez-nous de votre projet d'installation" : 'Parlez-nous de votre véhicule',
+    pro ? 'Indiquez le nombre de bornes et la puissance souhaitée.'
+        : 'Ces informations nous aident à dimensionner votre installation.'
+  );
+
+  if (!pro) {
+    h += '<div style="margin-bottom:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Avez-vous un véhicule électrique ?</div>'
+      + '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem">'
+      + optCard('vehicule', 'oui',      "Oui, je l'ai déjà", '', 'electric_car', state.vehicule === 'oui')
+      + optCard('vehicule', 'commande', 'Commandé',           '', 'electric_car', state.vehicule === 'commande')
+      + optCard('vehicule', 'projet',   "C'est un projet",    '', 'electric_car', state.vehicule === 'projet')
+      + '</div></div>';
+
+    h += '<div style="margin-bottom:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Marque du véhicule</div>'
+      + '<div style="display:flex;flex-wrap:wrap;gap:0.5rem">'
+      + MARQUES.map(m => pill('marque', m, m, state.marque === m)).join('')
+      + '</div>';
+    if (state.marque === 'Autre')
+      h += '<div style="margin-top:0.75rem"><input type="text" placeholder="Modèle (ex : Volkswagen ID.3)" value="' + e(state.marqueAutre) + '" oninput="setMarqueAutre(this.value)" class="field-in" /></div>';
+    h += '</div>';
+  }
+
+  h += '<div style="margin-bottom:' + (pro ? '1.5rem' : '0') + '">'
+    + '<div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Puissance souhaitée</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:0.5rem">'
+    + PUISSANCES.map(p => pill('puissance', p.v, p.l, state.puissance === p.v)).join('')
+    + '</div></div>';
+
+  if (pro)
+    h += '<div><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Combien de bornes souhaitez-vous installer ?</div>'
+      + '<div style="display:flex;flex-wrap:wrap;gap:0.5rem">'
+      + [1,2,3,4,5,10,15,20,21].map(n => pill('nbBornes', n, n===21?'20+':n+' borne'+(n>1?'s':''), state.nbBornes===n)).join('')
+      + '</div></div>';
+  return h;
+}
+
+/* ---- Step 3 ---- */
+function renderStep3() {
+  let h = stepTitle('Étape 3 · Projet', 'Précisons votre installation');
+
+  h += '<div style="margin-bottom:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Type de compteur</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:0.5rem">'
+    + pill('compteur', 'mono',    'Monophasé',      state.compteur === 'mono')
+    + pill('compteur', 'tri',     'Triphasé',        state.compteur === 'tri')
+    + pill('compteur', 'unknown', 'Je ne sais pas', state.compteur === 'unknown')
+    + '</div></div>';
+
+  if (!isPro())
+    h += '<div style="margin-bottom:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Distance entre le tableau et la borne</div>'
+      + '<div style="display:flex;flex-wrap:wrap;gap:0.5rem">'
+      + pill('distance', '<5',  'Moins de 5 m',  state.distance === '<5')
+      + pill('distance', '5-15','5 à 15 m',       state.distance === '5-15')
+      + pill('distance', '>15', 'Plus de 15 m',   state.distance === '>15')
+      + '</div></div>';
+
+  h += '<div><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Délai souhaité</div>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:0.5rem">'
+    + pill('delai', 'asap',    'Dès que possible', state.delai === 'asap')
+    + pill('delai', '1m',      'Sous 1 mois',       state.delai === '1m')
+    + pill('delai', '3m',      'Sous 3 mois',       state.delai === '3m')
+    + pill('delai', 'compare', 'Je compare',        state.delai === 'compare')
+    + '</div></div>';
+  return h;
+}
+
+/* ---- Step 4 ---- */
+const PHOTO_TARGETS = [
+  { key: 'tableau', label: 'Tableau électrique' },
+  { key: 'linky',   label: 'Compteur Linky' },
+  { key: 'parking', label: 'Place de parking' },
+  { key: 'cable',   label: 'Passage de câble' },
+];
+
+function renderStep4() {
+  let h = stepTitle('Étape 4 · Photos (optionnel)', 'Ajoutez des photos pour un devis précis',
+    'Plus vos photos sont précises, plus le devis sera juste — gain de temps assuré.');
+  h += '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem">';
+  PHOTO_TARGETS.forEach(t => {
+    h += '<label class="photo-zone">'
+      + '<span class="material-symbols-outlined" style="font-size:24px;color:#64748b">upload</span>'
+      + '<div style="margin-top:0.5rem;font-size:0.875rem;font-weight:500;color:#0f172a">' + t.label + '</div>'
+      + '<div style="font-size:0.75rem;color:#64748b">Cliquer pour ajouter</div>'
+      + '<input type="file" accept="image/*" capture="environment" multiple onchange="handlePhotos(this.files)" style="position:absolute;inset:0;opacity:0;cursor:pointer" />'
+      + '</label>';
+  });
+  h += '</div>';
+  if (state.photos.length > 0)
+    h += '<div style="margin-top:1rem;font-size:0.8rem;color:#64748b;display:flex;align-items:center;gap:0.4rem">'
+      + '<span class="material-symbols-outlined" style="font-size:16px;color:#006d37">check_circle</span>'
+      + state.photos.length + ' photo' + (state.photos.length > 1 ? 's' : '') + ' ajoutée' + (state.photos.length > 1 ? 's' : '') + '</div>';
+  return h;
+}
+
+/* ---- Step 5 ---- */
+function renderStep5() {
+  let h = stepTitle('Étape 5 · Contact', 'Recevez vos devis sous 24h', 'Vos coordonnées restent confidentielles.');
+  h += '<div style="display:flex;flex-direction:column;gap:1rem">'
+    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem">Nom et prénom</label>'
+    + '<input type="text" placeholder="Jean Dupont" value="' + e(state.nom) + '" oninput="setNom(this.value)" class="field-in" autofocus /></div>'
+    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">'
+    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem">Téléphone</label>'
+    + '<input type="tel" inputmode="tel" placeholder="06 12 34 56 78" value="' + e(state.telephone) + '" oninput="setTel(this.value)" class="field-in" /></div>'
+    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem">Email</label>'
+    + '<input type="email" inputmode="email" placeholder="jean@exemple.fr" value="' + e(state.email) + '" oninput="setMail(this.value)" class="field-in" /></div>'
+    + '</div>';
+
+  const ib = state.rgpd ? '#006d37' : '#f1f5f9', ic = state.rgpd ? '#ffffff' : '#0f172a';
+  h += '<div onclick="toggleRgpd()" data-key="rgpd" data-val="true" class="opt-card' + (state.rgpd ? ' sel' : '') + '">'
+    + '<div style="display:flex;align-items:center;gap:0.75rem">'
+    + '<div class="ci" style="width:2.5rem;height:2.5rem;border-radius:0.75rem;display:grid;place-items:center;flex-shrink:0;background:' + ib + '">'
+    + '<span class="material-symbols-outlined" style="font-size:20px;color:' + ic + '">shield</span></div>'
+    + '<div style="flex:1"><div style="font-size:0.875rem;font-weight:500;color:#0f172a">J\'accepte d\'être contacté</div>'
+    + '<div style="font-size:0.75rem;color:#64748b;margin-top:2px">Mes données restent confidentielles — RGPD.</div></div>'
+    + '<span class="rgpd-chk material-symbols-outlined" style="font-size:20px;color:#006d37;margin-left:auto;display:' + (state.rgpd ? '' : 'none') + '">check_circle</span>'
+    + '</div></div>';
+  h += '</div>';
+  return h;
+}
+
+/* ---- Success ---- */
+function renderSuccess() {
+  document.getElementById('step-content').innerHTML =
+    '<div style="text-align:center;padding:2rem 0">'
+    + '<div class="success-bounce" style="width:4rem;height:4rem;border-radius:9999px;background:linear-gradient(135deg,#006d37,#006397);display:flex;align-items:center;justify-content:center;margin:0 auto;box-shadow:0 4px 20px rgba(0,109,55,0.35)">'
+    + '<span class="material-symbols-outlined" style="font-size:30px;color:white">celebration</span></div>'
+    + '<h3 style="margin-top:1.25rem;font-size:1.5rem;font-weight:600;letter-spacing:-0.025em;color:#0f172a">Demande envoyée !</h3>'
+    + '<p style="margin-top:0.5rem;font-size:0.875rem;color:#64748b;max-width:320px;margin-left:auto;margin-right:auto">'
+    + 'Nos installateurs partenaires IRVE vont étudier votre projet et vous recontacter sous 24h ouvrées.</p>'
+    + '<a href="index.html" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.75rem;background:linear-gradient(135deg,#006d37,#006397);color:white;border-radius:9999px;padding:0.75rem 1.75rem;font-size:0.875rem;font-weight:500;text-decoration:none;box-shadow:0 4px 14px rgba(0,109,55,0.35)">Parfait, merci !</a>'
+    + '</div>';
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+stepTransition = true;
+render();
+</script>
 
 <!-- Footer -->
 <footer class="bg-surface-container border-t border-outline-variant py-lg mt-xl">
@@ -606,9 +803,10 @@
     <div>
       <h4 class="font-label-md text-label-md uppercase tracking-wider text-primary mb-sm">Navigation</h4>
       <nav class="flex flex-col gap-xs">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Installation</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">FAQ</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Contact</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="index.html">Accueil</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="particulier.html">Particuliers</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="entreprise.html">Entreprises</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="devis.html">Devis</a>
       </nav>
     </div>
     <div>
@@ -633,151 +831,5 @@
   </div>
 </footer>
 
-<script>
-  const state = {};
-  const stepMeta = [
-    {num:1, label:"Votre profil"},
-    {num:2, label:"Installation"},
-    {num:3, label:"Électricité"},
-    {num:4, label:"Délai & lieu"},
-    {num:5, label:"Coordonnées"},
-    {num:6, label:"Récapitulatif"},
-  ];
-
-  function pick(el) {
-    const g = el.dataset.group;
-    document.querySelectorAll('[data-group="'+g+'"]').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    state[g] = el.dataset.val;
-    checkCurrent();
-  }
-
-  function currentStep() {
-    for (let i = 1; i <= 7; i++) {
-      if (document.getElementById('s'+i).classList.contains('active')) return i;
-    }
-    return 1;
-  }
-
-  function checkCurrent() {
-    const n = currentStep();
-    checkStep(n);
-  }
-
-  function checkStep(n) {
-    const btn = document.getElementById('n'+n);
-    if (!btn) return;
-    let ok = false;
-    if (n === 1) ok = !!state.profil;
-    if (n === 2) ok = !!(state.nb && state.puissance);
-    if (n === 3) ok = !!state.distance;
-    if (n === 4) ok = !!state.delai;
-    if (n === 5) {
-      const em = document.getElementById('inp_email').value.trim();
-      const nm = document.getElementById('inp_nom').value.trim();
-      const ch = document.getElementById('chk_rgpd').checked;
-      ok = !!(em && nm && ch);
-    }
-    btn.disabled = !ok;
-  }
-
-  document.getElementById('inp_email').addEventListener('input', () => checkStep(5));
-  document.getElementById('inp_nom').addEventListener('input', () => checkStep(5));
-  document.getElementById('chk_rgpd').addEventListener('change', () => checkStep(5));
-
-  function updateUI(n) {
-    document.querySelectorAll('.wiz-step').forEach(p => p.classList.remove('active'));
-    document.getElementById('s'+n).classList.add('active');
-    const displayN = Math.min(n, 6);
-    document.getElementById('stepLabel').textContent =
-      'Étape ' + displayN + ' sur 6 · ' + (stepMeta[displayN-1] ? stepMeta[displayN-1].label : '');
-    document.getElementById('prog').style.width = (displayN / 6 * 100) + '%';
-    document.querySelectorAll('[data-dot]').forEach(d => {
-      const dn = parseInt(d.dataset.dot);
-      d.classList.remove('active','done');
-      if (dn < displayN) d.classList.add('done');
-      else if (dn === displayN) d.classList.add('active');
-    });
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-
-  function goNext(n) {
-    if (n === 6) buildRecap();
-    updateUI(n);
-    checkStep(n);
-  }
-
-  function goBack(n) {
-    updateUI(n);
-    checkStep(n);
-  }
-
-  function buildRecap() {
-    const prenom = document.getElementById('inp_prenom').value.trim();
-    const nom = document.getElementById('inp_nom').value.trim();
-    const email = document.getElementById('inp_email').value.trim();
-    const tel = document.getElementById('inp_tel').value.trim();
-    const adresse = document.getElementById('inp_adresse').value.trim();
-    const borne = document.getElementById('sel_borne').value;
-    const msg = document.getElementById('inp_msg').value.trim();
-
-    const rows = [
-      ['Profil', state.profil || '—'],
-      ['Nombre de bornes', state.nb || '—'],
-      ['Puissance', state.puissance || '—'],
-      ['Distance tableau', state.distance || '—'],
-      borne ? ['Modèle de borne', borne] : null,
-      ['Délai souhaité', state.delai || '—'],
-      adresse ? ['Adresse chantier', adresse] : null,
-      ['Contact', (prenom + ' ' + nom).trim() || '—'],
-      ['Email', email || '—'],
-      tel ? ['Téléphone', tel] : null,
-      msg ? ['Message', msg] : null,
-    ].filter(Boolean);
-
-    document.getElementById('recap_box').innerHTML = rows.map(([l, v]) =>
-      '<div class="recap-row"><span style="color:#6c7b6d">' + l + '</span><span style="font-weight:600;color:#191c1e">' + v + '</span></div>'
-    ).join('');
-
-    const tags = [state.profil, state.nb, state.puissance, state.delai].filter(Boolean);
-    document.getElementById('tags_box').innerHTML = tags.map(t =>
-      '<span class="tag-badge"><span class="material-symbols-outlined" style="font-size:12px;font-variation-settings:\'FILL\' 1">check_circle</span>' + t + '</span>'
-    ).join('');
-  }
-
-  function submitForm() {
-    const prenom = document.getElementById('inp_prenom').value.trim();
-    const nom = document.getElementById('inp_nom').value.trim();
-    const email = document.getElementById('inp_email').value.trim();
-    const tel = document.getElementById('inp_tel').value.trim();
-    const adresse = document.getElementById('inp_adresse').value.trim();
-    const borne = document.getElementById('sel_borne').value;
-    const msg = document.getElementById('inp_msg').value.trim();
-
-    document.getElementById('f_profil').value = state.profil || '';
-    document.getElementById('f_nb').value = state.nb || '';
-    document.getElementById('f_puissance').value = state.puissance || '';
-    document.getElementById('f_distance').value = state.distance || '';
-    document.getElementById('f_borne').value = borne;
-    document.getElementById('f_delai').value = state.delai || '';
-    document.getElementById('f_adresse').value = adresse;
-    document.getElementById('f_prenom').value = prenom;
-    document.getElementById('f_nom').value = nom;
-    document.getElementById('f_email').value = email;
-    document.getElementById('f_tel').value = tel;
-    document.getElementById('f_msg').value = msg;
-
-    const form = document.getElementById('netlify_form');
-    const formData = new FormData(form);
-
-    fetch('/', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(() => updateUI(7))
-    .catch(() => updateUI(7));
-  }
-</script>
 </body>
 </html>
