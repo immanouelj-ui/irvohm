@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="light" lang="fr">
+<html lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -15,6 +15,12 @@
 <meta property="og:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
 <meta property="og:url" content="https://irvohm.fr/"/>
 <meta property="og:type" content="website"/>
+<meta property="og:image" content="https://irvohm.fr/borne-recharge.webp"/>
+
+<!-- ✅ PERF n°1 : PRELOAD de l'image LCP (la plus grosse image visible au chargement).
+     C'est LE correctif principal pour faire baisser ton LCP de 4,4 s.
+     Le navigateur la télécharge immédiatement, sans attendre le CSS. -->
+<link rel="preload" as="image" href="borne-recharge.webp" fetchpriority="high"/>
 
 <!-- ✅ PERF : preconnect Google Fonts AVANT les liens (réduit la latence) -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -24,12 +30,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 
 <!-- ✅ PERF : Material Symbols en async (non bloquant) -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet"/></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/></noscript>
 
-<!-- ✅ PERF : Tailwind CDN remplacé par CSS inline (élimine le rendu côté client)
-     NOTE : En production, générer un vrai fichier CSS avec `npx tailwindcss build`
-     Le CSS ci-dessous remplace le CDN et le config JS qui bloquaient le rendu -->
+<!-- ✅ PERF : Tailwind CDN remplacé par CSS inline (élimine le rendu côté client qui bloquait l'affichage) -->
 <style>
   /* Reset & base */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,19 +53,14 @@
     --primary: #006d37;
     --secondary: #006397;
     --tertiary: #006b58;
-    --on-primary: #ffffff;
-    --on-secondary: #ffffff;
     --surface: #f7f9fb;
     --surface-container-low: #f2f4f6;
     --surface-container: #eceef0;
     --on-surface: #191c1e;
     --on-surface-variant: #3d4a3e;
     --outline-variant: #bbcbbb;
-    --primary-container: #2ecc71;
-    --secondary-container: #5cb8fd;
     --inverse-surface: #2d3133;
     --inverse-on-surface: #eff1f3;
-    --error: #ba1a1a;
   }
 
   /* Utilitaires layout */
@@ -69,7 +68,6 @@
   .px-page { padding-inline: 16px; }
   @media (min-width: 768px) { .px-page { padding-inline: 64px; } }
   .py-xl { padding-block: 80px; }
-  .py-lg { padding-block: 48px; }
 
   /* Gradient brand */
   .gradient-brand { background: linear-gradient(135deg, #006d37 0%, #006397 100%); }
@@ -105,48 +103,25 @@
     top: 0;
     z-index: 50;
   }
-  .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-  }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 80px; }
   .logo {
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 24px; font-weight: 700;
     background: linear-gradient(135deg, #006d37, #006397);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .nav-desktop { display: none; gap: 24px; align-items: center; }
   @media (min-width: 768px) { .nav-desktop { display: flex; } }
   .nav-link {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--on-surface-variant);
-    transition: color 0.2s;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--on-surface-variant); transition: color 0.2s;
   }
   .nav-link:hover { color: var(--primary); }
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #fff;
-    transition: opacity 0.2s, transform 0.1s;
-    cursor: pointer;
-    border: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 8px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+    color: #fff; transition: opacity 0.2s, transform 0.1s; cursor: pointer; border: none;
   }
   .btn-primary:hover { opacity: 0.9; }
   .btn-primary:active { transform: scale(0.97); }
@@ -159,52 +134,21 @@
     position: absolute; top: -80px; right: -80px;
     opacity: 0.03; pointer-events: none; font-size: 400px;
     font-family: 'Material Symbols Outlined';
-    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
-    line-height: 1;
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48; line-height: 1;
   }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
   @media (min-width: 768px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
   .hero-logo { width: 256px; height: auto; }
   @media (min-width: 768px) { .hero-logo { width: 320px; } }
-  .hero h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--on-surface);
-    margin-top: 24px;
-  }
-  @media (min-width: 768px) {
-    .hero h1 { font-size: 48px; letter-spacing: -0.02em; line-height: 1.1; }
-  }
-  .hero-desc {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--on-surface-variant);
-    max-width: 32rem;
-    margin-top: 24px;
-  }
+  .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.2; color: var(--on-surface); margin-top: 24px; }
+  @media (min-width: 768px) { .hero h1 { font-size: 48px; letter-spacing: -0.02em; line-height: 1.1; } }
+  .hero-desc { font-size: 18px; line-height: 1.6; color: var(--on-surface-variant); max-width: 32rem; margin-top: 24px; }
   .hero-actions { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
   @media (min-width: 640px) { .hero-actions { flex-direction: row; } }
   .btn-outline-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 40px;
-    border-radius: 12px;
-    border: 2px solid var(--secondary);
-    color: var(--secondary);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    transition: background 0.2s;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 40px; border-radius: 12px; border: 2px solid var(--secondary);
+    color: var(--secondary); font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; transition: background 0.2s;
   }
   .btn-outline-secondary:hover { background: rgba(92,184,253,0.1); }
   .hero-social-proof { display: flex; align-items: center; gap: 24px; margin-top: 24px; }
@@ -216,95 +160,32 @@
 
   /* Hero image card */
   .hero-img-wrap { position: relative; }
-  .hero-img-glow {
-    position: absolute; inset: -16px;
-    background: linear-gradient(135deg, #006d37, #006397);
-    border-radius: 32px; opacity: 0.1; filter: blur(32px);
-    transition: opacity 0.3s;
-  }
+  .hero-img-glow { position: absolute; inset: -16px; background: linear-gradient(135deg, #006d37, #006397); border-radius: 32px; opacity: 0.1; filter: blur(32px); transition: opacity 0.3s; }
   .hero-img-wrap:hover .hero-img-glow { opacity: 0.2; }
-  .hero-img-card {
-    position: relative;
-    background: white;
-    padding: 8px;
-    border-radius: 32px;
-    border: 1px solid rgba(187,203,187,0.3);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-    overflow: hidden;
-  }
-  .hero-img-card img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 24px;
-  }
-  .hero-badge {
-    position: absolute;
-    bottom: 24px; right: 24px; left: 24px;
-    padding: 16px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  .hero-img-card { position: relative; background: white; padding: 8px; border-radius: 32px; border: 1px solid rgba(187,203,187,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.12); overflow: hidden; }
+  .hero-img-card img { width: 100%; height: 500px; object-fit: cover; border-radius: 24px; }
+  .hero-badge { position: absolute; bottom: 24px; right: 24px; left: 24px; padding: 16px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; }
   .badge-label { font-size: 12px; color: var(--on-surface-variant); margin-bottom: 4px; }
   .badge-status { display: flex; align-items: center; gap: 4px; }
   .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
+  @media (prefers-reduced-motion: reduce) { .pulse-dot { animation: none; } }
   .badge-text { font-size: 14px; font-weight: 500; color: var(--primary); }
 
   /* ── Avantages ── */
   .advantages { background: white; }
-  .advantages-eyebrow {
-    color: var(--primary);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    display: block;
-    text-align: center;
-    margin-bottom: 8px;
-  }
-  .advantages h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    text-align: center;
-    color: var(--on-surface);
-    margin-bottom: 80px;
-  }
+  .advantages-eyebrow { color: var(--primary); font-size: 14px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; display: block; text-align: center; margin-bottom: 8px; }
+  .advantages h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 600; text-align: center; color: var(--on-surface); margin-bottom: 80px; }
   .cards-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
   @media (min-width: 768px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
-  .adv-card {
-    padding: 48px;
-    background: var(--surface);
-    border-radius: 24px;
-    border: 1px solid rgba(187,203,187,0.2);
-    transition: border-color 0.2s;
-  }
-  .adv-card:nth-child(1):hover { border-color: rgba(0,109,55,0.3); }
-  .adv-card:nth-child(2):hover { border-color: rgba(0,99,151,0.3); }
-  .adv-card:nth-child(3):hover { border-color: rgba(0,107,88,0.3); }
-  .adv-icon {
-    width: 64px; height: 64px; border-radius: 16px;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
-    font-size: 36px;
-    transition: transform 0.2s;
-  }
+  .adv-card { padding: 48px; background: var(--surface); border-radius: 24px; border: 1px solid rgba(187,203,187,0.2); transition: border-color 0.2s; }
+  .adv-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 36px; transition: transform 0.2s; }
   .adv-card:hover .adv-icon { transform: scale(1.1); }
   @media (min-width: 768px) { .adv-icon { margin: 0 0 24px; } }
   .adv-icon-1 { background: rgba(0,109,55,0.1); color: var(--primary); }
   .adv-icon-2 { background: rgba(0,99,151,0.1); color: var(--secondary); }
   .adv-icon-3 { background: rgba(0,107,88,0.1); color: var(--tertiary); }
-  .adv-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--on-surface);
-    margin-bottom: 12px;
-    text-align: center;
-  }
+  .adv-card h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; color: var(--on-surface); margin-bottom: 12px; text-align: center; }
   @media (min-width: 768px) { .adv-card h3 { text-align: left; } }
   .adv-card p { font-size: 16px; color: var(--on-surface-variant); text-align: center; }
   @media (min-width: 768px) { .adv-card p { text-align: left; } }
@@ -313,34 +194,13 @@
   .services { background: var(--surface-container-low); }
   .services-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
   @media (min-width: 768px) { .services-grid { grid-template-columns: 7fr 5fr; } }
-  .service-card {
-    position: relative;
-    border-radius: 32px;
-    overflow: hidden;
-    min-height: 400px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  }
-  .service-card img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s;
-  }
+  .service-card { position: relative; border-radius: 32px; overflow: hidden; min-height: 400px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+  .service-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; }
   .service-card:hover img { transform: scale(1.08); }
   .service-overlay-1 { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%); }
   .service-overlay-2 { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,99,151,0.8) 0%, rgba(0,99,151,0.2) 50%, transparent 100%); }
   .service-content { position: absolute; bottom: 0; left: 0; padding: 48px; color: white; max-width: 28rem; }
-  .service-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 9999px;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.2);
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
+  .service-tag { display: inline-block; padding: 4px 12px; border-radius: 9999px; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); font-size: 12px; font-weight: 600; margin-bottom: 8px; }
   .service-content h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 600; margin-bottom: 12px; }
   .service-content p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 24px; }
   .service-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
@@ -350,89 +210,29 @@
   .service-link-2:hover { color: white; }
 
   /* ── Stats ── */
-  .stats { }
-  .stats-card {
-    background: white;
-    border-radius: 40px;
-    padding: 80px;
-    border: 1px solid rgba(187,203,187,0.3);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    text-align: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  }
+  .stats-card { background: white; border-radius: 40px; padding: 80px; border: 1px solid rgba(187,203,187,0.3); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
   @media (min-width: 768px) { .stats-card { grid-template-columns: repeat(4, 1fr); } }
-  .stat-val {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 4px;
-  }
+  .stat-val { font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 4px; }
   .stat-val-1 { color: var(--primary); }
   .stat-val-2 { color: var(--secondary); }
   .stat-label { font-size: 14px; font-weight: 500; color: var(--on-surface-variant); letter-spacing: 0.1em; text-transform: uppercase; }
 
   /* ── CTA ── */
   .cta-section { padding-block: 80px; padding-inline: 16px; }
-  .cta-box {
-    background: var(--inverse-surface);
-    border-radius: 40px;
-    padding: 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+  .cta-box { background: var(--inverse-surface); border-radius: 40px; padding: 48px; text-align: center; position: relative; overflow: hidden; }
   @media (min-width: 768px) { .cta-box { padding: 80px; } }
-  .cta-bg-icon {
-    position: absolute; top: 0; right: 0; padding: 24px;
-    opacity: 0.1; font-size: 200px; line-height: 1;
-    font-family: 'Material Symbols Outlined';
-    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
-  }
-  .cta-box h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--inverse-on-surface);
-    margin-bottom: 24px;
-    position: relative; z-index: 1;
-  }
-  .cta-box p {
-    font-size: 18px;
-    color: rgba(239,241,243,0.8);
-    max-width: 42rem;
-    margin-inline: auto;
-    margin-bottom: 80px;
-    position: relative; z-index: 1;
-  }
+  .cta-bg-icon { position: absolute; top: 0; right: 0; padding: 24px; opacity: 0.1; font-size: 200px; line-height: 1; font-family: 'Material Symbols Outlined'; font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48; }
+  .cta-box h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 600; color: var(--inverse-on-surface); margin-bottom: 24px; position: relative; z-index: 1; }
+  .cta-box p { font-size: 18px; color: rgba(239,241,243,0.8); max-width: 42rem; margin-inline: auto; margin-bottom: 80px; position: relative; z-index: 1; }
   .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 24px; position: relative; z-index: 1; }
   @media (min-width: 640px) { .cta-actions { flex-direction: row; justify-content: center; } }
-  .btn-cta-main {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 40px; border-radius: 12px;
-    background: #2ecc71; color: #00210c;
-    font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600;
-    transition: transform 0.2s;
-  }
+  .btn-cta-main { display: inline-flex; align-items: center; gap: 8px; padding: 12px 40px; border-radius: 12px; background: #2ecc71; color: #00210c; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; transition: transform 0.2s; }
   .btn-cta-main:hover { transform: scale(1.03); }
-  .btn-cta-tel {
-    display: inline-flex; align-items: center; gap: 8px;
-    color: var(--inverse-on-surface);
-    font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600;
-    transition: opacity 0.2s;
-  }
+  .btn-cta-tel { display: inline-flex; align-items: center; gap: 8px; color: var(--inverse-on-surface); font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; transition: opacity 0.2s; }
   .btn-cta-tel:hover { opacity: 0.8; }
 
   /* ── Footer ── */
-  footer {
-    background: var(--surface-container);
-    padding-block: 48px;
-    margin-top: 80px;
-    border-top: 1px solid var(--outline-variant);
-  }
+  footer { background: var(--surface-container); padding-block: 48px; margin-top: 80px; border-top: 1px solid var(--outline-variant); }
   .footer-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
   @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
   .footer-logo { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: var(--on-surface); margin-bottom: 12px; }
@@ -444,8 +244,6 @@
   .footer-contact p { display: flex; align-items: center; gap: 8px; font-size: 16px; color: var(--on-surface-variant); margin-bottom: 8px; }
   .footer-copy { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(187,203,187,0.3); }
   .footer-copy p { font-size: 16px; color: rgba(61,74,62,0.6); }
-
-  /* ── Schema.org data (invisible) ── */
 </style>
 
 <!-- ✅ SEO : Schema.org LocalBusiness -->
@@ -459,7 +257,6 @@
   "email": "contact@irvohm.fr",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "",
     "addressLocality": "Sarcelles",
     "postalCode": "95200",
     "addressRegion": "Île-de-France",
@@ -487,7 +284,7 @@
     </nav>
     <div style="display:flex;align-items:center;gap:12px;">
       <a href="devis.html" class="btn-primary gradient-brand">Devis Gratuit</a>
-      <button class="btn-menu" aria-label="Menu" aria-expanded="false">
+      <button class="btn-menu" aria-label="Ouvrir le menu" aria-expanded="false">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
@@ -501,12 +298,12 @@
     <div class="max-w px-page hero-grid">
       <!-- Colonne texte -->
       <div>
-        <!-- ✅ PERF : fetchpriority="high" sur le logo (LCP candidate) -->
+        <!-- ✅ Image locale + dimensions explicites (évite le CLS). Pas de fetchpriority ici
+             pour ne pas concurrencer la vraie image LCP (celle de droite). -->
         <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOrepZ9qgj1olRb_jlyW7lH0cDWHU6-a0Fi38-ztjy-xpwJxwiLYLV6zsbb0YgsxaY21vlID6Ja7116j_cTZ0mTd5nk1PbZhA9luLTZewlrv5Hx1g5m_qJZka9sbyPCj7Qp__KQwI_oGVxDYaat3VyeGOcnbAbdhOkNZK8B4ygEwP7ijFjKIoib3TnkmQ1XiZFpT1d9m4YsfAFTqklbsyEFC6EDXwFrvUu_Z4pAQzyGY4ntR67jHwp6xDbIaI1R4CNvjuOauFzE0by"
-          alt="Logo IRV'OHM"
+          src="logo-irvohm.webp"
+          alt="Logo IRV'OHM, installateur de bornes de recharge"
           class="hero-logo"
-          fetchpriority="high"
           width="320" height="120"
         />
         <h1>
@@ -526,10 +323,11 @@
         </div>
         <div class="hero-social-proof">
           <div class="avatar-stack">
-            <!-- ✅ PERF : loading="lazy" sur les avatars hors-écran critique -->
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ6dU2W6i83T9iZ0AZUmISvA2NFMyaL7nN-6wXFBCMKM2na_R5ZYdqyD_PHIvn2y3lDxPmkYDrw2ob__ggmFGQUGLT0X3KXzquYgr0ydPhrJ7jyLsSh8gus3B5itrIau_x5ouImImThrR3Mrb-SD4esQ9r3-cRENIgFQsj8_-WAAcxYE5eTn49qoyvIScw5nAc6ipWZIxVU_jPSEUSG-BXdIoKXGriPaAObgMmYCbklx9z--Y5ZfMcqrrvsL-7xJoW4ccNFsq-2t4T" alt="Client satisfait" loading="lazy" width="40" height="40"/>
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Qgc4XzPH0T5yJ4mLkj1jYKksd2Ycded1egiWWoZXmMm2E1Aq5Im85h-juwPaKdmKVcsSJ14ROar8YpiDj8Mu-o-GsVM-USG-Xzt1tqRHYS1oWHDYPnirc-WDeWGl2ScN_qz7lXV2fzX1i75Ox9NprRZR5WqMVLobMpBufv2izP9S_q6NCQDhgJ54qQaWH00qZDlv13QR_KvvyI2AMufN6V4SuwEvAiLlOJg00Vkt2dIqJaPXxDDbDspIOFVNG80bhr1ktEBRFygn" alt="Client satisfait" loading="lazy" width="40" height="40"/>
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf5XGb5Cb5cibZBlir8Lmde75WCtX40yKB7oLArrE9GOypiMPM6l50MvuhfzQNVXBMjybU-BNLiCmiwQ40vM3DsuZaN1xWOQky-Hg-bzmX5kJdXCxc2PLwWC1miHME2dFNWEIX3BQy6MBWYmRvj81cufzKHFef3TetxYMRSHKlWe8QP-Sthq1vCNBW8xENH0nq3y3_vB-76GcH2L17w-z1JwioLQQ1qmBG2JRuhtFHOUu9BD_g_hHpjSLOgJHZJ7GUxNHmw238su8" alt="Client satisfait" loading="lazy" width="40" height="40"/>
+            <!-- ✅ Images locales + dimensions. Au-dessus de la ligne de flottaison :
+                 decoding="async" plutôt que lazy pour ne pas retarder leur affichage. -->
+            <img src="client-1.webp" alt="Client IRV'OHM satisfait" decoding="async" width="40" height="40"/>
+            <img src="client-2.webp" alt="Client IRV'OHM satisfait" decoding="async" width="40" height="40"/>
+            <img src="client-3.webp" alt="Client IRV'OHM satisfait" decoding="async" width="40" height="40"/>
           </div>
           <p class="proof-label"><strong>+500 installations</strong><br/>réalisées avec succès</p>
         </div>
@@ -539,9 +337,10 @@
       <div class="hero-img-wrap">
         <div class="hero-img-glow" aria-hidden="true"></div>
         <div class="hero-img-card">
-          <!-- ✅ PERF : fetchpriority="high" + dimensions explicites sur l'image LCP -->
+          <!-- ✅ IMAGE LCP : locale + WebP + preload (dans le <head>) + fetchpriority="high"
+               + dimensions explicites. C'est l'élément qui plombait ton LCP à 4,4 s. -->
           <img
-            src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80"
+            src="borne-recharge.webp"
             alt="Borne de recharge pour véhicule électrique installée par IRV'OHM"
             fetchpriority="high"
             width="800" height="500"
@@ -568,23 +367,17 @@
       <h2 id="avantages-title">L'excellence au service de votre mobilité</h2>
       <div class="cards-grid">
         <div class="adv-card">
-          <div class="adv-icon adv-icon-1">
-            <span class="material-symbols-outlined" style="font-size:36px">speed</span>
-          </div>
+          <div class="adv-icon adv-icon-1"><span class="material-symbols-outlined" style="font-size:36px">speed</span></div>
           <h3>Rapidité</h3>
           <p>Une charge optimisée pour réduire votre temps d'attente. Bornes intelligentes adaptées à la puissance de votre compteur.</p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon adv-icon-2">
-            <span class="material-symbols-outlined" style="font-size:36px">shield</span>
-          </div>
+          <div class="adv-icon adv-icon-2"><span class="material-symbols-outlined" style="font-size:36px">shield</span></div>
           <h3>Sécurité</h3>
           <p>Installations certifiées IRVE par des experts. Protection contre les surtensions et contrôle thermique intégré.</p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon adv-icon-3">
-            <span class="material-symbols-outlined" style="font-size:36px">savings</span>
-          </div>
+          <div class="adv-icon adv-icon-3"><span class="material-symbols-outlined" style="font-size:36px">savings</span></div>
           <h3>Économie</h3>
           <p>Optimisez votre consommation d'énergie et profitez du crédit d'impôt pour votre installation à domicile.</p>
         </div>
@@ -595,41 +388,28 @@
   <!-- Services -->
   <section class="services py-xl" aria-labelledby="services-title">
     <div class="max-w px-page">
+      <h2 id="services-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Nos solutions</h2>
       <div class="services-grid">
         <!-- Particuliers -->
         <div class="service-card">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxpIlTTt6rAgowcYgb3dkPj_ZGUqvxYnGa8g6eR5s-tA50-KGnQh0nDBS_rZuPTBh81l8BmWKsXxc7s35Xx6tc4LSX3nOA-Q4mGna5N6rl-iNWWP5GrB_Azv-I2E2VDgK9MA0hSB8zr7I26tqn7_Ofg3LDHVCepNS_tSI8PlItW1h9NmyTaMTFb7cvtwugXwepdvIYYGNo1gn7H2lOoDhwEsyfJA7M4jJ9OJIw_VdGkWaVTenuJcHhcYKYfcPRDiKouSsP9Tb22txd"
-            alt="Installation borne de recharge particulier garage"
-            loading="lazy"
-            width="900" height="600"
-          />
+          <img src="particuliers.webp" alt="Installation d'une borne de recharge dans un garage de particulier" loading="lazy" width="900" height="600"/>
           <div class="service-overlay-1" aria-hidden="true"></div>
           <div class="service-content">
             <span class="service-tag">Habitat Individuel</span>
             <h2>Pour les Particuliers</h2>
             <p>Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place de parking privée. Solutions clé en main incluant conseil, matériel et installation.</p>
-            <a href="particulier.html" class="service-link service-link-1">
-              Découvrir l'offre <span class="material-symbols-outlined">chevron_right</span>
-            </a>
+            <a href="particulier.html" class="service-link service-link-1">Découvrir l'offre <span class="material-symbols-outlined">chevron_right</span></a>
           </div>
         </div>
         <!-- Entreprises -->
         <div class="service-card">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB15JV0eN7TXz8HTOG9CTV-ZCWWNHCYERGohRYDr58ucVdMNjRnt247Qe-kl3NhCVH_c_AJkOSnuQt19Dcd_My7qv1ygpo2RADGq-P3oLhtrKK3cfaVam7wSVQ6XdFLP_LxXAWjYXrxCbFJ4e2GlWZamYHSzcAqov3zq2pj9e_8y1orjyAu3o4qNqg5WybMqmPOc18iFyEJJwT_M_iVmO5ZwOhIxSGIrDlOHZKoSV8aCLnbX38pibyGURLWi-XTAyHC9qAePio2etpg"
-            alt="Bornes de recharge pour parking entreprise"
-            loading="lazy"
-            width="700" height="600"
-          />
+          <img src="entreprises.webp" alt="Bornes de recharge installées sur un parking d'entreprise" loading="lazy" width="700" height="600"/>
           <div class="service-overlay-2" aria-hidden="true"></div>
           <div class="service-content">
             <span class="service-tag">Tertiaire &amp; Flottes</span>
             <h2>Pour les Entreprises</h2>
             <p>Valorisez vos parkings, proposez un service à vos clients et électrifiez votre flotte de véhicules.</p>
-            <a href="entreprise.html" class="service-link service-link-2">
-              Solutions business <span class="material-symbols-outlined">chevron_right</span>
-            </a>
+            <a href="entreprise.html" class="service-link service-link-2">Solutions business <span class="material-symbols-outlined">chevron_right</span></a>
           </div>
         </div>
       </div>
@@ -656,14 +436,8 @@
         <h2 id="cta-title">Prêt à passer à l'électrique ?</h2>
         <p>Nos techniciens experts vous accompagnent de l'étude de faisabilité jusqu'à la mise en service de votre borne de recharge.</p>
         <div class="cta-actions">
-          <a href="devis.html" class="btn-cta-main">
-            Mon devis personnalisé
-            <span class="material-symbols-outlined">edit_note</span>
-          </a>
-          <a href="tel:+33651078828" class="btn-cta-tel">
-            <span class="material-symbols-outlined">call</span>
-            06 51 07 88 28
-          </a>
+          <a href="devis.html" class="btn-cta-main">Mon devis personnalisé <span class="material-symbols-outlined">edit_note</span></a>
+          <a href="tel:+33651078828" class="btn-cta-tel"><span class="material-symbols-outlined">call</span> 06 51 07 88 28</a>
         </div>
       </div>
     </div>
