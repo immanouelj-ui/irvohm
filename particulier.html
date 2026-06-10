@@ -47,7 +47,7 @@ tailwind.config = {
 </header>
 
 <main class="relative">
-<div class="omega-watermark">Î©</div>
+<div class="omega-watermark">©</div>
 
 <!-- Hero Section -->
 <section class="px-margin-mobile md:px-margin-desktop py-xl max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-2 gap-lg items-center relative z-10">
@@ -64,12 +64,7 @@ tailwind.config = {
 </div>
 </div>
 <div class="rounded-3xl overflow-hidden shadow-xl">
-  <!-- Image hero : voiture électrique avec borne à domicile -->
-  <img
-  class="w-full h-[500px] object-cover"
-  src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1400&auto=format&fit=crop"
-  alt="Voiture électrique recharge premium"
-/>
+  <img class="w-full h-[500px] object-cover" src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1400&auto=format&fit=crop" alt="Voiture électrique recharge premium"/>
 </div>
 </section>
 
@@ -81,13 +76,9 @@ tailwind.config = {
   <p class="font-body-md text-on-surface-variant">Que vous soyez en maison individuelle ou en copropriété, nous avons la solution.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-  <!-- Maison Individuelle -->
   <div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 hover:shadow-xl transition-all group overflow-hidden">
     <div class="h-56 overflow-hidden relative">
-      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85&fit=crop&auto=format"
-        alt="Installation borne maison individuelle"
-        onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=85&fit=crop&auto=format'"/>
+      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85&fit=crop&auto=format" alt="Installation borne maison individuelle" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=85&fit=crop&auto=format'"/>
       <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
     </div>
     <div class="p-lg">
@@ -104,13 +95,9 @@ tailwind.config = {
       <button class="text-primary font-label-md flex items-center gap-xs hover:underline">En savoir plus <span class="material-symbols-outlined">arrow_forward</span></button>
     </div>
   </div>
-  <!-- Copropriété -->
   <div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 hover:shadow-xl transition-all group overflow-hidden">
     <div class="h-56 overflow-hidden relative">
-      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        src="https://images.unsplash.com/photo-1573074617613-fc8ef27e6f9d?w=700&q=85&fit=crop&auto=format"
-        alt="Borne de recharge en parking copropriété"
-        onerror="this.src='https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=700&q=85&fit=crop&auto=format'"/>
+      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1573074617613-fc8ef27e6f9d?w=700&q=85&fit=crop&auto=format" alt="Borne de recharge en parking copropriété" onerror="this.src='https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=700&q=85&fit=crop&auto=format'"/>
       <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
     </div>
     <div class="p-lg">
@@ -171,17 +158,11 @@ tailwind.config = {
     <span class="bg-secondary/10 text-secondary px-md py-xs rounded-full font-label-sm border border-secondary/20">TVA réduite à 5,5%</span>
   </div>
 </div>
-
-<!-- Tabs Maison / Copropriété -->
 <div class="flex gap-sm mb-lg">
   <button id="tab-btn-maison" onclick="switchTab('maison')" class="px-lg py-sm rounded-xl font-label-md border-2 border-primary bg-primary text-on-primary transition-all">Maison individuelle</button>
   <button id="tab-btn-copro" onclick="switchTab('copro')" class="px-lg py-sm rounded-xl font-label-md border-2 border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all">Copropriété</button>
 </div>
-
-<!-- Cartes Maison -->
 <div id="cards-maison" class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-
-  <!-- Wallbox Pulsar Max -->
   <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
     <div class="h-64 bg-surface-container flex items-center justify-center p-lg relative overflow-hidden">
       <img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max"/>
@@ -189,10 +170,7 @@ tailwind.config = {
     </div>
     <div class="p-md">
       <div class="flex justify-between items-center mb-sm">
-        <div>
-          <p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Wallbox</p>
-          <h4 class="font-headline-sm text-headline-sm">Pulsar Max</h4>
-        </div>Logo IRV'OHM
+        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Wallbox</p><h4 class="font-headline-sm text-headline-sm">Pulsar Max</h4></div>
         <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP55</span>
       </div>
       <p class="font-body-md text-on-surface-variant mb-md">La plus compacte du marché, connectée en Wi-Fi et Bluetooth, idéale pour maison individuelle et garage.</p>
@@ -204,21 +182,16 @@ tailwind.config = {
       <a href="#" onclick="openOrder('Wallbox Pulsar Max', 'wallbox', 'maison'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
     </div>
   </div>
-
-  <!-- Hager Witty Home -->
   <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
     <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
       <img class="borne-img" src="hager_witty.png" alt="Hager Witty Home"/>
     </div>
     <div class="p-md">
       <div class="flex justify-between items-center mb-sm">
-        <div>
-          <p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Hager</p>
-          <h4 class="font-headline-sm text-headline-sm">Witty Home</h4>
-        </div>
+        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Hager</p><h4 class="font-headline-sm text-headline-sm">Witty Home</h4></div>
         <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP54</span>
       </div>
-      <p class="font-body-md text-on-surface-variant mb-md">Design compact et élégant signé Hager, avec gestion dynamique de la charge intégrée pour éviter tout dépassement de puissance.</p>
+      <p class="font-body-md text-on-surface-variant mb-md">Design compact et élégant signé Hager, avec gestion dynamique de la charge intégrée.</p>
       <div class="flex flex-col gap-xs mb-lg">
         <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">speed</span><span class="font-label-md text-on-surface">Jusqu'à 22 kW (triphasé)</span></div>
         <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">electric_meter</span><span class="font-label-md text-on-surface">Gestion dynamique de la charge</span></div>
@@ -227,18 +200,13 @@ tailwind.config = {
       <a href="#" onclick="openOrder('Hager Witty Home', 'hager', 'maison'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
     </div>
   </div>
-
-  <!-- Borne + -->
   <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
     <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
       <img class="borne-img" src="/borne+.png" alt="Borne +" onerror="this.style.display='none'"/>
     </div>
     <div class="p-md">
       <div class="flex justify-between items-center mb-sm">
-        <div>
-          <p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">IRV'OHM</p>
-          <h4 class="font-headline-sm text-headline-sm">Borne +</h4>
-        </div>
+        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">IRV'OHM</p><h4 class="font-headline-sm text-headline-sm">Borne +</h4></div>
         <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP54</span>
       </div>
       <p class="font-body-md text-on-surface-variant mb-md">Solution d'entrée de gamme fiable et efficace pour une recharge quotidienne simple à domicile.</p>
@@ -250,13 +218,8 @@ tailwind.config = {
       <a href="#" onclick="openOrder('Borne +', 'borne', 'maison'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
     </div>
   </div>
-
 </div>
-
-<!-- Cartes Copropriété -->
 <div id="cards-copro" class="grid grid-cols-1 md:grid-cols-3 gap-gutter" style="display:none">
-
-  <!-- Wallbox Pulsar Max -->
   <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
     <div class="h-64 bg-surface-container flex items-center justify-center p-lg relative overflow-hidden">
       <img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max"/>
@@ -264,10 +227,7 @@ tailwind.config = {
     </div>
     <div class="p-md">
       <div class="flex justify-between items-center mb-sm">
-        <div>
-          <p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Wallbox</p>
-          <h4 class="font-headline-sm text-headline-sm">Pulsar Max</h4>
-        </div>
+        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Wallbox</p><h4 class="font-headline-sm text-headline-sm">Pulsar Max</h4></div>
         <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP55</span>
       </div>
       <p class="font-body-md text-on-surface-variant mb-md">Compacte et connectée, adaptée au parking privatif en copropriété avec gestion individuelle de la recharge.</p>
@@ -279,18 +239,13 @@ tailwind.config = {
       <a href="#" onclick="openOrder('Wallbox Pulsar Max', 'wallbox', 'copro'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
     </div>
   </div>
-
-  <!-- Hager Witty Share -->
   <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
     <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
       <img class="borne-img" src="hager_witty.png" alt="Hager Witty Share"/>
     </div>
     <div class="p-md">
       <div class="flex justify-between items-center mb-sm">
-        <div>
-          <p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Hager</p>
-          <h4 class="font-headline-sm text-headline-sm">Witty Share</h4>
-        </div>
+        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Hager</p><h4 class="font-headline-sm text-headline-sm">Witty Share</h4></div>
         <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP54</span>
       </div>
       <p class="font-body-md text-on-surface-variant mb-md">Solution Hager multi-utilisateurs pour copropriétés, avec gestion dynamique de la charge et supervision à distance.</p>
@@ -302,18 +257,13 @@ tailwind.config = {
       <a href="#" onclick="openOrder('Hager Witty Share', 'hager', 'copro'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
     </div>
   </div>
-
-  <!-- Teltocharge TC100 -->
   <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
     <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
       <img class="borne-img" src="/teltocharge.png" alt="Teltocharge TC100" onerror="this.style.display='none'"/>
     </div>
     <div class="p-md">
       <div class="flex justify-between items-center mb-sm">
-        <div>
-          <p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Teltonika</p>
-          <h4 class="font-headline-sm text-headline-sm">Teltocharge</h4>
-        </div>
+        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Teltonika</p><h4 class="font-headline-sm text-headline-sm">Teltocharge</h4></div>
         <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP55</span>
       </div>
       <p class="font-body-md text-on-surface-variant mb-md">Borne robuste dédiée aux copropriétés, avec gestion RFID, protocole OCPP et supervision à distance intégrée.</p>
@@ -325,7 +275,6 @@ tailwind.config = {
       <a href="#" onclick="openOrder('Teltocharge TC100', 'teltocharge', 'copro'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
     </div>
   </div>
-
 </div>
 </div>
 </section>
@@ -334,50 +283,25 @@ tailwind.config = {
 <section class="py-lg px-margin-mobile md:px-margin-desktop bg-primary/5 border-y border-primary/10">
 <div class="max-w-max-width mx-auto">
   <div class="grid grid-cols-2 md:grid-cols-4 gap-md text-center">
-    <div class="flex flex-col items-center gap-sm p-md">
-      <span class="material-symbols-outlined text-primary" style="font-size:40px">verified</span>
-      <div class="font-headline-sm text-headline-sm text-primary">+1 200</div>
-      <div class="font-body-md text-on-surface-variant text-sm">installations réalisées</div>
-    </div>
-    <div class="flex flex-col items-center gap-sm p-md">
-      <span class="material-symbols-outlined text-primary" style="font-size:40px">workspace_premium</span>
-      <div class="font-headline-sm text-headline-sm text-primary">IRVE</div>
-      <div class="font-body-md text-on-surface-variant text-sm">Techniciens certifiés</div>
-    </div>
-    <div class="flex flex-col items-center gap-sm p-md">
-      <span class="material-symbols-outlined text-primary" style="font-size:40px">support_agent</span>
-      <div class="font-headline-sm text-headline-sm text-primary">48h</div>
-      <div class="font-body-md text-on-surface-variant text-sm">Devis personnalisé</div>
-    </div>
-    <div class="flex flex-col items-center gap-sm p-md">
-      <span class="material-symbols-outlined text-primary" style="font-size:40px">percent</span>
-      <div class="font-headline-sm text-headline-sm text-primary">5,5%</div>
-      <div class="font-body-md text-on-surface-variant text-sm">TVA réduite</div>
-    </div>
+    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">verified</span><div class="font-headline-sm text-headline-sm text-primary">+1 200</div><div class="font-body-md text-on-surface-variant text-sm">installations réalisées</div></div>
+    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">workspace_premium</span><div class="font-headline-sm text-headline-sm text-primary">IRVE</div><div class="font-body-md text-on-surface-variant text-sm">Techniciens certifiés</div></div>
+    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">support_agent</span><div class="font-headline-sm text-headline-sm text-primary">48h</div><div class="font-body-md text-on-surface-variant text-sm">Devis personnalisé</div></div>
+    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">percent</span><div class="font-headline-sm text-headline-sm text-primary">5,5%</div><div class="font-body-md text-on-surface-variant text-sm">TVA réduite</div></div>
   </div>
 </div>
 </section>
 
-<!-- FAQ Section -->
+<!-- FAQ -->
 <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <h2 class="font-headline-md text-headline-md text-on-surface text-center mb-xl">Questions fréquentes</h2>
 <div class="max-w-2xl mx-auto space-y-md">
-  <div class="border-b border-outline-variant pb-md">
-    <button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Quelles sont les aides disponibles ?</span><span class="material-symbols-outlined">expand_more</span></button>
-    <div class="mt-sm text-on-surface-variant font-body-md">Les particuliers bénéficient d'une TVA réduite à 5,5% sur l'installation de bornes de recharge. En copropriété, la prime ADVENIR peut également s'appliquer. Contactez-nous pour connaître les aides disponibles selon votre situation.</div>
-  </div>
-  <div class="border-b border-outline-variant pb-md">
-    <button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Ma puissance électrique actuelle suffit-elle ?</span><span class="material-symbols-outlined">expand_more</span></button>
-    <div class="mt-sm text-on-surface-variant font-body-md">Nous intégrons systématiquement un module de gestion dynamique de la charge. Cela évite de faire disjoncter votre installation en ajustant la puissance de la borne selon vos besoins domestiques.</div>
-  </div>
-  <div class="border-b border-outline-variant pb-md">
-    <button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Combien de temps dure l'installation ?</span><span class="material-symbols-outlined">expand_more</span></button>
-    <div class="mt-sm text-on-surface-variant font-body-md">Pour une maison individuelle standard, l'installation prend environ une demi-journée. Nous nous occupons du raccordement au tableau et de la fixation de la borne.</div>
-  </div>
+  <div class="border-b border-outline-variant pb-md"><button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Quelles sont les aides disponibles ?</span><span class="material-symbols-outlined">expand_more</span></button><div class="mt-sm text-on-surface-variant font-body-md">Les particuliers bénéficient d'une TVA réduite à 5,5% sur l'installation de bornes de recharge. En copropriété, la prime ADVENIR peut également s'appliquer.</div></div>
+  <div class="border-b border-outline-variant pb-md"><button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Ma puissance électrique actuelle suffit-elle ?</span><span class="material-symbols-outlined">expand_more</span></button><div class="mt-sm text-on-surface-variant font-body-md">Nous intégrons systématiquement un module de gestion dynamique de la charge.</div></div>
+  <div class="border-b border-outline-variant pb-md"><button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Combien de temps dure l'installation ?</span><span class="material-symbols-outlined">expand_more</span></button><div class="mt-sm text-on-surface-variant font-body-md">Pour une maison individuelle standard, l'installation prend environ une demi-journée.</div></div>
 </div>
 </section>
 
-<!-- Call to Action -->
+<!-- CTA -->
 <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
 <div class="bg-gradient-to-br from-primary to-secondary p-lg rounded-[40px] text-center text-on-primary shadow-2xl relative overflow-hidden">
   <div class="relative z-10">
@@ -397,41 +321,17 @@ tailwind.config = {
 <!-- Footer -->
 <footer class="bg-surface-container font-body-md text-body-md full-width py-lg mt-xl border-t border-outline-variant">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-  <div class="col-span-1 md:col-span-1">
-    <div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-md">IRV'OHM</div>
-    <p class="text-on-surface-variant mb-md">L'expertise IRVE au service de votre mobilité durable.</p>
-  </div>
-  <div>
-    <h5 class="font-label-md text-primary mb-md uppercase">Solutions</h5>
-    <ul class="space-y-sm">
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary" href="#">Maisons Individuelles</a></li>
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary" href="#">Copropriétés</a></li>
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary" href="#">Bornes de recharge</a></li>
-    </ul>
-  </div>
-  <div>
-    <h5 class="font-label-md text-primary mb-md uppercase">Ressources</h5>
-    <ul class="space-y-sm">
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline" href="#">Installation</a></li>
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline" href="#">FAQ</a></li>
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline" href="#">Aides de l'État</a></li>
-    </ul>
-  </div>
-  <div>
-    <h5 class="font-label-md text-primary mb-md uppercase">Légal</h5>
-    <ul class="space-y-sm">
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline" href="#">Mentions Légales</a></li>
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline" href="#">Confidentialité</a></li>
-      <li><a class="text-on-surface-variant hover:text-primary transition-colors underline" href="devis.html">Contact</a></li>
-    </ul>
-  </div>
+  <div class="col-span-1 md:col-span-1"><div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-md">IRV'OHM</div><p class="text-on-surface-variant mb-md">L'expertise IRVE au service de votre mobilité durable.</p></div>
+  <div><h5 class="font-label-md text-primary mb-md uppercase">Solutions</h5><ul class="space-y-sm"><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Maisons Individuelles</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Copropriétés</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Bornes de recharge</a></li></ul></div>
+  <div><h5 class="font-label-md text-primary mb-md uppercase">Ressources</h5><ul class="space-y-sm"><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Installation</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">FAQ</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Aides de l'État</a></li></ul></div>
+  <div><h5 class="font-label-md text-primary mb-md uppercase">Légal</h5><ul class="space-y-sm"><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Mentions Légales</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Confidentialité</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="devis.html">Contact</a></li></ul></div>
 </div>
 <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop border-t border-outline-variant/30 mt-lg pt-md">
   <p class="text-on-surface-variant text-center opacity-70">© 2026 IRV'OHM - Solutions de Recharge Électrique. Tous droits réservés.</p>
 </div>
 </footer>
 
-<!-- ===== MODAL SYSTÈME DE COMMANDE IRVE ===== -->
+<!-- MODAL -->
 <div id="irve-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);overflow-y:auto;padding:24px 16px;">
   <div id="irve-box" style="background:#fff;max-width:680px;margin:0 auto;border-radius:32px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.25);font-family:Inter,sans-serif;">
     <div style="background:linear-gradient(135deg,#006d37,#006397);padding:28px 32px 24px;color:#fff;position:relative;">
@@ -459,22 +359,10 @@ tailwind.config = {
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px" id="borne-choices">
-          <label id="lbl-wallbox" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s">
-            <input type="radio" name="borne" value="Wallbox Pulsar Max" data-brand="wallbox" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0">
-            <div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Wallbox</div><div style="font-weight:600;font-size:15px">Pulsar Max</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP55 · 22 kW · Wi-Fi + Bluetooth</div></div>
-          </label>
-          <label id="lbl-hager" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s">
-            <input type="radio" name="borne" value="Hager Witty Home" data-brand="hager" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0">
-            <div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Hager</div><div style="font-weight:600;font-size:15px">Witty Home / Share</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP54 · 22 kW · Gestion dynamique</div></div>
-          </label>
-          <label id="lbl-schneider" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s">
-            <input type="radio" name="borne" value="Borne +" data-brand="borne" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0">
-            <div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">IRV'OHM</div><div style="font-weight:600;font-size:15px">Borne +</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP54 · 7,4 kW · Prise Type 2</div></div>
-          </label>
-          <label id="lbl-teltocharge" class="borne-option" style="display:none;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s">
-            <input type="radio" name="borne" value="Teltocharge TC100" data-brand="teltocharge" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0">
-            <div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Teltocharge</div><div style="font-weight:600;font-size:15px">TC100</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP55 · 22 kW · RFID + OCPP</div></div>
-          </label>
+          <label id="lbl-wallbox" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Wallbox Pulsar Max" data-brand="wallbox" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Wallbox</div><div style="font-weight:600;font-size:15px">Pulsar Max</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP55 · 22 kW · Wi-Fi + Bluetooth</div></div></label>
+          <label id="lbl-hager" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Hager Witty Home" data-brand="hager" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Hager</div><div style="font-weight:600;font-size:15px">Witty Home / Share</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP54 · 22 kW · Gestion dynamique</div></div></label>
+          <label id="lbl-schneider" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Borne +" data-brand="borne" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">IRV'OHM</div><div style="font-weight:600;font-size:15px">Borne +</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP54 · 7,4 kW · Prise Type 2</div></div></label>
+          <label id="lbl-teltocharge" class="borne-option" style="display:none;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Teltocharge TC100" data-brand="teltocharge" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Teltocharge</div><div style="font-weight:600;font-size:15px">TC100</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP55 · 22 kW · RFID + OCPP</div></div></label>
         </div>
       </div>
       <div id="step2" class="irve-step" style="display:none">
@@ -525,13 +413,7 @@ tailwind.config = {
           <button onclick="nextMonth()" style="background:#f2f4f6;border:none;border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:18px">›</button>
         </div>
         <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px">
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Lun</div>
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Mar</div>
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Mer</div>
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Jeu</div>
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Ven</div>
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Sam</div>
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Dim</div>
+          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Lun</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Mar</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Mer</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Jeu</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Ven</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Sam</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Dim</div>
         </div>
         <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:20px"></div>
         <div id="time-slots-section" style="display:none">
@@ -616,10 +498,8 @@ function fmt(n){ return n.toLocaleString('fr-FR')+'€'; }
 function buildRecap(){ computeTotal(); var baseHT=GRILLE[state.borneBrand][state.distanceIndex]||GRILLE[state.borneBrand][0]; var lines=[{label:state.borne+' — installation complète (HT)',val:fmt(baseHT)}]; if(state.terreSurcharge>0)lines.push({label:'Mise à la terre (HT)',val:'+'+fmt(state.terreSurcharge)}); lines.push({label:'TVA 5,5%',val:'+'+fmt(state.tvaAmount)}); if(state.deduction>0)lines.push({label:'Prime copropriété (50%, plafond 1 000 €)',val:'−'+fmt(state.deduction)}); var html=''; lines.forEach(function(l){html+='<div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:#3d4a3e">'+l.label+'</span><span style="font-weight:600">'+l.val+'</span></div>';}); document.getElementById('recap-lines').innerHTML=html; document.getElementById('total-label').textContent=state.deduction>0?'Total à payer (après prime)':'Total TTC (TVA 5,5%)'; document.getElementById('total-ttc').textContent=fmt(state.totalAPayer); document.getElementById('pay-full-amount').textContent=fmt(state.totalAPayer); document.getElementById('pay-acompte-amount').textContent=fmt(Math.ceil(state.totalAPayer*0.4))+' maintenant'; document.getElementById('pay-3-amount').textContent=Math.ceil(state.totalAPayer/3)+' €×3'; }
 var MONTHS=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 var SLOTS=['08h00–10h00','10h00–12h00','14h00–16h00','16h00–18h00'];
-// === GOOGLE CALENDAR — à remplir après configuration ===
 var GCAL_API_KEY = 'AIzaSyCyHPczjzLlR_ktXeuTLOVws1oRyRKqB2g';
 var GCAL_ID = '8ab7f2171e818df6d15765427101d7cbc2b2af47043c4b3fbdf0b7592b3957ba@group.calendar.google.com';
-// =======================================================
 var busyDaysCache = {};
 function fetchBusyDays(year, month, callback) {
   var cacheKey = year + '-' + month;
@@ -692,7 +572,56 @@ function initStripe(){ if(stripe)return; stripe=Stripe(STRIPE_PK); var elements=
 function updateStripeSectionLabel(){ var p=state.paiement; var lbl=''; if(p==='comptant')lbl='Paiement comptant - '+fmt(state.totalAPayer); else if(p==='acompte')lbl='Acompte 40 % - '+fmt(Math.ceil(state.totalAPayer*0.4)); else if(p==='klarna')lbl='Klarna 3x - '+Math.ceil(state.totalAPayer/3)+' euros/mois'; document.getElementById('stripe-section-label').textContent=lbl; document.getElementById('card-element').parentElement.style.display=(p==='klarna')?'none':'block'; }
 function setLoading(loading){ var btn=document.getElementById('btn-next'); btn.disabled=loading; if(loading){btn.textContent='Traitement...';btn.style.opacity='0.7';}else{btn.style.opacity='1';updatePayBtn();} }
 function showError(msg){ var el=document.getElementById('error-msg'); el.textContent=msg; el.style.display='block'; }
-function processPayment(pr,no,em,te,ad){ document.getElementById('error-msg').style.display='none'; setLoading(true); if(state.paiement==='klarna'){processKlarna(pr,no,em,te,ad);return;} stripe.createPaymentMethod({type:'card',card:cardElement,billing_details:{name:pr+' '+no,email:em,phone:te}}).then(function(result){if(result.error){showError(result.error.message);setLoading(false);return;} fetch('/api/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({paymentMethodId:result.paymentMethod.id,paiement:state.paiement,borne:state.borne,totalTTC:state.totalAPayer,client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},date:state.date,heure:state.heure})}).then(function(r){return r.json();}).then(function(data){if(data.error){showError(data.error);setLoading(false);return;} if(data.requiresAction){stripe.handleCardAction(data.clientSecret).then(function(res){if(res.error){showError(res.error.message);setLoading(false);}else{fetch('/api/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({paymentIntentId:res.paymentIntent.id,paiement:state.paiement,borne:state.borne,totalTTC:state.totalAPayer,client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},date:state.date,heure:state.heure})}).then(function(r){return r.json();}).then(function(data2){if(data2.error){showError(data2.error);setLoading(false);return;}if(data2.success){buildConfirm(pr,no,em,ad);goStep(6);}setLoading(false);}).catch(function(){showError('Erreur réseau. Vérifiez votre connexion et réessayez.');setLoading(false);});}});return;} if(data.success){buildConfirm(pr,no,em,ad);goStep(6);} setLoading(false);}).catch(function(){showError('Erreur réseau. Vérifiez votre connexion et réessayez.');setLoading(false);}); }); }
+
+// ✅ CORRECTION 3DS : confirme le paiement après authentification bancaire
+function processPayment(pr,no,em,te,ad){
+  document.getElementById('error-msg').style.display='none';
+  setLoading(true);
+  if(state.paiement==='klarna'){processKlarna(pr,no,em,te,ad);return;}
+  stripe.createPaymentMethod({type:'card',card:cardElement,billing_details:{name:pr+' '+no,email:em,phone:te}}).then(function(result){
+    if(result.error){showError(result.error.message);setLoading(false);return;}
+    fetch('/api/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({paymentMethodId:result.paymentMethod.id,paiement:state.paiement,borne:state.borne,totalTTC:state.totalAPayer,client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},date:state.date,heure:state.heure})})
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(data.error){showError(data.error);setLoading(false);return;}
+      if(data.requiresAction){
+        stripe.handleCardAction(data.clientSecret).then(function(res){
+          if(res.error){
+            showError(res.error.message);
+            setLoading(false);
+          } else {
+            // Confirmation finale après le 3DS ✅
+            fetch('/api/create-payment-intent',{
+              method:'POST',
+              headers:{'Content-Type':'application/json'},
+              body:JSON.stringify({
+                paymentIntentId:res.paymentIntent.id,
+                paiement:state.paiement,
+                borne:state.borne,
+                totalTTC:state.totalAPayer,
+                client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},
+                date:state.date,
+                heure:state.heure
+              })
+            }).then(function(r){return r.json();})
+            .then(function(data2){
+              if(data2.error){showError(data2.error);setLoading(false);return;}
+              if(data2.success){buildConfirm(pr,no,em,ad);goStep(6);}
+              setLoading(false);
+            }).catch(function(){
+              showError('Erreur réseau. Vérifiez votre connexion et réessayez.');
+              setLoading(false);
+            });
+          }
+        });
+        return;
+      }
+      if(data.success){buildConfirm(pr,no,em,ad);goStep(6);}
+      setLoading(false);
+    }).catch(function(){showError('Erreur réseau. Vérifiez votre connexion et réessayez.');setLoading(false);});
+  });
+}
+
 document.addEventListener('change',function(e){ if(e.target.name==='terre'){var btnNext=document.getElementById('btn-next'); if(e.target.value==='non'){btnNext.disabled=true;btnNext.style.opacity='0.4';btnNext.style.cursor='not-allowed';btnNext.title='Une mise à la terre est nécessaire. Contactez-nous pour un devis.';}else{btnNext.disabled=false;btnNext.style.opacity='1';btnNext.style.cursor='pointer';btnNext.title='';}} });
 var selectedVilleData=null;
 function normalize(s){ return s.toLowerCase().replace(/[àâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[îï]/g,'i').replace(/[ôö]/g,'o').replace(/[ùûü]/g,'u').replace(/[ç]/g,'c').replace(/[-'\s]+/g,' ').trim(); }
