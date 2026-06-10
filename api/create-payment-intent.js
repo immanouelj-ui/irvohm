@@ -112,18 +112,19 @@ module.exports = async (req, res) => {
     } else {
       if (!paymentMethodId) return res.status(400).json({ error: 'Données manquantes.' });
       paymentIntent = await stripe.paymentIntents.create({
-  amount: montantCentimes,
-  currency: 'eur',
-  payment_method: paymentMethodId,
-  confirm: true,
-  receipt_email: client.email,
-  payment_method_options: {
-    card: {
-      request_three_d_secure: 'any'
-    }
-  },
-  return_url: `${process.env.SITE_URL}/confirmation.html?mode=carte`
-});
+        amount: montantCentimes,
+        currency: 'eur',
+        payment_method: paymentMethodId,
+        confirm: true,
+        receipt_email: client.email,
+        payment_method_options: {
+          card: {
+            request_three_d_secure: 'any'
+          }
+        },
+        return_url: `${process.env.SITE_URL}/confirmation.html?mode=carte`
+      });
+    } // ← accolade manquante ajoutée ici
 
     if (paymentIntent.status === 'requires_action') {
       return res.json({ requiresAction: true, clientSecret: paymentIntent.client_secret });
