@@ -584,9 +584,9 @@ function processPayment(pr,no,em,te,ad){
     .then(function(r){return r.json();})
     .then(function(data){
       if(data.error){showError(data.error);setLoading(false);return;}
-      if(data.requiresAction){
-        stripe.handleCardAction(data.clientSecret).then(function(res){
-          if(res.error){
+if(data.requiresAction){
+  stripe.confirmCardPayment(data.clientSecret).then(function(res){
+    if(res.error){
             showError(res.error.message);
             setLoading(false);
           } else {
