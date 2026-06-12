@@ -1,180 +1,243 @@
 <!DOCTYPE html>
-<html class="light" lang="fr">
+<html lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IRV'OHM - Devis Gratuit IRVE</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<title>IRV'OHM — Devis gratuit borne de recharge IRVE</title>
+<meta name="description" content="Obtenez votre devis gratuit pour l'installation d'une borne de recharge IRVE en 2 minutes. Particuliers et copropriétés, Île-de-France. Réponse sous 24h."/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      "colors": {
-        "outline-variant": "#bbcbbb","error": "#ba1a1a","on-primary-fixed-variant": "#005228","on-secondary-fixed-variant": "#004b73","surface-container": "#eceef0","on-primary-container": "#005027","inverse-surface": "#2d3133","primary": "#006d37","on-error-container": "#93000a","on-tertiary-fixed-variant": "#005141","secondary": "#006397","on-primary": "#ffffff","on-secondary-fixed": "#001d31","secondary-fixed": "#cce5ff","on-surface": "#191c1e","surface-variant": "#e0e3e5","primary-container": "#2ecc71","surface-container-highest": "#e0e3e5","on-error": "#ffffff","surface": "#f7f9fb","secondary-container": "#5cb8fd","on-secondary-container": "#00476e","secondary-fixed-dim": "#92ccff","surface-bright": "#f7f9fb","tertiary-container": "#32c8a7","primary-fixed-dim": "#4ae183","outline": "#6c7b6d","surface-container-low": "#f2f4f6","on-surface-variant": "#3d4a3e","tertiary-fixed-dim": "#4eddbb","on-primary-fixed": "#00210c","tertiary": "#006b58","on-tertiary": "#ffffff","inverse-on-surface": "#eff1f3","on-background": "#191c1e","on-tertiary-fixed": "#002019","inverse-primary": "#4ae183","background": "#f7f9fb","on-secondary": "#ffffff","surface-container-high": "#e6e8ea","primary-fixed": "#6bfe9c","on-tertiary-container": "#004f40","tertiary-fixed": "#6ff9d6","surface-tint": "#006d37","surface-container-lowest": "#ffffff","error-container": "#ffdad6","surface-dim": "#d8dadc",
-        "card": "#ffffff","muted": "#f1f5f9","muted-foreground": "#64748b","border": "#e2e8f0","foreground": "#0f172a"
-      },
-      "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
-      "spacing": {"margin-desktop": "64px","margin-mobile": "16px","xl": "80px","xs": "4px","sm": "12px","base": "8px","gutter": "24px","max-width": "1280px","lg": "48px","md": "24px"},
-      "fontFamily": {"label-sm": ["Inter"],"body-lg": ["Inter"],"body-md": ["Inter"],"headline-sm": ["Montserrat"],"headline-md": ["Montserrat"],"display-lg-mobile": ["Montserrat"],"display-lg": ["Montserrat"],"label-md": ["Inter"]},
-      "fontSize": {"label-sm": ["12px", {"lineHeight": "1.2","fontWeight": "600"}],"body-lg": ["18px", {"lineHeight": "1.6","fontWeight": "400"}],"body-md": ["16px", {"lineHeight": "1.5","fontWeight": "400"}],"headline-sm": ["24px", {"lineHeight": "1.3","fontWeight": "600"}],"headline-md": ["32px", {"lineHeight": "1.2","fontWeight": "600"}],"display-lg-mobile": ["32px", {"lineHeight": "1.2","fontWeight": "700"}],"display-lg": ["48px", {"lineHeight": "1.1","letterSpacing": "-0.02em","fontWeight": "700"}],"label-md": ["14px", {"lineHeight": "1.4","letterSpacing": "0.01em","fontWeight": "500"}]}
-    }
-  }
-}
-</script>
+
 <style>
-.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-.omega-watermark { position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.05;pointer-events:none;z-index:0;width:600px;height:600px; }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --ink:#191c1e; --ink-soft:#3d4a3e; --muted:#6c7b6d;
+    --green:#006d37; --emerald:#2ecc71; --blue:#006397; --sky:#5cb8fd;
+    --surface:#f7f9fb; --surface-2:#eceef0; --white:#ffffff; --line:#d4ddd5;
+    --deep:#07221a; --deep-2:#0c2c22; --on-deep:#dfeee6; --on-deep-soft:rgba(223,238,230,0.62);
+    --display:'Montserrat', system-ui, sans-serif;
+    --body:'Inter', system-ui, sans-serif;
+    --mono:'Inter', system-ui, sans-serif;
+    --maxw:1240px; --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  html { font-size:16px; scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  body { font-family:var(--body); background:var(--surface); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; min-height:100vh; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  ::selection { background:rgba(46,204,113,0.28); }
 
-@keyframes stepIn     { from { opacity:0; transform:translateX(32px);  } to { opacity:1; transform:translateX(0); } }
-@keyframes stepInBack { from { opacity:0; transform:translateX(-32px); } to { opacity:1; transform:translateX(0); } }
-.step-enter      { animation: stepIn     0.28s cubic-bezier(0.16,1,0.3,1) both; }
-.step-enter-back { animation: stepInBack 0.28s cubic-bezier(0.16,1,0.3,1) both; }
+  .wrap { max-width:var(--maxw); margin-inline:auto; padding-inline:20px; }
+  @media (min-width:768px){ .wrap { padding-inline:48px; } }
+  .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
 
-/* OptionCard — matches React OptionCard component */
-.opt-card {
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-  border-radius: 1rem;
-  border: 1.5px solid #e2e8f0;
-  padding: 1rem 1.25rem;
-  background: #ffffff;
-  transition: all 0.15s;
-}
-.opt-card:hover { border-color: rgba(15,23,42,0.3); background: #f8fafc; }
-.opt-card.sel   { border-color: #006d37; background: rgba(0,109,55,0.05); }
+  .eyebrow { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--green); }
+  .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 4px rgba(46,204,113,0.18); animation:pulse 2.4s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.55;transform:scale(1.25)} }
+  .current { position:relative; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--green),var(--blue)); overflow:hidden; }
+  .current::after { content:''; position:absolute; top:50%; left:0; width:46px; height:6px; transform:translateY(-50%); border-radius:6px; background:radial-gradient(closest-side, rgba(110,255,170,0.95), rgba(110,255,170,0)); animation:flow 3.2s var(--ease) infinite; }
+  @keyframes flow { 0%{left:-12%} 100%{left:108%} }
+  @keyframes spinO { to{ transform:rotate(360deg);} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+  .load { opacity:0; animation:fadeUp .85s var(--ease) forwards; }
+  .l1{animation-delay:.05s}.l2{animation-delay:.14s}.l3{animation-delay:.23s}.l4{animation-delay:.32s}
 
-/* Pill — matches React Pill component */
-.pill {
-  cursor: pointer;
-  padding: 0.625rem 1rem;
-  border-radius: 9999px;
-  border: 1.5px solid #e2e8f0;
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #0f172a;
-  background: #ffffff;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-.pill:hover { border-color: rgba(15,23,42,0.3); }
-.pill.sel   { border-color: #006d37; background: #006d37; color: #ffffff; }
+  /* Header */
+  .header { position:sticky; top:0; z-index:50; background:rgba(247,249,251,0.86); backdrop-filter:blur(14px); border-bottom:1px solid rgba(187,203,187,0.32); transition:box-shadow .25s ease; }
+  .header.scrolled { box-shadow:0 6px 24px rgba(7,34,26,0.07); }
+  .header-row { display:flex; align-items:center; justify-content:space-between; height:78px; }
+  .logo { font-family:var(--display); font-weight:700; font-size:23px; letter-spacing:-0.01em; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .logo .om { -webkit-text-fill-color:var(--emerald); }
+  .nav { display:none; gap:30px; align-items:center; }
+  @media (min-width:860px){ .nav{ display:flex; } }
+  .nav a { position:relative; font-size:13px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); padding-block:6px; transition:color .2s; }
+  .nav a::after { content:''; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:linear-gradient(90deg,var(--green),var(--blue)); transition:right .28s var(--ease); }
+  .nav a:hover, .nav a.active { color:var(--green); }
+  .nav a:hover::after, .nav a.active::after { right:0; }
+  .cta-pill { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:11px 20px; border-radius:var(--r-sm); border:none; box-shadow:0 4px 14px rgba(0,109,55,0.22); }
+  .menu-btn { display:flex; background:none; border:none; cursor:pointer; color:var(--ink); font-size:24px; align-items:center; }
+  @media (min-width:860px){ .menu-btn { display:none; } }
 
-/* Input — matches React Input component */
-.field-in {
-  width: 100%;
-  border-radius: 1rem;
-  border: 1.5px solid #e2e8f0;
-  background: #ffffff;
-  padding: 0.875rem 1rem;
-  font-size: 1rem;
-  font-family: Inter, sans-serif;
-  color: #0f172a;
-  outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.field-in:focus { border-color: #006d37; box-shadow: 0 0 0 3px rgba(0,109,55,0.15); }
-.field-in::placeholder { color: rgba(100,116,139,0.6); }
+  /* Layout */
+  main { position:relative; overflow:hidden; padding-block:60px 0; }
+  .hero { margin-bottom:42px; }
+  .hero h1 { font-family:var(--display); font-weight:700; font-size:clamp(32px,5vw,50px); line-height:1.06; letter-spacing:-0.025em; margin-top:18px; max-width:18ch; }
+  .hero h1 .accent { background:linear-gradient(120deg,var(--emerald),var(--sky)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero p { font-size:clamp(16px,2vw,18px); color:var(--ink-soft); max-width:52ch; margin-top:18px; line-height:1.6; }
+  .hero .current { width:300px; max-width:80%; margin-top:26px; }
 
-.btn-main {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: linear-gradient(135deg, #006d37 0%, #006397 100%);
-  color: #ffffff; border-radius: 9999px;
-  padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 500;
-  border: none; cursor: pointer;
-  transition: opacity 0.15s, transform 0.1s;
-  box-shadow: 0 2px 8px rgba(0,109,55,0.35);
-}
-.btn-main:hover:not(:disabled) { opacity: 0.9; }
-.btn-main:active:not(:disabled) { transform: scale(0.97); }
-.btn-main:disabled { opacity: 0.4; pointer-events: none; cursor: default; }
+  .layout { display:grid; grid-template-columns:1fr; gap:28px; align-items:start; }
+  @media (min-width:1000px){ .layout { grid-template-columns:1.25fr 0.9fr; gap:32px; } }
 
-.btn-back {
-  display: inline-flex; align-items: center; gap: 0.375rem;
-  font-size: 0.875rem; font-weight: 500; color: #3d4a3e;
-  padding: 0.5rem 0.75rem; border-radius: 0.5rem;
-  background: none; border: none; cursor: pointer;
-  transition: color 0.15s, background 0.15s;
-}
-.btn-back:hover:not(:disabled) { color: #191c1e; background: rgba(0,0,0,0.05); }
-.btn-back:disabled { opacity: 0.3; pointer-events: none; cursor: default; }
+  /* Funnel card */
+  .funnel-card { background:var(--white); border:1px solid rgba(187,203,187,0.4); border-radius:var(--r-xl); box-shadow:0 24px 60px rgba(7,34,26,0.1); display:flex; flex-direction:column; overflow:hidden; min-height:600px; }
+  .funnel-head { padding:22px 28px 16px; border-bottom:1px solid rgba(187,203,187,0.22); }
+  .funnel-head #step-label { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+  .progress-track { height:5px; border-radius:99px; background:var(--surface-2); overflow:hidden; }
+  #funnel-body { flex:1; overflow-y:auto; padding:30px 28px; }
+  #funnel-footer { padding:18px 28px; border-top:1px solid rgba(187,203,187,0.22); display:flex; align-items:center; justify-content:space-between; }
 
-.photo-zone {
-  cursor: pointer; border-radius: 1rem;
-  border: 2px dashed rgba(107,123,109,0.35);
-  padding: 1.25rem 1rem;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; min-height: 110px;
-  transition: border-color 0.15s, background 0.15s;
-  position: relative;
-}
-.photo-zone:hover { border-color: rgba(0,109,55,0.55); background: rgba(0,109,55,0.03); }
+  /* Sidebar */
+  .side { display:flex; flex-direction:column; gap:20px; }
+  .deck { background:radial-gradient(120% 120% at 100% 0%, var(--deep-2) 0%, var(--deep) 60%); color:var(--on-deep); border-radius:var(--r-xl); padding:28px 26px; position:relative; overflow:hidden; }
+  .deck .omega { position:absolute; right:-44px; bottom:-54px; width:230px; height:230px; opacity:0.1; color:var(--emerald); animation:spinO 38s linear infinite; }
+  .deck h3 { font-family:var(--display); font-weight:600; font-size:18px; position:relative; z-index:1; }
+  .readout { position:relative; z-index:1; margin-top:18px; display:flex; flex-direction:column; }
+  .ro { display:flex; align-items:flex-start; gap:13px; padding:13px 0; border-bottom:1px solid rgba(223,238,230,0.1); }
+  .ro:last-child { border-bottom:none; }
+  .ro .glyph { width:40px; height:40px; flex-shrink:0; border-radius:11px; display:grid; place-items:center; background:rgba(46,204,113,0.12); color:var(--emerald); font-size:19px; }
+  .ro .glyph.blue { background:rgba(92,184,253,0.14); color:var(--sky); }
+  .ro .k { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--on-deep-soft); }
+  .ro .v { font-size:15px; font-weight:600; color:var(--on-deep); margin-top:2px; }
+  .ro a.v:hover { color:var(--emerald); }
+  .socials { display:flex; gap:12px; margin-top:4px; flex-wrap:wrap; }
+  .socials a { font-size:13px; color:var(--on-deep-soft); transition:color .2s; }
+  .socials a:hover { color:var(--emerald); }
 
-.spinner { animation: spin 0.8s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
+  .zone-card { position:relative; border-radius:var(--r-xl); overflow:hidden; min-height:170px; background:linear-gradient(150deg,#0b3a4d,#06283a); display:flex; align-items:flex-end; padding:20px; }
+  .zone-card .omega { position:absolute; right:-30px; top:-30px; width:170px; height:170px; opacity:0.12; color:var(--sky); }
+  .zone-badge { position:relative; z-index:1; display:inline-flex; align-items:center; gap:9px; font-size:13.5px; font-weight:600; color:#fff; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(6px); padding:11px 15px; border-radius:var(--r-sm); }
+  .zone-card .grid-lines { position:absolute; inset:0; background-image:linear-gradient(rgba(92,184,253,0.10) 1px,transparent 1px),linear-gradient(90deg,rgba(92,184,253,0.10) 1px,transparent 1px); background-size:28px 28px; }
 
-.success-bounce { animation: sBounce 0.4s cubic-bezier(0.16,1,0.3,1) both; }
-@keyframes sBounce { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+  .adv-card { background:var(--white); border:1px solid rgba(187,203,187,0.4); border-radius:var(--r-xl); padding:24px 26px; }
+  .adv-card h3 { font-family:var(--display); font-weight:600; font-size:18px; margin-bottom:16px; }
+  .adv-list { list-style:none; display:flex; flex-direction:column; gap:13px; }
+  .adv-list li { display:flex; align-items:center; gap:11px; font-size:14px; color:var(--ink-soft); }
+  .adv-list .ic { color:var(--green); font-size:19px; }
+
+  /* Partners */
+  .partners { margin-top:54px; padding-top:32px; border-top:1px solid rgba(187,203,187,0.3); display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:18px 40px; }
+  .partners .lab { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+  .partners span.pw { font-family:var(--display); font-weight:600; font-size:18px; color:var(--muted); opacity:.7; transition:opacity .2s,color .2s; }
+  .partners span.pw:hover { opacity:1; color:var(--ink); }
+
+  /* Footer */
+  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:64px; padding:54px 0 28px; }
+  .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; }
+  @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1.2fr; } }
+  .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
+  .foot-desc { color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:30ch; }
+  .foot h5 { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+  .foot nav { display:flex; flex-direction:column; gap:9px; }
+  .foot nav a { color:var(--ink-soft); font-size:14px; transition:color .2s, padding-left .2s; }
+  .foot nav a:hover { color:var(--green); padding-left:4px; }
+  .news { display:flex; gap:8px; margin-top:4px; }
+  .news input { flex:1; min-width:0; background:var(--white); border:1px solid rgba(187,203,187,0.5); border-radius:var(--r-sm); padding:10px 12px; font-size:14px; font-family:var(--body); outline:none; }
+  .news input:focus { border-color:var(--green); }
+  .news button { background:linear-gradient(120deg,var(--green),var(--blue)); border:none; color:#fff; border-radius:var(--r-sm); width:44px; display:grid; place-items:center; cursor:pointer; }
+  .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; }
+  .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
+
+  :focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
+
+  /* ===================================================================
+     STYLES DU TUNNEL — conservés à l'identique (utilisés par le HTML injecté)
+     =================================================================== */
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+  @keyframes stepIn     { from { opacity:0; transform:translateX(32px);  } to { opacity:1; transform:translateX(0); } }
+  @keyframes stepInBack { from { opacity:0; transform:translateX(-32px); } to { opacity:1; transform:translateX(0); } }
+  .step-enter      { animation: stepIn     0.28s cubic-bezier(0.16,1,0.3,1) both; }
+  .step-enter-back { animation: stepInBack 0.28s cubic-bezier(0.16,1,0.3,1) both; }
+
+  .opt-card { cursor: pointer; width: 100%; text-align: left; border-radius: 1rem; border: 1.5px solid #e2e8f0; padding: 1rem 1.25rem; background: #ffffff; transition: all 0.15s; }
+  .opt-card:hover { border-color: rgba(15,23,42,0.3); background: #f8fafc; }
+  .opt-card.sel   { border-color: #006d37; background: rgba(0,109,55,0.05); }
+
+  .pill { cursor: pointer; padding: 0.625rem 1rem; border-radius: 9999px; border: 1.5px solid #e2e8f0; font-size: 0.875rem; font-weight: 400; color: #0f172a; background: #ffffff; transition: all 0.15s; white-space: nowrap; }
+  .pill:hover { border-color: rgba(15,23,42,0.3); }
+  .pill.sel   { border-color: #006d37; background: #006d37; color: #ffffff; }
+
+  .field-in { width: 100%; border-radius: 1rem; border: 1.5px solid #e2e8f0; background: #ffffff; padding: 0.875rem 1rem; font-size: 1rem; font-family: Inter, sans-serif; color: #0f172a; outline: none; transition: border-color 0.15s, box-shadow 0.15s; }
+  .field-in:focus { border-color: #006d37; box-shadow: 0 0 0 3px rgba(0,109,55,0.15); }
+  .field-in::placeholder { color: rgba(100,116,139,0.6); }
+
+  .btn-main { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #006d37 0%, #006397 100%); color: #ffffff; border-radius: 9999px; padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 500; border: none; cursor: pointer; transition: opacity 0.15s, transform 0.1s; box-shadow: 0 2px 8px rgba(0,109,55,0.35); }
+  .btn-main:hover:not(:disabled) { opacity: 0.9; }
+  .btn-main:active:not(:disabled) { transform: scale(0.97); }
+  .btn-main:disabled { opacity: 0.4; pointer-events: none; cursor: default; }
+
+  .btn-back { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; font-weight: 500; color: #3d4a3e; padding: 0.5rem 0.75rem; border-radius: 0.5rem; background: none; border: none; cursor: pointer; transition: color 0.15s, background 0.15s; }
+  .btn-back:hover:not(:disabled) { color: #191c1e; background: rgba(0,0,0,0.05); }
+  .btn-back:disabled { opacity: 0.3; pointer-events: none; cursor: default; }
+
+  .photo-zone { cursor: pointer; border-radius: 1rem; border: 2px dashed rgba(107,123,109,0.35); padding: 1.25rem 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 110px; transition: border-color 0.15s, background 0.15s; position: relative; }
+  .photo-zone:hover { border-color: rgba(0,109,55,0.55); background: rgba(0,109,55,0.03); }
+
+  .spinner { animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .success-bounce { animation: sBounce 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+  @keyframes sBounce { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+
+  @media (prefers-reduced-motion:reduce){
+    .load { opacity:1 !important; animation:none !important; }
+    .current::after, .deck .omega { animation:none !important; }
+  }
 </style>
 </head>
-<body class="bg-surface-container-low text-on-background font-body-md overflow-x-hidden min-h-screen">
+<body>
 
-<!-- ===== NAV ===== -->
-<header class="bg-surface/90 backdrop-blur-md font-label-md text-label-md uppercase tracking-wider shadow-sm top-0 sticky z-50 border-b border-outline-variant/30">
-  <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-    <a href="index.html" class="font-headline-sm text-headline-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">IRV'OHM</a>
-    <nav class="hidden md:flex gap-md items-center h-full">
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Accueil</a>
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="particulier.html">Particuliers</a>
-      <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="entreprise.html">Entreprises</a>
-      <a class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold" href="devis.html">Devis</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5 8.6 10.5"/></symbol>
+  <symbol id="i-verified" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><path d="M12 2 4 5v6c0 5.5 3.8 9.3 8 11 4.2-1.7 8-5.5 8-11V5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M14 21a8 8 0 1 1 0-16"/><path d="M4 11h11M4 15h9"/></symbol>
+  <symbol id="i-agent" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8v6"/><path d="M20 16v-6a8 8 0 0 0-8-8"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></symbol>
+  <symbol id="i-omega" viewBox="0 0 100 100"><path d="M50 8C29 8 12 25 12 46c0 12 6 22 15 28v9H16v9h26V73c-11-4-19-15-19-27 0-15 12-27 27-27s27 12 27 27c0 12-8 23-19 27v9h26v-9H73v-9c9-6 15-16 15-28C88 25 71 8 50 8z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<header class="header" id="hdr">
+  <div class="wrap header-row">
+    <a href="index.html" class="logo">IRV'<span class="om">Ω</span>HM</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="particulier.html">Particuliers</a>
+      <a href="entreprise.html">Entreprises</a>
+      <a href="devis.html" class="active">Devis</a>
     </nav>
-    <span class="bg-gradient-to-r from-primary to-secondary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider shadow-sm select-none">Devis Gratuit</span>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="cta-pill">Devis gratuit</span>
+      <button class="menu-btn" aria-label="Menu" onclick="location.href='index.html'"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
   </div>
 </header>
 
-<!-- ===== MAIN ===== -->
-<main class="relative overflow-hidden">
-  <svg class="omega-watermark" fill="currentColor" viewBox="0 0 100 100">
-    <path d="M50 10C27.9 10 10 27.9 10 50c0 14.1 7.3 26.5 18.3 33.6l5.7-9.8C25.7 68.9 20 60.1 20 50c0-16.6 13.4-30 30-30s30 13.4 30 30c0 10.1-5.7 18.9-14 23.8l5.7 9.8C82.7 76.5 90 64.1 90 50c0-22.1-17.9-40-40-40zM35 80h30v10H35z"/>
-  </svg>
-
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-xl relative z-10">
+<main>
+  <div class="wrap">
 
     <!-- Hero -->
-    <div class="mb-xl text-center md:text-left">
-      <span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-sm block">Contactez-nous</span>
-      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-md">Prêt pour votre transition électrique ?</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Nos experts vous accompagnent de l'étude technique jusqu'à l'installation de votre borne de recharge.</p>
+    <div class="hero">
+      <span class="eyebrow load l1"><span class="dot"></span> Devis gratuit · sans engagement</span>
+      <h1 class="load l2">Votre devis borne, <span class="accent">en 2 minutes.</span></h1>
+      <p class="load l3">Répondez à quelques questions sur votre projet : nos installateurs certifiés IRVE étudient votre demande et vous recontactent sous 24&nbsp;heures.</p>
+      <div class="current load l4" aria-hidden="true"></div>
     </div>
 
-    <!-- Main layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+    <!-- Layout -->
+    <div class="layout">
 
-      <!-- Funnel card -->
-      <div class="lg:col-span-7">
-        <div class="bg-background rounded-3xl shadow-2xl flex flex-col overflow-hidden" style="min-height:580px">
-
-          <!-- Header -->
-          <div class="px-5 sm:px-7 pt-5 pb-3 border-b border-outline-variant/20">
-            <div class="flex items-center justify-between mb-3">
-              <div id="step-label" class="text-xs font-semibold text-on-surface-variant"></div>
-            </div>
-            <div class="h-1 rounded-full bg-surface-container overflow-hidden">
-              <div id="progress-fill" class="h-full rounded-full transition-all duration-500 ease-out" style="width:0%;background:linear-gradient(90deg,#006d37,#006397)"></div>
+      <!-- ===== FUNNEL (structure + IDs conservés pour le JS) ===== -->
+      <div>
+        <div class="funnel-card">
+          <div class="funnel-head">
+            <div id="step-label"></div>
+            <div class="progress-track">
+              <div id="progress-fill" style="height:100%;border-radius:99px;width:0%;background:linear-gradient(90deg,#006d37,#006397);transition:width .5s ease"></div>
             </div>
           </div>
-
-          <!-- Body -->
-          <div id="funnel-body" class="flex-1 overflow-y-auto px-5 sm:px-7 py-6 sm:py-8">
+          <div id="funnel-body">
             <div id="step-content" class="step-enter"></div>
           </div>
-
-          <!-- Footer -->
-          <div id="funnel-footer" class="px-5 sm:px-7 py-4 border-t border-outline-variant/20 flex items-center justify-between">
+          <div id="funnel-footer">
             <button id="prev-btn" class="btn-back" onclick="prev()">
               <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Retour
             </button>
@@ -182,104 +245,55 @@ tailwind.config = {
               Continuer <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
             </button>
           </div>
-
         </div>
       </div>
 
-      <!-- Sidebar -->
-      <div class="lg:col-span-5 flex flex-col gap-gutter">
-
-        <!-- Coordonnées -->
-        <div class="bg-surface-container border border-outline-variant/30 rounded-xl p-md shadow-sm">
-          <h3 class="font-headline-sm text-headline-sm mb-md">Nos Coordonnées</h3>
-          <ul class="space-y-md">
-            <li class="flex items-start gap-md">
-              <div class="bg-primary/10 p-sm rounded-lg text-primary">
-                <span class="material-symbols-outlined">phone</span>
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="side">
+        <div class="deck">
+          <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
+          <h3>Nos coordonnées</h3>
+          <div class="readout">
+            <div class="ro">
+              <span class="glyph"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <div><div class="k">Téléphone</div><a class="v" href="tel:+33651078828">06 51 07 88 28</a></div>
+            </div>
+            <div class="ro">
+              <span class="glyph blue"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <div><div class="k">Adresse</div><div class="v">95200 Sarcelles, France</div></div>
+            </div>
+            <div class="ro">
+              <span class="glyph"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg></span>
+              <div><div class="k">Réseaux</div>
+                <div class="socials"><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">Twitter</a></div>
               </div>
-              <div>
-                <p class="font-label-md text-label-md text-on-surface-variant">Téléphone</p>
-                <p class="font-body-lg text-body-lg font-semibold text-on-surface">06 51 07 88 28</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-md">
-              <div class="bg-secondary/10 p-sm rounded-lg text-secondary">
-                <span class="material-symbols-outlined">location_on</span>
-              </div>
-              <div>
-                <p class="font-label-md text-label-md text-on-surface-variant">Adresse</p>
-                <p class="font-body-lg text-body-lg font-semibold text-on-surface">95200 SARCELLES</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-md">
-              <div class="bg-tertiary/10 p-sm rounded-lg text-tertiary">
-                <span class="material-symbols-outlined">share</span>
-              </div>
-              <div>
-                <p class="font-label-md text-label-md text-on-surface-variant">Réseaux Sociaux</p>
-                <div class="flex gap-sm mt-xs">
-                  <a class="text-on-surface hover:text-primary transition-colors" href="#">LinkedIn</a>
-                  <span class="text-outline-variant">•</span>
-                  <a class="text-on-surface hover:text-primary transition-colors" href="#">Instagram</a>
-                  <span class="text-outline-variant">•</span>
-                  <a class="text-on-surface hover:text-primary transition-colors" href="#">Twitter</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Carte zone d'intervention -->
-        <div class="flex-grow bg-white border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm relative min-h-[260px]">
-          <div class="absolute inset-0 z-0">
-            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQUVPFa7UBRJUC7HJqGARQu-thDEqLSYo6I7SDDUX6Akq4-Z-v2PrnEvK5p6kfIUxLRByCFycqMXoxQIJtzp2OOyprW_EkVoXq4fJHU7LJzZZa0V-x0BgLAdPuWN4_4yDlk351a9u5OeFgOYBCcwBZkm3pCLM_DlDdoDnD6Ryy-1b4wkMTo6sKrQ9yGWZoe6YY9W98Y4k4QVZlT8cfzbKJtSF055yFtP6Vc1xlX256uz-lgrbGYkOKmD4B1fWhIkVI5T2rQsshcw" alt="Zone d'intervention Grand Paris"/>
-          </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/80 to-transparent flex items-end p-md z-10">
-            <div class="bg-white/90 backdrop-blur-sm p-sm rounded-lg border border-outline-variant/30">
-              <span class="flex items-center gap-xs text-primary font-semibold text-body-md">
-                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1">verified</span>
-                Zone d'intervention : Grand Paris &amp; IDF
-              </span>
             </div>
           </div>
         </div>
 
-        <!-- Avantages -->
-        <div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-md shadow-sm">
-          <h3 class="font-headline-sm text-headline-sm mb-md">Pourquoi nous choisir ?</h3>
-          <ul class="space-y-sm">
-            <li class="flex items-center gap-sm">
-              <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1">verified</span>
-              <span class="font-body-md text-body-md">Certifié IRVE &amp; qualifié RGE</span>
-            </li>
-            <li class="flex items-center gap-sm">
-              <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1">schedule</span>
-              <span class="font-body-md text-body-md">Devis sous 48h, pose en 15 jours</span>
-            </li>
-            <li class="flex items-center gap-sm">
-              <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1">payments</span>
-              <span class="font-body-md text-body-md">Aides ADVENIR &amp; TVA 5,5% gérées</span>
-            </li>
-            <li class="flex items-center gap-sm">
-              <span class="material-symbols-outlined text-primary" style="font-size:20px;font-variation-settings:'FILL' 1">support_agent</span>
-              <span class="font-body-md text-body-md">Accompagnement de A à Z</span>
-            </li>
-          </ul>
+        <div class="zone-card">
+          <div class="grid-lines" aria-hidden="true"></div>
+          <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
+          <span class="zone-badge"><svg class="ic" aria-hidden="true"><use href="#i-verified"/></svg> Zone d'intervention : Grand Paris &amp; IDF</span>
         </div>
 
-      </div>
+        <div class="adv-card">
+          <h3>Pourquoi nous choisir ?</h3>
+          <ul class="adv-list">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-verified"/></svg> Certifié IRVE &amp; qualifié RGE</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Devis sous 48h, pose en 15 jours</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Aides ADVENIR &amp; TVA 5,5 % gérées</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-agent"/></svg> Accompagnement de A à Z</li>
+          </ul>
+        </div>
+      </aside>
     </div>
 
-    <!-- Partenaires -->
-    <div class="mt-xl pt-lg border-t border-outline-variant/20 flex flex-wrap justify-center md:justify-between items-center gap-lg opacity-60">
-      <span class="font-label-md text-label-md text-on-surface-variant italic">Ils nous font confiance :</span>
-      <div class="flex flex-wrap gap-xl grayscale">
-        <img alt="Tesla" class="h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-sxvJBJkxrJpuS6RklnEjC-YhVB91WUqe7qFarJiKVRZj5CoOdcJA-AzQrLwU686U7O8a3s9DRF-sLXgfygA39FMRdmx_ztCKLCflY9RsmfhlmUcMcilqFcnwDLUNbop3TWAxnGlihZU19g6N39lAR1f5OF3zyryN9Xqx4Aax8MCOpxJSDVHIQYQKsJTxgdtxG0e9TT9RvrAcijbipvfb9ukotyWMYUfZMmkWDmoa0ASIw7ftcgm2JMD351XyeB0bNZ5Co5beAO5D"/>
-        <img alt="Schneider Electric" class="h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpXU8oVfgny7nSzX_qDByLtXnqT2f2aI0--mJQHAkjqVOcI2fKsa10CtLMbFpQ4Eydk3ku-C8HMRuSYV4TuOf1gDjtUCJnvnBXRnlOavtll1z15CBDBbJh5qGZ__MhVQQ7fVH9JOij0ciHlrxovB4aX35OyWKI-GPc8jsiLiEvmmLCmcxH3fIt9Eyd9DoN-FQ7rciDiXF66Hbd0_42KLRX_m76JxwJo94YppeGlOtY4WVeje8Y0CsGvxj8tXQD_rIymzRWiuu0q_Gg"/>
-        <img alt="Renault" class="h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd1RHs53QhJ-iX22mWHAz6bOc-97hOe77fXbV-sceAh_ydRpTTpyvRrIc6y2WTEZt7Z4o62YBdyhh2rA74L0Nj1lluMaVzTpdMidr0eE1QyhfRrUJHtrPWTW-ED8-aBvi1qg4D-NjvTevYnf4CaOkAQw1P9_NuxraO6G6f9-ggGNsWHsBCKj3ZDDH8qtSHBymx5UA_joudOXvZZlk9YGJF9ru3iXW1hWeIpFhQv3DV4zJo2LctlPumRvkEQtEyshdJ41yac03BDdFQ"/>
-      </div>
+    <!-- Partners -->
+    <div class="partners">
+      <span class="lab">Ils nous font confiance</span>
+      <span class="pw">Tesla</span><span class="pw">Schneider Electric</span><span class="pw">Renault</span>
     </div>
-
   </div>
 </main>
 
@@ -791,43 +805,43 @@ function renderSuccess() {
    ========================================================= */
 stepTransition = true;
 render();
+
+/* Ombre du header au scroll (chrome de page) */
+(function(){ var hd=document.getElementById('hdr'); if(!hd)return; var on=function(){ hd.classList.toggle('scrolled', window.scrollY>8); }; window.addEventListener('scroll',on,{passive:true}); on(); })();
 </script>
 
-<!-- Footer -->
-<footer class="bg-surface-container border-t border-outline-variant py-lg mt-xl">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-    <div class="md:col-span-1">
-      <div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-sm">IRV'OHM</div>
-      <p class="font-body-md text-body-md text-on-surface-variant">L'expertise certifiée IRVE au service de votre mobilité durable.</p>
-    </div>
-    <div>
-      <h4 class="font-label-md text-label-md uppercase tracking-wider text-primary mb-sm">Navigation</h4>
-      <nav class="flex flex-col gap-xs">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="index.html">Accueil</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="particulier.html">Particuliers</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="entreprise.html">Entreprises</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="devis.html">Devis</a>
-      </nav>
-    </div>
-    <div>
-      <h4 class="font-label-md text-label-md uppercase tracking-wider text-primary mb-sm">Légal</h4>
-      <nav class="flex flex-col gap-xs">
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Mentions Légales</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline transition-colors" href="#">Confidentialité</a>
-      </nav>
-    </div>
-    <div>
-      <h4 class="font-label-md text-label-md uppercase tracking-wider text-primary mb-sm">Abonnez-vous</h4>
-      <div class="flex gap-xs mt-xs">
-        <input class="bg-surface px-sm py-xs rounded-lg border border-outline-variant/30 text-body-md w-full focus:ring-1 focus:ring-primary outline-none" placeholder="Email" type="email"/>
-        <button class="bg-primary text-on-primary p-xs rounded-lg">
-          <span class="material-symbols-outlined">arrow_forward</span>
-        </button>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">IRV'<span style="color:var(--emerald)">Ω</span>HM</div>
+        <p class="foot-desc">L'expertise certifiée IRVE au service de votre mobilité durable.</p>
+      </div>
+      <div class="foot">
+        <h5>Navigation</h5>
+        <nav>
+          <a href="index.html">Accueil</a>
+          <a href="particulier.html">Particuliers</a>
+          <a href="entreprise.html">Entreprises</a>
+          <a href="devis.html">Devis</a>
+        </nav>
+      </div>
+      <div class="foot">
+        <h5>Légal</h5>
+        <nav>
+          <a href="#">Mentions légales</a>
+          <a href="#">Confidentialité</a>
+        </nav>
+      </div>
+      <div class="foot">
+        <h5>Abonnez-vous</h5>
+        <div class="news">
+          <input type="email" placeholder="Votre email"/>
+          <button aria-label="S'abonner"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop mt-lg pt-md border-t border-outline-variant/10">
-    <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">© 2026 IRV'OHM - Solutions de Recharge Électrique. Tous droits réservés.</p>
+    <div class="foot-copy"><p>© 2026 IRV'OHM — Solutions de recharge électrique. Tous droits réservés.</p></div>
   </div>
 </footer>
 
