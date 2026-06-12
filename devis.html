@@ -177,6 +177,9 @@
     .load { opacity:1 !important; animation:none !important; }
     .current::after, .deck .omega { animation:none !important; }
   }
+
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:0.75rem; }
+  @media (max-width:500px) { .grid-3 { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -646,9 +649,11 @@ function renderStep1() {
   h += '</div>';
 
   if (state.logement) {
-    const cols = state.logement === 'copropriete' ? 3 : 2;
+    const roleGrid = state.logement === 'copropriete'
+      ? 'class="grid-3"'
+      : 'style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem"';
     h += '<div style="padding-top:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Vous êtes…</div>'
-      + '<div style="display:grid;grid-template-columns:repeat(' + cols + ',1fr);gap:0.75rem">';
+      + '<div ' + roleGrid + '>';
     h += optCard('role', 'proprietaire', 'Propriétaire', '', 'key',    state.role === 'proprietaire');
     h += optCard('role', 'locataire',    'Locataire',    '', 'person', state.role === 'locataire');
     if (state.logement === 'copropriete')
@@ -675,7 +680,7 @@ function renderStep2() {
 
   if (!pro) {
     h += '<div style="margin-bottom:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Avez-vous un véhicule électrique ?</div>'
-      + '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem">'
+      + '<div class="grid-3">'
       + optCard('vehicule', 'oui',      "Oui, je l'ai déjà", '', 'electric_car', state.vehicule === 'oui')
       + optCard('vehicule', 'commande', 'Commandé',           '', 'electric_car', state.vehicule === 'commande')
       + optCard('vehicule', 'projet',   "C'est un projet",    '', 'electric_car', state.vehicule === 'projet')

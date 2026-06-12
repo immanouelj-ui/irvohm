@@ -4,15 +4,14 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>IRV'OHM | Installation de Bornes de Recharge IRVE</title>
+<title>IRV'OHM | Borne de Recharge à Roissy-en-France (95700) — Installation IRVE</title>
 
-<meta name="description"
-content="Solutions de recharge pour véhicules électriques : maison, copropriété et entreprise. Installation certifiée IRVE, étude personnalisée et devis gratuit."/>
+<meta name="description" content="Installation borne de recharge à Roissy-en-France (95700). Technicien IRVE certifié, devis gratuit sous 48h — IRV'OHM, expert en recharge électrique en Val-d'Oise."/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://irvohm.fr/"/>
-<meta property="og:title" content="IRV'OHM — Installation borne de recharge IRVE"/>
-<meta property="og:description" content="Installation de bornes de recharge intelligentes. Devis gratuit sous 48h."/>
-<meta property="og:url" content="https://irvohm.fr/"/>
+<link rel="canonical" href="https://irvohm.fr/roissy-en-france"/>
+<meta property="og:title" content="IRV'OHM — Borne de recharge à Roissy-en-France"/>
+<meta property="og:description" content="Installation IRVE certifiée à Roissy-en-France. Devis gratuit sous 48h."/>
+<meta property="og:url" content="https://irvohm.fr/roissy-en-france"/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://irvohm.fr/borne-recharge.webp"/>
 
@@ -40,23 +39,17 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   a { color:inherit; text-decoration:none; }
   img { max-width:100%; display:block; }
   ::selection { background:rgba(46,204,113,0.28); }
-
   .wrap { max-width:var(--maxw); margin-inline:auto; padding-inline:20px; }
   @media (min-width:768px){ .wrap { padding-inline:48px; } }
   .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
   .section { padding-block:88px; }
   @media (max-width:767px){ .section { padding-block:60px; } }
-
   .eyebrow { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--green); }
   .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 4px rgba(46,204,113,0.18); animation:pulse 2.4s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.55;transform:scale(1.25)} }
-
   .current { position:relative; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--green),var(--blue)); overflow:hidden; }
   .current::after { content:''; position:absolute; top:50%; left:0; width:46px; height:6px; transform:translateY(-50%); border-radius:6px; background:radial-gradient(closest-side, rgba(110,255,170,0.95), rgba(110,255,170,0)); animation:flow 3.2s var(--ease) infinite; }
   @keyframes flow { 0%{left:-12%} 100%{left:108%} }
-  .current.short { width:84px; }
-
-  /* Reveal / load */
   .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
   .reveal.in { opacity:1; transform:none; }
   .stagger > * { opacity:0; transform:translateY(22px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
@@ -66,8 +59,6 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
   .load { opacity:0; animation:fadeUp .85s var(--ease) forwards; }
   .l1{animation-delay:.05s}.l2{animation-delay:.14s}.l3{animation-delay:.23s}.l4{animation-delay:.32s}.l5{animation-delay:.42s}
-
-  /* Header */
   .header { position:sticky; top:0; z-index:50; background:rgba(247,249,251,0.86); backdrop-filter:blur(14px); border-bottom:1px solid rgba(187,203,187,0.32); transition:box-shadow .25s ease; }
   .header.scrolled { box-shadow:0 6px 24px rgba(7,34,26,0.07); }
   .header-row { display:flex; align-items:center; justify-content:space-between; height:78px; }
@@ -83,16 +74,15 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .cta-pill:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,109,55,0.3); }
   .menu-btn { display:flex; background:none; border:none; cursor:pointer; color:var(--ink); font-size:24px; align-items:center; }
   @media (min-width:860px){ .menu-btn { display:none; } }
-
-  /* Hero */
-  .hero { position:relative; overflow:hidden; padding-top:72px; padding-bottom:72px; }
+  .hero { position:relative; overflow:hidden; padding-top:60px; padding-bottom:72px; }
   .hero-omega { position:absolute; top:-90px; right:-120px; width:520px; height:520px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
   @keyframes spin { to{ transform:rotate(360deg);} }
-  .hero-grid { display:grid; grid-template-columns:1fr; gap:54px; align-items:center; position:relative; z-index:1; }
-  @media (min-width:900px){ .hero-grid { grid-template-columns:1.05fr 0.95fr; gap:64px; } }
-  .hero h1 { font-family:var(--display); font-weight:700; font-size:clamp(36px,5.4vw,58px); line-height:1.05; letter-spacing:-0.025em; margin-top:20px; }
+  .breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:6px; list-style:none; font-size:13px; color:var(--muted); margin-bottom:22px; }
+  .breadcrumb a { color:var(--green); font-weight:500; transition:opacity .2s; }
+  .breadcrumb a:hover { opacity:.75; }
+  .hero h1 { font-family:var(--display); font-weight:700; font-size:clamp(34px,5.2vw,56px); line-height:1.06; letter-spacing:-0.025em; margin-top:18px; }
   .hero h1 .accent { background:linear-gradient(120deg,var(--emerald),var(--sky)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-  .hero-desc { font-size:clamp(16px,2vw,18.5px); color:var(--ink-soft); max-width:50ch; margin-top:22px; line-height:1.6; }
+  .hero-desc { font-size:clamp(16px,2vw,18px); color:var(--ink-soft); max-width:52ch; margin-top:20px; line-height:1.6; }
   .hero-cta { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
   .btn-solid { display:inline-flex; align-items:center; gap:9px; font-size:15px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:14px 26px; border-radius:var(--r-sm); box-shadow:0 6px 18px rgba(0,109,55,0.26); transition:transform .15s ease, box-shadow .2s ease; }
   .btn-solid:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,109,55,0.34); }
@@ -105,27 +95,11 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .avatars span:first-child { margin-left:0; }
   .proof-txt { font-size:13px; color:var(--ink-soft); line-height:1.3; }
   .proof-txt strong { font-family:var(--mono); color:var(--green); font-size:13px; }
-
-  .hero-media { position:relative; }
-  .hero-media .glow { position:absolute; inset:-18px; background:linear-gradient(130deg,var(--green),var(--blue)); border-radius:38px; opacity:.12; filter:blur(36px); transition:opacity .3s; }
-  .hero-media:hover .glow { opacity:.2; }
-  .hero-card { position:relative; background:linear-gradient(160deg,#eef3f0,#dfe9e4); border:1px solid rgba(187,203,187,0.5); padding:8px; border-radius:34px; box-shadow:0 24px 64px rgba(7,34,26,0.14); overflow:hidden; transition:transform .4s var(--ease); }
-  .hero-media:hover .hero-card { transform:translateY(-6px); }
-  .hero-card > img { width:100%; height:480px; object-fit:cover; border-radius:26px; transition:transform .6s var(--ease); }
-  .hero-media:hover .hero-card > img { transform:scale(1.04); }
-  .hero-badge { position:absolute; left:22px; right:22px; bottom:22px; background:rgba(255,255,255,0.86); backdrop-filter:blur(10px); border:1px solid rgba(187,203,187,0.5); border-radius:var(--r); padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
-  .hero-badge .k { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
-  .hero-badge .stat { display:flex; align-items:center; gap:7px; margin-top:3px; font-size:14px; font-weight:600; color:var(--green); }
-  .hero-badge .pd { width:8px; height:8px; border-radius:50%; background:var(--emerald); animation:pulse 2s infinite; }
-
-  /* Section heading */
   .head { text-align:center; max-width:620px; margin:0 auto 56px; }
   .head .eyebrow { justify-content:center; margin-bottom:14px; }
   .head h2 { font-family:var(--display); font-weight:600; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.025em; line-height:1.12; }
   .head p { color:var(--ink-soft); margin-top:14px; font-size:16px; }
   .head .current { width:84px; margin:18px auto 0; }
-
-  /* Advantages */
   .adv { background:var(--white); }
   .adv-grid { display:grid; grid-template-columns:1fr; gap:20px; }
   @media (min-width:760px){ .adv-grid { grid-template-columns:repeat(3,1fr); } }
@@ -139,8 +113,6 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .adv-card h3 { font-family:var(--display); font-weight:600; font-size:21px; letter-spacing:-0.01em; }
   .adv-card p { color:var(--ink-soft); margin-top:10px; font-size:15px; line-height:1.55; }
   .adv-tag { display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--muted); margin-top:16px; }
-
-  /* Services */
   .services { background:var(--surface-2); }
   .svc-grid { display:grid; grid-template-columns:1fr; gap:22px; }
   @media (min-width:820px){ .svc-grid { grid-template-columns:1.1fr 0.9fr; } }
@@ -163,8 +135,6 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .svc-link .ic { transition:transform .25s; } .svc-link:hover .ic { transform:translateX(3px); }
   .svc-link-1 { color:var(--emerald); } .svc-link-1:hover { color:#fff; }
   .svc-link-2 { color:var(--sky); } .svc-link-2:hover { color:#fff; }
-
-  /* Stats */
   .stats-card { background:linear-gradient(150deg,var(--deep-2),var(--deep)); color:var(--on-deep); border-radius:var(--r-xl); padding:64px 48px; display:grid; grid-template-columns:1fr 1fr; gap:48px 24px; text-align:center; position:relative; overflow:hidden; }
   @media (min-width:760px){ .stats-card { grid-template-columns:repeat(4,1fr); } }
   .stats-card .omega { position:absolute; left:-60px; bottom:-80px; width:300px; height:300px; opacity:0.07; color:var(--emerald); animation:spin 50s linear infinite; }
@@ -172,8 +142,6 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .stat .v { font-family:var(--display); font-weight:700; font-size:clamp(36px,5vw,52px); line-height:1; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
   .stat .v.g { color:var(--emerald); } .stat .v.b { color:var(--sky); }
   .stat .l { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--on-deep-soft); margin-top:10px; }
-
-  /* CTA */
   .cta-box { background:radial-gradient(120% 130% at 0% 0%, var(--deep-2) 0%, var(--deep) 60%); border-radius:var(--r-xl); padding:64px 40px; text-align:center; position:relative; overflow:hidden; }
   @media (min-width:768px){ .cta-box { padding:80px; } }
   .cta-box .omega { position:absolute; right:-40px; top:-50px; width:240px; height:240px; opacity:0.09; color:var(--emerald); animation:spin 44s linear infinite reverse; }
@@ -185,9 +153,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .btn-emerald .ic { transition:transform .25s; } .btn-emerald:hover .ic { transform:translateX(4px); }
   .btn-tel { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:15px; font-weight:500; color:var(--on-deep); padding:15px 12px; transition:opacity .2s, transform .2s; }
   .btn-tel:hover { opacity:.85; transform:translateY(-2px); }
-
-  /* Footer */
-  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:0; padding:54px 0 28px; }
+  footer { background:var(--surface-2); border-top:1px solid var(--line); padding:54px 0 28px; }
   .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; }
   @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1.2fr; } }
   .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
@@ -200,15 +166,12 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .foot-contact a:hover { color:var(--green); }
   .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; }
   .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
-
   :focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
   @media (prefers-reduced-motion:reduce){
     *, *::before, *::after { animation:none !important; transition:none !important; }
     .reveal, .stagger > * { opacity:1 !important; transform:none !important; }
     .load { opacity:1 !important; }
   }
-
-  /* Menu mobile */
   .mob-ov { position:fixed; inset:0; z-index:200; background:rgba(7,34,26,0.5); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity .3s ease; }
   .mob-ov.open { opacity:1; pointer-events:auto; }
   .mob-panel { position:fixed; top:0; right:0; bottom:0; width:min(300px,82vw); background:#fff; z-index:201; display:flex; flex-direction:column; padding:20px 24px 32px; box-shadow:-12px 0 48px rgba(7,34,26,0.18); transform:translateX(100%); transition:transform .35s cubic-bezier(0.16,1,0.3,1); }
@@ -231,10 +194,24 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"Organization",
+  "@type":"LocalBusiness",
   "name":"IRV'OHM",
-  "url":"https://irvohm.fr",
-  "logo":"https://irvohm.fr/favicon.png"
+  "description":"Installation de bornes de recharge IRVE à Roissy-en-France",
+  "url":"https://irvohm.fr/roissy-en-france",
+  "telephone":"+33651078828",
+  "email":"contact@irvohm.fr",
+  "areaServed":{"@type":"City","name":"Roissy-en-France"},
+  "address":{"@type":"PostalAddress","addressLocality":"Roissy-en-France","postalCode":"95700","addressCountry":"FR"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Accueil","item":"https://irvohm.fr/"},
+    {"@type":"ListItem","position":2,"name":"Roissy-en-France","item":"https://irvohm.fr/roissy-en-france"}
+  ]
 }
 </script>
 </head>
@@ -258,7 +235,6 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
 </svg>
 
-<!-- Menu mobile -->
 <div class="mob-ov" id="mob-ov" role="dialog" aria-modal="true" aria-label="Menu principal">
   <div class="mob-panel" id="mob-panel">
     <div class="mob-head">
@@ -280,7 +256,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   <div class="wrap header-row">
     <a href="index.html" class="logo">IRV'<span class="om">Ω</span>HM</a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="index.html" class="active">Accueil</a>
+      <a href="index.html">Accueil</a>
       <a href="particulier.html">Particuliers</a>
       <a href="entreprise.html">Entreprises</a>
       <a href="devis.html">Devis</a>
@@ -293,34 +269,31 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
 </header>
 
 <main>
+
   <!-- HERO -->
   <section class="hero">
     <svg class="hero-omega" aria-hidden="true"><use href="#i-omega"/></svg>
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow load l1"><span class="dot"></span> Installateur IRVE · Île-de-France</span>
-        <h1 class="load l2">Rechargez l'avenir,<br/><span class="accent">simplement chez vous.</span></h1>
-        <p class="hero-desc load l3">Installation de bornes de recharge intelligentes pour véhicules électriques. Une recharge rapide, sécurisée et éco-responsable, posée par des techniciens certifiés.</p>
+    <div class="wrap" style="position:relative;z-index:1">
+      <nav aria-label="Fil d'Ariane">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-hidden="true">›</li>
+          <li>Zones d'intervention</li>
+          <li aria-hidden="true">›</li>
+          <li style="color:var(--ink);font-weight:500">Roissy-en-France</li>
+        </ol>
+      </nav>
+      <div style="max-width:700px">
+        <span class="eyebrow load l1"><span class="dot"></span> Installateur IRVE · Roissy-en-France</span>
+        <h1 class="load l2">Borne de recharge<br/><span class="accent">à Roissy-en-France</span></h1>
+        <p class="hero-desc load l3">IRV'OHM intervient à Roissy-en-France (95700), commune internationale aux portes de l'aéroport Charles-de-Gaulle. Résidences, maisons individuelles et entreprises : nous couvrons l'ensemble du territoire pour vos besoins en borne de recharge.</p>
         <div class="hero-cta load l4">
           <a href="devis.html" class="btn-solid">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a href="particulier.html#bornes-section" class="btn-ghost">Nos solutions</a>
+          <a href="tel:+33651078828" class="btn-ghost"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
         </div>
         <div class="proof load l5">
           <div class="avatars" aria-hidden="true"><span>A</span><span>M</span><span>L</span></div>
-          <p class="proof-txt"><strong>+500 installations</strong><br/>réalisées avec succès</p>
-        </div>
-      </div>
-      <div class="hero-media load l3">
-        <div class="glow" aria-hidden="true"></div>
-        <div class="hero-card">
-          <img src="borne-recharge.webp" alt="Borne de recharge pour véhicule électrique installée par IRV'OHM" fetchpriority="high" width="800" height="500" onerror="this.style.display='none'"/>
-          <div class="hero-badge">
-            <div>
-              <div class="k">Disponibilité</div>
-              <div class="stat"><span class="pd"></span> Bornes disponibles</div>
-            </div>
-            <svg class="ic" style="font-size:24px;color:var(--blue)" aria-hidden="true"><use href="#i-bolt"/></svg>
-          </div>
+          <p class="proof-txt"><strong>+500 installations</strong><br/>réalisées en Île-de-France</p>
         </div>
       </div>
     </div>
@@ -330,27 +303,27 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   <section class="adv section">
     <div class="wrap">
       <div class="head reveal">
-        <span class="eyebrow"><span class="dot"></span> Pourquoi nous</span>
-        <h2>L'excellence au service de votre mobilité</h2>
+        <span class="eyebrow"><span class="dot"></span> Notre engagement à Roissy-en-France</span>
+        <h2>Une installation IRVE de qualité</h2>
         <div class="current" aria-hidden="true"></div>
       </div>
       <div class="adv-grid stagger">
         <div class="adv-card">
           <div class="adv-icon adv-1"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></div>
           <h3>Rapidité</h3>
-          <p>Une charge optimisée pour réduire votre temps d'attente. Bornes intelligentes adaptées à la puissance de votre compteur.</p>
+          <p>Devis gratuit sous 48h et installation réalisée dans les 15 jours. Bornes intelligentes jusqu'à 22 kW, adaptées à la puissance de votre compteur.</p>
           <span class="adv-tag">jusqu'à 22 kW</span>
         </div>
         <div class="adv-card">
           <div class="adv-icon adv-2"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></div>
-          <h3>Sécurité</h3>
-          <p>Installations certifiées IRVE par des experts. Protection contre les surtensions et contrôle thermique intégré.</p>
+          <h3>Certification IRVE</h3>
+          <p>Installations certifiées IRVE P1-P2 par nos experts. Protection contre les surtensions et contrôle thermique intégré, conformes NF C 15-100.</p>
           <span class="adv-tag">norme NF C 15-100</span>
         </div>
         <div class="adv-card">
           <div class="adv-icon adv-3"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></div>
-          <h3>Économie</h3>
-          <p>Optimisez votre consommation et profitez de la TVA réduite et des aides pour votre installation à domicile.</p>
+          <h3>Aides financières</h3>
+          <p>TVA réduite à 5,5 % et programme ADVENIR pour réduire le coût de votre installation. Nous vous accompagnons dans toutes vos démarches.</p>
           <span class="adv-tag">TVA 5,5 % · ADVENIR</span>
         </div>
       </div>
@@ -368,23 +341,23 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
       <div class="svc-grid stagger">
         <article class="svc">
           <div class="svc-fall" aria-hidden="true"></div>
-          <img class="svc-bg" src="particuliers.webp" alt="Installation d'une borne de recharge dans un garage de particulier" loading="lazy" onerror="this.style.display='none'"/>
+          <img class="svc-bg" src="particuliers.webp" alt="Installation borne de recharge particulier à Roissy-en-France" loading="lazy" onerror="this.style.display='none'"/>
           <div class="svc-ov svc-ov1" aria-hidden="true"></div>
           <div class="svc-body">
             <span class="svc-tag">Habitat individuel</span>
             <h3>Pour les particuliers</h3>
-            <p>Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place privative. Solution clé en main : conseil, matériel et installation.</p>
+            <p>Rechargez votre véhicule depuis votre garage ou votre place privative à Roissy-en-France. Solution clé en main : conseil, matériel et installation.</p>
             <a href="particulier.html" class="svc-link svc-link-1">Découvrir l'offre <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
           </div>
         </article>
         <article class="svc">
           <div class="svc-fall" aria-hidden="true"></div>
-          <img class="svc-bg" src="entreprises.webp" alt="Bornes de recharge installées sur un parking d'entreprise" loading="lazy" onerror="this.style.display='none'"/>
+          <img class="svc-bg" src="entreprises.webp" alt="Bornes de recharge entreprise à Roissy-en-France" loading="lazy" onerror="this.style.display='none'"/>
           <div class="svc-ov svc-ov2" aria-hidden="true"></div>
           <div class="svc-body">
             <span class="svc-tag">Tertiaire &amp; flottes</span>
             <h3>Pour les entreprises</h3>
-            <p>Valorisez vos parkings, offrez un service à vos clients et électrifiez votre flotte de véhicules.</p>
+            <p>Valorisez vos parkings à Roissy-en-France, offrez un service à vos clients et électrifiez votre flotte de véhicules professionnels.</p>
             <a href="entreprise.html" class="svc-link svc-link-2">Solutions business <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
           </div>
         </article>
@@ -410,8 +383,8 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
     <div class="wrap">
       <div class="cta-box reveal">
         <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
-        <h2>Prêt à passer à l'électrique ?</h2>
-        <p>Nos techniciens experts vous accompagnent de l'étude de faisabilité jusqu'à la mise en service de votre borne.</p>
+        <h2>Votre borne de recharge à Roissy-en-France</h2>
+        <p>Nos techniciens experts interviennent à Roissy-en-France et dans toute la région. De l'étude de faisabilité jusqu'à la mise en service.</p>
         <div class="cta-actions">
           <a href="devis.html" class="btn-emerald">Mon devis personnalisé <svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></a>
           <a href="tel:+33651078828" class="btn-tel"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
@@ -419,6 +392,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
@@ -448,7 +422,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
     <div style="border-top:1px solid rgba(187,203,187,0.35);margin-top:36px;padding-top:26px">
       <p style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px">Zones d'intervention</p>
       <div style="display:flex;flex-wrap:wrap;gap:7px 14px">
-        <a href="paris.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Paris</a>
+        <a href="paris.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s,padding-left .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Paris</a>
         <a href="sarcelles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sarcelles</a>
         <a href="argenteuil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Argenteuil</a>
         <a href="cergy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Cergy</a>
@@ -477,14 +451,12 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
 
 <script>
   (function(){ var h=document.getElementById('hdr'); var on=function(){ h.classList.toggle('scrolled', window.scrollY>8); }; window.addEventListener('scroll',on,{passive:true}); on(); })();
-
   (function(){
     var els=document.querySelectorAll('.reveal,.stagger'); if(!els.length) return;
     if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){ els.forEach(function(e){e.classList.add('in');}); return; }
     var io=new IntersectionObserver(function(en,o){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); o.unobserve(x.target);} }); },{threshold:0.14,rootMargin:'0px 0px -40px 0px'});
     els.forEach(function(e){ io.observe(e); });
   })();
-
   (function(){
     var stats=document.querySelectorAll('.v[data-target]'); if(!stats.length) return;
     var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
