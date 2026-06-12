@@ -1,337 +1,541 @@
 <!DOCTYPE html>
-<html class="light" lang="fr"><head>
+<html lang="fr">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IRV'OHM - Solutions de Recharge pour Particuliers</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IRV'OHM — Solutions de recharge pour particuliers</title>
+<meta name="description" content="Bornes de recharge IRVE pour maison individuelle et copropriété. Commande en ligne, paiement sécurisé, TVA 5,5%. IRV'OHM, Sarcelles & Île-de-France."/>
 <script src="https://js.stripe.com/v3/"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      "colors": {
-        "outline-variant": "#bbcbbb","error": "#ba1a1a","on-primary-fixed-variant": "#005228","on-secondary-fixed-variant": "#004b73","surface-container": "#eceef0","on-primary-container": "#005027","inverse-surface": "#2d3133","primary": "#006d37","on-error-container": "#93000a","on-tertiary-fixed-variant": "#005141","secondary": "#006397","on-primary": "#ffffff","on-secondary-fixed": "#001d31","secondary-fixed": "#cce5ff","on-surface": "#191c1e","surface-variant": "#e0e3e5","primary-container": "#2ecc71","surface-container-highest": "#e0e3e5","on-error": "#ffffff","surface": "#f7f9fb","secondary-container": "#5cb8fd","on-secondary-container": "#00476e","secondary-fixed-dim": "#92ccff","surface-bright": "#f7f9fb","tertiary-container": "#32c8a7","primary-fixed-dim": "#4ae183","outline": "#6c7b6d","surface-container-low": "#f2f4f6","on-surface-variant": "#3d4a3e","tertiary-fixed-dim": "#4eddbb","on-primary-fixed": "#00210c","tertiary": "#006b58","on-tertiary": "#ffffff","inverse-on-surface": "#eff1f3","on-background": "#191c1e","on-tertiary-fixed": "#002019","inverse-primary": "#4ae183","background": "#f7f9fb","on-secondary": "#ffffff","surface-container-high": "#e6e8ea","primary-fixed": "#6bfe9c","on-tertiary-container": "#004f40","tertiary-fixed": "#6ff9d6","surface-tint": "#006d37","surface-container-lowest": "#ffffff","error-container": "#ffdad6","surface-dim": "#d8dadc"
-      },
-      "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
-      "spacing": {"margin-desktop": "64px","margin-mobile": "16px","xl": "80px","xs": "4px","sm": "12px","base": "8px","gutter": "24px","max-width": "1280px","lg": "48px","md": "24px"},
-      "fontFamily": {"label-sm": ["Inter"],"body-lg": ["Inter"],"body-md": ["Inter"],"headline-sm": ["Montserrat"],"headline-md": ["Montserrat"],"display-lg-mobile": ["Montserrat"],"display-lg": ["Montserrat"],"label-md": ["Inter"]},
-      "fontSize": {"label-sm": ["12px", {"lineHeight": "1.2","fontWeight": "600"}],"body-lg": ["18px", {"lineHeight": "1.6","fontWeight": "400"}],"body-md": ["16px", {"lineHeight": "1.5","fontWeight": "400"}],"headline-sm": ["24px", {"lineHeight": "1.3","fontWeight": "600"}],"headline-md": ["32px", {"lineHeight": "1.2","fontWeight": "600"}],"display-lg-mobile": ["32px", {"lineHeight": "1.2","fontWeight": "700"}],"display-lg": ["48px", {"lineHeight": "1.1","letterSpacing": "-0.02em","fontWeight": "700"}],"label-md": ["14px", {"lineHeight": "1.4","letterSpacing": "0.01em","fontWeight": "500"}]}
-    },
-  },
-}
-</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
+
 <style>
-.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-.omega-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40rem; opacity: 0.03; pointer-events: none; z-index: 0; color: #006d37; }
-.borne-img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.4s ease; }
-.borne-img:hover { transform: scale(1.05); }
-.img-fallback { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --ink:#191c1e; --ink-soft:#3d4a3e; --muted:#6c7b6d;
+    --green:#006d37; --emerald:#2ecc71; --blue:#006397; --sky:#5cb8fd;
+    --surface:#f7f9fb; --surface-2:#eceef0; --white:#ffffff; --line:#d4ddd5;
+    --deep:#07221a; --deep-2:#0c2c22; --on-deep:#dfeee6; --on-deep-soft:rgba(223,238,230,0.62);
+    --display:'Montserrat', system-ui, sans-serif;
+    --body:'Inter', system-ui, sans-serif;
+    --mono:'Inter', system-ui, sans-serif;
+    --maxw:1240px; --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  html { font-size:16px; scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  body { font-family:var(--body); background:var(--surface); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  ::selection { background:rgba(46,204,113,0.28); }
+
+  .wrap { max-width:var(--maxw); margin-inline:auto; padding-inline:20px; }
+  @media (min-width:768px){ .wrap { padding-inline:48px; } }
+  .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+  .section { padding-block:80px; }
+  @media (max-width:767px){ .section { padding-block:56px; } }
+
+  .eyebrow { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--green); }
+  .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 4px rgba(46,204,113,0.18); animation:pulse 2.4s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.55;transform:scale(1.25)} }
+  .current { position:relative; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--green),var(--blue)); overflow:hidden; }
+  .current::after { content:''; position:absolute; top:50%; left:0; width:46px; height:6px; transform:translateY(-50%); border-radius:6px; background:radial-gradient(closest-side, rgba(110,255,170,0.95), rgba(110,255,170,0)); animation:flow 3.2s var(--ease) infinite; }
+  @keyframes flow { 0%{left:-12%} 100%{left:108%} }
+  .current.short { width:84px; }
+  @keyframes spin { to{ transform:rotate(360deg);} }
+
+  .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .reveal.in { opacity:1; transform:none; }
+  .stagger > * { opacity:0; transform:translateY(22px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+  .stagger.in > *:nth-child(1){transition-delay:.00s}.stagger.in > *:nth-child(2){transition-delay:.09s}
+  .stagger.in > *:nth-child(3){transition-delay:.18s}.stagger.in > *:nth-child(4){transition-delay:.27s}
+  .stagger.in > * { opacity:1; transform:none; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+  .load { opacity:0; animation:fadeUp .85s var(--ease) forwards; }
+  .l1{animation-delay:.05s}.l2{animation-delay:.14s}.l3{animation-delay:.23s}.l4{animation-delay:.32s}
+
+  /* Header */
+  .header { position:sticky; top:0; z-index:50; background:rgba(247,249,251,0.86); backdrop-filter:blur(14px); border-bottom:1px solid rgba(187,203,187,0.32); transition:box-shadow .25s ease; }
+  .header.scrolled { box-shadow:0 6px 24px rgba(7,34,26,0.07); }
+  .header-row { display:flex; align-items:center; justify-content:space-between; height:78px; }
+  .logo { font-family:var(--display); font-weight:700; font-size:23px; letter-spacing:-0.01em; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .logo .om { -webkit-text-fill-color:var(--emerald); }
+  .nav { display:none; gap:30px; align-items:center; }
+  @media (min-width:860px){ .nav{ display:flex; } }
+  .nav a { position:relative; font-size:13px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); padding-block:6px; transition:color .2s; }
+  .nav a::after { content:''; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:linear-gradient(90deg,var(--green),var(--blue)); transition:right .28s var(--ease); }
+  .nav a:hover, .nav a.active { color:var(--green); }
+  .nav a:hover::after, .nav a.active::after { right:0; }
+  .cta-pill { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:11px 20px; border-radius:var(--r-sm); border:none; cursor:pointer; transition:transform .15s ease, box-shadow .2s ease; box-shadow:0 4px 14px rgba(0,109,55,0.22); }
+  .cta-pill:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,109,55,0.3); }
+  .menu-btn { display:flex; background:none; border:none; cursor:pointer; color:var(--ink); font-size:24px; align-items:center; }
+  @media (min-width:860px){ .menu-btn { display:none; } }
+
+  /* Hero */
+  .hero { padding-top:64px; padding-bottom:24px; }
+  .hero-grid { display:grid; grid-template-columns:1fr; gap:44px; align-items:center; }
+  @media (min-width:860px){ .hero-grid { grid-template-columns:1.05fr 0.95fr; gap:56px; } }
+  .hero h1 { font-family:var(--display); font-weight:700; font-size:clamp(34px,5vw,52px); line-height:1.06; letter-spacing:-0.025em; margin-top:18px; }
+  .hero h1 .accent { background:linear-gradient(120deg,var(--emerald),var(--sky)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero p { font-size:clamp(16px,2vw,18px); color:var(--ink-soft); max-width:50ch; margin-top:20px; line-height:1.6; }
+  .hero-cta { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+  .btn-solid { display:inline-flex; align-items:center; gap:9px; font-size:15px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:14px 26px; border-radius:var(--r-sm); border:none; cursor:pointer; box-shadow:0 6px 18px rgba(0,109,55,0.26); transition:transform .15s ease, box-shadow .2s ease; }
+  .btn-solid:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,109,55,0.34); }
+  .btn-ghost { display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:var(--blue); padding:14px 24px; border-radius:var(--r-sm); border:1.5px solid rgba(0,99,151,0.4); background:none; cursor:pointer; transition:background .2s, transform .15s; }
+  .btn-ghost:hover { background:rgba(92,184,253,0.1); transform:translateY(-2px); }
+  .hero-media { position:relative; }
+  .hero-media .glow { position:absolute; inset:-16px; background:linear-gradient(130deg,var(--green),var(--blue)); border-radius:36px; opacity:.12; filter:blur(34px); }
+  .hero-card { position:relative; border-radius:30px; overflow:hidden; box-shadow:0 24px 60px rgba(7,34,26,0.16); background:linear-gradient(150deg,var(--deep-2),var(--deep)); }
+  .hero-card img { width:100%; height:460px; object-fit:cover; transition:transform .6s var(--ease); }
+  .hero-media:hover .hero-card img { transform:scale(1.04); }
+
+  /* Generic section head */
+  .head { text-align:center; max-width:620px; margin:0 auto 50px; }
+  .head .eyebrow { justify-content:center; margin-bottom:12px; }
+  .head h2 { font-family:var(--display); font-weight:600; font-size:clamp(26px,3.4vw,36px); letter-spacing:-0.025em; line-height:1.14; }
+  .head p { color:var(--ink-soft); margin-top:12px; font-size:16px; }
+  .head .current { width:84px; margin:16px auto 0; }
+
+  /* Solutions cards */
+  .sol { background:var(--white); }
+  .sol-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+  @media (min-width:820px){ .sol-grid { grid-template-columns:repeat(2,1fr); } }
+  .sol-card { background:var(--surface); border:1px solid rgba(187,203,187,0.35); border-radius:var(--r-xl); overflow:hidden; transition:transform .25s var(--ease), box-shadow .25s, border-color .25s; }
+  .sol-card:hover { transform:translateY(-6px); box-shadow:0 22px 48px rgba(7,34,26,0.08); border-color:rgba(0,109,55,0.25); }
+  .sol-media { height:220px; position:relative; overflow:hidden; background:linear-gradient(150deg,var(--deep-2),var(--deep)); }
+  .sol-media img { width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease); }
+  .sol-card:hover .sol-media img { transform:scale(1.06); }
+  .sol-media::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(7,34,26,0.35), transparent 55%); }
+  .sol-body { padding:32px; }
+  .sol-glyph { width:56px; height:56px; border-radius:16px; display:grid; place-items:center; font-size:28px; margin-bottom:18px; }
+  .sol-glyph.g { background:rgba(0,109,55,0.1); color:var(--green); }
+  .sol-glyph.b { background:rgba(0,99,151,0.1); color:var(--blue); }
+  .sol-body h3 { font-family:var(--display); font-weight:600; font-size:22px; letter-spacing:-0.01em; }
+  .sol-body > p { color:var(--ink-soft); font-size:15px; margin-top:10px; line-height:1.55; }
+  .feat { list-style:none; margin:20px 0 24px; display:flex; flex-direction:column; gap:10px; }
+  .feat li { display:flex; align-items:center; gap:10px; font-size:14.5px; color:var(--ink-soft); }
+  .feat .ic { color:var(--green); font-size:18px; }
+  .sol-card.b .feat .ic { color:var(--blue); }
+  .sol-more { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--green); background:none; border:none; cursor:pointer; transition:gap .2s; }
+  .sol-card.b .sol-more { color:var(--blue); }
+  .sol-more:hover { gap:11px; }
+
+  /* Process */
+  .proc { background:var(--surface-2); }
+  .proc-grid { display:grid; grid-template-columns:1fr; gap:18px; }
+  @media (min-width:760px){ .proc-grid { grid-template-columns:repeat(3,1fr); } }
+  .proc-card { background:var(--white); border:1px solid rgba(187,203,187,0.35); border-radius:var(--r-lg); padding:30px; position:relative; transition:transform .25s var(--ease), box-shadow .25s; }
+  .proc-card:hover { transform:translateY(-5px); box-shadow:0 16px 38px rgba(7,34,26,0.07); }
+  .proc-num { font-family:var(--mono); font-size:13px; font-weight:700; letter-spacing:0.1em; color:var(--emerald); }
+  .proc-glyph { width:52px; height:52px; border-radius:14px; display:grid; place-items:center; font-size:24px; background:rgba(0,109,55,0.09); color:var(--green); margin:16px 0 16px; }
+  .proc-card h4 { font-family:var(--display); font-weight:600; font-size:18px; }
+  .proc-card p { color:var(--ink-soft); font-size:14.5px; margin-top:8px; line-height:1.55; }
+
+  /* Bornes */
+  .bornes { position:relative; overflow:hidden; }
+  .bornes .omega { position:absolute; right:-90px; top:80px; width:420px; height:420px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
+  .bornes-top { display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:flex-end; margin-bottom:14px; position:relative; z-index:1; }
+  .bornes-top h2 { font-family:var(--display); font-weight:600; font-size:clamp(26px,3.4vw,34px); letter-spacing:-0.025em; }
+  .bornes-top p { color:var(--ink-soft); margin-top:8px; font-size:15px; }
+  .badge-tva { font-family:var(--mono); font-size:12px; font-weight:500; color:var(--blue); background:rgba(92,184,253,0.12); border:1px solid rgba(0,99,151,0.2); padding:8px 14px; border-radius:999px; }
+  .tabs { display:flex; gap:10px; margin:22px 0 30px; position:relative; z-index:1; }
+  .tab { font-family:var(--body); font-size:14px; font-weight:600; padding:11px 22px; border-radius:var(--r-sm); border:1.5px solid rgba(187,203,187,0.6); background:var(--white); color:var(--ink-soft); cursor:pointer; transition:all .2s; }
+  .tab:hover { border-color:var(--green); color:var(--green); }
+  .tab.on { border-color:transparent; background:linear-gradient(120deg,var(--green),var(--blue)); color:#fff; box-shadow:0 6px 16px rgba(0,109,55,0.22); }
+  .cards-grid { display:grid; grid-template-columns:1fr; gap:24px; position:relative; z-index:1; }
+  @media (min-width:760px){ .cards-grid { grid-template-columns:repeat(3,1fr); } }
+  .prod { background:var(--white); border:1px solid rgba(187,203,187,0.35); border-radius:var(--r-xl); overflow:hidden; transition:transform .25s var(--ease), box-shadow .25s, border-color .25s; display:flex; flex-direction:column; }
+  .prod:hover { transform:translateY(-7px); box-shadow:0 22px 50px rgba(7,34,26,0.1); border-color:rgba(0,109,55,0.25); }
+  .prod-media { height:220px; background:radial-gradient(120% 120% at 50% 0%, var(--surface) 0%, var(--surface-2) 100%); display:grid; place-items:center; padding:30px; position:relative; }
+  .borne-img { width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply; transition:transform .4s var(--ease); }
+  .prod:hover .borne-img { transform:scale(1.06); }
+  .prod-flag { position:absolute; top:16px; right:16px; font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:5px 11px; border-radius:999px; }
+  .prod-body { padding:26px; display:flex; flex-direction:column; flex:1; }
+  .prod-brand { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+  .prod-name { font-family:var(--display); font-weight:600; font-size:20px; margin-top:2px; }
+  .prod-ip { font-family:var(--mono); font-size:11px; font-weight:700; color:var(--green); background:rgba(0,109,55,0.1); padding:3px 9px; border-radius:6px; }
+  .prod-row { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .prod-desc { color:var(--ink-soft); font-size:14px; margin-top:12px; line-height:1.55; }
+  .spec { list-style:none; margin:16px 0 22px; display:flex; flex-direction:column; gap:9px; }
+  .spec li { display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--ink); }
+  .spec .ic { color:var(--green); font-size:17px; flex-shrink:0; }
+  .prod-cta { margin-top:auto; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; font-size:14.5px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:13px; border-radius:var(--r-sm); cursor:pointer; transition:opacity .2s, transform .15s; }
+  .prod-cta:hover { opacity:.92; transform:translateY(-1px); }
+
+  /* Trust strip */
+  .trust { background:linear-gradient(150deg,var(--deep-2),var(--deep)); }
+  .trust-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:30px 20px; text-align:center; }
+  @media (min-width:760px){ .trust-grid { grid-template-columns:repeat(4,1fr); } }
+  .trust-item .ic { font-size:32px; color:var(--emerald); }
+  .trust-item .v { font-family:var(--display); font-weight:700; font-size:26px; color:#fff; margin-top:10px; letter-spacing:-0.01em; }
+  .trust-item .l { font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--on-deep-soft); margin-top:6px; }
+
+  /* FAQ */
+  .faq-list { max-width:720px; margin:0 auto; }
+  .faq-item { border-bottom:1px solid rgba(187,203,187,0.5); }
+  .faq-q { width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px; text-align:left; background:none; border:none; cursor:pointer; padding:22px 4px; font-family:var(--display); font-weight:600; font-size:17px; color:var(--ink); }
+  .faq-q .ic { color:var(--green); font-size:22px; transition:transform .3s var(--ease); flex-shrink:0; }
+  .faq-item.open .faq-q .ic { transform:rotate(180deg); }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height .35s var(--ease); }
+  .faq-a p { color:var(--ink-soft); font-size:15px; line-height:1.6; padding:0 4px 22px; }
+
+  /* CTA */
+  .cta-box { background:radial-gradient(120% 130% at 0% 0%, var(--deep-2) 0%, var(--deep) 60%); border-radius:var(--r-xl); padding:60px 36px; text-align:center; position:relative; overflow:hidden; }
+  @media (min-width:768px){ .cta-box { padding:72px; } }
+  .cta-box .omega { position:absolute; right:-40px; top:-50px; width:230px; height:230px; opacity:0.09; color:var(--emerald); animation:spin 44s linear infinite reverse; }
+  .cta-box h2 { font-family:var(--display); font-weight:600; font-size:clamp(26px,4vw,36px); letter-spacing:-0.025em; color:var(--on-deep); position:relative; z-index:1; }
+  .cta-box p { color:var(--on-deep-soft); font-size:16.5px; max-width:46ch; margin:16px auto 0; position:relative; z-index:1; }
+  .cta-actions { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:30px; position:relative; z-index:1; }
+  .btn-emerald { display:inline-flex; align-items:center; gap:9px; font-size:15px; font-weight:600; color:#00210c; background:var(--emerald); padding:15px 30px; border-radius:var(--r-sm); border:none; cursor:pointer; transition:transform .18s, box-shadow .2s; }
+  .btn-emerald:hover { transform:scale(1.04); box-shadow:0 10px 30px rgba(46,204,113,0.35); }
+  .btn-white-ghost { display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:var(--on-deep); background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.22); padding:15px 26px; border-radius:var(--r-sm); cursor:pointer; transition:background .2s; }
+  .btn-white-ghost:hover { background:rgba(255,255,255,0.16); }
+
+  /* Footer */
+  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:0; padding:54px 0 28px; }
+  .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; }
+  @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1fr; } }
+  .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
+  .foot-desc { color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:30ch; }
+  .foot h5 { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+  .foot nav { display:flex; flex-direction:column; gap:9px; }
+  .foot nav a { color:var(--ink-soft); font-size:14px; transition:color .2s, padding-left .2s; }
+  .foot nav a:hover { color:var(--green); padding-left:4px; }
+  .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; }
+  .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
+
+  :focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion:reduce){
+    *, *::before, *::after { animation:none !important; transition:none !important; }
+    .reveal, .stagger > * { opacity:1 !important; transform:none !important; }
+    .load { opacity:1 !important; }
+  }
 </style>
 </head>
-<body class="bg-background text-on-background font-body-md overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="bg-surface/90 backdrop-blur-md font-label-md text-label-md uppercase tracking-wider shadow-sm docked full-width top-0 sticky z-50 border-b border-outline-variant/30">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<div class="font-headline-sm text-headline-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">IRV'OHM</div>
-<nav class="hidden md:flex gap-md items-center h-full">
-  <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Accueil</a>
-  <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="particulier.html">Particuliers</a>
-  <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="entreprise.html">Entreprises</a>
-  <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="devis.html">Devis</a>
-</nav>
-<a href="devis.html" class="bg-gradient-to-r from-primary to-secondary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md uppercase tracking-wider shadow-sm hover:opacity-90 active:scale-95 transition-all">Devis Gratuit</a>
-</div>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M9 21v-6h6v6"/></symbol>
+  <symbol id="i-apt" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-speed" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 13a10 10 0 0 1 14 0M8.5 16.5a5 5 0 0 1 7 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></symbol>
+  <symbol id="i-cable" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7"/><path d="M7 3v2a4 4 0 0 0 4 4h6"/><circle cx="5" cy="3" r="2"/><circle cx="19" cy="21" r="2"/></symbol>
+  <symbol id="i-meter" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8M12 7v.01M17 12h-.01M7 12H7"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0 0-9 6 6 0 0 0-11.6 1.5A4 4 0 0 0 6 19z"/></symbol>
+  <symbol id="i-rfid" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9v6M11 9v6M15 9v6"/></symbol>
+  <symbol id="i-verified" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><path d="M12 2 4 5v6c0 5.5 3.8 9.3 8 11 4.2-1.7 8-5.5 8-11V5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-agent" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8v6"/><path d="M20 16v-6a8 8 0 0 0-8-8"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="i-assign" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 14l2 2 4-4"/></symbol>
+  <symbol id="i-build" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+  <symbol id="i-omega" viewBox="0 0 100 100"><path d="M50 8C29 8 12 25 12 46c0 12 6 22 15 28v9H16v9h26V73c-11-4-19-15-19-27 0-15 12-27 27-27s27 12 27 27c0 12-8 23-19 27v9h26v-9H73v-9c9-6 15-16 15-28C88 25 71 8 50 8z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<header class="header" id="hdr">
+  <div class="wrap header-row">
+    <a href="index.html" class="logo">IRV'<span class="om">Ω</span>HM</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="particulier.html" class="active">Particuliers</a>
+      <a href="entreprise.html">Entreprises</a>
+      <a href="devis.html">Devis</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="devis.html" class="cta-pill">Devis gratuit <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="menu-btn" aria-label="Menu" onclick="location.href='devis.html'"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
 </header>
 
-<main class="relative">
-<div class="omega-watermark">©</div>
+<main>
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow load l1"><span class="dot"></span> Recharge à domicile</span>
+        <h1 class="load l2">La recharge intelligente <span class="accent">chez vous</span>.</h1>
+        <p class="load l3">Transformez votre garage ou votre place de parking en station de recharge haute performance. IRV'OHM vous accompagne de l'étude technique à la mise en service.</p>
+        <div class="hero-cta load l4">
+          <button class="btn-solid" onclick="document.getElementById('bornes-section').scrollIntoView({behavior:'smooth'})">Voir les solutions <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button class="btn-ghost" onclick="openOrder(null,null)">Commander une borne</button>
+        </div>
+      </div>
+      <div class="hero-media load l3">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="hero-card">
+          <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1400&auto=format&fit=crop" alt="Voiture électrique en recharge"/>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Hero Section -->
-<section class="px-margin-mobile md:px-margin-desktop py-xl max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-2 gap-lg items-center relative z-10">
-<div>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-md text-on-surface">
-  La recharge intelligente <span class="text-primary">chez vous</span>.
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
-  Transformez votre garage ou votre place de parking en station de recharge haute performance. IRV'OHM vous accompagne de l'étude technique à la mise en service.
-</p>
-<div class="flex gap-md">
-  <button onclick="document.querySelector('#bornes-section, section.bg-surface').scrollIntoView({behavior:'smooth'})" class="bg-primary text-on-primary px-lg py-md rounded-xl font-label-md shadow-lg hover:shadow-primary/20 transition-all">Voir les solutions</button>
-  <button onclick="openOrder(null, null)" class="border-2 border-primary text-primary px-lg py-md rounded-xl font-label-md hover:bg-primary/5 transition-all">Nos bornes</button>
-</div>
-</div>
-<div class="rounded-3xl overflow-hidden shadow-xl">
-  <img class="w-full h-[500px] object-cover" src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1400&auto=format&fit=crop" alt="Voiture électrique recharge premium"/>
-</div>
-</section>
+  <!-- SOLUTIONS -->
+  <section class="sol section">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span> Votre habitat</span>
+        <h2>Une solution adaptée à votre logement</h2>
+        <p>Maison individuelle ou copropriété : nous avons la réponse.</p>
+        <div class="current" aria-hidden="true"></div>
+      </div>
+      <div class="sol-grid stagger">
+        <article class="sol-card">
+          <div class="sol-media"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85&fit=crop&auto=format" alt="Borne en maison individuelle" onerror="this.style.display='none'"/></div>
+          <div class="sol-body">
+            <div class="sol-glyph g"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg></div>
+            <h3>Maison individuelle</h3>
+            <p>Une installation simple et une recharge rapide sécurisée, directement dans votre garage ou sur votre allée.</p>
+            <ul class="feat">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Charge jusqu'à 22 kW</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Pilotage via application mobile</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Compatible panneaux solaires</li>
+            </ul>
+            <button class="sol-more" onclick="document.getElementById('bornes-section').scrollIntoView({behavior:'smooth'})">Voir les bornes <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="sol-card b">
+          <div class="sol-media"><img src="https://images.unsplash.com/photo-1573074617613-fc8ef27e6f9d?w=700&q=85&fit=crop&auto=format" alt="Borne en copropriété" onerror="this.style.display='none'"/></div>
+          <div class="sol-body">
+            <div class="sol-glyph b"><svg class="ic" aria-hidden="true"><use href="#i-apt"/></svg></div>
+            <h3>Copropriété</h3>
+            <p>« Droit à la prise » ou infrastructure collective pour équiper votre place de parking privative en toute conformité.</p>
+            <ul class="feat">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Facturation individuelle</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Accompagnement syndic inclus</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Bornes sécurisées par RFID</li>
+            </ul>
+            <button class="sol-more" onclick="switchTab('copro');document.getElementById('bornes-section').scrollIntoView({behavior:'smooth'})">Voir le processus <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<!-- Residential Solutions -->
-<section class="bg-surface-container-low py-xl px-margin-mobile md:px-margin-desktop relative z-10">
-<div class="max-w-max-width mx-auto">
-<div class="text-center mb-xl">
-  <h2 class="font-headline-md text-headline-md text-on-surface mb-base">Solutions adaptées à votre habitat</h2>
-  <p class="font-body-md text-on-surface-variant">Que vous soyez en maison individuelle ou en copropriété, nous avons la solution.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-  <div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 hover:shadow-xl transition-all group overflow-hidden">
-    <div class="h-56 overflow-hidden relative">
-      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85&fit=crop&auto=format" alt="Installation borne maison individuelle" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=85&fit=crop&auto=format'"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-    </div>
-    <div class="p-lg">
-      <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
-        <span class="material-symbols-outlined text-primary text-[32px]">home</span>
+  <!-- PROCESS -->
+  <section class="proc section">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span> Simplicité avant tout</span>
+        <h2>Votre installation en 3 étapes</h2>
+        <div class="current" aria-hidden="true"></div>
       </div>
-      <h3 class="font-headline-sm text-headline-sm mb-md">Maison Individuelle</h3>
-      <p class="font-body-md text-on-surface-variant mb-lg">Profitez d'une installation simple et d'une recharge rapide sécurisée directement dans votre garage ou sur votre allée.</p>
-      <ul class="space-y-sm mb-lg">
-        <li class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary">check_circle</span> Charge jusqu'à 22kW</li>
-        <li class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary">check_circle</span> Pilotage via application mobile</li>
-        <li class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary">check_circle</span> Compatible panneaux solaires</li>
-      </ul>
-      <button class="text-primary font-label-md flex items-center gap-xs hover:underline">En savoir plus <span class="material-symbols-outlined">arrow_forward</span></button>
-    </div>
-  </div>
-  <div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 hover:shadow-xl transition-all group overflow-hidden">
-    <div class="h-56 overflow-hidden relative">
-      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1573074617613-fc8ef27e6f9d?w=700&q=85&fit=crop&auto=format" alt="Borne de recharge en parking copropriété" onerror="this.src='https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=700&q=85&fit=crop&auto=format'"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-    </div>
-    <div class="p-lg">
-      <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
-        <span class="material-symbols-outlined text-secondary text-[32px]">apartment</span>
+      <div class="proc-grid stagger">
+        <div class="proc-card">
+          <div class="proc-num">01</div>
+          <div class="proc-glyph"><svg class="ic" aria-hidden="true"><use href="#i-assign"/></svg></div>
+          <h4>Étude &amp; devis</h4>
+          <p>Analyse gratuite de votre installation électrique et devis sur-mesure sous 48h.</p>
+        </div>
+        <div class="proc-card">
+          <div class="proc-num">02</div>
+          <div class="proc-glyph"><svg class="ic" aria-hidden="true"><use href="#i-build"/></svg></div>
+          <h4>Pose certifiée</h4>
+          <p>Installation par nos techniciens IRVE qualifiés, conforme aux normes.</p>
+        </div>
+        <div class="proc-card">
+          <div class="proc-num">03</div>
+          <div class="proc-glyph"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></div>
+          <h4>Mise en route</h4>
+          <p>Configuration de la borne, tests de charge et prise en main de votre matériel.</p>
+        </div>
       </div>
-      <h3 class="font-headline-sm text-headline-sm mb-md">Copropriété</h3>
-      <p class="font-body-md text-on-surface-variant mb-lg">Des solutions de "Droit à la prise" ou des infrastructures collectives pour équiper votre place de parking privative.</p>
-      <ul class="space-y-sm mb-lg">
-        <li class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-secondary">check_circle</span> Gestion de la facturation individuelle</li>
-        <li class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-secondary">check_circle</span> Accompagnement syndic inclus</li>
-        <li class="flex items-center gap-xs text-on-surface-variant"><span class="material-symbols-outlined text-secondary">check_circle</span> Bornes sécurisées par RFID</li>
-      </ul>
-      <button class="text-secondary font-label-md flex items-center gap-xs hover:underline">Découvrir le processus <span class="material-symbols-outlined">arrow_forward</span></button>
     </div>
-  </div>
-</div>
-</div>
-</section>
+  </section>
 
-<!-- 3-Step Process -->
-<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<div class="text-center mb-xl">
-  <span class="text-primary font-label-sm uppercase tracking-widest mb-base block">Simplicité avant tout</span>
-  <h2 class="font-headline-md text-headline-md text-on-surface">Votre installation en 3 étapes</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-  <div class="flex flex-col items-center text-center p-md bg-white rounded-2xl border border-outline-variant/20">
-    <div class="text-display-lg text-primary/20 font-bold mb-xs">01</div>
-    <span class="material-symbols-outlined text-primary text-lg mb-md" style="font-size: 48px;">assignment</span>
-    <h4 class="font-headline-sm text-headline-sm mb-sm">Étude & Devis</h4>
-    <p class="font-body-md text-on-surface-variant">Analyse gratuite de votre installation électrique et proposition d'un devis sur-mesure sous 48h.</p>
-  </div>
-  <div class="flex flex-col items-center text-center p-md bg-white rounded-2xl border border-outline-variant/20">
-    <div class="text-display-lg text-primary/20 font-bold mb-xs">02</div>
-    <span class="material-symbols-outlined text-primary text-lg mb-md" style="font-size: 48px;">construction</span>
-    <h4 class="font-headline-sm text-headline-sm mb-sm">Pose Certifiée</h4>
-    <p class="font-body-md text-on-surface-variant">Installation par nos techniciens IRVE qualifiés garantissant sécurité et conformité aux normes.</p>
-  </div>
-  <div class="flex flex-col items-center text-center p-md bg-white rounded-2xl border border-outline-variant/20">
-    <div class="text-display-lg text-primary/20 font-bold mb-xs">03</div>
-    <span class="material-symbols-outlined text-primary text-lg mb-md" style="font-size: 48px;">bolt</span>
-    <h4 class="font-headline-sm text-headline-sm mb-sm">Mise en route</h4>
-    <p class="font-body-md text-on-surface-variant">Configuration de la borne, tests de charge et formation à l'utilisation de votre matériel.</p>
-  </div>
-</div>
-</section>
+  <!-- BORNES -->
+  <section id="bornes-section" class="bornes section">
+    <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
+    <div class="wrap">
+      <div class="bornes-top reveal">
+        <div>
+          <h2>Bornes sélectionnées</h2>
+          <p>Le meilleur de la technologie européenne pour votre domicile.</p>
+        </div>
+        <span class="badge-tva">TVA réduite 5,5 %</span>
+      </div>
 
-<!-- Compatible Chargers Grid -->
-<section id="bornes-section" class="bg-surface py-xl px-margin-mobile md:px-margin-desktop">
-<div class="max-w-max-width mx-auto">
-<div class="flex justify-between items-end mb-xl">
-  <div>
-    <h2 class="font-headline-md text-headline-md text-on-surface mb-base">Bornes Sélectionnées</h2>
-    <p class="font-body-md text-on-surface-variant">Le meilleur de la technologie européenne pour votre domicile.</p>
-  </div>
-  <div class="hidden md:block">
-    <span class="bg-secondary/10 text-secondary px-md py-xs rounded-full font-label-sm border border-secondary/20">TVA réduite à 5,5%</span>
-  </div>
-</div>
-<div class="flex gap-sm mb-lg">
-  <button id="tab-btn-maison" onclick="switchTab('maison')" class="px-lg py-sm rounded-xl font-label-md border-2 border-primary bg-primary text-on-primary transition-all">Maison individuelle</button>
-  <button id="tab-btn-copro" onclick="switchTab('copro')" class="px-lg py-sm rounded-xl font-label-md border-2 border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all">Copropriété</button>
-</div>
-<div id="cards-maison" class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-  <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
-    <div class="h-64 bg-surface-container flex items-center justify-center p-lg relative overflow-hidden">
-      <img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max"/>
-      <div class="absolute top-md right-md bg-primary text-on-primary px-sm py-xs rounded-lg font-label-sm">Populaire</div>
-    </div>
-    <div class="p-md">
-      <div class="flex justify-between items-center mb-sm">
-        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Wallbox</p><h4 class="font-headline-sm text-headline-sm">Pulsar Max</h4></div>
-        <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP55</span>
+      <div class="tabs reveal">
+        <button id="tab-btn-maison" class="tab on" onclick="switchTab('maison')">Maison individuelle</button>
+        <button id="tab-btn-copro" class="tab" onclick="switchTab('copro')">Copropriété</button>
       </div>
-      <p class="font-body-md text-on-surface-variant mb-md">La plus compacte du marché, connectée en Wi-Fi et Bluetooth, idéale pour maison individuelle et garage.</p>
-      <div class="flex flex-col gap-xs mb-lg">
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">speed</span><span class="font-label-md text-on-surface">Jusqu'à 22 kW (triphasé)</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">wifi</span><span class="font-label-md text-on-surface">Wi-Fi + Bluetooth + App myWallbox</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">cable</span><span class="font-label-md text-on-surface">Câble Type 2 intégré (5 m) ou prise T2</span></div>
-      </div>
-      <a href="#" onclick="openOrder('Wallbox Pulsar Max', 'wallbox', 'maison'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
-    </div>
-  </div>
-  <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
-    <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
-      <img class="borne-img" src="hager_witty.png" alt="Hager Witty Home"/>
-    </div>
-    <div class="p-md">
-      <div class="flex justify-between items-center mb-sm">
-        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Hager</p><h4 class="font-headline-sm text-headline-sm">Witty Home</h4></div>
-        <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP54</span>
-      </div>
-      <p class="font-body-md text-on-surface-variant mb-md">Design compact et élégant signé Hager, avec gestion dynamique de la charge intégrée.</p>
-      <div class="flex flex-col gap-xs mb-lg">
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">speed</span><span class="font-label-md text-on-surface">Jusqu'à 22 kW (triphasé)</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">electric_meter</span><span class="font-label-md text-on-surface">Gestion dynamique de la charge</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">wifi</span><span class="font-label-md text-on-surface">Connectivité Wi-Fi + App Hager</span></div>
-      </div>
-      <a href="#" onclick="openOrder('Hager Witty Home', 'hager', 'maison'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
-    </div>
-  </div>
-  <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
-    <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
-      <img class="borne-img" src="/borne+.png" alt="Borne +" onerror="this.style.display='none'"/>
-    </div>
-    <div class="p-md">
-      <div class="flex justify-between items-center mb-sm">
-        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">IRV'OHM</p><h4 class="font-headline-sm text-headline-sm">Borne +</h4></div>
-        <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP54</span>
-      </div>
-      <p class="font-body-md text-on-surface-variant mb-md">Solution d'entrée de gamme fiable et efficace pour une recharge quotidienne simple à domicile.</p>
-      <div class="flex flex-col gap-xs mb-lg">
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">speed</span><span class="font-label-md text-on-surface">Jusqu'à 7,4 kW (monophasé)</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">cable</span><span class="font-label-md text-on-surface">Prise Type 2 universelle</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">verified</span><span class="font-label-md text-on-surface">Installation certifiée IRVE</span></div>
-      </div>
-      <a href="#" onclick="openOrder('Borne +', 'borne', 'maison'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
-    </div>
-  </div>
-</div>
-<div id="cards-copro" class="grid grid-cols-1 md:grid-cols-3 gap-gutter" style="display:none">
-  <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
-    <div class="h-64 bg-surface-container flex items-center justify-center p-lg relative overflow-hidden">
-      <img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max"/>
-      <div class="absolute top-md right-md bg-primary text-on-primary px-sm py-xs rounded-lg font-label-sm">Populaire</div>
-    </div>
-    <div class="p-md">
-      <div class="flex justify-between items-center mb-sm">
-        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Wallbox</p><h4 class="font-headline-sm text-headline-sm">Pulsar Max</h4></div>
-        <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP55</span>
-      </div>
-      <p class="font-body-md text-on-surface-variant mb-md">Compacte et connectée, adaptée au parking privatif en copropriété avec gestion individuelle de la recharge.</p>
-      <div class="flex flex-col gap-xs mb-lg">
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">speed</span><span class="font-label-md text-on-surface">Jusqu'à 22 kW (triphasé)</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">wifi</span><span class="font-label-md text-on-surface">Wi-Fi + Bluetooth + App myWallbox</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">cable</span><span class="font-label-md text-on-surface">Câble Type 2 intégré (5 m) ou prise T2</span></div>
-      </div>
-      <a href="#" onclick="openOrder('Wallbox Pulsar Max', 'wallbox', 'copro'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
-    </div>
-  </div>
-  <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
-    <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
-      <img class="borne-img" src="hager_witty.png" alt="Hager Witty Share"/>
-    </div>
-    <div class="p-md">
-      <div class="flex justify-between items-center mb-sm">
-        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Hager</p><h4 class="font-headline-sm text-headline-sm">Witty Share</h4></div>
-        <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP54</span>
-      </div>
-      <p class="font-body-md text-on-surface-variant mb-md">Solution Hager multi-utilisateurs pour copropriétés, avec gestion dynamique de la charge et supervision à distance.</p>
-      <div class="flex flex-col gap-xs mb-lg">
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">speed</span><span class="font-label-md text-on-surface">Jusqu'à 22 kW (triphasé)</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">groups</span><span class="font-label-md text-on-surface">Multi-utilisateurs · Facturation individuelle</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">cloud</span><span class="font-label-md text-on-surface">Supervision cloud + App Hager</span></div>
-      </div>
-      <a href="#" onclick="openOrder('Hager Witty Share', 'hager', 'copro'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
-    </div>
-  </div>
-  <div class="bg-white rounded-3xl overflow-hidden border border-outline-variant/30 transition-transform hover:-translate-y-2">
-    <div class="h-64 bg-surface-container flex items-center justify-center p-lg overflow-hidden">
-      <img class="borne-img" src="/teltocharge.png" alt="Teltocharge TC100" onerror="this.style.display='none'"/>
-    </div>
-    <div class="p-md">
-      <div class="flex justify-between items-center mb-sm">
-        <div><p class="text-xs text-on-surface-variant font-label-sm uppercase tracking-widest mb-xs">Teltonika</p><h4 class="font-headline-sm text-headline-sm">Teltocharge</h4></div>
-        <span class="bg-success/10 text-primary text-xs font-bold px-sm py-xs rounded">IP55</span>
-      </div>
-      <p class="font-body-md text-on-surface-variant mb-md">Borne robuste dédiée aux copropriétés, avec gestion RFID, protocole OCPP et supervision à distance intégrée.</p>
-      <div class="flex flex-col gap-xs mb-lg">
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">speed</span><span class="font-label-md text-on-surface">Jusqu'à 22 kW (triphasé)</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">contactless</span><span class="font-label-md text-on-surface">RFID · Protocole OCPP 1.6</span></div>
-        <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-primary">cloud</span><span class="font-label-md text-on-surface">Supervision cloud en temps réel</span></div>
-      </div>
-      <a href="#" onclick="openOrder('Teltocharge TC100', 'teltocharge', 'copro'); return false;" class="block w-full bg-primary text-on-primary py-sm rounded-xl font-label-md transition-colors hover:opacity-90 text-center">Commander</a>
-    </div>
-  </div>
-</div>
-</div>
-</section>
 
-<!-- Bannière confiance -->
-<section class="py-lg px-margin-mobile md:px-margin-desktop bg-primary/5 border-y border-primary/10">
-<div class="max-w-max-width mx-auto">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-md text-center">
-    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">verified</span><div class="font-headline-sm text-headline-sm text-primary">+1 200</div><div class="font-body-md text-on-surface-variant text-sm">installations réalisées</div></div>
-    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">workspace_premium</span><div class="font-headline-sm text-headline-sm text-primary">IRVE</div><div class="font-body-md text-on-surface-variant text-sm">Techniciens certifiés</div></div>
-    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">support_agent</span><div class="font-headline-sm text-headline-sm text-primary">48h</div><div class="font-body-md text-on-surface-variant text-sm">Devis personnalisé</div></div>
-    <div class="flex flex-col items-center gap-sm p-md"><span class="material-symbols-outlined text-primary" style="font-size:40px">percent</span><div class="font-headline-sm text-headline-sm text-primary">5,5%</div><div class="font-body-md text-on-surface-variant text-sm">TVA réduite</div></div>
-  </div>
-</div>
-</section>
+      <!-- Maison -->
+      <div id="cards-maison" class="cards-grid">
+        <article class="prod">
+          <div class="prod-media"><img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max" onerror="this.style.display='none'"/><span class="prod-flag">Populaire</span></div>
+          <div class="prod-body">
+            <div class="prod-row"><div><div class="prod-brand">Wallbox</div><div class="prod-name">Pulsar Max</div></div><span class="prod-ip">IP55</span></div>
+            <p class="prod-desc">La plus compacte du marché, connectée en Wi-Fi et Bluetooth, idéale pour maison et garage.</p>
+            <ul class="spec">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi + Bluetooth + App myWallbox</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg> Câble Type 2 (5 m) ou prise T2</li>
+            </ul>
+            <button class="prod-cta" onclick="openOrder('Wallbox Pulsar Max','wallbox','maison')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="prod">
+          <div class="prod-media"><img class="borne-img" src="hager_witty.png" alt="Hager Witty Home" onerror="this.style.display='none'"/></div>
+          <div class="prod-body">
+            <div class="prod-row"><div><div class="prod-brand">Hager</div><div class="prod-name">Witty Home</div></div><span class="prod-ip">IP54</span></div>
+            <p class="prod-desc">Design compact et élégant signé Hager, avec gestion dynamique de la charge intégrée.</p>
+            <ul class="spec">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-meter"/></svg> Gestion dynamique de la charge</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg> Connectivité Wi-Fi + App Hager</li>
+            </ul>
+            <button class="prod-cta" onclick="openOrder('Hager Witty Home','hager','maison')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="prod">
+          <div class="prod-media"><img class="borne-img" src="/borne+.png" alt="Borne +" onerror="this.style.display='none'"/></div>
+          <div class="prod-body">
+            <div class="prod-row"><div><div class="prod-brand">IRV'OHM</div><div class="prod-name">Borne +</div></div><span class="prod-ip">IP54</span></div>
+            <p class="prod-desc">Solution d'entrée de gamme fiable et efficace pour une recharge quotidienne simple à domicile.</p>
+            <ul class="spec">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 7,4 kW (monophasé)</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg> Prise Type 2 universelle</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-verified"/></svg> Installation certifiée IRVE</li>
+            </ul>
+            <button class="prod-cta" onclick="openOrder('Borne +','borne','maison')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+      </div>
 
-<!-- FAQ -->
-<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<h2 class="font-headline-md text-headline-md text-on-surface text-center mb-xl">Questions fréquentes</h2>
-<div class="max-w-2xl mx-auto space-y-md">
-  <div class="border-b border-outline-variant pb-md"><button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Quelles sont les aides disponibles ?</span><span class="material-symbols-outlined">expand_more</span></button><div class="mt-sm text-on-surface-variant font-body-md">Les particuliers bénéficient d'une TVA réduite à 5,5% sur l'installation de bornes de recharge. En copropriété, la prime ADVENIR peut également s'appliquer.</div></div>
-  <div class="border-b border-outline-variant pb-md"><button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Ma puissance électrique actuelle suffit-elle ?</span><span class="material-symbols-outlined">expand_more</span></button><div class="mt-sm text-on-surface-variant font-body-md">Nous intégrons systématiquement un module de gestion dynamique de la charge.</div></div>
-  <div class="border-b border-outline-variant pb-md"><button class="flex justify-between items-center w-full text-left"><span class="font-headline-sm text-on-surface">Combien de temps dure l'installation ?</span><span class="material-symbols-outlined">expand_more</span></button><div class="mt-sm text-on-surface-variant font-body-md">Pour une maison individuelle standard, l'installation prend environ une demi-journée.</div></div>
-</div>
-</section>
-
-<!-- CTA -->
-<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<div class="bg-gradient-to-br from-primary to-secondary p-lg rounded-[40px] text-center text-on-primary shadow-2xl relative overflow-hidden">
-  <div class="relative z-10">
-    <h2 class="font-headline-md text-headline-md mb-md">Prêt à passer à l'électrique ?</h2>
-    <p class="font-body-lg text-body-lg mb-lg opacity-90">Recevez votre devis personnalisé gratuit pour votre installation à domicile.</p>
-    <div class="flex flex-col md:flex-row gap-md justify-center">
-      <a href="#" onclick="openOrder(null, null); return false;" class="bg-white text-primary px-xl py-md rounded-xl font-bold hover:scale-105 transition-transform inline-block">Commander maintenant</a>
-      <button class="border border-white/30 bg-white/10 backdrop-blur-sm px-xl py-md rounded-xl font-bold hover:bg-white/20 transition-all">Nous Contacter</button>
+      <!-- Copro -->
+      <div id="cards-copro" class="cards-grid" style="display:none">
+        <article class="prod">
+          <div class="prod-media"><img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max" onerror="this.style.display='none'"/><span class="prod-flag">Populaire</span></div>
+          <div class="prod-body">
+            <div class="prod-row"><div><div class="prod-brand">Wallbox</div><div class="prod-name">Pulsar Max</div></div><span class="prod-ip">IP55</span></div>
+            <p class="prod-desc">Compacte et connectée, adaptée au parking privatif avec gestion individuelle de la recharge.</p>
+            <ul class="spec">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi + Bluetooth + App myWallbox</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg> Câble Type 2 (5 m) ou prise T2</li>
+            </ul>
+            <button class="prod-cta" onclick="openOrder('Wallbox Pulsar Max','wallbox','copro')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="prod">
+          <div class="prod-media"><img class="borne-img" src="hager_witty.png" alt="Hager Witty Share" onerror="this.style.display='none'"/></div>
+          <div class="prod-body">
+            <div class="prod-row"><div><div class="prod-brand">Hager</div><div class="prod-name">Witty Share</div></div><span class="prod-ip">IP54</span></div>
+            <p class="prod-desc">Solution multi-utilisateurs pour copropriétés, avec gestion dynamique et supervision à distance.</p>
+            <ul class="spec">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-agent"/></svg> Multi-utilisateurs · Facturation</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg> Supervision cloud + App Hager</li>
+            </ul>
+            <button class="prod-cta" onclick="openOrder('Hager Witty Share','hager','copro')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+        <article class="prod">
+          <div class="prod-media"><img class="borne-img" src="/teltocharge.png" alt="Teltocharge TC100" onerror="this.style.display='none'"/></div>
+          <div class="prod-body">
+            <div class="prod-row"><div><div class="prod-brand">Teltonika</div><div class="prod-name">Teltocharge</div></div><span class="prod-ip">IP55</span></div>
+            <p class="prod-desc">Borne robuste dédiée aux copropriétés : gestion RFID, protocole OCPP et supervision intégrée.</p>
+            <ul class="spec">
+              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-rfid"/></svg> RFID · Protocole OCPP 1.6</li>
+              <li><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg> Supervision cloud temps réel</li>
+            </ul>
+            <button class="prod-cta" onclick="openOrder('Teltocharge TC100','teltocharge','copro')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </article>
+      </div>
     </div>
-  </div>
-  <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
-</div>
-</section>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust section">
+    <div class="wrap">
+      <div class="trust-grid stagger">
+        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-verified"/></svg><div class="v">+1 200</div><div class="l">Installations réalisées</div></div>
+        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><div class="v">IRVE</div><div class="l">Techniciens certifiés</div></div>
+        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><div class="v">48h</div><div class="l">Devis personnalisé</div></div>
+        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-percent"/></svg><div class="v">5,5 %</div><div class="l">TVA réduite</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span> Bon à savoir</span>
+        <h2>Questions fréquentes</h2>
+        <div class="current" aria-hidden="true"></div>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q">Quelles sont les aides disponibles ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <div class="faq-a"><p>Les particuliers bénéficient d'une TVA réduite à 5,5 % sur l'installation de bornes de recharge. En copropriété, la prime ADVENIR peut également s'appliquer.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Ma puissance électrique actuelle suffit-elle ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <div class="faq-a"><p>Nous intégrons systématiquement un module de gestion dynamique de la charge, qui adapte la puissance de la borne à votre installation existante.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Combien de temps dure l'installation ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <div class="faq-a"><p>Pour une maison individuelle standard, l'installation prend environ une demi-journée, mise en service comprise.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
+        <h2>Prêt à passer à l'électrique ?</h2>
+        <p>Configurez votre borne et obtenez votre prix en ligne, avec paiement sécurisé.</p>
+        <div class="cta-actions">
+          <button class="btn-emerald" onclick="openOrder(null,null)">Commander maintenant <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <a href="devis.html" class="btn-white-ghost">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<!-- Footer -->
-<footer class="bg-surface-container font-body-md text-body-md full-width py-lg mt-xl border-t border-outline-variant">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-  <div class="col-span-1 md:col-span-1"><div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-md">IRV'OHM</div><p class="text-on-surface-variant mb-md">L'expertise IRVE au service de votre mobilité durable.</p></div>
-  <div><h5 class="font-label-md text-primary mb-md uppercase">Solutions</h5><ul class="space-y-sm"><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Maisons Individuelles</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Copropriétés</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Bornes de recharge</a></li></ul></div>
-  <div><h5 class="font-label-md text-primary mb-md uppercase">Ressources</h5><ul class="space-y-sm"><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Installation</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">FAQ</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Aides de l'État</a></li></ul></div>
-  <div><h5 class="font-label-md text-primary mb-md uppercase">Légal</h5><ul class="space-y-sm"><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Mentions Légales</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Confidentialité</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" href="devis.html">Contact</a></li></ul></div>
-</div>
-<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop border-t border-outline-variant/30 mt-lg pt-md">
-  <p class="text-on-surface-variant text-center opacity-70">© 2026 IRV'OHM - Solutions de Recharge Électrique. Tous droits réservés.</p>
-</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid stagger">
+      <div>
+        <div class="foot-logo">IRV'<span style="color:var(--emerald)">Ω</span>HM</div>
+        <p class="foot-desc">L'expertise IRVE au service de votre mobilité durable.</p>
+      </div>
+      <div class="foot">
+        <h5>Solutions</h5>
+        <nav><a href="#">Maisons individuelles</a><a href="#">Copropriétés</a><a href="#bornes-section">Bornes de recharge</a></nav>
+      </div>
+      <div class="foot">
+        <h5>Ressources</h5>
+        <nav><a href="#">Installation</a><a href="#">FAQ</a><a href="#">Aides de l'État</a></nav>
+      </div>
+      <div class="foot">
+        <h5>Légal</h5>
+        <nav><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="devis.html">Contact</a></nav>
+      </div>
+    </div>
+    <div class="foot-copy"><p>© 2026 IRV'OHM — Solutions de recharge électrique. Tous droits réservés.</p></div>
+  </div>
 </footer>
 
-<!-- MODAL -->
+<!-- ============================================================
+     MODALE DE COMMANDE — HTML conservé à l'identique (Stripe/calendrier/adresse)
+     ============================================================ -->
 <div id="irve-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);overflow-y:auto;padding:24px 16px;">
   <div id="irve-box" style="background:#fff;max-width:680px;margin:0 auto;border-radius:32px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.25);font-family:Inter,sans-serif;">
     <div style="background:linear-gradient(135deg,#006d37,#006397);padding:28px 32px 24px;color:#fff;position:relative;">
@@ -479,6 +683,26 @@ tailwind.config = {
 </div>
 
 <script>
+/* === Chrome de page : header scroll, reveal, FAQ accordéon === */
+(function(){ var h=document.getElementById('hdr'); var on=function(){ h.classList.toggle('scrolled', window.scrollY>8); }; window.addEventListener('scroll',on,{passive:true}); on(); })();
+(function(){
+  var els=document.querySelectorAll('.reveal,.stagger'); if(!els.length) return;
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){ els.forEach(function(e){e.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(en,o){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); o.unobserve(x.target);} }); },{threshold:0.14,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+(function(){
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open=item.classList.contains('open');
+      item.classList.toggle('open', !open);
+      a.style.maxHeight = open ? '0' : a.scrollHeight + 'px';
+    });
+  });
+})();
+
+/* === MODALE DE COMMANDE — logique conservée à l'identique === */
 var state = { step:1, borne:null, borneBrand:'wallbox', distanceSurcharge:0, terreSurcharge:0, lieusurcharge:0, totalHT:0, tvaAmount:0, totalTTC:0, deduction:0, totalAPayer:0, paiement:'comptant', date:null, heure:null, calYear:0, calMonth:0, adresseValidee:false };
 var TVA = 0.055;
 var GRILLE = { wallbox:[1685,1810,1935], borne:[1045,1170,1295], hager:[1565,1690,1815], teltocharge:[1915,2040,2165] };
@@ -491,7 +715,16 @@ function nextStep(){ var s=state.step; if(s===1){var t0=document.querySelector('
 function prevStep(){ if(state.step>1){var btnNext=document.getElementById('btn-next'); btnNext.disabled=false; btnNext.style.opacity='1'; btnNext.style.cursor='pointer'; btnNext.title=''; goStep(state.step-1);} }
 function highlightBorne(){ document.querySelectorAll('.borne-option').forEach(function(l){var r=l.querySelector('input[type=radio]'); l.style.borderColor=r&&r.checked?'#006d37':'#e0e3e5'; l.style.background=r&&r.checked?'#f0faf4':'#fff';}); }
 function filterBornes(type){ var maison=['lbl-wallbox','lbl-hager','lbl-schneider']; var copro=['lbl-wallbox','lbl-hager','lbl-teltocharge']; var show=type==='copro'?copro:maison; ['lbl-wallbox','lbl-hager','lbl-schneider','lbl-teltocharge'].forEach(function(id){var el=document.getElementById(id); if(el)el.style.display=show.includes(id)?'flex':'none';}); var checked=document.querySelector('input[name=borne]:checked'); if(checked){var brand=checked.dataset.brand; var valid=type==='copro'?['wallbox','hager','teltocharge']:['wallbox','hager','borne']; if(!valid.includes(brand)){checked.checked=false; highlightBorne();}} }
-function switchTab(type){ document.getElementById('cards-maison').style.display=type==='maison'?'grid':'none'; document.getElementById('cards-copro').style.display=type==='copro'?'grid':'none'; var mb=document.getElementById('tab-btn-maison'); var cb=document.getElementById('tab-btn-copro'); var activeClass='px-lg py-sm rounded-xl font-label-md border-2 border-primary bg-primary text-on-primary transition-all'; var inactiveClass='px-lg py-sm rounded-xl font-label-md border-2 border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all'; if(mb)mb.className=type==='maison'?activeClass:inactiveClass; if(cb)cb.className=type==='copro'?activeClass:inactiveClass; }
+
+/* ▸ Seule fonction adaptée au nouveau design (onglets en classes CSS au lieu de Tailwind) */
+function switchTab(type){
+  document.getElementById('cards-maison').style.display = type==='maison' ? 'grid' : 'none';
+  document.getElementById('cards-copro').style.display  = type==='copro'  ? 'grid' : 'none';
+  var mb=document.getElementById('tab-btn-maison'), cb=document.getElementById('tab-btn-copro');
+  if(mb) mb.classList.toggle('on', type==='maison');
+  if(cb) cb.classList.toggle('on', type==='copro');
+}
+
 document.addEventListener('change',function(e){ if(e.target.name==='borne')highlightBorne(); if(['distance','terre','steptype'].includes(e.target.name)){e.target.closest('.opt-choice').parentElement.querySelectorAll('.opt-choice').forEach(function(l){var r=l.querySelector('input'); l.style.borderColor=r&&r.checked?'#006d37':'#e0e3e5'; l.style.background=r&&r.checked?'#f0faf4':'#fff';}); if(e.target.name==='terre'){document.getElementById('terre-warning').style.display=e.target.value==='non'?'block':'none';} if(e.target.name==='steptype'){filterBornes(e.target.value);}} if(e.target.name==='paiement'){document.querySelectorAll('.pay-option').forEach(function(l){var r=l.querySelector('input'); l.style.borderColor=r&&r.checked?'#006d37':'#e0e3e5'; l.style.background=r&&r.checked?'#f0faf4':'#fff';});} });
 function computeTotal(){ state.totalHT=getPrixTTC(); state.tvaAmount=Math.round(state.totalHT*TVA); state.totalTTC=state.totalHT+state.tvaAmount; state.deduction=state.typelieu==='copro'?Math.min(Math.round(state.totalTTC*0.5),1000):0; state.totalAPayer=state.totalTTC-state.deduction; }
 function fmt(n){ return n.toLocaleString('fr-FR')+'€'; }
@@ -573,7 +806,6 @@ function updateStripeSectionLabel(){ var p=state.paiement; var lbl=''; if(p==='c
 function setLoading(loading){ var btn=document.getElementById('btn-next'); btn.disabled=loading; if(loading){btn.textContent='Traitement...';btn.style.opacity='0.7';}else{btn.style.opacity='1';updatePayBtn();} }
 function showError(msg){ var el=document.getElementById('error-msg'); el.textContent=msg; el.style.display='block'; }
 
-// ✅ CORRECTION 3DS : confirme le paiement après authentification bancaire
 function processPayment(pr,no,em,te,ad){
   document.getElementById('error-msg').style.display='none';
   setLoading(true);
@@ -584,13 +816,12 @@ function processPayment(pr,no,em,te,ad){
     .then(function(r){return r.json();})
     .then(function(data){
       if(data.error){showError(data.error);setLoading(false);return;}
-if(data.requiresAction){
-  stripe.confirmCardPayment(data.clientSecret).then(function(res){
-    if(res.error){
+      if(data.requiresAction){
+        stripe.confirmCardPayment(data.clientSecret).then(function(res){
+          if(res.error){
             showError(res.error.message);
             setLoading(false);
           } else {
-            // Confirmation finale après le 3DS ✅
             fetch('/api/create-payment-intent',{
               method:'POST',
               headers:{'Content-Type':'application/json'},
@@ -636,4 +867,5 @@ document.getElementById('inp-adresse').placeholder="Sélectionnez d'abord une vi
 document.getElementById('inp-adresse').addEventListener('input',function(){var q=this.value.trim(); state.adresseValidee=false; clearTimeout(adresseTimer); if(q.length<3){document.getElementById('adresse-suggestions').style.display='none';return;} if(!selectedVilleData)return; adresseTimer=setTimeout(function(){fetch('https://api-adresse.data.gouv.fr/search/?q='+encodeURIComponent(q)+'&citycode='+encodeURIComponent(selectedVilleData.inseeCode)+'&limit=8').then(function(r){return r.json();}).then(function(data){if(!data.features||data.features.length===0){return fetch('https://api-adresse.data.gouv.fr/search/?q='+encodeURIComponent(q+' '+selectedVilleData.nom)+'&limit=8').then(function(r){return r.json();});} return data;}).then(function(data){var box=document.getElementById('adresse-suggestions'); if(!data.features||data.features.length===0){box.style.display='none';return;} box.innerHTML=''; data.features.forEach(function(f){var label=f.properties.label; var div=document.createElement('div'); div.textContent=label; div.style.cssText='padding:12px 16px;font-size:14px;cursor:pointer;border-bottom:1px solid #f0f0f0;user-select:none'; div.addEventListener('pointerdown',function(e){e.preventDefault(); document.getElementById('inp-adresse').value=label; state.adresseValidee=true; document.getElementById('adresse-suggestions').style.display='none';}); box.appendChild(div);}); box.style.display='block';}).catch(function(){});},300); });
 function processKlarna(pr,no,em,te,ad){ fetch('/api/create-klarna-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({borne:state.borne,totalTTC:state.totalAPayer,client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},date:state.date,heure:state.heure})}).then(function(r){return r.json();}).then(function(data){if(data.error){showError(data.error);setLoading(false);return;} window.location.href=data.url;}).catch(function(){showError('Erreur réseau. Vérifiez votre connexion et réessayez.');setLoading(false);}); }
 </script>
-</body></html>
+</body>
+</html>
