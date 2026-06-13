@@ -571,11 +571,12 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
     ov.addEventListener('click', function(e){ if(e.target===ov) shut(); });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape') shut(); });
   })();
+</script>
 
 <script>
 (function(){
   var PLACE_ID = 'ChIJQ_okxWpr5kcQoG_YwdgJ3g';
-  var API_KEY  = 'AIzaSyAhvlYLWFcTuG9sb-nddL2Hj7YUMD6acHo'
+  var API_KEY  = 'COLLE_TA_CLÉ_ICI'; // ← ta nouvelle clé Google Places
 
   function stars(n){
     var s=''; for(var i=1;i<=5;i++) s += i<=Math.round(n)?'★':'☆'; return s;
