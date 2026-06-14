@@ -108,7 +108,9 @@ module.exports = async (req, res) => {
     let paymentIntent;
 
     if (paymentIntentId) {
-      paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId);
+      // Le paiement a déjà été confirmé côté client (ex: après 3D Secure).
+      // On récupère son statut sans tenter de le re-confirmer.
+      paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
     } else {
       if (!paymentMethodId) return res.status(400).json({ error: 'Données manquantes.' });
       paymentIntent = await stripe.paymentIntents.create({
@@ -124,7 +126,7 @@ module.exports = async (req, res) => {
         },
         return_url: `${process.env.SITE_URL}/confirmation.html?mode=carte`
       });
-    } // ← accolade manquante ajoutée ici
+    }
 
     if (paymentIntent.status === 'requires_action') {
       return res.json({ requiresAction: true, clientSecret: paymentIntent.client_secret });
