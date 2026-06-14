@@ -1,362 +1,528 @@
 <!DOCTYPE html>
-
-<html class="light" lang="fr"><head>
+<html lang="fr">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IRV'OHM - Solutions Entreprises</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "outline-variant": "#bbcbbb",
-                    "error": "#ba1a1a",
-                    "on-primary-fixed-variant": "#005228",
-                    "on-secondary-fixed-variant": "#004b73",
-                    "surface-container": "#eceef0",
-                    "on-primary-container": "#005027",
-                    "inverse-surface": "#2d3133",
-                    "primary": "#006d37",
-                    "on-error-container": "#93000a",
-                    "on-tertiary-fixed-variant": "#005141",
-                    "secondary": "#006397",
-                    "on-primary": "#ffffff",
-                    "on-secondary-fixed": "#001d31",
-                    "secondary-fixed": "#cce5ff",
-                    "on-surface": "#191c1e",
-                    "surface-variant": "#e0e3e5",
-                    "primary-container": "#2ecc71",
-                    "surface-container-highest": "#e0e3e5",
-                    "on-error": "#ffffff",
-                    "surface": "#f7f9fb",
-                    "secondary-container": "#5cb8fd",
-                    "on-secondary-container": "#00476e",
-                    "secondary-fixed-dim": "#92ccff",
-                    "surface-bright": "#f7f9fb",
-                    "tertiary-container": "#32c8a7",
-                    "primary-fixed-dim": "#4ae183",
-                    "outline": "#6c7b6d",
-                    "surface-container-low": "#f2f4f6",
-                    "on-surface-variant": "#3d4a3e",
-                    "tertiary-fixed-dim": "#4eddbb",
-                    "on-primary-fixed": "#00210c",
-                    "tertiary": "#006b58",
-                    "on-tertiary": "#ffffff",
-                    "inverse-on-surface": "#eff1f3",
-                    "on-background": "#191c1e",
-                    "on-tertiary-fixed": "#002019",
-                    "inverse-primary": "#4ae183",
-                    "background": "#f7f9fb",
-                    "on-secondary": "#ffffff",
-                    "surface-container-high": "#e6e8ea",
-                    "primary-fixed": "#6bfe9c",
-                    "on-tertiary-container": "#004f40",
-                    "tertiary-fixed": "#6ff9d6",
-                    "surface-tint": "#006d37",
-                    "surface-container-lowest": "#ffffff",
-                    "error-container": "#ffdad6",
-                    "surface-dim": "#d8dadc"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-desktop": "64px",
-                    "margin-mobile": "16px",
-                    "xl": "80px",
-                    "xs": "4px",
-                    "sm": "12px",
-                    "base": "8px",
-                    "gutter": "24px",
-                    "max-width": "1280px",
-                    "lg": "48px",
-                    "md": "24px"
-            },
-            "fontFamily": {
-                    "label-sm": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "body-md": ["Inter"],
-                    "headline-sm": ["Montserrat"],
-                    "headline-md": ["Montserrat"],
-                    "display-lg-mobile": ["Montserrat"],
-                    "display-lg": ["Montserrat"],
-                    "label-md": ["Inter"]
-            },
-            "fontSize": {
-                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
-                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}]
-            }
-          },
-        },
-      }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IRV'OHM | Solutions de Recharge pour Entreprises — Flottes & Professionnels</title>
+<meta name="description" content="IRV'OHM installe vos bornes de recharge IRVE pour entreprises, flottes et copropriétés en Île-de-France. Smart charging, installation certifiée, devis gratuit sous 48h."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://irvohm.fr/entreprise.html"/>
+<meta property="og:title" content="IRV'OHM — Solutions IRVE pour Entreprises"/>
+<meta property="og:description" content="Bornes de recharge pour flottes, parkings et immobilier d'entreprise. Devis gratuit sous 48h."/>
+<meta property="og:url" content="https://irvohm.fr/entreprise.html"/>
+<meta property="og:type" content="website"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
+
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .omega-watermark {
-            position: absolute;
-            opacity: 0.05;
-            font-size: 40rem;
-            line-height: 1;
-            z-index: 0;
-            pointer-events: none;
-        }
-    </style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --ink:#191c1e; --ink-soft:#3d4a3e; --muted:#6c7b6d;
+    --green:#006d37; --emerald:#2ecc71; --blue:#006397; --sky:#5cb8fd;
+    --surface:#f7f9fb; --surface-2:#eceef0; --white:#ffffff; --line:#d4ddd5;
+    --deep:#07221a; --deep-2:#0c2c22; --on-deep:#dfeee6; --on-deep-soft:rgba(223,238,230,0.62);
+    --display:'Montserrat', system-ui, sans-serif;
+    --body:'Inter', system-ui, sans-serif;
+    --mono:'Inter', system-ui, sans-serif;
+    --maxw:1240px; --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  html { font-size:16px; scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  body { font-family:var(--body); background:var(--surface); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  ::selection { background:rgba(46,204,113,0.28); }
+
+  .wrap { max-width:var(--maxw); margin-inline:auto; padding-inline:20px; }
+  @media (min-width:768px){ .wrap { padding-inline:48px; } }
+  .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+  .section { padding-block:88px; }
+  @media (max-width:767px){ .section { padding-block:60px; } }
+
+  .eyebrow { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--green); }
+  .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 4px rgba(46,204,113,0.18); animation:pulse 2.4s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.55;transform:scale(1.25)} }
+
+  .current { position:relative; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--green),var(--blue)); overflow:hidden; }
+  .current::after { content:''; position:absolute; top:50%; left:0; width:46px; height:6px; transform:translateY(-50%); border-radius:6px; background:radial-gradient(closest-side, rgba(110,255,170,0.95), rgba(110,255,170,0)); animation:flow 3.2s var(--ease) infinite; }
+  @keyframes flow { 0%{left:-12%} 100%{left:108%} }
+
+  .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .reveal.in { opacity:1; transform:none; }
+  .stagger > * { opacity:0; transform:translateY(22px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+  .stagger.in > *:nth-child(1){transition-delay:.00s}.stagger.in > *:nth-child(2){transition-delay:.09s}
+  .stagger.in > *:nth-child(3){transition-delay:.18s}.stagger.in > *:nth-child(4){transition-delay:.27s}
+  .stagger.in > * { opacity:1; transform:none; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+  .load { opacity:0; animation:fadeUp .85s var(--ease) forwards; }
+  .l1{animation-delay:.05s}.l2{animation-delay:.14s}.l3{animation-delay:.23s}.l4{animation-delay:.32s}.l5{animation-delay:.42s}
+
+  /* Header */
+  .header { position:sticky; top:0; z-index:50; background:rgba(247,249,251,0.86); backdrop-filter:blur(14px); border-bottom:1px solid rgba(187,203,187,0.32); transition:box-shadow .25s ease; }
+  .header.scrolled { box-shadow:0 6px 24px rgba(7,34,26,0.07); }
+  .header-row { display:flex; align-items:center; justify-content:space-between; height:78px; }
+  .logo { font-family:var(--display); font-weight:700; font-size:23px; letter-spacing:-0.01em; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .logo .om { -webkit-text-fill-color:var(--emerald); }
+  .nav { display:none; gap:30px; align-items:center; }
+  @media (min-width:860px){ .nav{ display:flex; } }
+  .nav a { position:relative; font-size:13px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); padding-block:6px; transition:color .2s; }
+  .nav a::after { content:''; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:linear-gradient(90deg,var(--green),var(--blue)); transition:right .28s var(--ease); }
+  .nav a:hover, .nav a.active { color:var(--green); }
+  .nav a:hover::after, .nav a.active::after { right:0; }
+  .cta-pill { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:11px 20px; border-radius:var(--r-sm); border:none; cursor:pointer; transition:transform .15s ease, box-shadow .2s ease; box-shadow:0 4px 14px rgba(0,109,55,0.22); }
+  .cta-pill:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,109,55,0.3); }
+  .menu-btn { display:flex; background:none; border:none; cursor:pointer; color:var(--ink); font-size:24px; align-items:center; }
+  @media (min-width:860px){ .menu-btn { display:none; } }
+
+  /* Hero */
+  .hero { position:relative; overflow:hidden; padding-top:72px; padding-bottom:72px; }
+  .hero-omega { position:absolute; top:-90px; right:-120px; width:520px; height:520px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
+  @keyframes spin { to{ transform:rotate(360deg);} }
+  .hero-grid { display:grid; grid-template-columns:1fr; gap:54px; align-items:center; position:relative; z-index:1; }
+  @media (min-width:900px){ .hero-grid { grid-template-columns:1.05fr 0.95fr; gap:64px; } }
+  .hero h1 { font-family:var(--display); font-weight:700; font-size:clamp(36px,5.4vw,58px); line-height:1.05; letter-spacing:-0.025em; margin-top:20px; }
+  .hero h1 .accent { background:linear-gradient(120deg,var(--emerald),var(--sky)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero-desc { font-size:clamp(16px,2vw,18.5px); color:var(--ink-soft); max-width:50ch; margin-top:22px; line-height:1.6; }
+  .hero-cta { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+  .btn-solid { display:inline-flex; align-items:center; gap:9px; font-size:15px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:14px 26px; border-radius:var(--r-sm); box-shadow:0 6px 18px rgba(0,109,55,0.26); transition:transform .15s ease, box-shadow .2s ease; }
+  .btn-solid:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,109,55,0.34); }
+  .btn-solid .ic { transition:transform .25s ease; } .btn-solid:hover .ic { transform:translateX(4px); }
+  .btn-ghost { display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:var(--blue); padding:14px 24px; border-radius:var(--r-sm); border:1.5px solid rgba(0,99,151,0.4); transition:background .2s, transform .15s; }
+  .btn-ghost:hover { background:rgba(92,184,253,0.1); transform:translateY(-2px); }
+  .hero-media { position:relative; }
+  .hero-media .glow { position:absolute; inset:-18px; background:linear-gradient(130deg,var(--green),var(--blue)); border-radius:38px; opacity:.12; filter:blur(36px); transition:opacity .3s; }
+  .hero-media:hover .glow { opacity:.2; }
+  .hero-card { position:relative; background:linear-gradient(160deg,#eef3f0,#dfe9e4); border:1px solid rgba(187,203,187,0.5); padding:8px; border-radius:34px; box-shadow:0 24px 64px rgba(7,34,26,0.14); overflow:hidden; transition:transform .4s var(--ease); }
+  .hero-media:hover .hero-card { transform:translateY(-6px); }
+  .hero-card > img { width:100%; height:480px; object-fit:cover; border-radius:26px; transition:transform .6s var(--ease); }
+  .hero-media:hover .hero-card > img { transform:scale(1.04); }
+  .hero-badge { position:absolute; left:22px; right:22px; bottom:22px; background:rgba(255,255,255,0.86); backdrop-filter:blur(10px); border:1px solid rgba(187,203,187,0.5); border-radius:var(--r); padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  .hero-badge .k { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+  .hero-badge .stat { display:flex; align-items:center; gap:7px; margin-top:3px; font-size:14px; font-weight:600; color:var(--green); }
+  .hero-badge .pd { width:8px; height:8px; border-radius:50%; background:var(--emerald); animation:pulse 2s infinite; }
+
+  /* Section heading */
+  .head { text-align:center; max-width:620px; margin:0 auto 56px; }
+  .head .eyebrow { justify-content:center; margin-bottom:14px; }
+  .head h2 { font-family:var(--display); font-weight:600; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.025em; line-height:1.12; }
+  .head p { color:var(--ink-soft); margin-top:14px; font-size:16px; }
+  .head .current { width:84px; margin:18px auto 0; }
+
+  /* Bento grid */
+  .bento { background:var(--surface-2); }
+  .bento-grid { display:grid; grid-template-columns:1fr; gap:20px; }
+  @media (min-width:768px){ .bento-grid { grid-template-columns:repeat(3,1fr); } }
+  .bento-card { background:var(--white); border:1px solid rgba(187,203,187,0.3); border-radius:var(--r-lg); padding:36px 32px; transition:transform .25s var(--ease), box-shadow .25s; }
+  .bento-card:hover { transform:translateY(-5px); box-shadow:0 18px 42px rgba(7,34,26,0.08); }
+  .bento-card.span2 { grid-column:span 1; }
+  @media (min-width:768px){ .bento-card.span2 { grid-column:span 2; } }
+  .bento-card.dark { background:linear-gradient(135deg,var(--deep-2),var(--deep)); color:var(--on-deep); border:none; }
+  .bento-card.blue { background:linear-gradient(135deg,var(--blue),#004d75); color:#fff; border:none; }
+  .bento-icon { width:54px; height:54px; border-radius:14px; display:grid; place-items:center; font-size:26px; margin-bottom:20px; }
+  .bento-icon.g { background:rgba(0,109,55,0.12); color:var(--green); }
+  .bento-icon.b { background:rgba(0,99,151,0.12); color:var(--blue); }
+  .bento-icon.w { background:rgba(255,255,255,0.15); color:#fff; }
+  .bento-card h3 { font-family:var(--display); font-weight:600; font-size:21px; letter-spacing:-0.01em; margin-bottom:10px; }
+  .bento-card p { font-size:15px; line-height:1.6; color:var(--ink-soft); }
+  .bento-card.dark p, .bento-card.blue p { color:var(--on-deep-soft); }
+  .bento-stats { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px; }
+  .bento-stat { background:var(--surface); border-radius:var(--r); padding:16px; }
+  .bento-stat .v { font-family:var(--display); font-weight:700; font-size:26px; color:var(--green); }
+  .bento-stat .l { font-size:12px; color:var(--muted); margin-top:4px; }
+
+  /* Smart charging viz */
+  .charge-viz { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:var(--r); padding:20px; margin-top:24px; }
+  .charge-row { margin-bottom:14px; }
+  .charge-row:last-child { margin-bottom:0; }
+  .charge-label { display:flex; justify-content:space-between; font-size:12px; color:rgba(223,238,230,0.7); margin-bottom:6px; }
+  .charge-bar { height:6px; background:rgba(255,255,255,0.15); border-radius:3px; overflow:hidden; }
+  .charge-fill { height:100%; border-radius:3px; background:var(--emerald); }
+  .charge-tag { display:inline-block; font-size:10px; letter-spacing:0.08em; padding:2px 8px; border-radius:999px; background:rgba(46,204,113,0.2); color:var(--emerald); margin-left:8px; }
+
+  /* Testimonial */
+  .testi { background:var(--white); }
+  .testi-grid { display:grid; grid-template-columns:1fr; gap:48px; align-items:center; }
+  @media (min-width:860px){ .testi-grid { grid-template-columns:1fr 1fr; } }
+  .quote-mark { font-family:var(--display); font-size:80px; line-height:0.8; color:rgba(0,109,55,0.12); margin-bottom:16px; }
+  .testi blockquote { font-family:var(--display); font-size:clamp(20px,2.6vw,26px); font-weight:600; letter-spacing:-0.015em; line-height:1.3; color:var(--ink); }
+  .testi-body { font-size:15px; color:var(--ink-soft); margin-top:20px; line-height:1.65; font-style:italic; }
+  .testi-author { display:flex; align-items:center; gap:16px; margin-top:28px; }
+  .testi-avatar { width:56px; height:56px; border-radius:50%; object-fit:cover; border:2px solid rgba(0,109,55,0.2); }
+  .testi-name { font-family:var(--display); font-weight:600; font-size:15px; }
+  .testi-role { font-size:13px; color:var(--muted); margin-top:2px; }
+  .testi-img { position:relative; border-radius:var(--r-xl); overflow:hidden; height:400px; box-shadow:0 24px 64px rgba(7,34,26,0.16); }
+  .testi-img img { width:100%; height:100%; object-fit:cover; }
+  .testi-badge { position:absolute; top:16px; right:16px; background:rgba(0,109,55,0.9); color:#fff; font-size:11px; font-weight:600; letter-spacing:0.06em; padding:6px 14px; border-radius:999px; backdrop-filter:blur(6px); }
+
+  /* Partners */
+  .partners { padding-block:60px; }
+  .partners-label { text-align:center; font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:32px; }
+  .partners-row { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:32px 48px; opacity:0.45; filter:grayscale(1); transition:opacity .3s, filter .3s; }
+  .partners-row:hover { opacity:0.75; filter:grayscale(0); }
+  .partner-logo { display:flex; align-items:center; gap:10px; font-family:var(--display); font-size:16px; font-weight:700; color:var(--ink-soft); letter-spacing:-0.01em; }
+  .partner-logo svg { width:28px; height:28px; }
+
+  /* Process steps */
+  .process { background:var(--surface-2); }
+  .steps { display:grid; grid-template-columns:1fr; gap:24px; counter-reset:steps; }
+  @media (min-width:768px){ .steps { grid-template-columns:repeat(4,1fr); } }
+  .step { background:var(--white); border-radius:var(--r-lg); padding:32px 28px; border:1px solid rgba(187,203,187,0.3); position:relative; counter-increment:steps; transition:transform .25s var(--ease), box-shadow .25s; }
+  .step:hover { transform:translateY(-5px); box-shadow:0 16px 36px rgba(7,34,26,0.07); }
+  .step::before { content:counter(steps,'0'); font-family:var(--display); font-weight:700; font-size:42px; line-height:1; color:rgba(0,109,55,0.08); position:absolute; top:20px; right:20px; letter-spacing:-0.04em; }
+  .step-icon { width:48px; height:48px; border-radius:12px; background:linear-gradient(135deg,rgba(0,109,55,0.12),rgba(0,99,151,0.08)); display:grid; place-items:center; color:var(--green); margin-bottom:18px; font-size:22px; }
+  .step h3 { font-family:var(--display); font-weight:600; font-size:17px; letter-spacing:-0.01em; margin-bottom:8px; }
+  .step p { font-size:14px; color:var(--ink-soft); line-height:1.55; }
+
+  /* CTA */
+  .cta-box { background:radial-gradient(120% 130% at 0% 0%, var(--deep-2) 0%, var(--deep) 60%); border-radius:var(--r-xl); padding:64px 40px; text-align:center; position:relative; overflow:hidden; }
+  @media (min-width:768px){ .cta-box { padding:80px; } }
+  .cta-box .omega { position:absolute; right:-40px; top:-50px; width:240px; height:240px; opacity:0.09; color:var(--emerald); animation:spin 44s linear infinite reverse; }
+  .cta-box h2 { font-family:var(--display); font-weight:600; font-size:clamp(28px,4vw,40px); letter-spacing:-0.025em; color:var(--on-deep); position:relative; z-index:1; }
+  .cta-box p { color:var(--on-deep-soft); font-size:17px; max-width:46ch; margin:18px auto 0; position:relative; z-index:1; }
+  .cta-actions { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:34px; position:relative; z-index:1; }
+  .btn-emerald { display:inline-flex; align-items:center; gap:9px; font-family:var(--body); font-size:15px; font-weight:600; color:#00210c; background:var(--emerald); padding:15px 30px; border-radius:var(--r-sm); transition:transform .18s, box-shadow .2s; box-shadow:0 0 0 0 rgba(46,204,113,0.5); }
+  .btn-emerald:hover { transform:scale(1.04); box-shadow:0 10px 30px rgba(46,204,113,0.35); }
+  .btn-tel { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:15px; font-weight:500; color:var(--on-deep); padding:15px 12px; transition:opacity .2s, transform .2s; }
+  .btn-tel:hover { opacity:.85; transform:translateY(-2px); }
+
+  /* Footer */
+  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:0; padding:54px 0 28px; }
+  .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; }
+  @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1.2fr; } }
+  .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
+  .foot-desc { color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:30ch; }
+  .foot h5 { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+  .foot nav { display:flex; flex-direction:column; gap:9px; }
+  .foot nav a { color:var(--ink-soft); font-size:14px; transition:color .2s, padding-left .2s; }
+  .foot nav a:hover { color:var(--green); padding-left:4px; }
+  .foot-contact a { display:flex; align-items:center; gap:9px; color:var(--ink-soft); font-size:14px; margin-bottom:9px; transition:color .2s; }
+  .foot-contact a:hover { color:var(--green); }
+  .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; }
+  .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
+
+  :focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
+  @media (prefers-reduced-motion:reduce){
+    *, *::before, *::after { animation:none !important; transition:none !important; }
+    .reveal, .stagger > * { opacity:1 !important; transform:none !important; }
+    .load { opacity:1 !important; }
+  }
+
+  /* Menu mobile */
+  .mob-ov { position:fixed; inset:0; z-index:200; background:rgba(7,34,26,0.5); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity .3s ease; }
+  .mob-ov.open { opacity:1; pointer-events:auto; }
+  .mob-panel { position:fixed; top:0; right:0; bottom:0; width:min(300px,82vw); background:#fff; z-index:201; display:flex; flex-direction:column; padding:20px 24px 32px; box-shadow:-12px 0 48px rgba(7,34,26,0.18); transform:translateX(100%); transition:transform .35s cubic-bezier(0.16,1,0.3,1); }
+  .mob-ov.open .mob-panel { transform:none; }
+  .mob-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
+  .mob-logo { font-family:var(--display); font-weight:700; font-size:20px; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .mob-close { background:none; border:none; cursor:pointer; color:var(--ink); padding:6px; border-radius:8px; transition:background .2s; }
+  .mob-close:hover { background:var(--surface-2); }
+  .mob-links { display:flex; flex-direction:column; flex:1; }
+  .mob-links a { font-family:var(--display); font-size:19px; font-weight:600; color:var(--ink); padding:15px 4px; border-bottom:1px solid var(--line); letter-spacing:-0.01em; transition:color .2s, padding-left .2s; display:flex; align-items:center; justify-content:space-between; }
+  .mob-links a:hover { color:var(--green); padding-left:8px; }
+  .mob-links a:last-child { border-bottom:none; }
+  .mob-cta { display:flex; align-items:center; justify-content:center; gap:8px; font-size:15px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:15px; border-radius:var(--r-sm); margin-top:24px; box-shadow:0 6px 18px rgba(0,109,55,0.26); transition:transform .15s, box-shadow .2s; }
+  .mob-cta:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,109,55,0.34); }
+  .mob-tel { display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; color:var(--muted); margin-top:14px; }
+</style>
+<link rel="icon" type="image/png" href="/favicon.png">
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm docked full-width top-0 sticky z-50">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<div class="font-headline-sm text-headline-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                IRV'OHM
-            </div>
-<nav class="hidden md:flex gap-md items-center h-full">
- <a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="index.html">Accueil</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="particulier.html">Particuliers</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="entreprise.html">Entreprises</a>
-<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="devis.html">Devis</a></nav>
-<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2 rounded-full font-label-md uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all shadow-md">
-                Devis Gratuit
-            </button>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect width="7" height="7" x="14" y="11" rx="1"/><path d="M14 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/><path d="M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M12 14h.01M8 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-shop" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 0 1 2.8 2.8L12 14.5 8 15.5l1-4z"/></symbol>
+  <symbol id="i-omega" viewBox="0 0 100 100"><path d="M50 8C29 8 12 25 12 46c0 12 6 22 15 28v9H16v9h26V73c-11-4-19-15-19-27 0-15 12-27 27-27s27 12 27 27c0 12-8 23-19 27v9h26v-9H73v-9c9-6 15-16 15-28C88 25 71 8 50 8z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+<!-- Menu mobile -->
+<div class="mob-ov" id="mob-ov" role="dialog" aria-modal="true" aria-label="Menu principal">
+  <div class="mob-panel" id="mob-panel">
+    <div class="mob-head">
+      <span class="mob-logo">IRV'<span style="-webkit-text-fill-color:var(--emerald)">Ω</span>HM</span>
+      <button class="mob-close" id="mob-close" aria-label="Fermer le menu"><svg style="width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round" viewBox="0 0 24 24"><use href="#i-x"/></svg></button>
+    </div>
+    <nav class="mob-links">
+      <a href="index.html">Accueil <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
+      <a href="particulier.html">Particuliers <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
+      <a href="entreprise.html">Entreprises <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
+      <a href="devis.html">Devis <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
+    </nav>
+    <a href="devis.html" class="mob-cta">Devis gratuit <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+    <a href="tel:+33651078828" class="mob-tel"><svg style="width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
+  </div>
 </div>
+
+<!-- Header -->
+<header class="header" id="hdr">
+  <div class="wrap header-row">
+    <a href="index.html" class="logo">IRV'<span class="om">Ω</span>HM</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="particulier.html">Particuliers</a>
+      <a href="entreprise.html" class="active">Entreprises</a>
+      <a href="devis.html">Devis</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="devis.html" class="cta-pill">Devis gratuit <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mob-ov"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
 </header>
-<main class="relative">
-<div class="omega-watermark top-20 -right-40">Ω</div>
-<!-- Hero Section -->
-<section class="relative py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto overflow-hidden">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
-<div class="z-10">
-<span class="text-primary font-label-md uppercase tracking-widest mb-base block">Solutions Professionnelles</span>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-md">Accélérez votre transition énergétique</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-xl">
-                        Des solutions de recharge intelligentes et durables conçues pour les flottes, les entreprises et les établissements recevant du public.
-                    </p>
-<div class="flex flex-wrap gap-md">
-<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-label-md uppercase tracking-wider shadow-lg hover:opacity-95 transition-all">
-                            Consulter un expert
-                        </button>
-<button class="border-2 border-secondary text-secondary px-8 py-4 rounded-full font-label-md uppercase tracking-wider hover:bg-secondary/5 transition-all">
-                            Nos Réalisations
-                        </button>
-</div>
-</div>
-<div class="relative">
-<div class="rounded-3xl overflow-hidden shadow-2xl border border-outline-variant/20 transform rotate-2">
-<img alt="Solutions de recharge entreprises" class="w-full h-full object-cover" data-alt="A professional aerial view of a modern corporate parking lot equipped with rows of sleek electric vehicle charging stations. White and silver luxury electric cars are plugged in, reflecting the bright afternoon sun. The environment is clean, tech-forward, and features lush green landscaping integration, conveying a high-end, eco-friendly business campus atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDScsKppGLEQTnWeO948B22VLM8UFpIBQqr99nuY8Sy3ASTEvM31bb1ldIY2h-QFVUeS8vJVaYXXxwdHvBqy5K7fmAR-tUXfV3p8uKs7r4Em1Wdyhd0aWAqyGy6PGPjiBwQHGylOrEAAF9hgWJEXoyhHOkKjhCFlJ0i76uVOc4u9XVoaPc4lfxs2moiED7DRVVEGHUZHX2801AePkRfYsOUih2dTepV5n6cvpoc1yQBdihWLbsOfSNcD3xWDbIwYsmwVa2BcQfIw-X5"/>
-</div>
-<div class="absolute -bottom-6 -left-6 bg-surface-container-highest p-md rounded-2xl shadow-xl border border-outline-variant/30 hidden md:block">
-<div class="flex items-center gap-base">
-<span class="material-symbols-outlined text-primary text-headline-md">ev_station</span>
-<div>
-<p class="font-label-sm text-label-sm uppercase">Installation Pro</p>
-<p class="font-headline-sm text-headline-sm text-primary">Reliable Tech</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Bento Grid Solutions -->
-<section class="bg-surface-container-low py-xl px-margin-mobile md:px-margin-desktop">
-<div class="max-w-max-width mx-auto">
-<div class="text-center mb-xl">
-<h2 class="font-headline-md text-headline-md mb-base">Des solutions adaptées à chaque secteur</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Que vous gériez un parc de véhicules ou un espace commercial, nous optimisons votre infrastructure de recharge.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-<!-- Flottes -->
-<div class="md:col-span-2 bg-surface p-lg rounded-3xl border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-shadow">
-<div>
-<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-md">
-<span class="material-symbols-outlined text-primary">local_shipping</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-base">Gestion de Flottes Électriques</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Optimisez la rotation de vos véhicules de service avec des bornes haute performance et un suivi centralisé des consommations.</p>
-</div>
-<div class="grid grid-cols-2 gap-md">
-<div class="bg-surface-container-low p-md rounded-xl">
-<span class="text-primary font-bold text-headline-sm">99.9%</span>
-<p class="text-label-sm opacity-70">Disponibilité garantie</p>
-</div>
-<div class="bg-surface-container-low p-md rounded-xl">
-<span class="text-primary font-bold text-headline-sm">-30%</span>
-<p class="text-label-sm opacity-70">Coûts d'énergie</p>
-</div>
-</div>
-</div>
-<!-- Centres Commerciaux -->
-<div class="bg-secondary p-lg rounded-3xl text-on-secondary flex flex-col justify-between hover:shadow-lg transition-shadow">
-<div>
-<div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-md">
-<span class="material-symbols-outlined">shopping_bag</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-base">Centres Commerciaux</h3>
-<p class="font-body-md text-body-md opacity-90 mb-lg">Attirez et fidélisez vos clients avec un service de recharge premium pendant leur shopping.</p>
-</div>
-<button class="bg-white text-secondary font-label-md px-6 py-3 rounded-full uppercase tracking-wider self-start">En savoir plus</button>
-</div>
-<!-- Bureaux -->
-<div class="bg-surface p-lg rounded-3xl border border-outline-variant/30 hover:shadow-lg transition-shadow">
-<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-md">
-<span class="material-symbols-outlined text-primary">business</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-base">Immobilier d'Entreprise</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Valorisez votre patrimoine immobilier et facilitez la vie de vos collaborateurs.</p>
-</div>
-<!-- Smart Charging -->
-<div class="md:col-span-2 bg-gradient-to-br from-primary to-primary-container p-lg rounded-3xl text-on-primary flex flex-col md:flex-row gap-lg items-center overflow-hidden">
-<div class="flex-1">
-<div class="inline-flex items-center gap-xs bg-white/20 px-3 py-1 rounded-full mb-base">
-<span class="material-symbols-outlined text-sm">bolt</span>
-<span class="text-label-sm">Technologie Smart Charging</span>
-</div>
-<h3 class="font-headline-md text-headline-md mb-base">Gestion Intelligente de l'Énergie</h3>
-<p class="font-body-md text-body-md opacity-90">Notre système de pilotage dynamique ajuste la puissance de charge en temps réel pour éviter les pics de consommation et réduire votre facture.</p>
-</div>
-<div class="flex-1 bg-white/10 backdrop-blur-md p-md rounded-2xl border border-white/20">
-<div class="space-y-sm">
-<div class="flex justify-between items-center">
-<span class="text-label-sm">Borne A - Actif</span>
-<span class="bg-primary-container/30 px-2 py-0.5 rounded text-[10px]">OPTIMISÉ</span>
-</div>
-<div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
-<div class="h-full bg-white w-2/3"></div>
-</div>
-<div class="flex justify-between items-center">
-<span class="text-label-sm">Borne B - Veille</span>
-<span class="text-[10px]">0.5 kW</span>
-</div>
-<div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
-<div class="h-full bg-white/30 w-1/12"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Partners Section -->
-<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<div class="text-center mb-lg">
-<p class="text-label-md text-on-surface-variant font-bold uppercase tracking-widest opacity-60">Ils nous font confiance</p>
-</div>
-<div class="flex flex-wrap justify-center items-center gap-xl grayscale opacity-50 hover:grayscale-0 transition-all">
-<!-- Logos placeholders with text to simulate industrial partners -->
-<div class="flex items-center gap-base font-headline-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-4xl">factory</span> INDUSTRA
-                </div>
-<div class="flex items-center gap-base font-headline-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-4xl">architecture</span> BUILD-CORP
-                </div>
-<div class="flex items-center gap-base font-headline-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-4xl">inventory_2</span> LOGISTIX
-                </div>
-<div class="flex items-center gap-base font-headline-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-4xl">apartment</span> URBAN-REIT
-                </div>
-</div>
-</section>
-<!-- Testimonial Section -->
-<section class="bg-surface py-xl border-y border-outline-variant/20">
-<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
-<div>
-<span class="material-symbols-outlined text-6xl text-primary/20">format_quote</span>
-<h2 class="font-headline-md text-headline-md mb-md">"Un partenaire fiable pour notre transition."</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg italic">
-                            "IRV'OHM nous a accompagné de l'étude technique jusqu'à la mise en service. Leur solution de smart charging nous a permis d'installer 20 bornes sans modifier notre abonnement électrique principal."
-                        </p>
-<div class="flex items-center gap-md">
-<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20">
-<img alt="Jean-Marc L." data-alt="Portrait of a professional middle-aged man in a sharp business suit, smiling confidently. He is a facilities manager for a large industrial complex. The background is a blurred office environment with soft morning light, creating a professional and trustworthy atmosphere in a clean tech-forward aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwXLog0NYPIJNXJZ9J6DhQE1fq8rZCsQyHYd7PEiJSykPSwmOZhPrj3y39U6I6C13Q6nsYjks9x5AZMDuscFkMVQVKhihnX1oDUfBQPrBJ_x5D7a3CHGYgI05nqiEKYlrAx-rSTiMEsQqNq0AB78hD7xppK6rQAJfrQv2Nw6ZMHCc8ybfOKJB7iV2PsaT7c4bsrZHCThQnLoNiAh_InCnnYf9ocVyl3ELbi_abTjoho1xOLF21XQ6WAat26Cm3P-iBCsp1VecsTiH1"/>
-</div>
-<div>
-<p class="font-label-md font-bold">Jean-Marc L.</p>
-<p class="text-label-sm text-on-surface-variant">Directeur des Infrastructures, Industra Group</p>
-</div>
-</div>
-</div>
-<div class="relative h-[400px] rounded-3xl overflow-hidden shadow-xl border border-outline-variant/30">
-<img alt="Infrastructure IRV'OHM" class="w-full h-full object-cover" data-alt="A clean, minimalist interior of a modern electric vehicle charging hub inside a corporate building. Several sleek, floor-mounted charging pedestals with illuminated status indicators are lined up. The design is tech-forward with soft white and gray tones, accented by emerald green lights. The mood is efficient, professional, and sustainable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7MEZCCWIXuUgMRr5QSK3B3j1tPZBiMyAgXe29eMCmESondVc9wdiIGfcsGAqyLvf1OJlaBe-7uXzTDLqVe0hifJTFlUOzT0aJ0o_mZ9VZ2--SqFt59ktdxLpyhz3gfoW17914BB4aO1T-LWQV4eYC1audvNiuA1rHrYs2hIXOXplOkelznmb_272w6gEjpX0gVVNG67fwJtuRhpG2S82IXZ-ZADKHoPL7tBnUiUBYQEnPNMmx7pOdEPt4TZz067jpK9P7lS6Qn7VI"/>
-<div class="absolute top-4 right-4 flex gap-xs">
-<span class="bg-primary/90 text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase">Installation Certifiée</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<div class="bg-inverse-surface rounded-[40px] p-lg md:p-xl text-center relative overflow-hidden">
-<div class="omega-watermark bottom-0 left-0 text-white opacity-5">Ω</div>
-<div class="relative z-10">
-<h2 class="font-display-lg-mobile md:font-headline-md text-inverse-on-surface mb-md">Prêt à transformer votre entreprise ?</h2>
-<p class="font-body-lg text-body-lg text-inverse-on-surface opacity-80 mb-xl max-w-xl mx-auto">Recevez une étude personnalisée de vos besoins et un devis complet sous 48h.</p>
-<div class="flex flex-col md:flex-row justify-center gap-md">
-<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md uppercase tracking-wider hover:bg-primary-container transition-all">
-                            Demander un devis
-                        </button>
-<button class="border border-inverse-on-surface text-inverse-on-surface px-10 py-4 rounded-full font-label-md uppercase tracking-wider hover:bg-white/10 transition-all">
-                            Télécharger la brochure pro
-                        </button>
-</div>
-</div>
-</div>
-</section>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-omega" aria-hidden="true"><use href="#i-omega"/></svg>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow load l1"><span class="dot"></span> Solutions Professionnelles</span>
+        <h1 class="load l2">Accélérez votre<br/><span class="accent">transition énergétique</span></h1>
+        <p class="hero-desc load l3">Des solutions de recharge intelligentes et durables pour les flottes d'entreprise, les parkings et les établissements recevant du public en Île-de-France.</p>
+        <div class="hero-cta load l4">
+          <a href="devis.html" class="btn-solid">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="#solutions" class="btn-ghost">Nos solutions</a>
+        </div>
+      </div>
+      <div class="hero-media load l3">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="hero-card">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDScsKppGLEQTnWeO948B22VLM8UFpIBQqr99nuY8Sy3ASTEvM31bb1ldIY2h-QFVUeS8vJVaYXXxwdHvBqy5K7fmAR-tUXfV3p8uKs7r4Em1Wdyhd0aWAqyGy6PGPjiBwQHGylOrEAAF9hgWJEXoyhHOkKjhCFlJ0i76uVOc4u9XVoaPc4lfxs2moiED7DRVVEGHUZHX2801AePkRfYsOUih2dTepV5n6cvpoc1yQBdihWLbsOfSNcD3xWDbIwYsmwVa2BcQfIw-X5"
+            alt="Parking entreprise avec bornes de recharge IRV'OHM"
+            fetchpriority="high"
+            width="800" height="480"
+          />
+          <div class="hero-badge">
+            <div>
+              <div class="k">Statut du parc</div>
+              <div class="stat"><span class="pd"></span> Smart Charging actif</div>
+            </div>
+            <svg style="width:22px;height:22px;fill:none;stroke:var(--blue);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-bolt"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS BENTO -->
+  <section class="bento section" id="solutions" aria-labelledby="solutions-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span> Nos offres</span>
+        <h2 id="solutions-title">Des solutions adaptées à chaque secteur</h2>
+        <p>Que vous gériez un parc de véhicules, un centre commercial ou de l'immobilier d'entreprise, nous avons la solution.</p>
+        <div class="current"></div>
+      </div>
+      <div class="bento-grid stagger">
+        <!-- Flottes -->
+        <div class="bento-card span2">
+          <div class="bento-icon g"><svg style="width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-truck"/></svg></div>
+          <h3>Gestion de Flottes Électriques</h3>
+          <p>Optimisez la rotation de vos véhicules de service avec des bornes haute performance et un suivi centralisé des consommations. Pilotage à distance, rapports d'utilisation et facturation automatisée.</p>
+          <div class="bento-stats">
+            <div class="bento-stat"><div class="v">99,9%</div><div class="l">Disponibilité garantie</div></div>
+            <div class="bento-stat"><div class="v">-30%</div><div class="l">Coûts d'énergie</div></div>
+          </div>
+        </div>
+        <!-- Centres commerciaux -->
+        <div class="bento-card blue">
+          <div class="bento-icon w"><svg style="width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-shop"/></svg></div>
+          <h3>Centres Commerciaux</h3>
+          <p>Attirez et fidélisez vos clients avec un service de recharge premium pendant leur shopping. Générez des revenus additionnels.</p>
+        </div>
+        <!-- Immobilier -->
+        <div class="bento-card">
+          <div class="bento-icon g"><svg style="width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-building"/></svg></div>
+          <h3>Immobilier d'Entreprise</h3>
+          <p>Valorisez votre patrimoine immobilier et facilitez la vie de vos collaborateurs. Un atout RH différenciant.</p>
+        </div>
+        <!-- Smart Charging -->
+        <div class="bento-card dark span2">
+          <div style="display:grid;grid-template-columns:1fr;gap:24px">
+            <div>
+              <div class="bento-icon w"><svg style="width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-bolt"/></svg></div>
+              <h3>Gestion Intelligente de l'Énergie</h3>
+              <p>Notre système de pilotage dynamique ajuste la puissance de charge en temps réel pour éviter les pics de consommation et réduire votre facture.</p>
+            </div>
+            <div class="charge-viz">
+              <div class="charge-row">
+                <div class="charge-label"><span>Borne A — Actif <span class="charge-tag">OPTIMISÉ</span></span><span>11 kW</span></div>
+                <div class="charge-bar"><div class="charge-fill" style="width:72%"></div></div>
+              </div>
+              <div class="charge-row">
+                <div class="charge-label"><span>Borne B — Actif</span><span>7 kW</span></div>
+                <div class="charge-bar"><div class="charge-fill" style="width:45%;background:var(--sky)"></div></div>
+              </div>
+              <div class="charge-row">
+                <div class="charge-label"><span>Borne C — Veille</span><span>0,5 kW</span></div>
+                <div class="charge-bar"><div class="charge-fill" style="width:8%;background:rgba(255,255,255,0.3)"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSUS -->
+  <section class="process section" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span> Notre méthode</span>
+        <h2 id="process-title">De l'étude à la mise en service</h2>
+        <p>Un accompagnement complet en 4 étapes pour une installation sans surprise.</p>
+        <div class="current"></div>
+      </div>
+      <div class="steps stagger">
+        <div class="step">
+          <div class="step-icon"><svg style="width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-phone"/></svg></div>
+          <h3>Étude de faisabilité</h3>
+          <p>Audit de votre installation électrique, analyse des besoins de recharge et dimensionnement du projet.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><svg style="width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-edit"/></svg></div>
+          <h3>Devis personnalisé</h3>
+          <p>Proposition détaillée sous 48h avec choix du matériel, planning et montage financier incluant les aides disponibles.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><svg style="width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-bolt"/></svg></div>
+          <h3>Installation certifiée</h3>
+          <p>Pose par nos techniciens IRVE certifiés, câblage, mise en conformité et test complet de l'installation.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><svg style="width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-check"/></svg></div>
+          <h3>Suivi & maintenance</h3>
+          <p>Garantie 5 ans sur le matériel, contrat de maintenance optionnel et support technique dédié.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGE -->
+  <section class="testi section" aria-labelledby="testi-title">
+    <div class="wrap">
+      <div class="testi-grid">
+        <div class="reveal">
+          <div class="quote-mark">"</div>
+          <blockquote id="testi-title">"Un partenaire fiable pour notre transition énergétique."</blockquote>
+          <p class="testi-body">IRV'OHM nous a accompagné de l'étude technique jusqu'à la mise en service. Leur solution de smart charging nous a permis d'installer 20 bornes sans modifier notre abonnement électrique principal.</p>
+          <div class="testi-author">
+            <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue));display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:20px;color:#fff;flex-shrink:0">J</div>
+            <div>
+              <div class="testi-name">Jean-Marc L.</div>
+              <div class="testi-role">Directeur des Infrastructures, Industra Group</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-img reveal">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7MEZCCWIXuUgMRr5QSK3B3j1tPZBiMyAgXe29eMCmESondVc9wdiIGfcsGAqyLvf1OJlaBe-7uXzTDLqVe0hifJTFlUOzT0aJ0o_mZ9VZ2--SqFt59ktdxLpyhz3gfoW17914BB4aO1T-LWQV4eYC1audvNiuA1rHrYs2hIXOXplOkelznmb_272w6gEjpX0gVVNG67fwJtuRhpG2S82IXZ-ZADKHoPL7tBnUiUBYQEnPNMmx7pOdEPt4TZz067jpK9P7lS6Qn7VI"
+            alt="Infrastructure de recharge IRV'OHM en entreprise"
+            loading="lazy"
+            width="700" height="400"
+          />
+          <div class="testi-badge">Installation Certifiée IRVE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTENAIRES -->
+  <section class="partners">
+    <div class="wrap">
+      <p class="partners-label">Ils nous font confiance</p>
+      <div class="partners-row">
+        <div class="partner-logo"><svg style="width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.9" viewBox="0 0 24 24"><use href="#i-building"/></svg> INDUSTRA</div>
+        <div class="partner-logo"><svg style="width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.9" viewBox="0 0 24 24"><use href="#i-truck"/></svg> LOGISTIX</div>
+        <div class="partner-logo"><svg style="width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.9" viewBox="0 0 24 24"><use href="#i-shop"/></svg> BUILD-CORP</div>
+        <div class="partner-logo"><svg style="width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.9" viewBox="0 0 24 24"><use href="#i-bolt"/></svg> URBAN-REIT</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
+        <h2>Prêt à transformer votre entreprise ?</h2>
+        <p>Recevez une étude personnalisée de vos besoins et un devis complet sous 48h.</p>
+        <div class="cta-actions">
+          <a href="devis.html" class="btn-emerald">Mon devis entreprise <svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></a>
+          <a href="tel:+33651078828" class="btn-tel"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
+
 <!-- Footer -->
-<footer class="bg-surface-container border-t border-outline-variant full-width py-lg mt-xl">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<div class="space-y-md">
-<div class="font-headline-sm text-headline-sm font-bold text-on-surface">IRV'OHM</div>
-<p class="text-body-md text-on-surface-variant">L'expert de la recharge électrique intelligente pour les professionnels et particuliers.</p>
-<div class="flex gap-md">
-<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
-<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">mail</span></a>
-</div>
-</div>
-<div>
-<h4 class="font-label-md font-bold uppercase mb-md">Solutions</h4>
-<ul class="space-y-sm">
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">Installation</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">Smart Charging</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">Maintenance</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">Flottes</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md font-bold uppercase mb-md">Entreprise</h4>
-<ul class="space-y-sm">
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">À propos</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">Contact</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">FAQ</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md font-bold uppercase mb-md">Légal</h4>
-<ul class="space-y-sm">
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">Mentions Légales</a></li>
-<li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors underline" href="#">Confidentialité</a></li>
-</ul>
-</div>
-</div>
-<div class="mt-lg border-t border-outline-variant/30 pt-md text-center">
-<p class="text-label-sm text-on-surface-variant">© 2024 IRV'OHM - Solutions de Recharge Électrique. Tous droits réservés.</p>
-</div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid stagger">
+      <div>
+        <div class="foot-logo">IRV'<span style="color:var(--emerald)">Ω</span>HM</div>
+        <p class="foot-desc">Expert en solutions de recharge électrique pour un avenir durable.</p>
+      </div>
+      <div class="foot">
+        <h5>Services</h5>
+        <nav><a href="particulier.html">Installation bornes</a><a href="#">Maintenance</a><a href="#">Audit énergétique</a></nav>
+      </div>
+      <div class="foot">
+        <h5>Liens utiles</h5>
+        <nav><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">FAQ</a></nav>
+      </div>
+      <div class="foot foot-contact">
+        <h5>Contact</h5>
+        <nav>
+          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> 95200 Sarcelles, France</a>
+          <a href="mailto:contact@irvohm.fr"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> contact@irvohm.fr</a>
+          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Lun – Ven : 09h – 18h</a>
+        </nav>
+      </div>
+    </div>
+    <div class="foot-copy"><p>© 2026 IRV'OHM — Solutions de recharge électrique. Tous droits réservés.</p></div>
+  </div>
 </footer>
-</body></html>
+
+<script>
+  (function(){ var h=document.getElementById('hdr'); var on=function(){ h.classList.toggle('scrolled', window.scrollY>8); }; window.addEventListener('scroll',on,{passive:true}); on(); })();
+
+  (function(){
+    var els=document.querySelectorAll('.reveal,.stagger'); if(!els.length) return;
+    if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){ els.forEach(function(e){e.classList.add('in');}); return; }
+    var io=new IntersectionObserver(function(en,o){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); o.unobserve(x.target);} }); },{threshold:0.14,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+
+  (function(){
+    var btn=document.getElementById('menu-btn');
+    var ov=document.getElementById('mob-ov');
+    var cls=document.getElementById('mob-close');
+    function open(){ ov.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function shut(){ ov.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    btn.addEventListener('click', open);
+    cls.addEventListener('click', shut);
+    ov.addEventListener('click', function(e){ if(e.target===ov) shut(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') shut(); });
+  })();
+</script>
+</body>
+</html>
