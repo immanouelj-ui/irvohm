@@ -1,4 +1,12 @@
 const Stripe = require('stripe');
+function buffer(readable) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    readable.on('data', (chunk) => chunks.push(chunk));
+    readable.on('end', () => resolve(Buffer.concat(chunks)));
+    readable.on('error', reject);
+  });
+}
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
