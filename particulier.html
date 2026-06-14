@@ -774,6 +774,11 @@ function fetchBusyDays(year, month, callback) {
           var dayObj = ensureDay(dateKey);
           var evStartH = startDT.getHours() + startDT.getMinutes()/60;
           var evEndH = endDT.getHours() + endDT.getMinutes()/60;
+          // Si l'événement finit à minuit (00h00) le lendemain, traiter comme 24h pour le jour de début
+          var endDateKey = ev.end.dateTime.substring(0,10);
+          if (endDateKey !== dateKey && evEndH === 0) {
+            evEndH = 24;
+          }
           Object.keys(SLOT_RANGES).forEach(function(slot){
             var r = SLOT_RANGES[slot];
             // chevauchement si l'événement commence avant la fin du créneau et finit après le début du créneau
