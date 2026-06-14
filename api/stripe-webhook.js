@@ -1,4 +1,5 @@
 const Stripe = require('stripe');
+
 function buffer(readable) {
   return new Promise((resolve, reject) => {
     const chunks = [];
@@ -7,6 +8,12 @@ function buffer(readable) {
     readable.on('error', reject);
   });
 }
+
+module.exports.config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -20,9 +27,10 @@ module.exports = async (req, res) => {
 
   try {
     const sig = req.headers['stripe-signature'];
+    const rawBody = await buffer(req);
 
     stripeEvent = stripe.webhooks.constructEvent(
-      req.body,
+      rawBody,
       sig,
       webhookSecret
     );
