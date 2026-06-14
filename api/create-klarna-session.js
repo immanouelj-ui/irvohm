@@ -48,7 +48,7 @@ module.exports = async (req, res) => {
         adresse: client.adresse,
         email: client.email,
       },
-      success_url: `${siteUrl}/confirmation.html?mode=klarna`,
+      success_url: `${siteUrl}/confirmation.html?mode=klarna&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/particulier.html`,
     });
 
