@@ -87,10 +87,16 @@ async function createCalendarEvent({ client, borne, date, heure }) {
 }
 
 async function handleSuccess({ client, borne, totalTTC, paiement, date, heure }) {
-  await Promise.allSettled([
+  const results = await Promise.allSettled([
     sendConfirmationEmail({ client, borne, totalTTC, paiement, date, heure }),
     createCalendarEvent({ client, borne, date, heure })
   ]);
+
+  results.forEach((r, i) => {
+    if (r.status === 'rejected') {
+      console.error(`handleSuccess: tâche ${i} échouée:`, r.reason);
+    }
+  });
 }
 
 module.exports = async (req, res) => {
