@@ -24,9 +24,21 @@
   <script>
     var params = new URLSearchParams(window.location.search);
     var mode = params.get('mode');
+    var sessionId = params.get('session_id');
     var el = document.getElementById('mode-info');
+
     if(mode === 'klarna'){
       el.innerHTML = '<strong>Mode Klarna 3×</strong><br>Votre 1ère mensualité a été débitée. Les deux suivantes seront prélevées automatiquement à 30 et 60 jours.';
+
+      if (sessionId) {
+        fetch('/api/confirm-klarna-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sessionId: sessionId })
+        }).catch(function(err) {
+          console.error('Erreur confirmation Klarna:', err);
+        });
+      }
     } else {
       el.innerHTML = '<strong>Paiement sécurisé Stripe</strong><br>Votre paiement a été traité avec succès.';
     }
