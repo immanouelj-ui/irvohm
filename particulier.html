@@ -733,37 +733,67 @@ var MONTHS=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','
 var SLOTS=['08h00–10h00','10h00–12h00','14h00–16h00','16h00–18h00'];
 var GCAL_API_KEY = 'AIzaSyCyHPczjzLlR_ktXeuTLOVws1oRyRKqB2g';
 var GCAL_ID = '8ab7f2171e818df6d15765427101d7cbc2b2af47043c4b3fbdf0b7592b3957ba@group.calendar.google.com';
+// Map des créneaux SLOTS vers leurs heures de début/fin (24h) pour comparaison avec Google Calendar
+var SLOT_RANGES = {
+  '08h00–10h00': [8, 10],
+  '10h00–12h00': [10, 12],
+  '14h00–16h00': [14, 16],
+  '16h00–18h00': [16, 18]
+};
+
 var busyDaysCache = {};
+// Retourne un objet { 'YYYY-MM-DD': { fullDay: bool, slots: ['08h00–10h00', ...] } }
 function fetchBusyDays(year, month, callback) {
   var cacheKey = year + '-' + month;
   if (busyDaysCache[cacheKey]) { callback(busyDaysCache[cacheKey]); return; }
-  if (!GCAL_API_KEY || GCAL_API_KEY === 'VOTRE_CLE_API_GOOGLE') { callback([]); return; }
+  if (!GCAL_API_KEY || GCAL_API_KEY === 'VOTRE_CLE_API_GOOGLE') { callback({}); return; }
   var firstDay = new Date(year, month, 1).toISOString();
   var lastDay = new Date(year, month + 1, 0, 23, 59, 59).toISOString();
   var url = 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(GCAL_ID) + '/events?key=' + GCAL_API_KEY + '&timeMin=' + encodeURIComponent(firstDay) + '&timeMax=' + encodeURIComponent(lastDay) + '&singleEvents=true&maxResults=100';
   fetch(url).then(function(r){return r.json();}).then(function(data){
-    var busy = [];
+    var busy = {};
+    function ensureDay(dateKey){ if(!busy[dateKey]) busy[dateKey]={fullDay:false, slots:[]}; return busy[dateKey]; }
     if (data.items) {
       data.items.forEach(function(ev) {
-        var start = ev.start.date || ev.start.dateTime.substring(0,10);
-        var end = ev.end.date || ev.end.dateTime.substring(0,10);
-        var d = new Date(start + 'T12:00:00');
-        var endD = new Date(end + 'T12:00:00');
-        while (d < endD) {
-          busy.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'));
-          d.setDate(d.getDate()+1);
+        if (ev.start.date) {
+          // Événement "journée entière" -> bloque toute la journée (ex: congés)
+          var start = ev.start.date;
+          var end = ev.end.date;
+          var d = new Date(start + 'T12:00:00');
+          var endD = new Date(end + 'T12:00:00');
+          while (d < endD) {
+            var dateKey=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+            ensureDay(dateKey).fullDay = true;
+            d.setDate(d.getDate()+1);
+          }
+        } else if (ev.start.dateTime) {
+          // Événement horaire -> ne bloque que le(s) créneau(x) chevauchés
+          var startDT = new Date(ev.start.dateTime);
+          var endDT = new Date(ev.end.dateTime);
+          var dateKey = ev.start.dateTime.substring(0,10);
+          var dayObj = ensureDay(dateKey);
+          var evStartH = startDT.getHours() + startDT.getMinutes()/60;
+          var evEndH = endDT.getHours() + endDT.getMinutes()/60;
+          Object.keys(SLOT_RANGES).forEach(function(slot){
+            var r = SLOT_RANGES[slot];
+            // chevauchement si l'événement commence avant la fin du créneau et finit après le début du créneau
+            if (evStartH < r[1] && evEndH > r[0]) {
+              if (dayObj.slots.indexOf(slot) === -1) dayObj.slots.push(slot);
+            }
+          });
         }
       });
     }
     busyDaysCache[cacheKey] = busy;
     callback(busy);
-  }).catch(function(){ callback([]); });
+  }).catch(function(){ callback({}); });
 }
 function renderCalendar() {
   var y=state.calYear, m=state.calMonth;
   document.getElementById('cal-month-label').textContent=MONTHS[m]+' '+y;
   document.getElementById('cal-grid').innerHTML='<div style="grid-column:span 7;text-align:center;padding:20px;color:#6c7b6d;font-size:13px">Chargement des disponibilités...</div>';
   fetchBusyDays(y, m, function(busyDays) {
+    state.busyDays = busyDays;
     var first=new Date(y,m,1).getDay(); first=(first+6)%7;
     var days=new Date(y,m+1,0).getDate();
     var now=new Date(); var todayY=now.getFullYear(),todayM=now.getMonth(),todayD=now.getDate();
@@ -773,14 +803,17 @@ function renderCalendar() {
       var dateKey=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
       var isPast=(y<todayY)||(y===todayY&&m<todayM)||(y===todayY&&m===todayM&&d<todayD+1);
       var dd=new Date(y,m,d).getDay(); var isWE=dd===0;
-      var isBusy=busyDays.indexOf(dateKey)>=0;
+      var dayInfo=busyDays[dateKey];
+      var isFullDay = dayInfo && dayInfo.fullDay;
+      var occupiedSlots = (dayInfo && dayInfo.slots) ? dayInfo.slots.length : 0;
+      var isFullyBooked = isFullDay || occupiedSlots >= SLOTS.length;
       var isSelected=state.date&&state.date===dateKey;
-      var disabled=isPast||isWE||isBusy;
+      var disabled=isPast||isWE||isFullyBooked;
       var bg=isSelected?'#006d37':disabled?'#f2f4f6':'#fff';
       var col=isSelected?'#fff':disabled?'#c0c0c0':'#191c1e';
       var border=isSelected?'2px solid #006d37':disabled?'2px solid transparent':'2px solid #e0e3e5';
       var cursor=disabled?'default':'pointer';
-      var titleAttr=isBusy&&!isPast&&!isWE?' title="Indisponible"':'';
+      var titleAttr=isFullyBooked&&!isPast&&!isWE?' title="Indisponible"':'';
       html+='<div onclick="'+(disabled?'':'selectDate('+y+','+m+','+d+')')+'"'+titleAttr+' style="text-align:center;padding:8px 0;border-radius:10px;font-size:14px;font-weight:500;background:'+bg+';color:'+col+';border:'+border+';cursor:'+cursor+'">'+d+'</div>';
     }
     document.getElementById('cal-grid').innerHTML=html;
@@ -789,7 +822,26 @@ function renderCalendar() {
   });
 }
 function selectDate(y,m,d){ state.date=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'); state.heure=null; document.getElementById('selected-slot-display').style.display='none'; renderCalendar(); renderSlots(); }
-function renderSlots(){ var container=document.getElementById('time-slots'); container.innerHTML=''; SLOTS.forEach(function(s){var sel=state.heure===s; var btn=document.createElement('button'); btn.textContent=s; btn.onclick=function(){selectSlot(s);}; btn.style.cssText='padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;border:2px solid '+(sel?'#006d37':'#e0e3e5')+';background:'+(sel?'#006d37':'#fff')+';color:'+(sel?'#fff':'#191c1e')+';cursor:pointer;font-family:Inter,sans-serif'; container.appendChild(btn);}); }
+function renderSlots(){
+  var container=document.getElementById('time-slots');
+  container.innerHTML='';
+  var dayInfo = (state.busyDays && state.busyDays[state.date]) || {fullDay:false, slots:[]};
+  var occupiedSlots = dayInfo.fullDay ? SLOTS : (dayInfo.slots || []);
+  SLOTS.forEach(function(s){
+    var sel=state.heure===s;
+    var isOccupied = occupiedSlots.indexOf(s) >= 0;
+    var btn=document.createElement('button');
+    btn.textContent=isOccupied ? s+' (indisponible)' : s;
+    if(isOccupied){
+      btn.disabled=true;
+      btn.style.cssText='padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;border:2px solid #e0e3e5;background:#f2f4f6;color:#c0c0c0;cursor:default;font-family:Inter,sans-serif';
+    } else {
+      btn.onclick=function(){selectSlot(s);};
+      btn.style.cssText='padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;border:2px solid '+(sel?'#006d37':'#e0e3e5')+';background:'+(sel?'#006d37':'#fff')+';color:'+(sel?'#fff':'#191c1e')+';cursor:pointer;font-family:Inter,sans-serif';
+    }
+    container.appendChild(btn);
+  });
+}
 function selectSlot(s){ state.heure=s; var d=new Date(state.date); var opts={weekday:'long',day:'numeric',month:'long',year:'numeric'}; document.getElementById('selected-slot-display').style.display='block'; document.getElementById('selected-slot-display').innerHTML='✅ Intervention prévue le <strong>'+d.toLocaleDateString('fr-FR',opts)+'</strong> de <strong>'+s+'</strong>'; renderSlots(); }
 function prevMonth(){ state.calMonth--; if(state.calMonth<0){state.calMonth=11;state.calYear--;} renderCalendar(); }
 function nextMonth(){ state.calMonth++; if(state.calMonth>11){state.calMonth=0;state.calYear++;} renderCalendar(); }
