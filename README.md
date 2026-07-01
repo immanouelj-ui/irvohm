@@ -114,8 +114,8 @@ Le formulaire `devis.html` envoie chaque lead à `/api/leads`, qui l'enregistre 
 
 | Variable                | Valeur                                                    |
 |-------------------------|------------------------------------------------------------|
-| `SUPABASE_URL`           | `https://cupyhcitwfbstfoxvvky.supabase.co`                 |
-| `SUPABASE_SERVICE_KEY`   | Clé `service_role` du projet Supabase (Project Settings → API) |
+| `SUPABASE_URL`           | `https://xulawpcvjaozyftwsrzk.supabase.co` (projet Supabase dédié "irvohm") |
+| `SUPABASE_SERVICE_KEY`   | Clé `service_role` du projet Supabase "irvohm" (Project Settings → API) |
 | `ADMIN_PASSWORD`         | Mot de passe pour accéder à `/admin.html`                  |
 | `ADMIN_SESSION_SECRET`   | Chaîne aléatoire longue (ex : `openssl rand -hex 32`), sert à signer la session admin |
 
