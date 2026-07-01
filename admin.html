@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CRM Leads — IRV'OHM</title>
+<meta name="robots" content="noindex, nofollow"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --ink:#191c1e; --muted:#6c7b6d;
+    --green:#006d37; --emerald:#2ecc71; --blue:#006397;
+    --surface:#f7f9fb; --white:#ffffff; --line:#e0e3e5;
+    --display:'Montserrat', system-ui, sans-serif;
+    --body:'Inter', system-ui, sans-serif;
+    --r:12px;
+  }
+  body { font-family:var(--body); background:var(--surface); color:var(--ink); min-height:100vh; }
+  a { color:inherit; }
+
+  /* Login */
+  .login-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .login-card { background:var(--white); border:1px solid var(--line); border-radius:var(--r); padding:36px; width:100%; max-width:360px; box-shadow:0 12px 32px rgba(7,34,26,0.08); }
+  .logo { font-family:var(--display); font-weight:700; font-size:22px; letter-spacing:-0.01em; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:4px; }
+  .login-sub { color:var(--muted); font-size:13px; margin-bottom:22px; }
+  .login-card input { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:8px; font-size:14px; font-family:var(--body); margin-bottom:12px; }
+  .login-card button { width:100%; padding:12px; border:none; border-radius:8px; background:linear-gradient(120deg,var(--green),var(--blue)); color:#fff; font-weight:600; font-size:14px; cursor:pointer; }
+  .login-card button:disabled { opacity:.6; cursor:default; }
+  .err { color:#c0392b; font-size:13px; margin-bottom:12px; min-height:16px; }
+
+  /* Dashboard */
+  .app { display:none; }
+  header.top { background:var(--white); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10; }
+  .top-row { max-width:1200px; margin-inline:auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .top-row .logo { margin:0; }
+  .top-row .title { font-size:13px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
+  #logout-btn { background:none; border:1px solid var(--line); border-radius:8px; padding:8px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+
+  main { max-width:1200px; margin-inline:auto; padding:24px; }
+
+  .toolbar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; align-items:center; }
+  .toolbar input, .toolbar select { padding:10px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; font-family:var(--body); background:var(--white); }
+  .toolbar input { flex:1; min-width:200px; }
+  .stats { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+  .stat { background:var(--white); border:1px solid var(--line); border-radius:var(--r); padding:14px 18px; min-width:110px; }
+  .stat .n { font-family:var(--display); font-size:22px; font-weight:700; color:var(--green); }
+  .stat .l { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+
+  .leads { display:flex; flex-direction:column; gap:10px; }
+  .lead-card { background:var(--white); border:1px solid var(--line); border-radius:var(--r); padding:16px 18px; }
+  .lead-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; cursor:pointer; flex-wrap:wrap; }
+  .lead-name { font-weight:600; font-size:15px; }
+  .lead-meta { color:var(--muted); font-size:13px; margin-top:2px; }
+  .badge { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; padding:5px 10px; border-radius:20px; white-space:nowrap; }
+  .badge.nouveau { background:#e8f4ff; color:var(--blue); }
+  .badge.contacte { background:#fff4e0; color:#b7791f; }
+  .badge.devis_envoye { background:#eef0ff; color:#4c51bf; }
+  .badge.gagne { background:#e6f9ee; color:var(--green); }
+  .badge.perdu { background:#fdeeee; color:#c0392b; }
+
+  .lead-details { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+  .lead-details.open { display:block; }
+  .detail-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px 18px; font-size:13px; margin-bottom:14px; }
+  .detail-grid div span.k { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.04em; }
+  .photos { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+  .photos img { width:70px; height:70px; object-fit:cover; border-radius:8px; border:1px solid var(--line); }
+  .row-actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .row-actions select { padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:13px; }
+  textarea.notes { width:100%; min-height:60px; border:1px solid var(--line); border-radius:8px; padding:10px; font-family:var(--body); font-size:13px; margin-bottom:10px; resize:vertical; }
+  .btn { border:none; border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; }
+  .btn-save { background:var(--green); color:#fff; }
+  .btn-del { background:none; color:#c0392b; border:1px solid #f3caca; }
+  .empty { text-align:center; color:var(--muted); padding:60px 0; }
+</style>
+</head>
+<body>
+
+<div class="login-wrap" id="login-screen">
+  <div class="login-card">
+    <div class="logo">IRV'OHM</div>
+    <div class="login-sub">CRM — Gestion des leads</div>
+    <div class="err" id="login-err"></div>
+    <input type="password" id="login-password" placeholder="Mot de passe" autocomplete="current-password"/>
+    <button id="login-btn">Se connecter</button>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <header class="top">
+    <div class="top-row">
+      <div>
+        <div class="logo">IRV'OHM</div>
+        <div class="title">CRM — Leads</div>
+      </div>
+      <button id="logout-btn">Se déconnecter</button>
+    </div>
+  </header>
+  <main>
+    <div class="stats" id="stats"></div>
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="Rechercher (nom, email, téléphone, code postal)…"/>
+      <select id="filter-status">
+        <option value="">Tous les statuts</option>
+        <option value="nouveau">Nouveau</option>
+        <option value="contacte">Contacté</option>
+        <option value="devis_envoye">Devis envoyé</option>
+        <option value="gagne">Gagné</option>
+        <option value="perdu">Perdu</option>
+      </select>
+    </div>
+    <div class="leads" id="leads-list"></div>
+  </main>
+</div>
+
+<script>
+const STATUS_LABELS = { nouveau:'Nouveau', contacte:'Contacté', devis_envoye:'Devis envoyé', gagne:'Gagné', perdu:'Perdu' };
+let leads = [];
+let openId = null;
+
+function e(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+async function api(path, options) {
+  const res = await fetch(path, { ...options, headers: { 'Content-Type': 'application/json', ...(options && options.headers) } });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || 'Erreur');
+  return data;
+}
+
+function showApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  loadLeads();
+}
+
+function showLogin(msg) {
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('login-err').textContent = msg || '';
+}
+
+async function loadLeads() {
+  try {
+    const data = await api('/api/admin-leads');
+    leads = data.leads || [];
+    render();
+  } catch (err) {
+    showLogin();
+  }
+}
+
+function fmtDate(iso) {
+  return new Date(iso).toLocaleString('fr-FR', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' });
+}
+
+function render() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const statusFilter = document.getElementById('filter-status').value;
+
+  const filtered = leads.filter(l => {
+    if (statusFilter && l.status !== statusFilter) return false;
+    if (!q) return true;
+    return [l.nom, l.email, l.telephone, l.code_postal].some(v => v && String(v).toLowerCase().includes(q));
+  });
+
+  const counts = {};
+  leads.forEach(l => { counts[l.status] = (counts[l.status] || 0) + 1; });
+  document.getElementById('stats').innerHTML = ['nouveau','contacte','devis_envoye','gagne','perdu'].map(s =>
+    `<div class="stat"><div class="n">${counts[s] || 0}</div><div class="l">${STATUS_LABELS[s]}</div></div>`
+  ).join('') + `<div class="stat"><div class="n">${leads.length}</div><div class="l">Total</div></div>`;
+
+  const list = document.getElementById('leads-list');
+  if (!filtered.length) {
+    list.innerHTML = '<div class="empty">Aucun lead pour ces critères.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(l => {
+    const isOpen = l.id === openId;
+    const photos = Array.isArray(l.photos) ? l.photos : [];
+    return `
+    <div class="lead-card">
+      <div class="lead-top" onclick="toggleLead('${l.id}')">
+        <div>
+          <div class="lead-name">${e(l.nom)}</div>
+          <div class="lead-meta">${e(l.telephone)} · ${e(l.email)} · ${e(l.code_postal || '')} · ${fmtDate(l.created_at)}</div>
+        </div>
+        <span class="badge ${e(l.status)}">${STATUS_LABELS[l.status] || l.status}</span>
+      </div>
+      <div class="lead-details ${isOpen ? 'open' : ''}">
+        <div class="detail-grid">
+          <div><span class="k">Logement</span>${e(l.logement)}</div>
+          <div><span class="k">Profil</span>${e(l.role)}</div>
+          <div><span class="k">Véhicule</span>${e(l.vehicule)}</div>
+          <div><span class="k">Marque</span>${e(l.marque)}</div>
+          <div><span class="k">Puissance</span>${e(l.puissance)}</div>
+          <div><span class="k">Nb bornes</span>${e(l.nb_bornes)}</div>
+          <div><span class="k">Compteur</span>${e(l.compteur)}</div>
+          <div><span class="k">Distance</span>${e(l.distance)}</div>
+          <div><span class="k">Délai</span>${e(l.delai)}</div>
+        </div>
+        ${photos.length ? `<div class="photos">${photos.map(p => `<a href="${e(p)}" target="_blank"><img src="${e(p)}" alt="photo"/></a>`).join('')}</div>` : ''}
+        <textarea class="notes" id="notes-${l.id}" placeholder="Notes internes…">${e(l.notes)}</textarea>
+        <div class="row-actions">
+          <select id="status-${l.id}">
+            ${Object.keys(STATUS_LABELS).map(s => `<option value="${s}" ${s === l.status ? 'selected' : ''}>${STATUS_LABELS[s]}</option>`).join('')}
+          </select>
+          <button class="btn btn-save" onclick="saveLead('${l.id}')">Enregistrer</button>
+          <button class="btn btn-del" onclick="deleteLead('${l.id}')">Supprimer</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleLead(id) {
+  openId = openId === id ? null : id;
+  render();
+}
+
+async function saveLead(id) {
+  const status = document.getElementById('status-' + id).value;
+  const notes = document.getElementById('notes-' + id).value;
+  try {
+    await api('/api/admin-leads?id=' + encodeURIComponent(id), { method: 'PATCH', body: JSON.stringify({ status, notes }) });
+    await loadLeads();
+  } catch (err) { alert(err.message); }
+}
+
+async function deleteLead(id) {
+  if (!confirm('Supprimer définitivement ce lead ?')) return;
+  try {
+    await api('/api/admin-leads?id=' + encodeURIComponent(id), { method: 'DELETE' });
+    await loadLeads();
+  } catch (err) { alert(err.message); }
+}
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('filter-status').addEventListener('change', render);
+
+document.getElementById('login-btn').addEventListener('click', async () => {
+  const btn = document.getElementById('login-btn');
+  const password = document.getElementById('login-password').value;
+  btn.disabled = true;
+  try {
+    await api('/api/admin-login', { method: 'POST', body: JSON.stringify({ password }) });
+    document.getElementById('login-password').value = '';
+    showApp();
+  } catch (err) {
+    document.getElementById('login-err').textContent = err.message;
+  }
+  btn.disabled = false;
+});
+
+document.getElementById('login-password').addEventListener('keydown', (ev) => {
+  if (ev.key === 'Enter') document.getElementById('login-btn').click();
+});
+
+document.getElementById('logout-btn').addEventListener('click', async () => {
+  await api('/api/admin-logout', { method: 'POST' }).catch(() => {});
+  showLogin();
+});
+
+loadLeads();
+</script>
+</body>
+</html>

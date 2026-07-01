@@ -106,6 +106,30 @@ Le site tourne sur `http://localhost:8888` avec les Functions actives.
 
 ---
 
+## CRM Leads (formulaire de devis)
+
+Le formulaire `devis.html` envoie chaque lead à `/api/leads`, qui l'enregistre dans Supabase et notifie `contact@irvohm.fr` par email. Le CRM interne est accessible sur `/admin.html` (protégé par mot de passe).
+
+### Variables d'environnement à ajouter sur Vercel
+
+| Variable                | Valeur                                                    |
+|-------------------------|------------------------------------------------------------|
+| `SUPABASE_URL`           | `https://cupyhcitwfbstfoxvvky.supabase.co`                 |
+| `SUPABASE_SERVICE_KEY`   | Clé `service_role` du projet Supabase (Project Settings → API) |
+| `ADMIN_PASSWORD`         | Mot de passe pour accéder à `/admin.html`                  |
+| `ADMIN_SESSION_SECRET`   | Chaîne aléatoire longue (ex : `openssl rand -hex 32`), sert à signer la session admin |
+
+Les leads sont stockés dans la table `irvohm_leads` du projet Supabase (RLS activé, accès uniquement via la clé `service_role` côté serveur).
+
+### Fichiers concernés
+
+- `api/leads.js` — reçoit le POST du formulaire, insère le lead, envoie l'email de notification
+- `api/admin-login.js` / `api/admin-logout.js` — authentification du CRM (cookie signé, 8h)
+- `api/admin-leads.js` — liste / met à jour le statut & les notes / supprime un lead
+- `admin.html` — interface CRM (recherche, filtre par statut, notes, changement de statut)
+
+---
+
 ## Cartes de test Stripe
 
 | Carte                | Numéro              | Résultat          |

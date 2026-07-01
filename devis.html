@@ -304,7 +304,7 @@
 /* =========================================================
    CONFIGURATION — modifier ces URLs ici
    ========================================================= */
-const WEBHOOK_URL       = 'https://hook.eu1.make.com/7c7yt2mqc1eqy13ilp4xb41l7kyn5ic9';
+const LEADS_ENDPOINT     = '/api/leads';
 const UPLOADCARE_KEY    = '482ddcbf9c71fdf5fd89';
 const UPLOADCARE_CDN    = 'https://2cbbtu0mnx.ucarecd.net/';
 
@@ -525,7 +525,7 @@ async function submit() {
       const json = await res.json();
       if (json.file) photoUrls.push(UPLOADCARE_CDN + json.file + '/' + photo.name);
     }
-    await fetch(WEBHOOK_URL, {
+    const res = await fetch(LEADS_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -538,6 +538,7 @@ async function submit() {
         photos: photoUrls,
       }),
     });
+    if (!res.ok) throw new Error('Envoi du lead échoué');
   } catch (err) { console.error('Erreur envoi:', err); }
   isSubmitting = false;
   isDone = true;
