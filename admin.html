@@ -63,11 +63,12 @@ button, input, select, textarea { font-family:inherit; }
 .sidebar { width:240px; flex-shrink:0; background:var(--sidebar); color:var(--sidebar-ink); display:flex; flex-direction:column; padding:20px 14px; position:fixed; top:0; bottom:0; left:0; z-index:40; }
 .sidebar .logo-mark { color:#fff; padding:6px 10px 22px; }
 .sidebar nav { display:flex; flex-direction:column; gap:2px; flex:1; }
-.nav-item { display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:var(--r-sm); color:var(--sidebar-muted); font-size:13.5px; font-weight:600; cursor:pointer; border:none; background:none; text-align:left; width:100%; transition:background .15s var(--ease), color .15s var(--ease); }
+.nav-item { position:relative; display:flex; align-items:center; gap:11px; padding:9px 12px; border-radius:var(--r-sm); color:var(--sidebar-muted); font-size:13.5px; font-weight:600; cursor:pointer; border:none; background:none; text-align:left; width:100%; transition:background .15s var(--ease), color .15s var(--ease); }
 .nav-item .ic { width:17px; height:17px; }
-.nav-item:hover { background:rgba(255,255,255,0.06); color:var(--sidebar-ink); }
-.nav-item.active { background:linear-gradient(120deg, rgba(46,204,113,0.22), rgba(0,119,179,0.18)); color:#fff; }
-.nav-count { margin-left:auto; background:rgba(255,255,255,0.1); font-size:11px; font-weight:700; padding:1px 7px; border-radius:20px; }
+.nav-item:hover { background:rgba(255,255,255,0.055); color:var(--sidebar-ink); }
+.nav-item.active { background:rgba(46,204,113,0.14); color:#fff; }
+.nav-item.active::before { content:''; position:absolute; left:-14px; top:9px; bottom:9px; width:3px; border-radius:0 3px 3px 0; background:linear-gradient(180deg,var(--emerald),var(--blue)); }
+.nav-count { margin-left:auto; background:rgba(255,255,255,0.1); font-size:11px; font-weight:700; padding:1px 7px; border-radius:20px; font-variant-numeric:tabular-nums; }
 
 .sidebar-footer { border-top:1px solid var(--sidebar-line); padding-top:14px; margin-top:10px; }
 .sidebar-user { display:flex; align-items:center; gap:10px; padding:6px 8px; }
@@ -93,24 +94,33 @@ select.pill-select { padding:9px 12px; border:1.5px solid var(--line); border-ra
 .tab-panel { display:none; }
 .tab-panel.active { display:block; }
 
+/* ===== Status colors (single source of truth: dots + badges) ===== */
+:root {
+  --s-nouveau:#0077b3; --s-contacte:#b7791f; --s-devis_envoye:#4c51bf; --s-gagne:#00834a; --s-perdu:#c0392b;
+}
+.status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:7px; flex-shrink:0; }
+.status-dot.nouveau { background:var(--s-nouveau); }
+.status-dot.contacte { background:var(--s-contacte); }
+.status-dot.devis_envoye { background:var(--s-devis_envoye); }
+.status-dot.gagne { background:var(--s-gagne); }
+.status-dot.perdu { background:var(--s-perdu); }
+
 /* ===== Stat cards ===== */
 .stats-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:22px; }
-.stat-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:16px 20px; min-width:118px; box-shadow:var(--shadow-sm); }
-.stat-card .n { font-family:var(--display); font-size:24px; font-weight:800; }
-.stat-card .l { font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-weight:600; margin-top:2px; }
-.stat-card.accent-nouveau .n { color:var(--blue); }
-.stat-card.accent-contacte .n { color:#b7791f; }
-.stat-card.accent-devis_envoye .n { color:#4c51bf; }
-.stat-card.accent-gagne .n { color:var(--green); }
-.stat-card.accent-perdu .n { color:#c0392b; }
+.stat-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:15px 20px; min-width:118px; box-shadow:var(--shadow-sm); transition:box-shadow .15s var(--ease), border-color .15s var(--ease); }
+.stat-card:hover { box-shadow:var(--shadow); }
+.stat-card .l { display:flex; align-items:center; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-weight:700; margin-bottom:7px; }
+.stat-card .n { font-family:var(--display); font-size:25px; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink); }
+.stat-card.accent-total { border-color:rgba(0,131,74,0.35); }
+.stat-card.accent-total .n { background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
 
 /* ===== Badges ===== */
 .badge { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:4px 9px; border-radius:20px; white-space:nowrap; display:inline-block; }
-.badge.nouveau { background:#e8f4ff; color:var(--blue); }
-.badge.contacte { background:#fff4e0; color:#b7791f; }
-.badge.devis_envoye { background:#eef0ff; color:#4c51bf; }
-.badge.gagne { background:#e6f9ee; color:var(--green); }
-.badge.perdu { background:#fdeeee; color:#c0392b; }
+.badge.nouveau { background:#e8f4ff; color:var(--s-nouveau); }
+.badge.contacte { background:#fff4e0; color:var(--s-contacte); }
+.badge.devis_envoye { background:#eef0ff; color:var(--s-devis_envoye); }
+.badge.gagne { background:#e6f9ee; color:var(--s-gagne); }
+.badge.perdu { background:#fdeeee; color:var(--s-perdu); }
 .badge.src { background:var(--surface-2); color:var(--muted); border:1px solid var(--line); }
 .pill { display:inline-block; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; }
 .pill.admin { background:#eef0ff; color:#4c51bf; }
@@ -118,31 +128,50 @@ select.pill-select { padding:9px 12px; border:1.5px solid var(--line); border-ra
 .pill.active { background:#e6f9ee; color:var(--green); }
 .pill.inactive { background:#fdeeee; color:#c0392b; }
 
-/* ===== List view ===== */
-.leads-list { display:flex; flex-direction:column; gap:8px; }
-.lead-row { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:14px 18px; display:flex; align-items:center; gap:16px; cursor:pointer; transition:box-shadow .15s var(--ease), border-color .15s var(--ease); }
-.lead-row:hover { box-shadow:var(--shadow); border-color:transparent; }
-.lead-row .lead-name { font-weight:700; font-size:14.5px; }
-.lead-row .lead-meta { color:var(--muted); font-size:12.5px; margin-top:2px; }
-.lead-row .lead-main { flex:1; min-width:0; }
-.lead-row .lead-badges { display:flex; gap:8px; align-items:center; flex-shrink:0; }
+/* ===== Avatars (base .avatar rule lives with the sidebar styles above; these are size modifiers) ===== */
+.avatar.md { width:32px; height:32px; font-size:12.5px; }
+.avatar.sm { width:28px; height:28px; font-size:11px; }
+.avatar.xs { width:22px; height:22px; font-size:9.5px; }
+
+/* ===== List view (data table) ===== */
+.lead-table td, .lead-table th { vertical-align:middle; }
+.lead-table tbody tr { cursor:pointer; transition:background .12s var(--ease); }
+.lead-table tbody tr:hover { background:var(--surface-2); }
+.cell-lead { display:flex; align-items:center; gap:11px; }
+.cell-name { font-weight:700; font-size:13.5px; }
+.cell-sub { color:var(--muted); font-size:12px; }
+.cell-status { display:flex; align-items:center; font-size:13px; font-weight:600; }
+.cell-actions { text-align:right; }
+.row-action-btn { background:none; border:none; color:var(--muted); padding:6px; border-radius:7px; cursor:pointer; opacity:0; transition:opacity .12s var(--ease), background .12s var(--ease), color .12s var(--ease); }
+.lead-table tbody tr:hover .row-action-btn { opacity:1; }
+.row-action-btn:hover { background:var(--line); color:var(--ink); }
 
 /* ===== Kanban ===== */
 .kanban { display:flex; gap:14px; overflow-x:auto; padding-bottom:12px; align-items:flex-start; }
-.kanban-col { background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg); min-width:260px; max-width:260px; flex-shrink:0; display:flex; flex-direction:column; max-height:calc(100vh - 220px); }
-.kanban-col-head { padding:14px 16px 10px; display:flex; align-items:center; gap:8px; font-weight:700; font-size:13px; }
-.kanban-col-head .n { margin-left:auto; background:var(--surface); border:1px solid var(--line); font-size:11px; padding:1px 8px; border-radius:20px; color:var(--muted); }
+.kanban-col { background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg); min-width:264px; max-width:264px; flex-shrink:0; display:flex; flex-direction:column; max-height:calc(100vh - 220px); }
+.kanban-col-head { padding:14px 14px 10px; display:flex; align-items:center; gap:7px; font-weight:700; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); }
+.kanban-col-head .n { margin-left:auto; background:var(--surface); border:1px solid var(--line); font-size:11px; padding:1px 8px; border-radius:20px; color:var(--muted); font-weight:700; font-variant-numeric:tabular-nums; }
 .kanban-cards { padding:2px 10px 10px; display:flex; flex-direction:column; gap:8px; overflow-y:auto; min-height:60px; }
-.kanban-col.drag-over { outline:2px dashed var(--green); outline-offset:-4px; }
-.kcard { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:12px 13px; cursor:grab; box-shadow:var(--shadow-sm); transition:box-shadow .15s var(--ease), transform .1s var(--ease); }
-.kcard:hover { box-shadow:var(--shadow); }
+.kanban-col.drag-over { background:rgba(46,204,113,0.06); outline:1.5px dashed var(--green); outline-offset:-4px; }
+.kcard { background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--k-accent, var(--line)); border-radius:var(--r); padding:11px 12px; cursor:grab; box-shadow:var(--shadow-sm); transition:box-shadow .15s var(--ease), transform .1s var(--ease); }
+.kcard:hover { box-shadow:var(--shadow); transform:translateY(-1px); }
+.kcard:active { cursor:grabbing; }
 .kcard.dragging { opacity:.4; }
-.kcard .name { font-weight:700; font-size:13.5px; margin-bottom:3px; }
-.kcard .meta { font-size:11.5px; color:var(--muted); }
-.kcard .badge.src { margin-top:8px; }
+.kcard-top { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+.kcard .name { font-weight:700; font-size:13.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.kcard .meta { font-size:11.5px; color:var(--muted); margin-bottom:8px; padding-left:30px; }
+.kcard-bottom { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.kcard-time { font-size:10.5px; color:var(--muted); }
 
 .empty-state { text-align:center; color:var(--muted); padding:70px 20px; font-size:14px; }
 .empty-state .ic { width:32px; height:32px; margin-bottom:10px; opacity:.5; }
+
+/* ===== Skeleton loading ===== */
+.skeleton-row { display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:14px 18px; margin-bottom:8px; }
+.sk { background:linear-gradient(90deg, var(--line) 25%, #eef1ee 37%, var(--line) 63%); background-size:400% 100%; animation:skShimmer 1.4s ease infinite; border-radius:6px; }
+.sk.sk-avatar { width:28px; height:28px; border-radius:50%; flex-shrink:0; }
+.sk.sk-line { height:11px; }
+@keyframes skShimmer { 0%{background-position:100% 0} 100%{background-position:0 0} }
 
 /* ===== Drawer (lead detail slide-over) ===== */
 .drawer-overlay { display:none; position:fixed; inset:0; background:rgba(11,31,22,0.35); z-index:80; }
@@ -389,6 +418,8 @@ const ICONS = {
   list: '<line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.2" fill="currentColor" stroke="none"/>',
   kanban: '<rect x="3.5" y="4" width="5" height="16" rx="1.5"/><rect x="9.5" y="4" width="5" height="10" rx="1.5"/><rect x="15.5" y="4" width="5" height="13" rx="1.5"/>',
   inbox: '<path d="M4 12h4l2 3h4l2-3h4"/><path d="M5 5h14l2 7v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7z"/>',
+  chevronRight: '<polyline points="9 6 15 12 9 18"/>',
+  grip: '<circle cx="9" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="9" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="9" cy="18" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="18" r="1" fill="currentColor" stroke="none"/>',
 };
 function icon(name) { return `<svg class="ic" viewBox="0 0 24 24">${ICONS[name] || ''}</svg>`; }
 
@@ -435,6 +466,15 @@ let draggingId = null;
 
 function e(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function fmtDate(iso) { return new Date(iso).toLocaleString('fr-FR', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' }); }
+function relativeTime(iso) {
+  const diff = (Date.now() - new Date(iso).getTime()) / 1000;
+  if (diff < 45) return "à l'instant";
+  if (diff < 3600) return `il y a ${Math.max(1, Math.floor(diff / 60))} min`;
+  if (diff < 86400) return `il y a ${Math.floor(diff / 3600)} h`;
+  if (diff < 172800) return 'hier';
+  if (diff < 604800) return `il y a ${Math.floor(diff / 86400)} j`;
+  return new Date(iso).toLocaleDateString('fr-FR', { day:'2-digit', month:'2-digit', year:'numeric' });
+}
 function fmtSize(bytes) { if (!bytes) return ''; const kb = bytes/1024; return kb < 1024 ? kb.toFixed(0)+' Ko' : (kb/1024).toFixed(1)+' Mo'; }
 function initials(name) { return String(name||'?').trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase(); }
 function avatarColor(name) { let h=0; for (const c of String(name)) h = (h*31 + c.charCodeAt(0)) >>> 0; return AVATAR_COLORS[h % AVATAR_COLORS.length]; }
@@ -610,7 +650,18 @@ function renderPageHeader(tab) {
 /* =========================================================
    LEADS
    ========================================================= */
+function skeletonRows(n) {
+  return Array.from({ length: n }).map(() => `
+    <div class="skeleton-row">
+      <div class="sk sk-avatar"></div>
+      <div style="flex:1"><div class="sk sk-line" style="width:35%;margin-bottom:8px"></div><div class="sk sk-line" style="width:55%"></div></div>
+    </div>
+  `).join('');
+}
+
 async function loadLeads() {
+  const listEl = document.getElementById('leads-view-list');
+  if (listEl && !leads.length) listEl.innerHTML = skeletonRows(4);
   try {
     const data = await api('/api/admin-leads');
     leads = data.leads || [];
@@ -642,8 +693,8 @@ function renderLeads() {
   const counts = {};
   leads.forEach(l => { counts[l.status] = (counts[l.status] || 0) + 1; });
   document.getElementById('stats').innerHTML = STATUSES.map(s =>
-    `<div class="stat-card accent-${s}"><div class="n">${counts[s] || 0}</div><div class="l">${STATUS_LABELS[s]}</div></div>`
-  ).join('') + `<div class="stat-card"><div class="n">${leads.length}</div><div class="l">Total</div></div>`;
+    `<div class="stat-card"><div class="l"><span class="status-dot ${s}"></span>${STATUS_LABELS[s]}</div><div class="n">${counts[s] || 0}</div></div>`
+  ).join('') + `<div class="stat-card accent-total"><div class="l">Total</div><div class="n">${leads.length}</div></div>`;
 
   document.getElementById('leads-view-list').style.display = leadsView === 'list' ? 'flex' : 'none';
   document.getElementById('leads-view-kanban').style.display = leadsView === 'kanban' ? 'flex' : 'none';
@@ -654,18 +705,30 @@ function renderLeads() {
 function renderLeadsList(filtered) {
   const list = document.getElementById('leads-view-list');
   if (!filtered.length) { list.innerHTML = emptyState('Aucun lead pour ces critères.'); return; }
-  list.innerHTML = filtered.map(l => `
-    <div class="lead-row" onclick="openDrawer('${l.id}')">
-      <div class="lead-main">
-        <div class="lead-name">${e(l.nom)}</div>
-        <div class="lead-meta">${e(l.telephone || '')} · ${e(l.email || '')} · ${e(l.code_postal || '')} · ${fmtDate(l.created_at)}</div>
-      </div>
-      <div class="lead-badges">
-        <span class="badge src">${SOURCE_LABELS[l.source] || l.source}</span>
-        <span class="badge ${e(l.status)}">${STATUS_LABELS[l.status] || l.status}</span>
-      </div>
-    </div>
-  `).join('');
+  list.innerHTML = `
+    <table class="data-table lead-table">
+      <thead><tr><th>Client</th><th>Statut</th><th>Source</th><th>Créé</th><th></th></tr></thead>
+      <tbody>
+        ${filtered.map(l => `
+          <tr onclick="openDrawer('${l.id}')">
+            <td>
+              <div class="cell-lead">
+                <div class="avatar sm" style="background:${avatarColor(l.nom)}">${initials(l.nom)}</div>
+                <div>
+                  <div class="cell-name">${e(l.nom)}</div>
+                  <div class="cell-sub">${e(l.telephone || l.email || l.code_postal || '—')}</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="cell-status"><span class="status-dot ${e(l.status)}"></span>${STATUS_LABELS[l.status] || l.status}</span></td>
+            <td><span class="badge src">${SOURCE_LABELS[l.source] || l.source}</span></td>
+            <td class="cell-sub" title="${fmtDate(l.created_at)}">${relativeTime(l.created_at)}</td>
+            <td class="cell-actions"><button class="row-action-btn" onclick="event.stopPropagation(); openDrawer('${l.id}')">${icon('chevronRight')}</button></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
 }
 
 function renderLeadsKanban(filtered) {
@@ -674,13 +737,19 @@ function renderLeadsKanban(filtered) {
     const items = filtered.filter(l => l.status === status);
     return `
     <div class="kanban-col" data-status="${status}">
-      <div class="kanban-col-head"><span class="badge ${status}">${STATUS_LABELS[status]}</span><span class="n">${items.length}</span></div>
+      <div class="kanban-col-head"><span class="status-dot ${status}"></span>${STATUS_LABELS[status]}<span class="n">${items.length}</span></div>
       <div class="kanban-cards">
         ${items.map(l => `
-          <div class="kcard" draggable="true" data-id="${l.id}" onclick="openDrawer('${l.id}')">
-            <div class="name">${e(l.nom)}</div>
-            <div class="meta">${e(l.telephone || l.email || '')}</div>
-            <span class="badge src">${SOURCE_LABELS[l.source] || l.source}</span>
+          <div class="kcard" draggable="true" data-id="${l.id}" onclick="openDrawer('${l.id}')" style="--k-accent:var(--s-${status})">
+            <div class="kcard-top">
+              <div class="avatar xs" style="background:${avatarColor(l.nom)}">${initials(l.nom)}</div>
+              <div class="name">${e(l.nom)}</div>
+            </div>
+            <div class="meta">${e(l.telephone || l.email || '—')}</div>
+            <div class="kcard-bottom">
+              <span class="badge src">${SOURCE_LABELS[l.source] || l.source}</span>
+              <span class="kcard-time">${relativeTime(l.created_at)}</span>
+            </div>
           </div>
         `).join('')}
       </div>
@@ -1048,7 +1117,7 @@ async function loadUsers() {
 function renderUsers() {
   document.getElementById('users-tbody').innerHTML = users.map(u => `
     <tr>
-      <td>${e(u.name)}</td>
+      <td><div class="cell-lead"><div class="avatar xs" style="background:${avatarColor(u.name)}">${initials(u.name)}</div>${e(u.name)}</div></td>
       <td>${e(u.email)}</td>
       <td><span class="pill ${u.role}">${u.role === 'admin' ? 'Admin' : 'Employé'}</span></td>
       <td><span class="pill ${u.active ? 'active' : 'inactive'}">${u.active ? 'Actif' : 'Désactivé'}</span></td>
@@ -1091,8 +1160,8 @@ async function loadActivity() {
     const { activity } = await api('/api/admin-users?resource=activity');
     document.getElementById('activity-tbody').innerHTML = activity.map(a => `
       <tr>
-        <td>${fmtDate(a.created_at)}</td>
-        <td>${e(a.actor ? a.actor.name : 'Système')}</td>
+        <td class="cell-sub" title="${fmtDate(a.created_at)}">${relativeTime(a.created_at)}</td>
+        <td><div class="cell-lead"><div class="avatar xs" style="background:${avatarColor(a.actor ? a.actor.name : 'Système')}">${initials(a.actor ? a.actor.name : 'S')}</div>${e(a.actor ? a.actor.name : 'Système')}</div></td>
         <td>${ACTION_LABELS[a.action] || a.action}</td>
         <td>${e(a.lead ? a.lead.nom : '')}</td>
       </tr>
