@@ -108,7 +108,7 @@ Le site tourne sur `http://localhost:8888` avec les Functions actives.
 
 ## CRM Leads (formulaire de devis)
 
-Le formulaire `devis.html` envoie chaque lead à `/api/leads`, qui l'enregistre dans Supabase et notifie `contact@irvohm.fr` par email. Le CRM interne est accessible sur `/admin.html` (protégé par mot de passe).
+Le formulaire `devis.html` envoie chaque lead à `/api/leads`, qui l'enregistre dans Supabase et notifie `contact@irvohm.fr` par email. Le CRM interne est accessible sur `/admin.html`, avec des comptes employés individuels (pas un mot de passe partagé).
 
 ### Variables d'environnement à ajouter sur Vercel
 
@@ -116,17 +116,39 @@ Le formulaire `devis.html` envoie chaque lead à `/api/leads`, qui l'enregistre 
 |-------------------------|------------------------------------------------------------|
 | `SUPABASE_URL`           | `https://xulawpcvjaozyftwsrzk.supabase.co` (projet Supabase dédié "irvohm") |
 | `SUPABASE_SERVICE_KEY`   | Clé `service_role` du projet Supabase "irvohm" (Project Settings → API) |
-| `ADMIN_PASSWORD`         | Mot de passe pour accéder à `/admin.html`                  |
-| `ADMIN_SESSION_SECRET`   | Chaîne aléatoire longue (ex : `openssl rand -hex 32`), sert à signer la session admin |
+| `ADMIN_PASSWORD`         | Clé d'installation à usage unique, sert uniquement à créer le tout premier compte admin (voir ci-dessous) |
+| `ADMIN_SESSION_SECRET`   | Chaîne aléatoire longue (ex : `openssl rand -hex 32`), sert à signer les sessions |
 
-Les leads sont stockés dans la table `irvohm_leads` du projet Supabase (RLS activé, accès uniquement via la clé `service_role` côté serveur).
+### Premier lancement — créer le compte admin
+
+1. Ajoute les 4 variables ci-dessus sur Vercel, puis redéploie.
+2. Va sur `/admin.html` : comme aucun compte n'existe encore, un écran "Créer le compte administrateur" s'affiche.
+3. Renseigne la valeur de `ADMIN_PASSWORD` comme "clé d'installation", ton nom, ton email et un mot de passe perso.
+4. Une fois le compte admin créé, va dans l'onglet **Employés** pour ajouter les comptes de tes employés (chacun avec son propre email/mot de passe). `ADMIN_PASSWORD` ne sert plus après cette étape — tout le monde se connecte avec son propre compte.
+
+### Fonctionnalités du CRM
+
+- **Leads/clients** : recherche, filtre par statut et par source (formulaire / ajout manuel / import), ajout manuel d'un client
+- **Notes** : fil de notes horodatées par client, avec l'auteur de chaque note
+- **Documents** : upload de fichiers (3 Mo max) rattachés à un client, stockés dans Supabase Storage (bucket privé, accès via URL signée)
+- **Import CSV** : upload d'un fichier CSV existant avec mapping manuel des colonnes vers les champs du CRM
+- **Employés** (admin uniquement) : création de comptes, activation/désactivation, changement de rôle
+- **Activité** (admin uniquement) : journal de toutes les actions (connexions, statuts modifiés, notes, imports, suppressions...) avec l'employé responsable
+
+Seuls les admins peuvent supprimer un lead, gérer les employés ou consulter le journal d'activité — les employés voient et modifient tous les leads mais ne peuvent pas les supprimer.
 
 ### Fichiers concernés
 
-- `api/leads.js` — reçoit le POST du formulaire, insère le lead, envoie l'email de notification
-- `api/admin-login.js` / `api/admin-logout.js` — authentification du CRM (cookie signé, 8h)
-- `api/admin-leads.js` — liste / met à jour le statut & les notes / supprime un lead
-- `admin.html` — interface CRM (recherche, filtre par statut, notes, changement de statut)
+- `api/leads.js` — reçoit le POST du formulaire public, insère le lead, envoie l'email de notification
+- `api/admin-setup.js` — création du tout premier compte admin (clé d'installation = `ADMIN_PASSWORD`)
+- `api/admin-login.js` / `api/admin-logout.js` / `api/admin-whoami.js` — authentification par compte (cookie signé, 8h)
+- `api/admin-users.js` — gestion des comptes employés (admin uniquement)
+- `api/admin-leads.js` — liste / ajout manuel / statut / suppression (admin) d'un lead
+- `api/admin-notes.js` — notes horodatées par lead
+- `api/admin-documents.js` — upload/suppression de documents (Supabase Storage)
+- `api/admin-import.js` — import CSV en masse
+- `api/admin-activity.js` — journal d'activité (admin uniquement)
+- `admin.html` — interface CRM complète (leads, import, employés, activité)
 
 ---
 
