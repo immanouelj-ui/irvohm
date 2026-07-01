@@ -315,12 +315,12 @@ async function api(path, options) {
    ========================================================= */
 async function boot() {
   try {
-    const { needsSetup } = await api('/api/admin-setup');
+    const { needsSetup } = await api('/api/admin-auth?action=setup-status');
     if (needsSetup) return showSetup();
   } catch (err) { /* ignore, fall through to login attempt */ }
 
   try {
-    const { user } = await api('/api/admin-whoami');
+    const { user } = await api('/api/admin-auth?action=whoami');
     currentUser = user;
     showApp();
   } catch (err) {
@@ -367,7 +367,7 @@ document.getElementById('setup-btn').addEventListener('click', async () => {
   const btn = document.getElementById('setup-btn');
   btn.disabled = true;
   try {
-    const { user } = await api('/api/admin-setup', { method:'POST', body: JSON.stringify({
+    const { user } = await api('/api/admin-auth?action=setup', { method:'POST', body: JSON.stringify({
       setupKey: document.getElementById('setup-key').value,
       name: document.getElementById('setup-name').value,
       email: document.getElementById('setup-email').value,
@@ -383,7 +383,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
   const btn = document.getElementById('login-btn');
   btn.disabled = true;
   try {
-    const { user } = await api('/api/admin-login', { method:'POST', body: JSON.stringify({
+    const { user } = await api('/api/admin-auth?action=login', { method:'POST', body: JSON.stringify({
       email: document.getElementById('login-email').value,
       password: document.getElementById('login-password').value,
     })});
@@ -395,7 +395,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
 document.getElementById('login-password').addEventListener('keydown', (ev) => { if (ev.key === 'Enter') document.getElementById('login-btn').click(); });
 
 document.getElementById('logout-btn').addEventListener('click', async () => {
-  await api('/api/admin-logout', { method: 'POST' }).catch(() => {});
+  await api('/api/admin-auth?action=logout', { method: 'POST' }).catch(() => {});
   currentUser = null;
   showLogin();
 });
@@ -580,7 +580,7 @@ async function loadNotes(leadId) {
   const el = document.getElementById('notes-' + leadId);
   if (!el) return;
   try {
-    const { notes } = await api('/api/admin-notes?lead_id=' + encodeURIComponent(leadId));
+    const { notes } = await api('/api/admin-leads?resource=note&lead_id=' + encodeURIComponent(leadId));
     if (!notes.length) { el.innerHTML = '<div style="color:var(--muted);font-size:13px">Aucune note.</div>'; return; }
     el.innerHTML = notes.map(n => `
       <div class="note-item">
@@ -596,7 +596,7 @@ async function addNote(leadId) {
   const body = input.value.trim();
   if (!body) return;
   try {
-    await api('/api/admin-notes', { method: 'POST', body: JSON.stringify({ lead_id: leadId, body }) });
+    await api('/api/admin-leads?resource=note', { method: 'POST', body: JSON.stringify({ lead_id: leadId, body }) });
     input.value = '';
     await loadNotes(leadId);
   } catch (err) { alert(err.message); }
@@ -609,7 +609,7 @@ async function loadDocuments(leadId) {
   const el = document.getElementById('docs-' + leadId);
   if (!el) return;
   try {
-    const { documents } = await api('/api/admin-documents?lead_id=' + encodeURIComponent(leadId));
+    const { documents } = await api('/api/admin-leads?resource=document&lead_id=' + encodeURIComponent(leadId));
     if (!documents.length) { el.innerHTML = '<div style="color:var(--muted);font-size:13px">Aucun document.</div>'; return; }
     el.innerHTML = documents.map(d => `
       <div class="doc-item">
@@ -639,7 +639,7 @@ async function uploadDocument(leadId) {
   if (file.size > 3 * 1024 * 1024) { alert('Fichier trop volumineux (3 Mo max).'); input.value=''; return; }
   try {
     const data_base64 = await fileToBase64(file);
-    await api('/api/admin-documents', { method: 'POST', body: JSON.stringify({ lead_id: leadId, file_name: file.name, mime_type: file.type, data_base64 }) });
+    await api('/api/admin-leads?resource=document', { method: 'POST', body: JSON.stringify({ lead_id: leadId, file_name: file.name, mime_type: file.type, data_base64 }) });
     input.value = '';
     await loadDocuments(leadId);
   } catch (err) { alert(err.message); }
@@ -648,7 +648,7 @@ async function uploadDocument(leadId) {
 async function deleteDocument(id, leadId) {
   if (!confirm('Supprimer ce document ?')) return;
   try {
-    await api('/api/admin-documents?id=' + encodeURIComponent(id), { method: 'DELETE' });
+    await api('/api/admin-leads?resource=document&id=' + encodeURIComponent(id), { method: 'DELETE' });
     await loadDocuments(leadId);
   } catch (err) { alert(err.message); }
 }
@@ -745,7 +745,7 @@ document.getElementById('import-confirm-btn').addEventListener('click', async ()
   const btn = document.getElementById('import-confirm-btn');
   btn.disabled = true;
   try {
-    const result = await api('/api/admin-import', { method: 'POST', body: JSON.stringify({ rows: payloadRows }) });
+    const result = await api('/api/admin-leads?resource=import', { method: 'POST', body: JSON.stringify({ rows: payloadRows }) });
     document.getElementById('import-msg').className = 'msg ok';
     document.getElementById('import-msg').textContent = `${result.created} client(s) importé(s), ${result.skipped} ligne(s) ignorée(s) (nom manquant).`;
     if (result.errors.length) document.getElementById('import-msg').textContent += ` ${result.errors.length} erreur(s).`;
@@ -809,7 +809,7 @@ document.getElementById('new-user-btn').addEventListener('click', async () => {
    ========================================================= */
 async function loadActivity() {
   try {
-    const { activity } = await api('/api/admin-activity');
+    const { activity } = await api('/api/admin-users?resource=activity');
     document.getElementById('activity-tbody').innerHTML = activity.map(a => `
       <tr>
         <td>${fmtDate(a.created_at)}</td>

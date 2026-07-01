@@ -140,15 +140,12 @@ Seuls les admins peuvent supprimer un lead, gérer les employés ou consulter le
 ### Fichiers concernés
 
 - `api/leads.js` — reçoit le POST du formulaire public, insère le lead, envoie l'email de notification
-- `api/admin-setup.js` — création du tout premier compte admin (clé d'installation = `ADMIN_PASSWORD`)
-- `api/admin-login.js` / `api/admin-logout.js` / `api/admin-whoami.js` — authentification par compte (cookie signé, 8h)
-- `api/admin-users.js` — gestion des comptes employés (admin uniquement)
-- `api/admin-leads.js` — liste / ajout manuel / statut / suppression (admin) d'un lead
-- `api/admin-notes.js` — notes horodatées par lead
-- `api/admin-documents.js` — upload/suppression de documents (Supabase Storage)
-- `api/admin-import.js` — import CSV en masse
-- `api/admin-activity.js` — journal d'activité (admin uniquement)
+- `api/admin-auth.js` — setup / login / logout / whoami, choisi via `?action=` (regroupés dans une seule fonction pour rester sous la limite Vercel Hobby de 12 fonctions)
+- `api/admin-leads.js` — leads / notes / documents / import, choisi via `?resource=lead|note|document|import`
+- `api/admin-users.js` — comptes employés / journal d'activité (admin uniquement), choisi via `?resource=user|activity`
 - `admin.html` — interface CRM complète (leads, import, employés, activité)
+
+> Le plan Vercel Hobby limite à 12 fonctions serverless par déploiement (un fichier = une fonction). Si tu ajoutes de nouveaux endpoints, regroupe-les dans un fichier existant via un paramètre `?action=`/`?resource=` plutôt que d'en créer un nouveau, pour ne pas dépasser la limite.
 
 ---
 
