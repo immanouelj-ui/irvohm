@@ -3,8 +3,6 @@ Allow: /
 
 # Bloquer les pages non indexables
 Disallow: /api/
-Disallow: /_build/
-Disallow: /commander/confirmation
 
 # Sitemap
 Sitemap: https://www.irvohm.fr/sitemap.xml
