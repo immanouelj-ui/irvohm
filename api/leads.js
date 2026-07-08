@@ -1,6 +1,89 @@
 const nodemailer = require('nodemailer');
 const { supabaseFetch } = require('./_lib/supabase');
 
+// ── Envoi du lead au CRM (mêmes colonnes que les leads choisistaborne) ──────────
+const CRM_ENDPOINT = 'https://crm-pro-backend.fly.dev/api/public/leads';
+const CRM_API_KEY = 'b0b84ca9fd93429d993e4fae3b3322e77a783593e0184b90939abeeda87ae2e7';
+
+// Mapping code funnel → valeur exacte des options des colonnes CRM.
+const CRM_MAP = {
+  statut_du_bien: { proprietaire: 'Propriétaire', locataire: 'Locataire', syndic: 'Syndic' },
+  logement: { domicile: 'Maison individuelle', copropriete: 'Copropriété' },
+  vehicule: { oui: 'oui', commande: 'Commandé', projet: 'Projet' },
+  puissance: { '7.4': '7,4 KW', '11': '11 KW', '22': '22 KW' },
+  compteur: { mono: 'Monophasé', tri: 'Triphasé' },
+  distance: { '<5': '5 M', '5-15': '5 a 15 M', '>15': '15 et plus' },
+  dlai: { asap: 'Urgent', '1m': '1 mois', '3m': '3 mois', compare: 'ne sais pas' },
+};
+// Valeur mappée, sinon la valeur brute (par sécurité si un code diffère), sinon vide.
+const crmVal = (key, value) =>
+  !value ? '' : (CRM_MAP[key] && CRM_MAP[key][value]) || String(value);
+
+// Libellés lisibles pour les notes.
+const LBL = {
+  logement: { domicile: 'Maison individuelle', copropriete: 'Copropriété' },
+  role: { proprietaire: 'Propriétaire', locataire: 'Locataire', syndic: 'Syndic' },
+  vehicule: { oui: 'Déjà équipé', commande: 'Véhicule commandé', projet: "En projet d'achat" },
+  puissance: { '7.4': '7,4 kW', '11': '11 kW', '22': '22 kW', unknown: 'Ne sait pas' },
+  compteur: { mono: 'Monophasé', tri: 'Triphasé', unknown: 'Ne sait pas' },
+  distance: { '<5': 'Moins de 5 m', '5-15': '5 à 15 m', '>15': 'Plus de 15 m' },
+  delai: { asap: 'Dès que possible', '1m': 'Sous 1 mois', '3m': 'Sous 3 mois', compare: 'Compare les offres' },
+};
+const lbl = (k, v) => (LBL[k] && LBL[k][v]) || v || '—';
+
+async function forwardToCRM(body) {
+  const isPro = body.role === 'syndic';
+  const marque = body.marque || '';
+  const photoUrls = (Array.isArray(body.photos) ? body.photos : [])
+    .map((u) => String(u).trim())
+    .filter((u) => /^https?:\/\//i.test(u));
+
+  const details = [
+    `Logement : ${lbl('logement', body.logement)} (${lbl('role', body.role)}) — CP ${body.codePostal || '—'}`,
+    isPro
+      ? `Projet pro : ${body.nbBornes || '—'} borne(s)`
+      : `Véhicule : ${lbl('vehicule', body.vehicule)}${marque ? ` — ${marque}` : ''}`,
+    `Puissance : ${lbl('puissance', body.puissance)}`,
+    `Compteur : ${lbl('compteur', body.compteur)}${!isPro && body.distance ? ` · Distance tableau-borne : ${lbl('distance', body.distance)}` : ''}`,
+    `Délai : ${lbl('delai', body.delai)}`,
+    photoUrls.length ? `Photos (${photoUrls.length}) : ${photoUrls.join(' | ')}` : 'Photos : aucune',
+  ];
+
+  const crmBody = {
+    nom: body.nom,
+    email: body.email,
+    phone: body.telephone,
+    statut: 'Lead',
+    source: 'irvohm.fr',
+    notes: `🌐 Lead irvohm.fr\n${details.join('\n')}`,
+    statut_du_bien: crmVal('statut_du_bien', body.role),
+    logement: crmVal('logement', body.logement),
+    cp: body.codePostal || '',
+    puissance: crmVal('puissance', body.puissance),
+    compteur: crmVal('compteur', body.compteur),
+    dlai: crmVal('dlai', body.delai),
+    photos: photoUrls, // → pièces jointes CRM (pas une colonne)
+    ...(isPro
+      ? {}
+      : {
+          vehicule: crmVal('vehicule', body.vehicule),
+          marque,
+          distance: crmVal('distance', body.distance),
+        }),
+  };
+  // N'envoie pas les valeurs vides (évite de créer/polluer une colonne).
+  for (const k of Object.keys(crmBody)) {
+    if (k !== 'photos' && !crmBody[k]) delete crmBody[k];
+  }
+
+  const res = await fetch(CRM_ENDPOINT, {
+    method: 'POST',
+    headers: { 'X-API-Key': CRM_API_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify(crmBody),
+  });
+  if (!res.ok) throw new Error(`CRM ${res.status}: ${await res.text().catch(() => '')}`);
+}
+
 async function notifyNewLead(lead) {
   if (!process.env.GMAIL_USER || !process.env.GMAIL_PASSWORD) return;
 
@@ -85,6 +168,7 @@ module.exports = async (req, res) => {
     });
 
     notifyNewLead(body).catch((err) => console.error('notifyNewLead:', err));
+    forwardToCRM(body).catch((err) => console.error('forwardToCRM:', err));
 
     return res.status(200).json({ ok: true, id: inserted && inserted.id });
   } catch (err) {
