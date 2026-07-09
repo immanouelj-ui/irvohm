@@ -500,6 +500,53 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
     </div>
   </section>
 
+  <!-- Derniers guides (blog) -->
+  <section class="section" aria-labelledby="guides-title" style="padding-top:0">
+    <style>
+      .bloghi-grid { display:grid; grid-template-columns:1fr; gap:18px; margin-top:34px; }
+      @media (min-width:720px){ .bloghi-grid { grid-template-columns:repeat(3,1fr); } }
+      .bloghi-card { display:flex; flex-direction:column; background:var(--white); border:1px solid rgba(187,203,187,0.3); border-radius:var(--r-lg); padding:26px 24px; transition:transform .25s var(--ease), border-color .25s, box-shadow .25s; }
+      .bloghi-card:hover { transform:translateY(-6px); border-color:rgba(0,109,55,0.3); box-shadow:0 18px 42px rgba(7,34,26,0.07); }
+      .bloghi-tag { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; }
+      .bloghi-card h3 { font-family:var(--display); font-weight:600; font-size:19px; line-height:1.25; letter-spacing:-0.01em; color:var(--ink); }
+      .bloghi-card p { color:var(--ink-soft); font-size:14px; margin-top:10px; flex:1; }
+      .bloghi-read { margin-top:16px; font-size:14px; font-weight:600; color:var(--green); display:inline-flex; align-items:center; gap:7px; }
+      .bloghi-all { text-align:center; margin-top:32px; }
+      .bloghi-all a { font-size:14px; font-weight:600; color:var(--blue); display:inline-flex; align-items:center; gap:8px; }
+    </style>
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span>Ressources</span>
+        <h2 id="guides-title">Nos derniers guides</h2>
+        <p>Prix, aides, puissance, copropriété : tout ce qu'il faut savoir avant d'installer votre borne de recharge.</p>
+        <div class="current"></div>
+      </div>
+      <div class="bloghi-grid stagger">
+        <a class="bloghi-card" href="blog/prix-installation-borne-recharge.html">
+          <span class="bloghi-tag">Budget</span>
+          <h3>Prix d'installation d'une borne en 2026</h3>
+          <p>Les fourchettes de prix pour 7,4 et 22 kW, et comment la TVA à 5,5 % allège la facture.</p>
+          <span class="bloghi-read">Lire le guide <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="bloghi-card" href="blog/aides-borne-recharge-advenir.html">
+          <span class="bloghi-tag">Aides</span>
+          <h3>Aides ADVENIR et TVA à 5,5 %</h3>
+          <p>Le point complet sur les aides pour les particuliers, copropriétés et entreprises.</p>
+          <span class="bloghi-read">Lire le guide <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="bloghi-card" href="blog/temps-de-recharge-voiture-electrique.html">
+          <span class="bloghi-tag">Pratique</span>
+          <h3>Temps de recharge d'une voiture électrique</h3>
+          <p>Le calcul simple et un tableau clair selon la puissance de la borne et la batterie.</p>
+          <span class="bloghi-read">Lire le guide <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+      </div>
+      <div class="bloghi-all">
+        <a href="blog/">Voir tous les guides <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
