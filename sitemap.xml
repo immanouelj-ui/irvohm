@@ -45,6 +45,38 @@
   </url>
 
   <!-- ═══════════════════════════════════════════════
+       Blog
+  ═══════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://www.irvohm.fr/blog/</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.irvohm.fr/blog/prix-installation-borne-recharge.html</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.irvohm.fr/blog/aides-borne-recharge-advenir.html</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.irvohm.fr/blog/borne-recharge-copropriete-droit-a-la-prise.html</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
        Pages légales
   ═══════════════════════════════════════════════ -->
 
