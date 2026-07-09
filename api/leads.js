@@ -76,12 +76,37 @@ async function forwardToCRM(body) {
     if (k !== 'photos' && !crmBody[k]) delete crmBody[k];
   }
 
-  const res = await fetch(CRM_ENDPOINT, {
-    method: 'POST',
-    headers: { 'X-API-Key': CRM_API_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify(crmBody),
-  });
-  if (!res.ok) throw new Error(`CRM ${res.status}: ${await res.text().catch(() => '')}`);
+  // Transfert avec réessais + timeout : absorbe un backend CRM momentanément
+  // indisponible (redéploiement Fly / cold start / veille). Les erreurs client (4xx,
+  // hors 429) ne sont pas réessayées puisqu'un réessai ne les corrigerait pas.
+  const payload = JSON.stringify(crmBody);
+  const backoffs = [0, 1500]; // 2 tentatives : immédiate, puis +1,5 s (borné pour tenir sous la limite Vercel)
+  let lastErr;
+  for (let i = 0; i < backoffs.length; i++) {
+    if (backoffs[i]) await new Promise((r) => setTimeout(r, backoffs[i]));
+    try {
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 2500);
+      let res;
+      try {
+        res = await fetch(CRM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'X-API-Key': CRM_API_KEY, 'Content-Type': 'application/json' },
+          body: payload,
+          signal: ctrl.signal,
+        });
+      } finally {
+        clearTimeout(to);
+      }
+      if (res.ok) return;
+      lastErr = new Error(`CRM ${res.status}: ${await res.text().catch(() => '')}`);
+      if (res.status >= 400 && res.status < 500 && res.status !== 429) throw lastErr; // client → définitif
+    } catch (e) {
+      lastErr = e;
+      if (e instanceof Error && /^CRM 4/.test(e.message)) throw e; // 4xx : inutile de réessayer
+    }
+  }
+  throw lastErr;
 }
 
 async function notifyNewLead(lead) {
@@ -167,8 +192,19 @@ module.exports = async (req, res) => {
       body: JSON.stringify(lead),
     });
 
-    notifyNewLead(body).catch((err) => console.error('notifyNewLead:', err));
-    forwardToCRM(body).catch((err) => console.error('forwardToCRM:', err));
+    // Email de notification (best-effort), lancé en parallèle du transfert CRM.
+    const emailP = notifyNewLead(body).catch((err) => console.error('notifyNewLead:', err));
+
+    // Transfert CRM : on l'ATTEND (avec réessais). Sur Vercel, un appel « fire-and-forget »
+    // peut être gelé après l'envoi de la réponse et ne jamais s'exécuter — l'attendre garantit
+    // que les réessais tournent bien. Non bloquant en cas d'échec final : le lead reste
+    // enregistré dans Supabase et notifié par email.
+    try {
+      await forwardToCRM(body);
+    } catch (err) {
+      console.error('forwardToCRM (après réessais):', err);
+    }
+    await emailP; // laisse l'email se terminer avant que la fonction ne gèle
 
     return res.status(200).json({ ok: true, id: inserted && inserted.id });
   } catch (err) {
