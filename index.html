@@ -25,9 +25,10 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
 <style>
   *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
   :root {
-    --ink:#191c1e; --ink-soft:#3d4a3e; --muted:#6c7b6d;
+    --ink:#1b1a16; --ink-soft:#4a463b; --muted:#8a8172;
     --green:#006d37; --emerald:#2ecc71; --blue:#006397; --sky:#5cb8fd;
-    --surface:#f7f9fb; --surface-2:#eceef0; --white:#ffffff; --line:#d4ddd5;
+    --gold:#c0883a; --gold-soft:#e7c07a;
+    --surface:#faf6ef; --surface-2:#f2ebdf; --white:#fffdf9; --line:#e6ddce;
     --deep:#07221a; --deep-2:#0c2c22; --on-deep:#dfeee6; --on-deep-soft:rgba(223,238,230,0.62);
     --display:'Montserrat', system-ui, sans-serif;
     --body:'Inter', system-ui, sans-serif;
@@ -68,7 +69,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .l1{animation-delay:.05s}.l2{animation-delay:.14s}.l3{animation-delay:.23s}.l4{animation-delay:.32s}.l5{animation-delay:.42s}
 
   /* Header */
-  .header { position:sticky; top:0; z-index:50; background:rgba(247,249,251,0.86); backdrop-filter:blur(14px); border-bottom:1px solid rgba(187,203,187,0.32); transition:box-shadow .25s ease; }
+  .header { position:sticky; top:0; z-index:50; background:rgba(250,246,239,0.88); backdrop-filter:blur(14px); border-bottom:1px solid rgba(198,138,58,0.18); transition:box-shadow .25s ease; }
   .header.scrolled { box-shadow:0 6px 24px rgba(7,34,26,0.07); }
   .header-row { display:flex; align-items:center; justify-content:space-between; height:78px; }
   .logo { font-family:var(--display); font-weight:700; font-size:23px; letter-spacing:-0.01em; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
@@ -85,7 +86,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   @media (min-width:860px){ .menu-btn { display:none; } }
 
   /* Hero */
-  .hero { position:relative; overflow:hidden; padding-top:72px; padding-bottom:72px; }
+  .hero { position:relative; overflow:hidden; padding-top:72px; padding-bottom:72px; background:radial-gradient(1100px 520px at 78% -8%, rgba(231,192,122,0.20), transparent 62%), radial-gradient(900px 480px at 0% 8%, rgba(46,204,113,0.06), transparent 60%); }
   .hero-omega { position:absolute; top:-90px; right:-120px; width:520px; height:520px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
   @keyframes spin { to{ transform:rotate(360deg);} }
   .hero-grid { display:grid; grid-template-columns:1fr; gap:54px; align-items:center; position:relative; z-index:1; }
@@ -383,6 +384,47 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
             </div>
             <svg class="ic" style="font-size:24px;color:var(--blue)" aria-hidden="true"><use href="#i-bolt"/></svg>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trustbar-wrap" aria-label="Nos garanties">
+    <style>
+      .trustbar-wrap { margin-top:-34px; position:relative; z-index:5; }
+      .trustbar { display:grid; grid-template-columns:repeat(2,1fr); gap:6px 10px; background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg); padding:22px 20px; box-shadow:0 20px 50px rgba(120,90,30,0.10), 0 2px 8px rgba(120,90,30,0.05); }
+      @media (min-width:820px){ .trustbar { grid-template-columns:repeat(5,1fr); padding:24px 14px; } }
+      .tb-item { display:flex; align-items:center; gap:12px; padding:8px 12px; }
+      .tb-ic { flex-shrink:0; width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(231,192,122,0.28), rgba(198,138,58,0.14)); color:var(--gold); }
+      .tb-ic .ic { width:20px; height:20px; }
+      .tb-tx { line-height:1.2; }
+      .tb-tx strong { display:block; font-family:var(--display); font-weight:600; font-size:15px; color:var(--ink); letter-spacing:-0.01em; }
+      .tb-tx span { font-size:12px; color:var(--muted); }
+      .tb-item + .tb-item { position:relative; }
+      @media (min-width:820px){ .tb-item + .tb-item::before { content:''; position:absolute; left:-6px; top:50%; transform:translateY(-50%); width:1px; height:34px; background:var(--line); } }
+    </style>
+    <div class="wrap">
+      <div class="trustbar reveal">
+        <div class="tb-item">
+          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <span class="tb-tx"><strong>Certifié IRVE</strong><span>Techniciens qualifiés</span></span>
+        </div>
+        <div class="tb-item">
+          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></span>
+          <span class="tb-tx"><strong>Garantie 5 ans</strong><span>Matériel &amp; pose</span></span>
+        </div>
+        <div class="tb-item">
+          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <span class="tb-tx"><strong>Devis sous 48h</strong><span>Gratuit &amp; sans engagement</span></span>
+        </div>
+        <div class="tb-item">
+          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></span>
+          <span class="tb-tx"><strong>TVA 5,5 %</strong><span>Aides ADVENIR incluses</span></span>
+        </div>
+        <div class="tb-item">
+          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+          <span class="tb-tx"><strong>+500 installations</strong><span>En Île-de-France</span></span>
         </div>
       </div>
     </div>

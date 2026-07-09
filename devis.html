@@ -32,9 +32,10 @@
 <style>
   *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
   :root {
-    --ink:#191c1e; --ink-soft:#3d4a3e; --muted:#6c7b6d;
+    --ink:#1b1a16; --ink-soft:#4a463b; --muted:#8a8172;
     --green:#006d37; --emerald:#2ecc71; --blue:#006397; --sky:#5cb8fd;
-    --surface:#f7f9fb; --surface-2:#eceef0; --white:#ffffff; --line:#d4ddd5;
+    --gold:#c0883a; --gold-soft:#e7c07a;
+    --surface:#faf6ef; --surface-2:#f2ebdf; --white:#fffdf9; --line:#e6ddce;
     --deep:#07221a; --deep-2:#0c2c22; --on-deep:#dfeee6; --on-deep-soft:rgba(223,238,230,0.62);
     --display:'Montserrat', system-ui, sans-serif;
     --body:'Inter', system-ui, sans-serif;
@@ -64,7 +65,7 @@
   .l1{animation-delay:.05s}.l2{animation-delay:.14s}.l3{animation-delay:.23s}.l4{animation-delay:.32s}
 
   /* Header */
-  .header { position:sticky; top:0; z-index:50; background:rgba(247,249,251,0.86); backdrop-filter:blur(14px); border-bottom:1px solid rgba(187,203,187,0.32); transition:box-shadow .25s ease; }
+  .header { position:sticky; top:0; z-index:50; background:rgba(250,246,239,0.88); backdrop-filter:blur(14px); border-bottom:1px solid rgba(198,138,58,0.18); transition:box-shadow .25s ease; }
   .header.scrolled { box-shadow:0 6px 24px rgba(7,34,26,0.07); }
   .header-row { display:flex; align-items:center; justify-content:space-between; height:78px; }
   .logo { font-family:var(--display); font-weight:700; font-size:23px; letter-spacing:-0.01em; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
