@@ -252,6 +252,44 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
   .mob-cta { display:flex; align-items:center; justify-content:center; gap:8px; font-size:15px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:15px; border-radius:var(--r-sm); margin-top:24px; box-shadow:0 6px 18px rgba(0,109,55,0.26); transition:transform .15s, box-shadow .2s; }
   .mob-cta:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,109,55,0.34); }
   .mob-tel { display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; color:var(--muted); margin-top:14px; }
+
+  /* ═══════════ MOTION DESIGN PREMIUM ═══════════ */
+  /* Barre de progression de lecture */
+  .scroll-progress { position:fixed; top:0; left:0; height:3px; width:0; z-index:300; background:linear-gradient(90deg,var(--gold),var(--emerald),var(--blue)); box-shadow:0 0 12px rgba(198,138,58,0.45); transition:width .12s linear; will-change:width; }
+
+  /* Reflet lumineux qui balaie les CTA au survol */
+  .btn-solid, .btn-emerald, .cta-pill, .mob-cta { position:relative; overflow:hidden; isolation:isolate; }
+  .btn-solid::after, .btn-emerald::after, .cta-pill::after, .mob-cta::after { content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(115deg, transparent 26%, rgba(255,255,255,0.42) 48%, transparent 72%); transform:translateX(-130%); transition:transform .7s var(--ease); pointer-events:none; }
+  .btn-solid:hover::after, .btn-emerald:hover::after, .cta-pill:hover::after, .mob-cta:hover::after { transform:translateX(130%); }
+  .btn-solid > *, .btn-emerald > *, .cta-pill > *, .mob-cta > * { position:relative; z-index:2; }
+
+  /* Cartes avantages : liseré doré animé + halo chaud au survol */
+  .adv-card { position:relative; overflow:hidden; }
+  .adv-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--emerald)); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease); }
+  .adv-card:hover::before { transform:scaleX(1); }
+  .adv-card:hover { border-color:rgba(198,138,58,0.42); box-shadow:0 24px 52px rgba(120,90,30,0.13); }
+
+  /* Barre de confiance : micro-interactions */
+  .tb-item { transition:transform .3s var(--ease); }
+  .tb-item:hover { transform:translateY(-3px); }
+  .tb-item .tb-ic { transition:transform .4s var(--ease), box-shadow .4s ease; }
+  .tb-item:hover .tb-ic { transform:scale(1.08) rotate(-5deg); box-shadow:0 10px 22px rgba(198,138,58,0.3); }
+
+  /* Cartes guides : liseré doré au survol */
+  .bloghi-card { position:relative; overflow:hidden; }
+  .bloghi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--emerald)); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease); }
+  .bloghi-card:hover::before { transform:scaleX(1); }
+
+  /* Respiration douce du hero */
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+  @keyframes glowPulse { 0%,100%{opacity:.45} 50%{opacity:.85} }
+  .hero-badge { animation:floatY 5.5s ease-in-out infinite; }
+  .glow { animation:glowPulse 4.5s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion:reduce){
+    .scroll-progress { display:none; }
+    .hero-badge, .glow { animation:none !important; }
+  }
 </style>
 
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -300,6 +338,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
 </script>
 </head>
 <body>
+<div class="scroll-progress" id="scrollbar" aria-hidden="true"></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
@@ -660,7 +699,7 @@ content="Solutions de recharge pour véhicules électriques : maison, coproprié
 </footer>
 
 <script>
-  (function(){ var h=document.getElementById('hdr'); var on=function(){ h.classList.toggle('scrolled', window.scrollY>8); }; window.addEventListener('scroll',on,{passive:true}); on(); })();
+  (function(){ var h=document.getElementById('hdr'); var bar=document.getElementById('scrollbar'); var d=document.documentElement; var on=function(){ h.classList.toggle('scrolled', window.scrollY>8); if(bar){ var max=(d.scrollHeight-d.clientHeight)||1; bar.style.width=(Math.min(window.scrollY/max,1)*100)+'%'; } }; window.addEventListener('scroll',on,{passive:true}); window.addEventListener('resize',on,{passive:true}); on(); })();
 
   (function(){
     var els=document.querySelectorAll('.reveal,.stagger'); if(!els.length) return;
