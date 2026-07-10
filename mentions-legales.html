@@ -70,9 +70,26 @@
   .foot-zones-links a:hover { color:var(--green); }
   .foot-copy { border-top:1px solid var(--line); margin-top:30px; padding-top:24px; text-align:center; }
   .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); }
+  .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+  /* Footer unifié (identique accueil) */
+  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:0; padding:54px 0 28px; text-align:left; }
+  .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; max-width:var(--maxw,1240px); margin-inline:auto; padding-inline:20px; }
+  @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1.2fr; padding-inline:48px; } }
+  .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
+  .foot-desc { color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:30ch; }
+  .foot h5 { font-family:'Inter', system-ui, sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+  .foot nav { display:flex; flex-direction:column; gap:9px; }
+  .foot nav a { color:var(--ink-soft); font-size:14px; text-decoration:none; transition:color .2s, padding-left .2s; }
+  .foot nav a:hover { color:var(--green); padding-left:4px; }
+  .foot-contact a { display:flex; align-items:center; gap:9px; color:var(--ink-soft); font-size:14px; margin-bottom:9px; text-decoration:none; transition:color .2s; }
+  .foot-contact a:hover { color:var(--green); }
+  .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; max-width:var(--maxw,1240px); margin-inline:auto; padding-inline:20px; }
+  @media (min-width:768px){ .foot-copy { padding-inline:48px; } }
+  .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol></svg>
 
 <header class="header">
   <div class="header-row">
@@ -137,10 +154,10 @@
 </main>
 
 <footer>
-  <div class="foot-wrap">
-    <div class="foot-grid">
+  <div class="wrap">
+    <div class="foot-grid stagger">
       <div>
-        <div class="foot-logo">IRV'<span>Ω</span>HM</div>
+        <div class="foot-logo">IRV'<span style="color:var(--emerald)">Ω</span>HM</div>
         <p class="foot-desc">Expert en solutions de recharge électrique pour un avenir durable.</p>
       </div>
       <div class="foot">
@@ -151,89 +168,89 @@
         <h5>Liens utiles</h5>
         <nav><a href="blog/">Blog</a><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="faq.html">FAQ</a></nav>
       </div>
-      <div class="foot">
+      <div class="foot foot-contact">
         <h5>Contact</h5>
         <nav>
-          <a href="#">95200 Sarcelles, France</a>
-          <a href="mailto:contact@irvohm.fr">contact@irvohm.fr</a>
-          <a href="tel:+33651078828">06 51 07 88 28</a>
+          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> 95200 Sarcelles, France</a>
+          <a href="mailto:contact@irvohm.fr"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> contact@irvohm.fr</a>
+          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Lun – Ven : 09h – 18h</a>
         </nav>
       </div>
     </div>
-    <div class="foot-zones">
-      <p class="foot-zones-title">Zones d'intervention</p>
-      <div class="foot-zones-links">
-        <a href="paris.html">Paris</a>
-        <a href="sarcelles.html">Sarcelles</a>
-        <a href="argenteuil.html">Argenteuil</a>
-        <a href="cergy.html">Cergy</a>
-        <a href="pontoise.html">Pontoise</a>
-        <a href="roissy-en-france.html">Roissy-en-France</a>
-        <a href="garges-les-gonesse.html">Garges-lès-Gonesse</a>
-        <a href="villiers-le-bel.html">Villiers-le-Bel</a>
-        <a href="arnouville.html">Arnouville</a>
-        <a href="gonesse.html">Gonesse</a>
-        <a href="saint-brice-sous-foret.html">Saint-Brice-sous-Forêt</a>
-        <a href="montmorency.html">Montmorency</a>
-        <a href="enghien-les-bains.html">Enghien-les-Bains</a>
-        <a href="eaubonne.html">Eaubonne</a>
-        <a href="ermont.html">Ermont</a>
-        <a href="franconville.html">Franconville</a>
-        <a href="herblay-sur-seine.html">Herblay-sur-Seine</a>
-        <a href="taverny.html">Taverny</a>
-        <a href="saint-leu-la-foret.html">Saint-Leu-la-Forêt</a>
-        <a href="domont.html">Domont</a>
-        <a href="lisle-adam.html">L'Isle-Adam</a>
-        <a href="cormeilles-en-parisis.html">Cormeilles-en-Parisis</a>
-        <a href="sannois.html">Sannois</a>
-        <a href="saint-ouen-laumone.html">Saint-Ouen-l'Aumône</a>
-        <a href="deuil-la-barre.html">Deuil-la-Barre</a>
-        <a href="soisy-sous-montmorency.html">Soisy-sous-Montmorency</a>
-        <a href="nanterre.html">Nanterre</a>
-        <a href="rueil-malmaison.html">Rueil-Malmaison</a>
-        <a href="colombes.html">Colombes</a>
-        <a href="courbevoie.html">Courbevoie</a>
-        <a href="asnieres-sur-seine.html">Asnières-sur-Seine</a>
-        <a href="versailles.html">Versailles</a>
-        <a href="saint-germain-en-laye.html">Saint-Germain-en-Laye</a>
-        <a href="poissy.html">Poissy</a>
-        <a href="sartrouville.html">Sartrouville</a>
-        <a href="conflans-sainte-honorine.html">Conflans-Sainte-Honorine</a>
-        <a href="houilles.html">Houilles</a>
-        <a href="chatou.html">Chatou</a>
-        <a href="maisons-laffitte.html">Maisons-Laffitte</a>
-        <a href="montigny-le-bretonneux.html">Montigny-le-Bretonneux</a>
-        <a href="mantes-la-jolie.html">Mantes-la-Jolie</a>
-        <a href="creteil.html">Créteil</a>
-        <a href="saint-maur-des-fosses.html">Saint-Maur-des-Fossés</a>
-        <a href="vincennes.html">Vincennes</a>
-        <a href="nogent-sur-marne.html">Nogent-sur-Marne</a>
-        <a href="champigny-sur-marne.html">Champigny-sur-Marne</a>
-        <a href="maisons-alfort.html">Maisons-Alfort</a>
-        <a href="fontenay-sous-bois.html">Fontenay-sous-Bois</a>
-        <a href="le-perreux-sur-marne.html">Le Perreux-sur-Marne</a>
-        <a href="vitry-sur-seine.html">Vitry-sur-Seine</a>
-        <a href="villejuif.html">Villejuif</a>
-        <a href="montreuil.html">Montreuil</a>
-        <a href="aulnay-sous-bois.html">Aulnay-sous-Bois</a>
-        <a href="le-blanc-mesnil.html">Le Blanc-Mesnil</a>
-        <a href="noisy-le-grand.html">Noisy-le-Grand</a>
-        <a href="bondy.html">Bondy</a>
-        <a href="sevran.html">Sevran</a>
-        <a href="livry-gargan.html">Livry-Gargan</a>
-        <a href="rosny-sous-bois.html">Rosny-sous-Bois</a>
-        <a href="gagny.html">Gagny</a>
-        <a href="le-raincy.html">Le Raincy</a>
-        <a href="meaux.html">Meaux</a>
-        <a href="chelles.html">Chelles</a>
-        <a href="melun.html">Melun</a>
-        <a href="pontault-combault.html">Pontault-Combault</a>
-        <a href="champs-sur-marne.html">Champs-sur-Marne</a>
-        <a href="torcy.html">Torcy</a>
-        <a href="bussy-saint-georges.html">Bussy-Saint-Georges</a>
-        <a href="lagny-sur-marne.html">Lagny-sur-Marne</a>
-        <a href="savigny-le-temple.html">Savigny-le-Temple</a>
-        <a href="villeparisis.html">Villeparisis</a>
+    <div style="border-top:1px solid rgba(187,203,187,0.35);margin-top:36px;padding-top:26px">
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px">Zones d'intervention</p>
+      <div style="display:flex;flex-wrap:wrap;gap:7px 14px">
+        <a href="paris.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Paris</a>
+        <a href="sarcelles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sarcelles</a>
+        <a href="argenteuil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Argenteuil</a>
+        <a href="cergy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Cergy</a>
+        <a href="pontoise.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Pontoise</a>
+        <a href="roissy-en-france.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Roissy-en-France</a>
+        <a href="garges-les-gonesse.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Garges-lès-Gonesse</a>
+        <a href="villiers-le-bel.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Villiers-le-Bel</a>
+        <a href="arnouville.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Arnouville</a>
+        <a href="gonesse.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Gonesse</a>
+        <a href="saint-brice-sous-foret.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Brice-sous-Forêt</a>
+        <a href="montmorency.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Montmorency</a>
+        <a href="enghien-les-bains.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Enghien-les-Bains</a>
+        <a href="eaubonne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Eaubonne</a>
+        <a href="ermont.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Ermont</a>
+        <a href="franconville.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Franconville</a>
+        <a href="herblay-sur-seine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Herblay-sur-Seine</a>
+        <a href="taverny.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Taverny</a>
+        <a href="saint-leu-la-foret.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Leu-la-Forêt</a>
+        <a href="domont.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Domont</a>
+        <a href="lisle-adam.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">L'Isle-Adam</a>
+        <a href="cormeilles-en-parisis.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Cormeilles-en-Parisis</a>
+        <a href="sannois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sannois</a>
+        <a href="saint-ouen-laumone.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Ouen-l'Aumône</a>
+        <a href="deuil-la-barre.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Deuil-la-Barre</a>
+        <a href="soisy-sous-montmorency.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Soisy-sous-Montmorency</a>
+        <a href="nanterre.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Nanterre</a>
+        <a href="rueil-malmaison.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Rueil-Malmaison</a>
+        <a href="colombes.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Colombes</a>
+        <a href="courbevoie.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Courbevoie</a>
+        <a href="asnieres-sur-seine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Asnières-sur-Seine</a>
+        <a href="versailles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Versailles</a>
+        <a href="saint-germain-en-laye.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Germain-en-Laye</a>
+        <a href="poissy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Poissy</a>
+        <a href="sartrouville.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sartrouville</a>
+        <a href="conflans-sainte-honorine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Conflans-Sainte-Honorine</a>
+        <a href="houilles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Houilles</a>
+        <a href="chatou.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Chatou</a>
+        <a href="maisons-laffitte.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Maisons-Laffitte</a>
+        <a href="montigny-le-bretonneux.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Montigny-le-Bretonneux</a>
+        <a href="mantes-la-jolie.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Mantes-la-Jolie</a>
+        <a href="creteil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Créteil</a>
+        <a href="saint-maur-des-fosses.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Maur-des-Fossés</a>
+        <a href="vincennes.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Vincennes</a>
+        <a href="nogent-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Nogent-sur-Marne</a>
+        <a href="champigny-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Champigny-sur-Marne</a>
+        <a href="maisons-alfort.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Maisons-Alfort</a>
+        <a href="fontenay-sous-bois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Fontenay-sous-Bois</a>
+        <a href="le-perreux-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Le Perreux-sur-Marne</a>
+        <a href="vitry-sur-seine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Vitry-sur-Seine</a>
+        <a href="villejuif.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Villejuif</a>
+        <a href="montreuil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Montreuil</a>
+        <a href="aulnay-sous-bois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Aulnay-sous-Bois</a>
+        <a href="le-blanc-mesnil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Le Blanc-Mesnil</a>
+        <a href="noisy-le-grand.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Noisy-le-Grand</a>
+        <a href="bondy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Bondy</a>
+        <a href="sevran.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sevran</a>
+        <a href="livry-gargan.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Livry-Gargan</a>
+        <a href="rosny-sous-bois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Rosny-sous-Bois</a>
+        <a href="gagny.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Gagny</a>
+        <a href="le-raincy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Le Raincy</a>
+        <a href="meaux.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Meaux</a>
+        <a href="chelles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Chelles</a>
+        <a href="melun.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Melun</a>
+        <a href="pontault-combault.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Pontault-Combault</a>
+        <a href="champs-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Champs-sur-Marne</a>
+        <a href="torcy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Torcy</a>
+        <a href="bussy-saint-georges.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Bussy-Saint-Georges</a>
+        <a href="lagny-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Lagny-sur-Marne</a>
+        <a href="savigny-le-temple.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Savigny-le-Temple</a>
+        <a href="villeparisis.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Villeparisis</a>
       </div>
     </div>
     <div class="foot-copy"><p>© 2026 IRV'OHM — Solutions de recharge électrique. Tous droits réservés.</p></div>

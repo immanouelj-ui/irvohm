@@ -232,9 +232,25 @@
     .reveal, .stagger > * { opacity:1 !important; transform:none !important; }
     .load { opacity:1 !important; }
   }
+  /* Footer unifié (identique accueil) */
+  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:0; padding:54px 0 28px; text-align:left; }
+  .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; max-width:var(--maxw,1240px); margin-inline:auto; padding-inline:20px; }
+  @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1.2fr; padding-inline:48px; } }
+  .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
+  .foot-desc { color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:30ch; }
+  .foot h5 { font-family:'Inter', system-ui, sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+  .foot nav { display:flex; flex-direction:column; gap:9px; }
+  .foot nav a { color:var(--ink-soft); font-size:14px; text-decoration:none; transition:color .2s, padding-left .2s; }
+  .foot nav a:hover { color:var(--green); padding-left:4px; }
+  .foot-contact a { display:flex; align-items:center; gap:9px; color:var(--ink-soft); font-size:14px; margin-bottom:9px; text-decoration:none; transition:color .2s; }
+  .foot-contact a:hover { color:var(--green); }
+  .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; max-width:var(--maxw,1240px); margin-inline:auto; padding-inline:20px; }
+  @media (min-width:768px){ .foot-copy { padding-inline:48px; } }
+  .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol></svg>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
@@ -535,19 +551,23 @@
     <div class="foot-grid stagger">
       <div>
         <div class="foot-logo">IRV'<span style="color:var(--emerald)">Ω</span>HM</div>
-        <p class="foot-desc">L'expertise IRVE au service de votre mobilité durable.</p>
+        <p class="foot-desc">Expert en solutions de recharge électrique pour un avenir durable.</p>
       </div>
       <div class="foot">
-        <h5>Solutions</h5>
-        <nav><a href="#">Maisons individuelles</a><a href="#">Copropriétés</a><a href="#bornes-section">Bornes de recharge</a></nav>
+        <h5>Services</h5>
+        <nav><a href="particulier.html">Installation bornes</a><a href="devis.html">Maintenance</a><a href="devis.html">Audit énergétique</a></nav>
       </div>
       <div class="foot">
-        <h5>Ressources</h5>
-        <nav><a href="#">Installation</a><a href="faq.html">FAQ</a><a href="#">Aides de l'État</a></nav>
+        <h5>Liens utiles</h5>
+        <nav><a href="blog/">Blog</a><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="faq.html">FAQ</a></nav>
       </div>
-      <div class="foot">
-        <h5>Légal</h5>
-        <nav><a href="blog/">Blog</a><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="devis.html">Contact</a></nav>
+      <div class="foot foot-contact">
+        <h5>Contact</h5>
+        <nav>
+          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> 95200 Sarcelles, France</a>
+          <a href="mailto:contact@irvohm.fr"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> contact@irvohm.fr</a>
+          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Lun – Ven : 09h – 18h</a>
+        </nav>
       </div>
     </div>
     <div style="border-top:1px solid rgba(187,203,187,0.35);margin-top:36px;padding-top:26px">
