@@ -2,838 +2,530 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>IRV'OHM | Installation de Bornes de Recharge IRVE</title>
-
-<meta name="description"
-content="Solutions de recharge pour véhicules électriques : maison, copropriété et entreprise. Installation certifiée IRVE, étude personnalisée et devis gratuit."/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- SEO -->
+<title>IRV'OHM – Installation Borne de Recharge IRVE | Sarcelles & Île-de-France</title>
+<meta name="description" content="IRV'OHM installe vos bornes de recharge pour véhicules électriques. Particuliers et entreprises. Certifiés IRVE, devis gratuit sous 48h. Sarcelles et Île-de-France."/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://www.irvohm.fr/"/>
-<meta property="og:title" content="IRV'OHM — Installation borne de recharge IRVE"/>
-<meta property="og:description" content="Installation de bornes de recharge intelligentes. Devis gratuit sous 48h."/>
-<meta property="og:url" content="https://www.irvohm.fr/"/>
+<link rel="canonical" href="https://irvohm.fr/"/>
+<meta property="og:title" content="IRV'OHM – Installation Borne de Recharge IRVE"/>
+<meta property="og:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
+<meta property="og:url" content="https://irvohm.fr/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:image" content="https://www.irvohm.fr/borne-recharge.webp"/>
+<meta property="og:image" content="https://irvohm.fr/borne-recharge.webp"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="IRV'OHM – Installation Borne de Recharge IRVE"/>
+<meta name="twitter:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
+<meta name="twitter:image" content="https://irvohm.fr/borne-recharge.webp"/>
 
+<!-- ✅ PERF : preload de l'image LCP -->
 <link rel="preload" as="image" href="borne-recharge.webp" fetchpriority="high"/>
+
+<!-- ✅ PERF : polices chargées en ASYNCHRONE (ne bloque plus le rendu = -450 ms) -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
+
+<!-- ✅ PERF : preconnect GSAP CDN -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
 
 <style>
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-  :root {
-    --ink:#1b1a16; --ink-soft:#4a463b; --muted:#8a8172;
-    --green:#006d37; --emerald:#2ecc71; --blue:#006397; --sky:#5cb8fd;
-    --gold:#c0883a; --gold-soft:#e7c07a;
-    --surface:#faf6ef; --surface-2:#f2ebdf; --white:#fffdf9; --line:#e6ddce;
-    --deep:#07221a; --deep-2:#0c2c22; --on-deep:#dfeee6; --on-deep-soft:rgba(223,238,230,0.62);
-    --display:'Montserrat', system-ui, sans-serif;
-    --body:'Inter', system-ui, sans-serif;
-    --mono:'Inter', system-ui, sans-serif;
-    --maxw:1240px; --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
-    --ease:cubic-bezier(0.16,1,0.3,1);
-  }
-  html { font-size:16px; scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
-  body { font-family:var(--body); background:var(--surface); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-  a { color:inherit; text-decoration:none; }
-  img { max-width:100%; display:block; }
-  ::selection { background:rgba(46,204,113,0.28); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+font-family: 'Inter', -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #f7f9fb; color: #191c1e; line-height: 1.5; -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+:root {
+--primary:#006d37; --secondary:#006397; --tertiary:#006b58;
+--surface:#f7f9fb; --surface-container-low:#f2f4f6; --surface-container:#eceef0;
+--on-surface:#191c1e; --on-surface-variant:#3d4a3e; --outline-variant:#bbcbbb;
+--inverse-surface:#2d3133; --inverse-on-surface:#eff1f3;
+--display:'Montserrat', -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+.max-w { max-width:1280px; margin-inline:auto; }
+.px-page { padding-inline:16px; }
+@media (min-width:768px){ .px-page{ padding-inline:64px; } }
+.py-xl { padding-block:80px; }
+.gradient-brand { background:linear-gradient(135deg,#006d37 0%,#006397 100%); }
+.text-gradient-brand { background:linear-gradient(135deg,#2ecc71 0%,#5cb8fd 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.glass-card { background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border:1px solid rgba(226,232,240,0.5); }
 
-  .wrap { max-width:var(--maxw); margin-inline:auto; padding-inline:20px; }
-  @media (min-width:768px){ .wrap { padding-inline:48px; } }
-  .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
-  .section { padding-block:88px; }
-  @media (max-width:767px){ .section { padding-block:60px; } }
+/* ============ ANIMATIONS (état initial GSAP, sans transition CSS pour éviter les doublons) ============ */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal, .reveal-stagger > * { opacity: 0; will-change: opacity, transform; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
+}
+@keyframes floatSlow {
+0%, 100% { transform: translate(0, 0) rotate(0deg); }
+50% { transform: translate(-12px, -16px) rotate(2deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+.hero-bg-icon { animation: floatSlow 14s ease-in-out infinite; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-fade { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade { opacity: 1; }
+}
 
-  .eyebrow { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--green); }
-  .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 4px rgba(46,204,113,0.18); animation:pulse 2.4s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.55;transform:scale(1.25)} }
+/* Header */
+.header { background:rgba(247,249,251,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(187,203,187,0.3); box-shadow:0 1px 3px rgba(0,0,0,0.06); position:sticky; top:0; z-index:50; transition: box-shadow .25s ease; }
+.header.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.header-inner { display:flex; justify-content:space-between; align-items:center; height:80px; }
+.logo { font-family:var(--display); font-size:24px; font-weight:700; background:linear-gradient(135deg,#006d37,#006397); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.nav-desktop { display:none; gap:24px; align-items:center; }
+@media (min-width:768px){ .nav-desktop{ display:flex; } }
+.nav-link { position: relative; font-size:14px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--on-surface-variant); transition:color .2s; padding-bottom: 2px; }
+.nav-link::after {
+content: ''; position: absolute; left: 0; right: 100%; bottom: -2px; height: 2px;
+background: linear-gradient(135deg,#006d37,#006397); transition: right .25s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-link:hover { color:var(--primary); }
+.nav-link:hover::after { right: 0; }
+.btn-primary { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:8px; font-size:14px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:#fff; transition:opacity .2s,transform .15s; cursor:pointer; border:none; }
+.btn-primary:hover { opacity:.9; transform: translateY(-2px); }
+.btn-primary:active { transform:scale(.97); }
+.btn-menu { background:none; border:none; cursor:pointer; color:var(--on-surface); font-size:24px; display:flex; transition: transform .2s; }
+.btn-menu:active { transform: scale(0.9); }
+@media (min-width:768px){ .btn-menu{ display:none; } }
 
-  .current { position:relative; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--green),var(--blue)); overflow:hidden; }
-  .current::after { content:''; position:absolute; top:50%; left:0; width:46px; height:6px; transform:translateY(-50%); border-radius:6px; background:radial-gradient(closest-side, rgba(110,255,170,0.95), rgba(110,255,170,0)); animation:flow 3.2s var(--ease) infinite; }
-  @keyframes flow { 0%{left:-12%} 100%{left:108%} }
-  .current.short { width:84px; }
+/* Hero */
+.hero { position:relative; overflow:hidden; background:var(--surface); }
+.hero-bg-icon { position:absolute; top:-60px; right:-60px; opacity:0.03; pointer-events:none; color:var(--primary); }
+.hero-grid { display:grid; grid-template-columns:1fr; gap:80px; align-items:center; position:relative; z-index:1; }
+@media (min-width:768px){ .hero-grid{ grid-template-columns:1fr 1fr; } }
+.hero-logo { width:256px; height:auto; }
+@media (min-width:768px){ .hero-logo{ width:320px; } }
+.hero h1 { font-family:var(--display); font-size:32px; font-weight:700; line-height:1.2; color:var(--on-surface); margin-top:24px; }
+@media (min-width:768px){ .hero h1{ font-size:48px; letter-spacing:-0.02em; line-height:1.1; } }
+.hero-desc { font-size:18px; line-height:1.6; color:var(--on-surface-variant); max-width:32rem; margin-top:24px; }
+.hero-actions { display:flex; flex-direction:column; gap:24px; margin-top:32px; }
+@media (min-width:640px){ .hero-actions{ flex-direction:row; } }
+.btn-hero { display:inline-flex; align-items:center; gap:8px; padding:12px 40px; border-radius:12px; font-family:var(--display); font-size:24px; font-weight:600; transition: transform .2s ease, box-shadow .2s ease; }
+.btn-hero-primary { color:#fff; box-shadow:0 8px 24px rgba(0,109,55,0.25); }
+.btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,109,55,0.35); }
+.btn-hero-primary .ic { transition: transform .25s ease; }
+.btn-hero-primary:hover .ic { transform: translateX(4px); }
+.btn-outline-secondary { display:inline-flex; align-items:center; justify-content:center; padding:12px 40px; border-radius:12px; border:2px solid var(--secondary); color:var(--secondary); font-family:var(--display); font-size:24px; font-weight:600; transition:background .2s, transform .2s; }
+.btn-outline-secondary:hover { background:rgba(92,184,253,0.1); transform: translateY(-3px); }
+.hero-social-proof { display:flex; align-items:center; gap:24px; margin-top:24px; }
+.avatar-stack { display:flex; }
+.avatar-stack img { width:40px; height:40px; border-radius:9999px; border:2px solid #fff; object-fit:cover; margin-left:-12px; transition: transform .2s ease; }
+.avatar-stack img:first-child { margin-left:0; }
+.avatar-stack:hover img { transform: translateY(-4px); }
+.avatar-stack:hover img:nth-child(2) { transition-delay: .04s; }
+.avatar-stack:hover img:nth-child(3) { transition-delay: .08s; }
+.proof-label { font-size:12px; font-weight:600; color:var(--on-surface-variant); line-height:1.2; }
+.proof-label strong { color:var(--primary); }
+.hero-img-wrap { position:relative; }
+.hero-img-glow { position:absolute; inset:-16px; background:linear-gradient(135deg,#006d37,#006397); border-radius:32px; opacity:.1; filter:blur(32px); transition:opacity .3s; }
+.hero-img-wrap:hover .hero-img-glow { opacity:.2; }
+.hero-img-card { position:relative; background:#fff; padding:8px; border-radius:32px; border:1px solid rgba(187,203,187,0.3); box-shadow:0 20px 60px rgba(0,0,0,0.12); overflow:hidden; transition: transform .4s cubic-bezier(0.16,1,0.3,1); }
+.hero-img-wrap:hover .hero-img-card { transform: translateY(-6px); }
+.hero-img-card img { width:100%; height:500px; object-fit:cover; border-radius:24px; transition: transform .6s cubic-bezier(0.16,1,0.3,1); }
+.hero-img-wrap:hover .hero-img-card img { transform: scale(1.04); }
+.hero-badge { position:absolute; bottom:24px; right:24px; left:24px; padding:16px; border-radius:12px; display:flex; align-items:center; justify-content:space-between; }
+.badge-label { font-size:12px; color:var(--on-surface-variant); margin-bottom:4px; }
+.badge-status { display:flex; align-items:center; gap:4px; }
+.pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--primary); animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
+@media (prefers-reduced-motion:reduce){ .pulse-dot{ animation:none; } }
+.badge-text { font-size:14px; font-weight:500; color:var(--primary); }
 
-  /* Reveal / load */
-  .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
-  .reveal.in { opacity:1; transform:none; }
-  .stagger > * { opacity:0; transform:translateY(22px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
-  .stagger.in > *:nth-child(1){transition-delay:.00s}.stagger.in > *:nth-child(2){transition-delay:.09s}
-  .stagger.in > *:nth-child(3){transition-delay:.18s}.stagger.in > *:nth-child(4){transition-delay:.27s}
-  .stagger.in > * { opacity:1; transform:none; }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
-  .load { opacity:0; animation:fadeUp .85s var(--ease) forwards; }
-  .l1{animation-delay:.05s}.l2{animation-delay:.14s}.l3{animation-delay:.23s}.l4{animation-delay:.32s}.l5{animation-delay:.42s}
+/* Avantages */
+.advantages { background:#fff; }
+.advantages-eyebrow { color:var(--primary); font-size:14px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; display:block; text-align:center; margin-bottom:8px; }
+.advantages h2 { font-family:var(--display); font-size:32px; font-weight:600; text-align:center; color:var(--on-surface); margin-bottom:80px; }
+.cards-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+@media (min-width:768px){ .cards-grid{ grid-template-columns:repeat(3,1fr); } }
+.adv-card { padding:48px; background:var(--surface); border-radius:24px; border:1px solid rgba(187,203,187,0.2); transition: border-color .25s ease, transform .25s cubic-bezier(0.16,1,0.3,1), box-shadow .25s ease; }
+.adv-card:hover { transform: translateY(-6px); border-color: rgba(0,109,55,0.3); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+.adv-icon { width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:36px; transition: transform .35s cubic-bezier(0.34,1.56,0.64,1); }
+.adv-card:hover .adv-icon { transform: scale(1.12) rotate(-6deg); }
+@media (min-width:768px){ .adv-icon{ margin:0 0 24px; } }
+.adv-icon-1 { background:rgba(0,109,55,0.1); color:var(--primary); }
+.adv-icon-2 { background:rgba(0,99,151,0.1); color:var(--secondary); }
+.adv-icon-3 { background:rgba(0,107,88,0.1); color:var(--tertiary); }
+.adv-card h3 { font-family:var(--display); font-size:24px; font-weight:600; color:var(--on-surface); margin-bottom:12px; text-align:center; }
+@media (min-width:768px){ .adv-card h3{ text-align:left; } }
+.adv-card p { font-size:16px; color:var(--on-surface-variant); text-align:center; }
+@media (min-width:768px){ .adv-card p{ text-align:left; } }
 
-  /* Header */
-  .header { position:sticky; top:0; z-index:50; background:rgba(250,246,239,0.88); backdrop-filter:blur(14px); border-bottom:1px solid rgba(198,138,58,0.18); transition:box-shadow .25s ease; }
-  .header.scrolled { box-shadow:0 6px 24px rgba(7,34,26,0.07); }
-  .header-row { display:flex; align-items:center; justify-content:space-between; height:78px; }
-  .logo { font-family:var(--display); font-weight:700; font-size:23px; letter-spacing:-0.01em; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-  .logo .om { -webkit-text-fill-color:var(--emerald); }
-  .nav { display:none; gap:30px; align-items:center; }
-  @media (min-width:860px){ .nav{ display:flex; } }
-  .nav a { position:relative; font-size:13px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); padding-block:6px; transition:color .2s; }
-  .nav a::after { content:''; position:absolute; left:0; right:100%; bottom:0; height:1.5px; background:linear-gradient(90deg,var(--green),var(--blue)); transition:right .28s var(--ease); }
-  .nav a:hover, .nav a.active { color:var(--green); }
-  .nav a:hover::after, .nav a.active::after { right:0; }
-  .cta-pill { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:11px 20px; border-radius:var(--r-sm); border:none; cursor:pointer; transition:transform .15s ease, box-shadow .2s ease; box-shadow:0 4px 14px rgba(0,109,55,0.22); }
-  .cta-pill:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,109,55,0.3); }
-  .menu-btn { display:flex; background:none; border:none; cursor:pointer; color:var(--ink); font-size:24px; align-items:center; }
-  @media (min-width:860px){ .menu-btn { display:none; } }
+/* Services */
+.services { background:var(--surface-container-low); }
+.services-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+@media (min-width:768px){ .services-grid{ grid-template-columns:7fr 5fr; } }
+.service-card { position:relative; border-radius:32px; overflow:hidden; min-height:400px; box-shadow:0 20px 60px rgba(0,0,0,0.15); transition: box-shadow .3s ease; }
+.service-card:hover { box-shadow: 0 28px 70px rgba(0,0,0,0.22); }
+.service-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition: transform .7s cubic-bezier(0.16,1,0.3,1); }
+.service-card:hover img { transform: scale(1.08); }
+.service-overlay-1 { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 50%,transparent 100%); }
+.service-overlay-2 { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,99,151,0.8) 0%,rgba(0,99,151,0.2) 50%,transparent 100%); }
+.service-content { position:absolute; bottom:0; left:0; padding:48px; color:#fff; max-width:28rem; }
+.service-tag { display:inline-block; padding:4px 12px; border-radius:9999px; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); font-size:12px; font-weight:600; margin-bottom:8px; transition: transform .3s cubic-bezier(0.16,1,0.3,1); }
+.service-card:hover .service-tag { transform: translateY(-4px); }
+.service-content h2 { font-family:var(--display); font-size:32px; font-weight:600; margin-bottom:12px; transition: transform .35s cubic-bezier(0.16,1,0.3,1); transition-delay: .03s; }
+.service-card:hover .service-content h2 { transform: translateY(-4px); }
+.service-content p { font-size:16px; color:rgba(255,255,255,0.8); margin-bottom:24px; }
+.service-link { display:inline-flex; align-items:center; gap:4px; font-size:14px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; transition:color .2s, gap .2s; }
+.service-link:hover { gap: 10px; }
+.service-link .ic { transition: transform .25s ease; }
+.service-link:hover .ic { transform: translateX(3px); }
+.service-link-1 { color:#2ecc71; } .service-link-1:hover { color:#fff; }
+.service-link-2 { color:#92ccff; } .service-link-2:hover { color:#fff; }
 
-  /* Hero */
-  .hero { position:relative; overflow:hidden; padding-top:72px; padding-bottom:72px; background:radial-gradient(1100px 520px at 78% -8%, rgba(231,192,122,0.20), transparent 62%), radial-gradient(900px 480px at 0% 8%, rgba(46,204,113,0.06), transparent 60%); }
-  .hero-omega { position:absolute; top:-90px; right:-120px; width:520px; height:520px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
-  @keyframes spin { to{ transform:rotate(360deg);} }
-  .hero-grid { display:grid; grid-template-columns:1fr; gap:54px; align-items:center; position:relative; z-index:1; }
-  @media (min-width:900px){ .hero-grid { grid-template-columns:1.05fr 0.95fr; gap:64px; } }
-  .hero h1 { font-family:var(--display); font-weight:700; font-size:clamp(36px,5.4vw,58px); line-height:1.05; letter-spacing:-0.025em; margin-top:20px; }
-  .hero h1 .accent { background:linear-gradient(120deg,var(--emerald),var(--sky)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-  .hero-desc { font-size:clamp(16px,2vw,18.5px); color:var(--ink-soft); max-width:50ch; margin-top:22px; line-height:1.6; }
-  .hero-cta { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
-  .btn-solid { display:inline-flex; align-items:center; gap:9px; font-size:15px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:14px 26px; border-radius:var(--r-sm); box-shadow:0 6px 18px rgba(0,109,55,0.26); transition:transform .15s ease, box-shadow .2s ease; }
-  .btn-solid:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,109,55,0.34); }
-  .btn-solid .ic { transition:transform .25s ease; } .btn-solid:hover .ic { transform:translateX(4px); }
-  .btn-ghost { display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:var(--blue); padding:14px 24px; border-radius:var(--r-sm); border:1.5px solid rgba(0,99,151,0.4); transition:background .2s, transform .15s; }
-  .btn-ghost:hover { background:rgba(92,184,253,0.1); transform:translateY(-2px); }
-  .proof { display:flex; align-items:center; gap:16px; margin-top:34px; }
-  .avatars { display:flex; }
-  .avatars span { width:38px; height:38px; border-radius:50%; border:2px solid var(--surface); margin-left:-10px; background:linear-gradient(135deg,var(--emerald),var(--sky)); display:grid; place-items:center; font-family:var(--display); font-weight:600; font-size:13px; color:#063; }
-  .avatars span:first-child { margin-left:0; }
-  .proof-txt { font-size:13px; color:var(--ink-soft); line-height:1.3; }
-  .proof-txt strong { font-family:var(--mono); color:var(--green); font-size:13px; }
+/* Stats */
+.stats-card { background:#fff; border-radius:40px; padding:80px; border:1px solid rgba(187,203,187,0.3); display:grid; grid-template-columns:1fr 1fr; gap:80px; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+@media (min-width:768px){ .stats-card{ grid-template-columns:repeat(4,1fr); } }
+.stat-val { font-family:var(--display); font-size:48px; font-weight:700; line-height:1.1; letter-spacing:-0.02em; margin-bottom:4px; font-variant-numeric: tabular-nums; }
+.stat-val-1 { color:var(--primary); } .stat-val-2 { color:var(--secondary); }
+.stat-label { font-size:14px; font-weight:500; color:var(--on-surface-variant); letter-spacing:0.1em; text-transform:uppercase; }
 
-  .hero-media { position:relative; }
-  .hero-media .glow { position:absolute; inset:-18px; background:linear-gradient(130deg,var(--green),var(--blue)); border-radius:38px; opacity:.12; filter:blur(36px); transition:opacity .3s; }
-  .hero-media:hover .glow { opacity:.2; }
-  .hero-card { position:relative; background:linear-gradient(160deg,#eef3f0,#dfe9e4); border:1px solid rgba(187,203,187,0.5); padding:8px; border-radius:34px; box-shadow:0 24px 64px rgba(7,34,26,0.14); overflow:hidden; transition:transform .4s var(--ease); }
-  .hero-media:hover .hero-card { transform:translateY(-6px); }
-  .hero-card > img { width:100%; height:480px; object-fit:cover; border-radius:26px; transition:transform .6s var(--ease); }
-  .hero-media:hover .hero-card > img { transform:scale(1.04); }
-  .hero-badge { position:absolute; left:22px; right:22px; bottom:22px; background:rgba(255,255,255,0.86); backdrop-filter:blur(10px); border:1px solid rgba(187,203,187,0.5); border-radius:var(--r); padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
-  .hero-badge .k { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
-  .hero-badge .stat { display:flex; align-items:center; gap:7px; margin-top:3px; font-size:14px; font-weight:600; color:var(--green); }
-  .hero-badge .pd { width:8px; height:8px; border-radius:50%; background:var(--emerald); animation:pulse 2s infinite; }
+/* CTA */
+.cta-section { padding-block:80px; padding-inline:16px; }
+.cta-box { background:var(--inverse-surface); border-radius:40px; padding:48px; text-align:center; position:relative; overflow:hidden; }
+@media (min-width:768px){ .cta-box{ padding:80px; } }
+.cta-bg-icon { position:absolute; top:24px; right:24px; opacity:.1; color:#fff; }
+@media (prefers-reduced-motion: no-preference) {
+.cta-bg-icon { animation: floatSlow 16s ease-in-out infinite reverse; }
+}
+.cta-box h2 { font-family:var(--display); font-size:32px; font-weight:600; color:var(--inverse-on-surface); margin-bottom:24px; position:relative; z-index:1; }
+.cta-box p { font-size:18px; color:rgba(239,241,243,0.8); max-width:42rem; margin-inline:auto; margin-bottom:80px; position:relative; z-index:1; }
+.cta-actions { display:flex; flex-direction:column; align-items:center; gap:24px; position:relative; z-index:1; }
+@media (min-width:640px){ .cta-actions{ flex-direction:row; justify-content:center; } }
+.btn-cta-main { display:inline-flex; align-items:center; gap:8px; padding:12px 40px; border-radius:12px; background:#2ecc71; color:#00210c; font-family:var(--display); font-size:24px; font-weight:600; transition:transform .2s, box-shadow .2s; box-shadow: 0 0 0 0 rgba(46,204,113,0.5); }
+.btn-cta-main:hover { transform: scale(1.04); box-shadow: 0 8px 28px rgba(46,204,113,0.35); }
+.btn-cta-main .ic { transition: transform .25s ease; }
+.btn-cta-main:hover .ic { transform: translateX(4px); }
+.btn-cta-tel { display:inline-flex; align-items:center; gap:8px; color:var(--inverse-on-surface); font-family:var(--display); font-size:24px; font-weight:600; transition:opacity .2s, transform .2s; }
+.btn-cta-tel:hover { opacity:.8; transform: translateY(-2px); }
 
-  /* Section heading */
-  .head { text-align:center; max-width:620px; margin:0 auto 56px; }
-  .head .eyebrow { justify-content:center; margin-bottom:14px; }
-  .head h2 { font-family:var(--display); font-weight:600; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.025em; line-height:1.12; }
-  .head p { color:var(--ink-soft); margin-top:14px; font-size:16px; }
-  .head .current { width:84px; margin:18px auto 0; }
-
-  /* Advantages */
-  .adv { background:var(--white); }
-  .adv-grid { display:grid; grid-template-columns:1fr; gap:20px; }
-  @media (min-width:760px){ .adv-grid { grid-template-columns:repeat(3,1fr); } }
-  .adv-card { padding:38px 32px; background:var(--surface); border:1px solid rgba(187,203,187,0.3); border-radius:var(--r-lg); transition:transform .25s var(--ease), border-color .25s, box-shadow .25s; }
-  .adv-card:hover { transform:translateY(-6px); border-color:rgba(0,109,55,0.3); box-shadow:0 18px 42px rgba(7,34,26,0.07); }
-  .adv-icon { width:60px; height:60px; border-radius:16px; display:grid; place-items:center; font-size:28px; margin-bottom:22px; transition:transform .35s var(--ease); }
-  .adv-card:hover .adv-icon { transform:scale(1.1) rotate(-6deg); }
-  .adv-1 { background:rgba(0,109,55,0.1); color:var(--green); }
-  .adv-2 { background:rgba(0,99,151,0.1); color:var(--blue); }
-  .adv-3 { background:rgba(0,107,88,0.1); color:#006b58; }
-  .adv-card h3 { font-family:var(--display); font-weight:600; font-size:21px; letter-spacing:-0.01em; }
-  .adv-card p { color:var(--ink-soft); margin-top:10px; font-size:15px; line-height:1.55; }
-  .adv-tag { display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:0.08em; color:var(--muted); margin-top:16px; }
-
-  /* Services */
-  .services { background:var(--surface-2); }
-  .svc-grid { display:grid; grid-template-columns:1fr; gap:22px; }
-  @media (min-width:820px){ .svc-grid { grid-template-columns:1.1fr 0.9fr; } }
-  .svc { position:relative; border-radius:30px; overflow:hidden; min-height:420px; box-shadow:0 22px 60px rgba(7,34,26,0.16); transition:box-shadow .3s; }
-  .svc:hover { box-shadow:0 30px 72px rgba(7,34,26,0.24); }
-  .svc-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); }
-  .svc:hover .svc-bg { transform:scale(1.07); }
-  .svc-fall { position:absolute; inset:0; background:linear-gradient(150deg,var(--deep-2),var(--deep)); }
-  .svc-ov { position:absolute; inset:0; }
-  .svc-ov1 { background:linear-gradient(to top, rgba(7,34,26,0.88) 0%, rgba(7,34,26,0.25) 55%, transparent 100%); }
-  .svc-ov2 { background:linear-gradient(to top, rgba(0,49,76,0.88) 0%, rgba(0,49,76,0.22) 55%, transparent 100%); }
-  .svc-body { position:absolute; left:0; bottom:0; padding:40px; color:#fff; max-width:30rem; }
-  .svc-tag { display:inline-flex; align-items:center; font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(6px); transition:transform .3s var(--ease); }
-  .svc:hover .svc-tag { transform:translateY(-4px); }
-  .svc-body h3 { font-family:var(--display); font-weight:600; font-size:30px; letter-spacing:-0.02em; margin-top:14px; transition:transform .35s var(--ease); }
-  .svc:hover .svc-body h3 { transform:translateY(-4px); }
-  .svc-body p { color:rgba(255,255,255,0.82); font-size:15px; margin-top:10px; line-height:1.55; }
-  .svc-link { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-top:20px; transition:gap .2s, color .2s; }
-  .svc-link:hover { gap:12px; }
-  .svc-link .ic { transition:transform .25s; } .svc-link:hover .ic { transform:translateX(3px); }
-  .svc-link-1 { color:var(--emerald); } .svc-link-1:hover { color:#fff; }
-  .svc-link-2 { color:var(--sky); } .svc-link-2:hover { color:#fff; }
-
-  /* Stats */
-  .stats-card { background:linear-gradient(150deg,var(--deep-2),var(--deep)); color:var(--on-deep); border-radius:var(--r-xl); padding:64px 48px; display:grid; grid-template-columns:1fr 1fr; gap:48px 24px; text-align:center; position:relative; overflow:hidden; }
-  @media (min-width:760px){ .stats-card { grid-template-columns:repeat(4,1fr); } }
-  .stats-card .omega { position:absolute; left:-60px; bottom:-80px; width:300px; height:300px; opacity:0.07; color:var(--emerald); animation:spin 50s linear infinite; }
-  .stat { position:relative; z-index:1; }
-  .stat .v { font-family:var(--display); font-weight:700; font-size:clamp(36px,5vw,52px); line-height:1; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
-  .stat .v.g { color:var(--emerald); } .stat .v.b { color:var(--sky); }
-  .stat .l { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--on-deep-soft); margin-top:10px; }
-
-  /* CTA */
-  .cta-box { background:radial-gradient(120% 130% at 0% 0%, var(--deep-2) 0%, var(--deep) 60%); border-radius:var(--r-xl); padding:64px 40px; text-align:center; position:relative; overflow:hidden; }
-  @media (min-width:768px){ .cta-box { padding:80px; } }
-  .cta-box .omega { position:absolute; right:-40px; top:-50px; width:240px; height:240px; opacity:0.09; color:var(--emerald); animation:spin 44s linear infinite reverse; }
-  .cta-box h2 { font-family:var(--display); font-weight:600; font-size:clamp(28px,4vw,40px); letter-spacing:-0.025em; color:var(--on-deep); position:relative; z-index:1; }
-  .cta-box p { color:var(--on-deep-soft); font-size:17px; max-width:46ch; margin:18px auto 0; position:relative; z-index:1; }
-  .cta-actions { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:34px; position:relative; z-index:1; }
-  .btn-emerald { display:inline-flex; align-items:center; gap:9px; font-family:var(--body); font-size:15px; font-weight:600; color:#00210c; background:var(--emerald); padding:15px 30px; border-radius:var(--r-sm); transition:transform .18s, box-shadow .2s; box-shadow:0 0 0 0 rgba(46,204,113,0.5); }
-  .btn-emerald:hover { transform:scale(1.04); box-shadow:0 10px 30px rgba(46,204,113,0.35); }
-  .btn-emerald .ic { transition:transform .25s; } .btn-emerald:hover .ic { transform:translateX(4px); }
-  .btn-tel { display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:15px; font-weight:500; color:var(--on-deep); padding:15px 12px; transition:opacity .2s, transform .2s; }
-  .btn-tel:hover { opacity:.85; transform:translateY(-2px); }
-
-  /* Reviews */
-  .reviews { background:var(--white); }
-  .reviews-global { display:inline-flex; align-items:center; gap:14px; background:var(--surface); padding:12px 22px; border-radius:999px; border:1px solid rgba(187,203,187,0.4); margin-top:18px; }
-  .reviews-global-score { font-family:var(--display); font-weight:700; font-size:34px; line-height:1; letter-spacing:-0.02em; color:var(--ink); }
-  .reviews-global-stars { color:#f59e0b; font-size:18px; letter-spacing:2px; }
-  .reviews-global-count { font-size:13px; color:var(--muted); margin-top:2px; }
-  .rev-grid { display:grid; grid-template-columns:1fr; gap:20px; margin-top:48px; }
-  @media (min-width:760px){ .rev-grid { grid-template-columns:repeat(3,1fr); } }
-  .rev-card { background:var(--surface); border:1px solid rgba(187,203,187,0.3); border-radius:var(--r-lg); padding:28px; display:flex; flex-direction:column; gap:14px; transition:transform .25s var(--ease), box-shadow .25s; }
-  .rev-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(7,34,26,0.07); }
-  .rev-head { display:flex; align-items:center; gap:12px; }
-  .rev-avatar { width:44px; height:44px; border-radius:50%; object-fit:cover; flex-shrink:0; }
-  .rev-avatar-ph { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--green),var(--blue)); display:grid; place-items:center; font-family:var(--display); font-weight:700; font-size:17px; color:#fff; flex-shrink:0; }
-  .rev-name { font-family:var(--display); font-size:15px; font-weight:600; color:var(--ink); }
-  .rev-date { font-size:12px; color:var(--muted); margin-top:2px; }
-  .rev-stars { color:#f59e0b; font-size:15px; letter-spacing:1px; }
-  .rev-text { font-size:14px; color:var(--ink-soft); line-height:1.6; flex:1; }
-  .rev-source { display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--muted); margin-top:4px; }
-  /* Skeleton */
-  @keyframes shimmer { 0%{background-position:-600px 0} 100%{background-position:600px 0} }
-  .sk { border-radius:6px; background:linear-gradient(90deg,var(--surface-2) 25%,var(--surface) 50%,var(--surface-2) 75%); background-size:1200px 100%; animation:shimmer 1.6s infinite; }
-  .sk-circle { border-radius:50% !important; }
-  /* CTA avis */
-  .rev-cta { text-align:center; margin-top:38px; }
-  .btn-review { display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--green); padding:12px 26px; border-radius:999px; border:1.5px solid rgba(0,109,55,0.4); transition:background .2s, color .2s, transform .15s; }
-  .btn-review:hover { background:var(--green); color:#fff; transform:translateY(-2px); }
-
-  /* Footer */
-  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:0; padding:54px 0 28px; }
-  .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; }
-  @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1.2fr; } }
-  .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
-  .foot-desc { color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:30ch; }
-  .foot h5 { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
-  .foot nav { display:flex; flex-direction:column; gap:9px; }
-  .foot nav a { color:var(--ink-soft); font-size:14px; transition:color .2s, padding-left .2s; }
-  .foot nav a:hover { color:var(--green); padding-left:4px; }
-  .foot-contact a { display:flex; align-items:center; gap:9px; color:var(--ink-soft); font-size:14px; margin-bottom:9px; transition:color .2s; }
-  .foot-contact a:hover { color:var(--green); }
-  .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; }
-  .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
-
-  :focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
-  @media (prefers-reduced-motion:reduce){
-    *, *::before, *::after { animation:none !important; transition:none !important; }
-    .reveal, .stagger > * { opacity:1 !important; transform:none !important; }
-    .load { opacity:1 !important; }
-  }
-
-  /* Menu mobile */
-  .mob-ov { position:fixed; inset:0; z-index:200; background:rgba(7,34,26,0.5); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity .3s ease; }
-  .mob-ov.open { opacity:1; pointer-events:auto; }
-  .mob-panel { position:fixed; top:0; right:0; bottom:0; width:min(300px,82vw); background:#fff; z-index:201; display:flex; flex-direction:column; padding:20px 24px 32px; box-shadow:-12px 0 48px rgba(7,34,26,0.18); transform:translateX(100%); transition:transform .35s cubic-bezier(0.16,1,0.3,1); }
-  .mob-ov.open .mob-panel { transform:none; }
-  .mob-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
-  .mob-logo { font-family:var(--display); font-weight:700; font-size:20px; background:linear-gradient(120deg,var(--green),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-  .mob-close { background:none; border:none; cursor:pointer; color:var(--ink); padding:6px; border-radius:8px; transition:background .2s; }
-  .mob-close:hover { background:var(--surface-2); }
-  .mob-links { display:flex; flex-direction:column; flex:1; }
-  .mob-links a { font-family:var(--display); font-size:19px; font-weight:600; color:var(--ink); padding:15px 4px; border-bottom:1px solid var(--line); letter-spacing:-0.01em; transition:color .2s, padding-left .2s; display:flex; align-items:center; justify-content:space-between; }
-  .mob-links a:hover { color:var(--green); padding-left:8px; }
-  .mob-links a:last-child { border-bottom:none; }
-  .mob-cta { display:flex; align-items:center; justify-content:center; gap:8px; font-size:15px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:15px; border-radius:var(--r-sm); margin-top:24px; box-shadow:0 6px 18px rgba(0,109,55,0.26); transition:transform .15s, box-shadow .2s; }
-  .mob-cta:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,109,55,0.34); }
-  .mob-tel { display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; color:var(--muted); margin-top:14px; }
-
-  /* ═══════════ MOTION DESIGN PREMIUM ═══════════ */
-  /* Barre de progression de lecture */
-  .scroll-progress { position:fixed; top:0; left:0; height:3px; width:0; z-index:300; background:linear-gradient(90deg,var(--gold),var(--emerald),var(--blue)); box-shadow:0 0 12px rgba(198,138,58,0.45); transition:width .12s linear; will-change:width; }
-
-  /* Reflet lumineux qui balaie les CTA au survol */
-  .btn-solid, .btn-emerald, .cta-pill, .mob-cta { position:relative; overflow:hidden; isolation:isolate; }
-  .btn-solid::after, .btn-emerald::after, .cta-pill::after, .mob-cta::after { content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(115deg, transparent 26%, rgba(255,255,255,0.42) 48%, transparent 72%); transform:translateX(-130%); transition:transform .7s var(--ease); pointer-events:none; }
-  .btn-solid:hover::after, .btn-emerald:hover::after, .cta-pill:hover::after, .mob-cta:hover::after { transform:translateX(130%); }
-  .btn-solid > *, .btn-emerald > *, .cta-pill > *, .mob-cta > * { position:relative; z-index:2; }
-
-  /* Cartes avantages : liseré doré animé + halo chaud au survol */
-  .adv-card { position:relative; overflow:hidden; }
-  .adv-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--emerald)); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease); }
-  .adv-card:hover::before { transform:scaleX(1); }
-  .adv-card:hover { border-color:rgba(198,138,58,0.42); box-shadow:0 24px 52px rgba(120,90,30,0.13); }
-
-  /* Barre de confiance : micro-interactions */
-  .tb-item { transition:transform .3s var(--ease); }
-  .tb-item:hover { transform:translateY(-3px); }
-  .tb-item .tb-ic { transition:transform .4s var(--ease), box-shadow .4s ease; }
-  .tb-item:hover .tb-ic { transform:scale(1.08) rotate(-5deg); box-shadow:0 10px 22px rgba(198,138,58,0.3); }
-
-  /* Cartes guides : liseré doré au survol */
-  .bloghi-card { position:relative; overflow:hidden; }
-  .bloghi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--emerald)); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease); }
-  .bloghi-card:hover::before { transform:scaleX(1); }
-
-  /* Respiration douce du hero */
-  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
-  @keyframes glowPulse { 0%,100%{opacity:.45} 50%{opacity:.85} }
-  .hero-badge { animation:floatY 5.5s ease-in-out infinite; }
-  .glow { animation:glowPulse 4.5s ease-in-out infinite; }
-
-  @media (prefers-reduced-motion:reduce){
-    .scroll-progress { display:none; }
-    .hero-badge, .glow { animation:none !important; }
-  }
+/* Footer */
+footer { background:var(--surface-container); padding-block:48px; margin-top:80px; border-top:1px solid var(--outline-variant); }
+.footer-grid { display:grid; grid-template-columns:1fr; gap:24px; }
+@media (min-width:768px){ .footer-grid{ grid-template-columns:repeat(4,1fr); } }
+.footer-logo { font-family:var(--display); font-size:24px; font-weight:700; color:var(--on-surface); margin-bottom:12px; }
+.footer-desc { font-size:16px; color:var(--on-surface-variant); }
+.footer-title { font-size:14px; font-weight:700; color:var(--on-surface); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px; }
+.footer-nav { display:flex; flex-direction:column; gap:8px; }
+.footer-nav a { color:var(--on-surface-variant); font-size:16px; transition:color .2s, padding-left .2s; }
+.footer-nav a:hover { color:var(--primary); padding-left: 4px; }
+.footer-contact p { display:flex; align-items:center; gap:8px; font-size:16px; color:var(--on-surface-variant); margin-bottom:8px; }
+.footer-copy { text-align:center; padding-top:24px; margin-top:24px; border-top:1px solid rgba(187,203,187,0.3); }
+.footer-copy p { font-size:16px; color:rgba(61,74,62,0.6); }
 </style>
 
-<link rel="icon" type="image/png" href="/favicon.png">
-
+<!-- ✅ SEO : LocalBusiness enrichi (geo + zone de service) -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"ElectricalService",
-  "name":"IRV'OHM",
-  "description":"Installation de bornes de recharge IRVE pour particuliers, copropriétés et entreprises en Île-de-France.",
-  "url":"https://irvohm.fr",
-  "logo":"https://www.irvohm.fr/favicon.png",
-  "image":"https://www.irvohm.fr/borne-recharge.webp",
-  "telephone":"+33651078828",
-  "email":"contact@irvohm.fr",
-  "address":{"@type":"PostalAddress","addressLocality":"Sarcelles","postalCode":"95200","addressCountry":"FR"},
-  "geo":{"@type":"GeoCoordinates","latitude":48.9975,"longitude":2.3786},
-  "priceRange":"€€",
-  "openingHoursSpecification":[
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}
-  ],
-  "areaServed":[
-    {"@type":"City","name":"Paris"},
-    {"@type":"City","name":"Sarcelles"},
-    {"@type":"City","name":"Argenteuil"},
-    {"@type":"City","name":"Cergy"},
-    {"@type":"City","name":"Pontoise"},
-    {"@type":"City","name":"Roissy-en-France"},
-    {"@type":"City","name":"Garges-lès-Gonesse"},
-    {"@type":"City","name":"Villiers-le-Bel"},
-    {"@type":"City","name":"Arnouville"},
-    {"@type":"City","name":"Gonesse"},
-    {"@type":"City","name":"Saint-Brice-sous-Forêt"},
-    {"@type":"City","name":"Montmorency"},
-    {"@type":"City","name":"Enghien-les-Bains"},
-    {"@type":"City","name":"Eaubonne"},
-    {"@type":"City","name":"Ermont"},
-    {"@type":"City","name":"Franconville"},
-    {"@type":"City","name":"Herblay-sur-Seine"},
-    {"@type":"City","name":"Taverny"},
-    {"@type":"City","name":"Saint-Leu-la-Forêt"},
-    {"@type":"City","name":"Domont"},
-    {"@type":"City","name":"L'Isle-Adam"}
-  ]
+"@context":"https://schema.org","@type":"LocalBusiness","name":"IRV'OHM","url":"https://irvohm.fr",
+"telephone":"+33651078828","email":"contact@irvohm.fr",
+"address":{"@type":"PostalAddress","addressLocality":"Sarcelles","postalCode":"95200","addressRegion":"Île-de-France","addressCountry":"FR"},
+"geo":{"@type":"GeoCoordinates","latitude":48.9959,"longitude":2.3781},
+"description":"Installation de bornes de recharge IRVE pour particuliers et entreprises en Île-de-France.",
+"areaServed":["Sarcelles","Val-d'Oise","Île-de-France"],
+"openingHours":"Mo-Fr 09:00-18:00","priceRange":"€€"
+}
+</script>
+
+<!-- ✅ SEO : Breadcrumb (page d'accueil = position 1 uniquement) -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org","@type":"BreadcrumbList",
+"itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://irvohm.fr/"}]
 }
 </script>
 </head>
 <body>
-<div class="scroll-progress" id="scrollbar" aria-hidden="true"></div>
-
+<!-- ✅ Sprite SVG des icônes (chargé instantanément, aucun décalage de layout) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
-  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
-  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
-  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
-  <symbol id="i-savings" viewBox="0 0 24 24"><path d="M14 21a8 8 0 1 1 0-16"/><path d="M4 11h11M4 15h9"/></symbol>
-  <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
-  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 0 1 2.8 2.8L12 14.5 8 15.5l1-4z"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-  <symbol id="i-omega" viewBox="0 0 100 100"><path d="M50 8C29 8 12 25 12 46c0 12 6 22 15 28v9H16v9h26V73c-11-4-19-15-19-27 0-15 12-27 27-27s27 12 27 27c0 12-8 23-19 27v9h26v-9H73v-9c9-6 15-16 15-28C88 25 71 8 50 8z" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+<symbol id="i-savings" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01"/><path d="M18 12h.01"/></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 0 1 2.8 2.8L12 14.5 8 15.5l1-4z"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
 </svg>
 
-<!-- Menu mobile -->
-<div class="mob-ov" id="mob-ov" role="dialog" aria-modal="true" aria-label="Menu principal">
-  <div class="mob-panel" id="mob-panel">
-    <div class="mob-head">
-      <span class="mob-logo">IRV'<span style="-webkit-text-fill-color:var(--emerald)">Ω</span>HM</span>
-      <button class="mob-close" id="mob-close" aria-label="Fermer le menu"><svg style="width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round" viewBox="0 0 24 24"><use href="#i-x"/></svg></button>
-    </div>
-    <nav class="mob-links">
-      <a href="index.html">Accueil <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
-      <a href="particulier.html">Particuliers <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
-      <a href="entreprise.html">Entreprises <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
-      <a href="blog/">Blog <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
-      <a href="devis.html">Devis <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.4" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
-    </nav>
-    <a href="devis.html" class="mob-cta">Devis gratuit <svg style="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
-    <a href="tel:+33651078828" class="mob-tel"><svg style="width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
-  </div>
+<header class="header" id="site-header">
+<div class="max-w px-page header-inner">
+<div class="logo">IRV'OHM</div>
+<nav class="nav-desktop" aria-label="Navigation principale">
+<a class="nav-link" href="/">Accueil</a>
+<a class="nav-link" href="/particulier.html">Particuliers</a>
+<a class="nav-link" href="/entreprise.html">Entreprises</a>
+<a class="nav-link" href="/devis.html">Devis</a>
+</nav>
+<div style="display:flex;align-items:center;gap:12px;">
+<a href="/devis.html" class="btn-primary gradient-brand">Devis Gratuit</a>
+<button class="btn-menu" aria-label="Ouvrir le menu" aria-expanded="false">
+<svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
+</button>
 </div>
-
-<header class="header" id="hdr">
-  <div class="wrap header-row">
-    <a href="index.html" class="logo">IRV'<span class="om">Ω</span>HM</a>
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="index.html" class="active">Accueil</a>
-      <a href="particulier.html">Particuliers</a>
-      <a href="entreprise.html">Entreprises</a>
-      <a href="blog/">Blog</a>
-      <a href="devis.html">Devis</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:12px">
-      <a href="devis.html" class="cta-pill">Devis gratuit <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mob-ov"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
-    </div>
-  </div>
+</div>
 </header>
 
 <main>
-  <!-- HERO -->
-  <section class="hero">
-    <svg class="hero-omega" aria-hidden="true"><use href="#i-omega"/></svg>
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow load l1"><span class="dot"></span> Installateur IRVE · Île-de-France</span>
-        <h1 class="load l2">Rechargez l'avenir,<br/><span class="accent">simplement chez vous.</span></h1>
-        <p class="hero-desc load l3">Installation de bornes de recharge intelligentes pour véhicules électriques. Une recharge rapide, sécurisée et éco-responsable, posée par des techniciens certifiés.</p>
-        <div class="hero-cta load l4">
-          <a href="devis.html" class="btn-solid">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a href="particulier.html#bornes-section" class="btn-ghost">Nos solutions</a>
-        </div>
-        <div class="proof load l5">
-          <div class="avatars" aria-hidden="true"><span>A</span><span>M</span><span>L</span></div>
-          <p class="proof-txt"><strong>+500 installations</strong><br/>réalisées avec succès</p>
-        </div>
-      </div>
-      <div class="hero-media load l3">
-        <div class="glow" aria-hidden="true"></div>
-        <div class="hero-card">
-          <img src="borne-recharge.webp" alt="Borne de recharge pour véhicule électrique installée par IRV'OHM" fetchpriority="high" width="800" height="500" onerror="this.style.display='none'"/>
-          <div class="hero-badge">
-            <div>
-              <div class="k">Disponibilité</div>
-              <div class="stat"><span class="pd"></span> Bornes disponibles</div>
-            </div>
-            <svg class="ic" style="font-size:24px;color:var(--blue)" aria-hidden="true"><use href="#i-bolt"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="hero py-xl">
+<svg class="hero-bg-icon" width="380" height="380" aria-hidden="true"><use href="#i-car"/></svg>
+<div class="max-w px-page hero-grid">
+<div>
+<img src="logo-irvohm.webp" alt="Logo IRV'OHM, installateur de bornes de recharge" class="hero-logo hero-fade" width="320" height="120"/>
+<h1 class="hero-fade">Rechargez l'avenir,<br/><span class="text-gradient-brand">simplement chez vous.</span></h1>
+<p class="hero-desc hero-fade">Installation de bornes de recharge intelligentes pour véhicules électriques. Profitez d'une recharge rapide, sécurisée et éco-responsable.</p>
+<div class="hero-actions hero-fade">
+<a href="/devis.html" class="btn-hero btn-hero-primary gradient-brand">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<a href="/particulier.html" class="btn-outline-secondary">Nos solutions</a>
+</div>
+<div class="hero-social-proof hero-fade">
+<div class="avatar-stack">
+<img src="client-1.webp" alt="Client IRV'OHM satisfait" loading="lazy" decoding="async" width="40" height="40"/>
+<img src="client-2.webp" alt="Client IRV'OHM satisfait" loading="lazy" decoding="async" width="40" height="40"/>
+<img src="client-3.webp" alt="Client IRV'OHM satisfait" loading="lazy" decoding="async" width="40" height="40"/>
+</div>
+<p class="proof-label"><strong>+500 installations</strong><br/>réalisées avec succès</p>
+</div>
+</div>
+<div class="hero-img-wrap hero-fade">
+<div class="hero-img-glow" aria-hidden="true"></div>
+<div class="hero-img-card">
+<img src="borne-recharge.webp" alt="Borne de recharge pour véhicule électrique installée par IRV'OHM" fetchpriority="high" width="800" height="500"/>
+<div class="hero-badge glass-card">
+<div>
+<p class="badge-label">Disponibilité</p>
+<div class="badge-status"><span class="pulse-dot"></span><span class="badge-text">Bornes disponibles</span></div>
+</div>
+<svg class="ic" style="font-size:24px;color:var(--secondary)" aria-hidden="true"><use href="#i-bolt"/></svg>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- TRUST BAR -->
-  <section class="trustbar-wrap" aria-label="Nos garanties">
-    <style>
-      .trustbar-wrap { margin-top:-34px; position:relative; z-index:5; }
-      .trustbar { display:grid; grid-template-columns:repeat(2,1fr); gap:6px 10px; background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg); padding:22px 20px; box-shadow:0 20px 50px rgba(120,90,30,0.10), 0 2px 8px rgba(120,90,30,0.05); }
-      @media (min-width:820px){ .trustbar { grid-template-columns:repeat(5,1fr); padding:24px 14px; } }
-      .tb-item { display:flex; align-items:center; gap:12px; padding:8px 12px; }
-      .tb-ic { flex-shrink:0; width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(231,192,122,0.28), rgba(198,138,58,0.14)); color:var(--gold); }
-      .tb-ic .ic { width:20px; height:20px; }
-      .tb-tx { line-height:1.2; }
-      .tb-tx strong { display:block; font-family:var(--display); font-weight:600; font-size:15px; color:var(--ink); letter-spacing:-0.01em; }
-      .tb-tx span { font-size:12px; color:var(--muted); }
-      .tb-item + .tb-item { position:relative; }
-      @media (min-width:820px){ .tb-item + .tb-item::before { content:''; position:absolute; left:-6px; top:50%; transform:translateY(-50%); width:1px; height:34px; background:var(--line); } }
-    </style>
-    <div class="wrap">
-      <div class="trustbar reveal">
-        <div class="tb-item">
-          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span>
-          <span class="tb-tx"><strong>Certifié IRVE</strong><span>Techniciens qualifiés</span></span>
-        </div>
-        <div class="tb-item">
-          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></span>
-          <span class="tb-tx"><strong>Garantie 5 ans</strong><span>Matériel &amp; pose</span></span>
-        </div>
-        <div class="tb-item">
-          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
-          <span class="tb-tx"><strong>Devis sous 48h</strong><span>Gratuit &amp; sans engagement</span></span>
-        </div>
-        <div class="tb-item">
-          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></span>
-          <span class="tb-tx"><strong>TVA 5,5 %</strong><span>Aides ADVENIR incluses</span></span>
-        </div>
-        <div class="tb-item">
-          <span class="tb-ic"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>
-          <span class="tb-tx"><strong>+500 installations</strong><span>En Île-de-France</span></span>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="advantages py-xl" aria-labelledby="avantages-title">
+<div class="max-w px-page">
+<span class="advantages-eyebrow reveal">Pourquoi nous ?</span>
+<h2 id="avantages-title" class="reveal">L'excellence au service de votre mobilité</h2>
+<div class="cards-grid reveal-stagger">
+<div class="adv-card">
+<div class="adv-icon adv-icon-1"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></div>
+<h3>Rapidité</h3>
+<p>Une charge optimisée pour réduire votre temps d'attente. Bornes intelligentes adaptées à la puissance de votre compteur.</p>
+</div>
+<div class="adv-card">
+<div class="adv-icon adv-icon-2"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></div>
+<h3>Sécurité</h3>
+<p>Installations certifiées IRVE par des experts. Protection contre les surtensions et contrôle thermique intégré.</p>
+</div>
+<div class="adv-card">
+<div class="adv-icon adv-icon-3"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></div>
+<h3>Économie</h3>
+<p>Optimisez votre consommation d'énergie et profitez du crédit d'impôt pour votre installation à domicile.</p>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- ADVANTAGES -->
-  <section class="adv section">
-    <div class="wrap">
-      <div class="head reveal">
-        <span class="eyebrow"><span class="dot"></span> Pourquoi nous</span>
-        <h2>L'excellence au service de votre mobilité</h2>
-        <div class="current" aria-hidden="true"></div>
-      </div>
-      <div class="adv-grid stagger">
-        <div class="adv-card">
-          <div class="adv-icon adv-1"><svg class="ic" aria-hidden="true"><use href="#i-gauge"/></svg></div>
-          <h3>Rapidité</h3>
-          <p>Une charge optimisée pour réduire votre temps d'attente. Bornes intelligentes adaptées à la puissance de votre compteur.</p>
-          <span class="adv-tag">jusqu'à 22 kW</span>
-        </div>
-        <div class="adv-card">
-          <div class="adv-icon adv-2"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></div>
-          <h3>Sécurité</h3>
-          <p>Installations certifiées IRVE par des experts. Protection contre les surtensions et contrôle thermique intégré.</p>
-          <span class="adv-tag">norme NF C 15-100</span>
-        </div>
-        <div class="adv-card">
-          <div class="adv-icon adv-3"><svg class="ic" aria-hidden="true"><use href="#i-savings"/></svg></div>
-          <h3>Économie</h3>
-          <p>Optimisez votre consommation et profitez de la TVA réduite et des aides pour votre installation à domicile.</p>
-          <span class="adv-tag">TVA 5,5 % · ADVENIR</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="services py-xl" aria-labelledby="services-title">
+<div class="max-w px-page">
+<h2 id="services-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Nos solutions</h2>
+<div class="services-grid reveal-stagger">
+<div class="service-card">
+<img src="particuliers.webp" alt="Installation d'une borne de recharge dans un garage de particulier" loading="lazy" width="900" height="600"/>
+<div class="service-overlay-1" aria-hidden="true"></div>
+<div class="service-content">
+<span class="service-tag">Habitat Individuel</span>
+<h2>Pour les Particuliers</h2>
+<p>Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place de parking privée. Solutions clé en main incluant conseil, matériel et installation.</p>
+<a href="/particulier.html" class="service-link service-link-1">Découvrir l'offre <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<img src="entreprises.webp" alt="Bornes de recharge installées sur un parking d'entreprise" loading="lazy" width="700" height="600"/>
+<div class="service-overlay-2" aria-hidden="true"></div>
+<div class="service-content">
+<span class="service-tag">Tertiaire &amp; Flottes</span>
+<h2>Pour les Entreprises</h2>
+<p>Valorisez vos parkings, proposez un service à vos clients et électrifiez votre flotte de véhicules.</p>
+<a href="/entreprise.html" class="service-link service-link-2">Solutions business <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- SERVICES -->
-  <section class="services section">
-    <div class="wrap">
-      <div class="head reveal">
-        <span class="eyebrow"><span class="dot"></span> Nos solutions</span>
-        <h2>Un projet, une réponse sur-mesure</h2>
-        <div class="current" aria-hidden="true"></div>
-      </div>
-      <div class="svc-grid stagger">
-        <article class="svc">
-          <div class="svc-fall" aria-hidden="true"></div>
-          <img class="svc-bg" src="particuliers.webp" alt="Installation d'une borne de recharge dans un garage de particulier" loading="lazy" onerror="this.style.display='none'"/>
-          <div class="svc-ov svc-ov1" aria-hidden="true"></div>
-          <div class="svc-body">
-            <span class="svc-tag">Habitat individuel</span>
-            <h3>Pour les particuliers</h3>
-            <p>Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place privative. Solution clé en main : conseil, matériel et installation.</p>
-            <a href="particulier.html" class="svc-link svc-link-1">Découvrir l'offre <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-fall" aria-hidden="true"></div>
-          <img class="svc-bg" src="entreprises.webp" alt="Bornes de recharge installées sur un parking d'entreprise" loading="lazy" onerror="this.style.display='none'"/>
-          <div class="svc-ov svc-ov2" aria-hidden="true"></div>
-          <div class="svc-body">
-            <span class="svc-tag">Tertiaire &amp; flottes</span>
-            <h3>Pour les entreprises</h3>
-            <p>Valorisez vos parkings, offrez un service à vos clients et électrifiez votre flotte de véhicules.</p>
-            <a href="entreprise.html" class="svc-link svc-link-2">Solutions business <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+<section class="stats py-xl" aria-label="Chiffres clés IRV'OHM">
+<div class="max-w px-page">
+<div class="stats-card reveal">
+<div><div class="stat-val stat-val-1" data-target="98" data-suffix="%">0%</div><div class="stat-label">Satisfaction</div></div>
+<div><div class="stat-val stat-val-2" data-target="48" data-suffix="h">0h</div><div class="stat-label">Devis Rapide</div></div>
+<div><div class="stat-val stat-val-1" data-target="15" data-suffix="+">0+</div><div class="stat-label">Marques Partenaires</div></div>
+<div><div class="stat-val stat-val-2" data-target="5" data-suffix=" ans" data-format="years">0 ans</div><div class="stat-label">Garantie Matériel</div></div>
+</div>
+</div>
+</section>
 
-  <!-- STATS -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="stats-card reveal">
-        <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
-        <div class="stat"><div class="v g" data-target="98" data-suffix="%">0%</div><div class="l">Satisfaction</div></div>
-        <div class="stat"><div class="v b" data-target="48" data-suffix="h">0h</div><div class="l">Devis rapide</div></div>
-        <div class="stat"><div class="v g" data-target="15" data-suffix="+">0+</div><div class="l">Marques partenaires</div></div>
-        <div class="stat"><div class="v b" data-target="5" data-suffix=" ans">0 ans</div><div class="l">Garantie matériel</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AVIS GOOGLE -->
-  <section class="reviews section" aria-labelledby="reviews-title">
-    <div class="wrap">
-      <div class="head reveal">
-        <span class="eyebrow"><span class="dot"></span> Avis clients</span>
-        <h2 id="reviews-title">Ce que disent nos clients</h2>
-        <div class="current" aria-hidden="true"></div>
-        <div id="rev-global" style="display:none" class="reviews-global">
-          <span id="rev-score" class="reviews-global-score"></span>
-          <div>
-            <div id="rev-stars" class="reviews-global-stars"></div>
-            <div id="rev-count" class="reviews-global-count"></div>
-          </div>
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        </div>
-      </div>
-
-      <div id="rev-grid" class="rev-grid">
-        <!-- Skeletons affichés pendant le chargement -->
-        <div class="rev-card"><div class="rev-head"><div class="sk sk-circle" style="width:44px;height:44px"></div><div style="flex:1"><div class="sk" style="height:13px;width:55%;margin-bottom:7px"></div><div class="sk" style="height:11px;width:35%"></div></div></div><div class="sk" style="height:12px;width:40%;margin:4px 0"></div><div class="sk" style="height:12px;margin-bottom:5px"></div><div class="sk" style="height:12px;width:80%"></div></div>
-        <div class="rev-card"><div class="rev-head"><div class="sk sk-circle" style="width:44px;height:44px"></div><div style="flex:1"><div class="sk" style="height:13px;width:55%;margin-bottom:7px"></div><div class="sk" style="height:11px;width:35%"></div></div></div><div class="sk" style="height:12px;width:40%;margin:4px 0"></div><div class="sk" style="height:12px;margin-bottom:5px"></div><div class="sk" style="height:12px;width:65%"></div></div>
-        <div class="rev-card"><div class="rev-head"><div class="sk sk-circle" style="width:44px;height:44px"></div><div style="flex:1"><div class="sk" style="height:13px;width:55%;margin-bottom:7px"></div><div class="sk" style="height:11px;width:35%"></div></div></div><div class="sk" style="height:12px;width:40%;margin:4px 0"></div><div class="sk" style="height:12px;margin-bottom:5px"></div><div class="sk" style="height:12px;width:75%"></div></div>
-      </div>
-
-      <div class="rev-cta">
-        <a href="https://www.google.com/maps/place/Irvohm/@48.9858057,2.3989362,17z" target="_blank" rel="noopener noreferrer" class="btn-review">
-          <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/></svg>
-          Laisser un avis Google
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Derniers guides (blog) -->
-  <section class="section" aria-labelledby="guides-title" style="padding-top:0">
-    <style>
-      .bloghi-grid { display:grid; grid-template-columns:1fr; gap:18px; margin-top:34px; }
-      @media (min-width:720px){ .bloghi-grid { grid-template-columns:repeat(3,1fr); } }
-      .bloghi-card { display:flex; flex-direction:column; background:var(--white); border:1px solid rgba(187,203,187,0.3); border-radius:var(--r-lg); padding:26px 24px; transition:transform .25s var(--ease), border-color .25s, box-shadow .25s; }
-      .bloghi-card:hover { transform:translateY(-6px); border-color:rgba(0,109,55,0.3); box-shadow:0 18px 42px rgba(7,34,26,0.07); }
-      .bloghi-tag { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; }
-      .bloghi-card h3 { font-family:var(--display); font-weight:600; font-size:19px; line-height:1.25; letter-spacing:-0.01em; color:var(--ink); }
-      .bloghi-card p { color:var(--ink-soft); font-size:14px; margin-top:10px; flex:1; }
-      .bloghi-read { margin-top:16px; font-size:14px; font-weight:600; color:var(--green); display:inline-flex; align-items:center; gap:7px; }
-      .bloghi-all { text-align:center; margin-top:32px; }
-      .bloghi-all a { font-size:14px; font-weight:600; color:var(--blue); display:inline-flex; align-items:center; gap:8px; }
-    </style>
-    <div class="wrap">
-      <div class="head reveal">
-        <span class="eyebrow"><span class="dot"></span>Ressources</span>
-        <h2 id="guides-title">Nos derniers guides</h2>
-        <p>Prix, aides, puissance, copropriété : tout ce qu'il faut savoir avant d'installer votre borne de recharge.</p>
-        <div class="current"></div>
-      </div>
-      <div class="bloghi-grid stagger">
-        <a class="bloghi-card" href="blog/prix-installation-borne-recharge.html">
-          <span class="bloghi-tag">Budget</span>
-          <h3>Prix d'installation d'une borne en 2026</h3>
-          <p>Les fourchettes de prix pour 7,4 et 22 kW, et comment la TVA à 5,5 % allège la facture.</p>
-          <span class="bloghi-read">Lire le guide <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-        </a>
-        <a class="bloghi-card" href="blog/aides-borne-recharge-advenir.html">
-          <span class="bloghi-tag">Aides</span>
-          <h3>Aides ADVENIR et TVA à 5,5 %</h3>
-          <p>Le point complet sur les aides pour les particuliers, copropriétés et entreprises.</p>
-          <span class="bloghi-read">Lire le guide <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-        </a>
-        <a class="bloghi-card" href="blog/temps-de-recharge-voiture-electrique.html">
-          <span class="bloghi-tag">Pratique</span>
-          <h3>Temps de recharge d'une voiture électrique</h3>
-          <p>Le calcul simple et un tableau clair selon la puissance de la borne et la batterie.</p>
-          <span class="bloghi-read">Lire le guide <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-        </a>
-      </div>
-      <div class="bloghi-all">
-        <a href="blog/">Voir tous les guides <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="cta-box reveal">
-        <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
-        <h2>Prêt à passer à l'électrique ?</h2>
-        <p>Nos techniciens experts vous accompagnent de l'étude de faisabilité jusqu'à la mise en service de votre borne.</p>
-        <div class="cta-actions">
-          <a href="devis.html" class="btn-emerald">Mon devis personnalisé <svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></a>
-          <a href="tel:+33651078828" class="btn-tel"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="cta-section" aria-labelledby="cta-title">
+<div class="max-w">
+<div class="cta-box reveal">
+<svg class="cta-bg-icon" width="180" height="180" aria-hidden="true"><use href="#i-bolt"/></svg>
+<h2 id="cta-title">Prêt à passer à l'électrique ?</h2>
+<p>Nos techniciens experts vous accompagnent de l'étude de faisabilité jusqu'à la mise en service de votre borne de recharge.</p>
+<div class="cta-actions">
+<a href="/devis.html" class="btn-cta-main">Mon devis personnalisé <svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></a>
+<a href="tel:+33651078828" class="btn-cta-tel"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
+</div>
+</div>
+</div>
+</section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-grid stagger">
-      <div>
-        <div class="foot-logo">IRV'<span style="color:var(--emerald)">Ω</span>HM</div>
-        <p class="foot-desc">Expert en solutions de recharge électrique pour un avenir durable.</p>
-      </div>
-      <div class="foot">
-        <h5>Services</h5>
-        <nav><a href="particulier.html">Installation bornes</a><a href="devis.html">Maintenance</a><a href="devis.html">Audit énergétique</a></nav>
-      </div>
-      <div class="foot">
-        <h5>Liens utiles</h5>
-        <nav><a href="blog/">Blog</a><a href="mentions-legales.html">Mentions légales</a><a href="politique-confidentialite.html">Confidentialité</a><a href="faq.html">FAQ</a></nav>
-      </div>
-      <div class="foot foot-contact">
-        <h5>Contact</h5>
-        <nav>
-          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> 95200 Sarcelles, France</a>
-          <a href="mailto:contact@irvohm.fr"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> contact@irvohm.fr</a>
-          <a href="#"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Lun – Ven : 09h – 18h</a>
-        </nav>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(187,203,187,0.35);margin-top:36px;padding-top:26px">
-      <p style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px">Zones d'intervention</p>
-      <div style="display:flex;flex-wrap:wrap;gap:7px 14px">
-        <a href="paris.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Paris</a>
-        <a href="sarcelles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sarcelles</a>
-        <a href="argenteuil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Argenteuil</a>
-        <a href="cergy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Cergy</a>
-        <a href="pontoise.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Pontoise</a>
-        <a href="roissy-en-france.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Roissy-en-France</a>
-        <a href="garges-les-gonesse.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Garges-lès-Gonesse</a>
-        <a href="villiers-le-bel.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Villiers-le-Bel</a>
-        <a href="arnouville.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Arnouville</a>
-        <a href="gonesse.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Gonesse</a>
-        <a href="saint-brice-sous-foret.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Brice-sous-Forêt</a>
-        <a href="montmorency.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Montmorency</a>
-        <a href="enghien-les-bains.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Enghien-les-Bains</a>
-        <a href="eaubonne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Eaubonne</a>
-        <a href="ermont.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Ermont</a>
-        <a href="franconville.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Franconville</a>
-        <a href="herblay-sur-seine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Herblay-sur-Seine</a>
-        <a href="taverny.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Taverny</a>
-        <a href="saint-leu-la-foret.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Leu-la-Forêt</a>
-        <a href="domont.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Domont</a>
-        <a href="lisle-adam.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">L'Isle-Adam</a>
-        <a href="cormeilles-en-parisis.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Cormeilles-en-Parisis</a>
-        <a href="sannois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sannois</a>
-        <a href="saint-ouen-laumone.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Ouen-l'Aumône</a>
-        <a href="deuil-la-barre.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Deuil-la-Barre</a>
-        <a href="soisy-sous-montmorency.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Soisy-sous-Montmorency</a>
-        <a href="nanterre.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Nanterre</a>
-        <a href="rueil-malmaison.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Rueil-Malmaison</a>
-        <a href="colombes.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Colombes</a>
-        <a href="courbevoie.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Courbevoie</a>
-        <a href="asnieres-sur-seine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Asnières-sur-Seine</a>
-        <a href="versailles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Versailles</a>
-        <a href="saint-germain-en-laye.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Germain-en-Laye</a>
-        <a href="poissy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Poissy</a>
-        <a href="sartrouville.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sartrouville</a>
-        <a href="conflans-sainte-honorine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Conflans-Sainte-Honorine</a>
-        <a href="houilles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Houilles</a>
-        <a href="chatou.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Chatou</a>
-        <a href="maisons-laffitte.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Maisons-Laffitte</a>
-        <a href="montigny-le-bretonneux.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Montigny-le-Bretonneux</a>
-        <a href="mantes-la-jolie.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Mantes-la-Jolie</a>
-        <a href="creteil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Créteil</a>
-        <a href="saint-maur-des-fosses.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Saint-Maur-des-Fossés</a>
-        <a href="vincennes.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Vincennes</a>
-        <a href="nogent-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Nogent-sur-Marne</a>
-        <a href="champigny-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Champigny-sur-Marne</a>
-        <a href="maisons-alfort.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Maisons-Alfort</a>
-        <a href="fontenay-sous-bois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Fontenay-sous-Bois</a>
-        <a href="le-perreux-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Le Perreux-sur-Marne</a>
-        <a href="vitry-sur-seine.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Vitry-sur-Seine</a>
-        <a href="villejuif.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Villejuif</a>
-        <a href="montreuil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Montreuil</a>
-        <a href="aulnay-sous-bois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Aulnay-sous-Bois</a>
-        <a href="le-blanc-mesnil.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Le Blanc-Mesnil</a>
-        <a href="noisy-le-grand.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Noisy-le-Grand</a>
-        <a href="bondy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Bondy</a>
-        <a href="sevran.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Sevran</a>
-        <a href="livry-gargan.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Livry-Gargan</a>
-        <a href="rosny-sous-bois.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Rosny-sous-Bois</a>
-        <a href="gagny.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Gagny</a>
-        <a href="le-raincy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Le Raincy</a>
-        <a href="meaux.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Meaux</a>
-        <a href="chelles.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Chelles</a>
-        <a href="melun.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Melun</a>
-        <a href="pontault-combault.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Pontault-Combault</a>
-        <a href="champs-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Champs-sur-Marne</a>
-        <a href="torcy.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Torcy</a>
-        <a href="bussy-saint-georges.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Bussy-Saint-Georges</a>
-        <a href="lagny-sur-marne.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Lagny-sur-Marne</a>
-        <a href="savigny-le-temple.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Savigny-le-Temple</a>
-        <a href="villeparisis.html" style="font-size:13px;color:var(--ink-soft);transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--ink-soft)'">Villeparisis</a>
-      </div>
-    </div>
-    <div class="foot-copy"><p>© 2026 IRV'OHM — Solutions de recharge électrique. Tous droits réservés.</p></div>
-  </div>
+<div class="max-w px-page">
+<div class="footer-grid reveal-stagger">
+<div>
+<div class="footer-logo">IRV'OHM</div>
+<p class="footer-desc">Expert en solutions de recharge électrique pour un avenir durable.</p>
+</div>
+<div>
+<h4 class="footer-title">Services</h4>
+<nav class="footer-nav" aria-label="Services">
+<a href="/particulier.html">Installation Bornes</a>
+<a href="#">Maintenance</a>
+<a href="#">Audit Énergétique</a>
+</nav>
+</div>
+<div>
+<h4 class="footer-title">Liens Utiles</h4>
+<nav class="footer-nav" aria-label="Liens utiles">
+<a href="#">Mentions Légales</a>
+<a href="#">Confidentialité</a>
+<a href="#">FAQ</a>
+</nav>
+</div>
+<div>
+<h4 class="footer-title">Contact</h4>
+<address class="footer-contact" style="font-style:normal;">
+<p><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> 95200 Sarcelles, France</p>
+<p><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> contact@irvohm.fr</p>
+<p><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Lun - Ven : 09h - 18h</p>
+</address>
+</div>
+</div>
+<div class="footer-copy"><p>© 2026 IRV'OHM – Solutions de Recharge Électrique. Tous droits réservés.</p></div>
+</div>
 </footer>
 
-<script>
-  (function(){ var h=document.getElementById('hdr'); var bar=document.getElementById('scrollbar'); var d=document.documentElement; var on=function(){ h.classList.toggle('scrolled', window.scrollY>8); if(bar){ var max=(d.scrollHeight-d.clientHeight)||1; bar.style.width=(Math.min(window.scrollY/max,1)*100)+'%'; } }; window.addEventListener('scroll',on,{passive:true}); window.addEventListener('resize',on,{passive:true}); on(); })();
-
-  (function(){
-    var els=document.querySelectorAll('.reveal,.stagger'); if(!els.length) return;
-    if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){ els.forEach(function(e){e.classList.add('in');}); return; }
-    var io=new IntersectionObserver(function(en,o){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); o.unobserve(x.target);} }); },{threshold:0.14,rootMargin:'0px 0px -40px 0px'});
-    els.forEach(function(e){ io.observe(e); });
-  })();
-
-  (function(){
-    var stats=document.querySelectorAll('.v[data-target]'); if(!stats.length) return;
-    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function run(el){
-      var t=parseFloat(el.getAttribute('data-target')), suf=el.getAttribute('data-suffix')||'';
-      if(reduce){ el.textContent=t+suf; return; }
-      var dur=1400, start=null;
-      function step(ts){ if(start===null)start=ts; var p=Math.min((ts-start)/dur,1); var e=1-Math.pow(1-p,3); el.textContent=Math.round(t*e)+suf; if(p<1) requestAnimationFrame(step); else el.textContent=t+suf; }
-      requestAnimationFrame(step);
-    }
-    if(!('IntersectionObserver' in window)){ stats.forEach(run); return; }
-    var io=new IntersectionObserver(function(en,o){ en.forEach(function(x){ if(x.isIntersecting){ run(x.target); o.unobserve(x.target);} }); },{threshold:0.4});
-    stats.forEach(function(e){ io.observe(e); });
-  })();
-
-  (function(){
-    var ov=document.getElementById('mob-ov');
-    var btn=document.getElementById('menu-btn');
-    var close=document.getElementById('mob-close');
-    function open(){ ov.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-    function shut(){ ov.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-    btn.addEventListener('click', open);
-    close.addEventListener('click', shut);
-    ov.addEventListener('click', function(e){ if(e.target===ov) shut(); });
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape') shut(); });
-  })();
-</script>
+<!-- ✅ GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
 <script>
-(function(){
-
-  function stars(n){
-    var s=''; for(var i=1;i<=5;i++) s += i<=Math.round(n)?'★':'☆'; return s;
-  }
-  function ago(ts){
-    var d=Math.floor((Date.now()/1000-ts)/86400);
-    if(d===0) return "Aujourd'hui";
-    if(d===1) return 'Hier';
-    if(d<30)  return 'Il y a '+d+' jours';
-    if(d<365) return 'Il y a '+Math.floor(d/30)+' mois';
-    var y=Math.floor(d/365); return 'Il y a '+y+' an'+(y>1?'s':'');
-  }
-  function render(data){
-    var grid=document.getElementById('rev-grid');
-    var globalEl=document.getElementById('rev-global');
-    if(!data.result){ grid.innerHTML='<p style="text-align:center;color:var(--muted);padding:32px">Impossible de charger les avis.</p>'; return; }
-    var p=data.result;
-    if(p.rating && p.user_ratings_total){
-      document.getElementById('rev-score').textContent=p.rating.toFixed(1);
-      document.getElementById('rev-stars').textContent=stars(p.rating);
-      document.getElementById('rev-count').textContent=p.user_ratings_total+' avis';
-      globalEl.style.display='inline-flex';
-    }
-    var revs=(p.reviews||[]).filter(function(r){return r.rating>=4;}).slice(0,3);
-    if(!revs.length){ grid.innerHTML='<p style="text-align:center;color:var(--muted);padding:32px">Soyez le premier à laisser un avis !</p>'; return; }
-    var googleSVG='<svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>';
-    grid.innerHTML=revs.map(function(r){
-      var init=r.author_name?r.author_name[0].toUpperCase():'?';
-      var av=r.profile_photo_url
-        ?'<img src="'+r.profile_photo_url+'" alt="'+r.author_name+'" class="rev-avatar" loading="lazy" width="44" height="44"/>'
-        :'<div class="rev-avatar-ph" aria-hidden="true">'+init+'</div>';
-      return '<article class="rev-card" itemscope itemtype="https://schema.org/Review">'
-        +'<div class="rev-head">'+av+'<div><div class="rev-name" itemprop="author">'+r.author_name+'</div><div class="rev-date">'+ago(r.time)+'</div></div></div>'
-        +'<div class="rev-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="'+r.rating+'"/>'+stars(r.rating)+'</div>'
-        +'<p class="rev-text" itemprop="reviewBody">'+(r.text||'')+'</p>'
-        +'<div class="rev-source">'+googleSVG+' Avis Google vérifié</div>'
-        +'</article>';
-    }).join('');
-  }
-  fetch('/api/reviews')
-    .then(function(r){return r.json();})
-    .then(render)
-    .catch(function(){
-      document.getElementById('rev-grid').innerHTML='<p style="text-align:center;color:var(--muted);padding:32px">Avis temporairement indisponibles.</p>';
-    });
+// Header shadow on scroll
+(function () {
+var header = document.getElementById('site-header');
+if (!header) return;
+var onScroll = function () {
+header.classList.toggle('scrolled', window.scrollY > 8);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 })();
+
+// Attend que GSAP soit chargé (scripts en defer) avant de lancer les animations
+window.addEventListener('DOMContentLoaded', function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initAnimations() {
+    if (typeof gsap === 'undefined') {
+      // Fallback si GSAP n'a pas pu charger (ex: bloqueur de script) : tout afficher
+      document.querySelectorAll('.reveal, .reveal-stagger > *, .hero-fade').forEach(function (el) {
+        el.style.opacity = 1;
+      });
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (reduceMotion) {
+      document.querySelectorAll('.reveal, .reveal-stagger > *, .hero-fade').forEach(function (el) {
+        el.style.opacity = 1;
+      });
+      document.querySelectorAll('.stat-val[data-target]').forEach(function (el) {
+        el.textContent = el.getAttribute('data-target') + (el.getAttribute('data-suffix') || '');
+      });
+      return;
+    }
+
+    // Hero : timeline d'entrée
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .to('.hero-logo', { opacity: 1, y: 0, duration: 0.7 }, 0)
+      .fromTo('.hero h1', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 }, 0.15)
+      .fromTo('.hero-desc', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0.25)
+      .fromTo('.hero-actions', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0.35)
+      .fromTo('.hero-social-proof', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.45)
+      .fromTo('.hero-img-wrap', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9 }, 0.2);
+
+    // Reveal simple au scroll
+    gsap.utils.toArray('.reveal').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 28 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+
+    // Reveal en cascade pour les grilles
+    gsap.utils.toArray('.reveal-stagger').forEach(function (group) {
+      gsap.fromTo(group.children, { opacity: 0, y: 28 }, {
+        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1,
+        scrollTrigger: { trigger: group, start: 'top 85%' }
+      });
+    });
+
+    // Compteurs animés
+    gsap.utils.toArray('.stat-val[data-target]').forEach(function (el) {
+      var target = parseFloat(el.getAttribute('data-target'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      var obj = { val: 0 };
+      gsap.to(obj, {
+        val: target, duration: 1.4, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' },
+        onUpdate: function () { el.textContent = Math.round(obj.val) + suffix; }
+      });
+    });
+
+    // Léger parallax sur l'image hero (desktop uniquement)
+    if (window.innerWidth > 768) {
+      gsap.to('.hero-img-card img', {
+        yPercent: 8, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+      });
+    }
+  }
+
+  // Les scripts GSAP sont en defer : on vérifie régulièrement qu'ils sont prêts
+  if (typeof gsap !== 'undefined') {
+    initAnimations();
+  } else {
+    window.addEventListener('load', initAnimations);
+  }
+});
 </script>
 </body>
 </html>
