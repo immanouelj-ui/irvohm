@@ -15,7 +15,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://www.irvohm.fr/borne-recharge.webp"/>
 
-<link rel="preload" as="image" href="borne-recharge.webp" fetchpriority="high"/>
+<link rel="preload" as="image" href="hero-torcy.webp" fetchpriority="high"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
@@ -78,6 +78,21 @@
   .hero { position:relative; overflow:hidden; padding-top:60px; padding-bottom:72px; }
   .hero-omega { position:absolute; top:-90px; right:-120px; width:520px; height:520px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
   @keyframes spin { to{ transform:rotate(360deg);} }
+  .hero.has-photo { background-size:cover; background-position:center; }
+  .hero-photo-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,34,26,0.5) 0%, rgba(7,34,26,0.86) 100%); }
+  .hero-credit { position:absolute; right:16px; bottom:8px; z-index:2; font-size:11px; color:rgba(255,255,255,0.55); }
+  .hero-credit a { color:rgba(255,255,255,0.75); }
+  .breadcrumb-current { color:var(--ink); font-weight:500; }
+  .hero.has-photo .breadcrumb { color:rgba(255,255,255,0.7); }
+  .hero.has-photo .breadcrumb a { color:var(--emerald); }
+  .hero.has-photo .breadcrumb-current { color:#fff; }
+  .hero.has-photo .eyebrow { color:var(--emerald); }
+  .hero.has-photo h1 { color:#fff; }
+  .hero.has-photo .hero-desc { color:rgba(255,255,255,0.88); }
+  .hero.has-photo .btn-ghost { color:#fff; border-color:rgba(255,255,255,0.5); }
+  .hero.has-photo .btn-ghost:hover { background:rgba(255,255,255,0.14); }
+  .hero.has-photo .proof-txt { color:rgba(255,255,255,0.85); }
+  .hero.has-photo .proof-txt strong { color:var(--emerald); }
   .breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:6px; list-style:none; font-size:13px; color:var(--muted); margin-bottom:22px; }
   .breadcrumb a { color:var(--green); font-weight:500; transition:opacity .2s; }
   .breadcrumb a:hover { opacity:.75; }
@@ -314,7 +329,8 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero has-photo" style="background-image:url('hero-torcy.webp')">
+    <div class="hero-photo-overlay" aria-hidden="true"></div>
     <svg class="hero-omega" aria-hidden="true"><use href="#i-omega"/></svg>
     <div class="wrap" style="position:relative;z-index:1">
       <nav aria-label="Fil d'Ariane">
@@ -323,7 +339,7 @@
           <li aria-hidden="true">›</li>
           <li>Zones d'intervention</li>
           <li aria-hidden="true">›</li>
-          <li style="color:var(--ink);font-weight:500">Torcy</li>
+          <li class="breadcrumb-current">Torcy</li>
         </ol>
       </nav>
       <div style="max-width:700px">
@@ -340,6 +356,7 @@
         </div>
       </div>
     </div>
+      <p class="hero-credit">Photo : Griolin (<a href="https://commons.wikimedia.org/wiki/File:L%27%C3%A9glise_Saint-Barth%C3%A9l%C3%A9my_de_Torcy_b%C3%A2tie_en_1863.JPG" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>)</p>
   </section>
 
   <!-- LOCAL -->
