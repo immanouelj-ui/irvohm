@@ -513,26 +513,25 @@ if (window.innerWidth >= 768) closeMenu();
 window.addEventListener('DOMContentLoaded', function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function showEverything() {
+    // Filet de sécurité : si GSAP/ScrollTrigger n'ont pas pu charger (bloqueur de script,
+    // CDN indisponible, erreur imprévue) ou si l'utilisateur préfère un mouvement réduit,
+    // on affiche tout immédiatement plutôt que de laisser le contenu invisible (opacity:0).
+    document.querySelectorAll('.reveal, .reveal-stagger > *, .hero-fade').forEach(function (el) {
+      el.style.opacity = 1;
+    });
+    document.querySelectorAll('.stat-val[data-target]').forEach(function (el) {
+      el.textContent = el.getAttribute('data-target') + (el.getAttribute('data-suffix') || '');
+    });
+  }
+
   function initAnimations() {
-    if (typeof gsap === 'undefined') {
-      // Fallback si GSAP n'a pas pu charger (ex: bloqueur de script) : tout afficher
-      document.querySelectorAll('.reveal, .reveal-stagger > *, .hero-fade').forEach(function (el) {
-        el.style.opacity = 1;
-      });
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || reduceMotion) {
+      showEverything();
       return;
     }
 
     gsap.registerPlugin(ScrollTrigger);
-
-    if (reduceMotion) {
-      document.querySelectorAll('.reveal, .reveal-stagger > *, .hero-fade').forEach(function (el) {
-        el.style.opacity = 1;
-      });
-      document.querySelectorAll('.stat-val[data-target]').forEach(function (el) {
-        el.textContent = el.getAttribute('data-target') + (el.getAttribute('data-suffix') || '');
-      });
-      return;
-    }
 
     // Hero : timeline d'entrée
     gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -580,11 +579,20 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Les scripts GSAP sont en defer : on vérifie régulièrement qu'ils sont prêts
-  if (typeof gsap !== 'undefined') {
-    initAnimations();
+  function safeInit() {
+    try {
+      initAnimations();
+    } catch (e) {
+      showEverything();
+    }
+  }
+
+  // Les scripts GSAP sont en defer : on attend qu'ils soient prêts (ou le load complet en
+  // dernier recours, au cas où l'un des deux scripts CDN échoue silencieusement).
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    safeInit();
   } else {
-    window.addEventListener('load', initAnimations);
+    window.addEventListener('load', safeInit);
   }
 });
 </script>
