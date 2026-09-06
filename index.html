@@ -99,15 +99,14 @@ background: linear-gradient(135deg,#006d37,#006397); transition: right .25s cubi
 @media (min-width:768px){ .btn-menu{ display:none; } }
 
 /* Hero */
-.hero { position:relative; overflow:hidden; background:var(--surface); }
-.hero-bg-icon { position:absolute; top:-60px; right:-60px; opacity:0.03; pointer-events:none; color:var(--primary); }
-.hero-grid { display:grid; grid-template-columns:1fr; gap:80px; align-items:center; position:relative; z-index:1; }
-@media (min-width:768px){ .hero-grid{ grid-template-columns:1fr 1fr; } }
-.hero-logo { width:256px; height:auto; }
-@media (min-width:768px){ .hero-logo{ width:320px; } }
-.hero h1 { font-family:var(--display); font-size:32px; font-weight:700; line-height:1.2; color:var(--on-surface); margin-top:24px; }
+.hero { position:relative; overflow:hidden; min-height:640px; display:flex; align-items:center; padding-block:120px 80px;
+background-image: url('borne-recharge.webp'); background-size:cover; background-position:center; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,20,15,0.62) 0%, rgba(8,20,15,0.8) 100%); z-index:0; }
+.hero-content { position:relative; z-index:1; max-width:640px; }
+.hero-logo { display:block; margin-bottom:24px; }
+.hero h1 { font-family:var(--display); font-size:32px; font-weight:700; line-height:1.2; color:#fff; margin-top:24px; }
 @media (min-width:768px){ .hero h1{ font-size:48px; letter-spacing:-0.02em; line-height:1.1; } }
-.hero-desc { font-size:18px; line-height:1.6; color:var(--on-surface-variant); max-width:32rem; margin-top:24px; }
+.hero-desc { font-size:18px; line-height:1.6; color:rgba(255,255,255,0.85); max-width:32rem; margin-top:24px; }
 .hero-actions { display:flex; flex-direction:column; gap:24px; margin-top:32px; }
 @media (min-width:640px){ .hero-actions{ flex-direction:row; } }
 .btn-hero { display:inline-flex; align-items:center; gap:8px; padding:12px 40px; border-radius:12px; font-family:var(--display); font-size:24px; font-weight:600; transition: transform .2s ease, box-shadow .2s ease; }
@@ -115,26 +114,20 @@ background: linear-gradient(135deg,#006d37,#006397); transition: right .25s cubi
 .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,109,55,0.35); }
 .btn-hero-primary .ic { transition: transform .25s ease; }
 .btn-hero-primary:hover .ic { transform: translateX(4px); }
-.btn-outline-secondary { display:inline-flex; align-items:center; justify-content:center; padding:12px 40px; border-radius:12px; border:2px solid var(--secondary); color:var(--secondary); font-family:var(--display); font-size:24px; font-weight:600; transition:background .2s, transform .2s; }
-.btn-outline-secondary:hover { background:rgba(92,184,253,0.1); transform: translateY(-3px); }
-.hero-social-proof { display:flex; align-items:center; gap:24px; margin-top:24px; }
+.btn-outline-secondary { display:inline-flex; align-items:center; justify-content:center; padding:12px 40px; border-radius:12px; border:2px solid #5cb8fd; color:#5cb8fd; font-family:var(--display); font-size:24px; font-weight:600; transition:background .2s, transform .2s; }
+.btn-outline-secondary:hover { background:rgba(92,184,253,0.15); transform: translateY(-3px); }
+.hero-bottom-row { display:flex; flex-wrap:wrap; align-items:center; gap:24px; margin-top:40px; }
+.hero-social-proof { display:flex; align-items:center; gap:16px; }
 .avatar-stack { display:flex; }
 .avatar-stack img { width:40px; height:40px; border-radius:9999px; border:2px solid #fff; object-fit:cover; margin-left:-12px; transition: transform .2s ease; }
 .avatar-stack img:first-child { margin-left:0; }
 .avatar-stack:hover img { transform: translateY(-4px); }
 .avatar-stack:hover img:nth-child(2) { transition-delay: .04s; }
 .avatar-stack:hover img:nth-child(3) { transition-delay: .08s; }
-.proof-label { font-size:12px; font-weight:600; color:var(--on-surface-variant); line-height:1.2; }
-.proof-label strong { color:var(--primary); }
-.hero-img-wrap { position:relative; }
-.hero-img-glow { position:absolute; inset:-16px; background:linear-gradient(135deg,#006d37,#006397); border-radius:32px; opacity:.1; filter:blur(32px); transition:opacity .3s; }
-.hero-img-wrap:hover .hero-img-glow { opacity:.2; }
-.hero-img-card { position:relative; background:#fff; padding:8px; border-radius:32px; border:1px solid rgba(187,203,187,0.3); box-shadow:0 20px 60px rgba(0,0,0,0.12); overflow:hidden; transition: transform .4s cubic-bezier(0.16,1,0.3,1); }
-.hero-img-wrap:hover .hero-img-card { transform: translateY(-6px); }
-.hero-img-card img { width:100%; height:500px; object-fit:cover; border-radius:24px; transition: transform .6s cubic-bezier(0.16,1,0.3,1); }
-.hero-img-wrap:hover .hero-img-card img { transform: scale(1.04); }
-.hero-badge { position:absolute; bottom:24px; right:24px; left:24px; padding:16px; border-radius:12px; display:flex; align-items:center; justify-content:space-between; }
-.badge-label { font-size:12px; color:var(--on-surface-variant); margin-bottom:4px; }
+.proof-label { font-size:12px; font-weight:600; color:rgba(255,255,255,0.75); line-height:1.2; }
+.proof-label strong { color:#7cffb2; }
+.hero-badge { padding:12px 16px; border-radius:12px; display:flex; align-items:center; gap:16px; }
+.badge-label { font-size:12px; color:var(--on-surface-variant); margin-bottom:2px; }
 .badge-status { display:flex; align-items:center; gap:4px; }
 .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--primary); animation:pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
@@ -283,17 +276,26 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 
 <main>
 <section class="hero py-xl">
-<svg class="hero-bg-icon" width="380" height="380" aria-hidden="true"><use href="#i-car"/></svg>
-<div class="max-w px-page hero-grid">
-<div>
-<img src="logo-irvohm.webp" alt="Logo IRV'OHM, installateur de bornes de recharge" class="hero-logo hero-fade" width="320" height="120"/>
+<div class="hero-overlay" aria-hidden="true"></div>
+<div class="max-w px-page hero-content">
+<svg class="hero-logo hero-fade" width="220" height="52" viewBox="0 0 260 60" role="img" aria-label="Logo IRV'OHM">
+<defs>
+<linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#2ecc71"/>
+<stop offset="100%" stop-color="#5cb8fd"/>
+</linearGradient>
+</defs>
+<path d="M20 6 L36 6 L25 27 L37 27 L15 54 L22 30 L10 30 Z" fill="url(#logoGrad)"/>
+<text x="48" y="41" font-family="Montserrat, sans-serif" font-size="30" font-weight="700" fill="#ffffff">IRV'OHM</text>
+</svg>
 <h1 class="hero-fade">Rechargez l'avenir,<br/><span class="text-gradient-brand">simplement chez vous.</span></h1>
 <p class="hero-desc hero-fade">Installation de bornes de recharge intelligentes pour véhicules électriques. Profitez d'une recharge rapide, sécurisée et éco-responsable.</p>
 <div class="hero-actions hero-fade">
 <a href="/devis.html" class="btn-hero btn-hero-primary gradient-brand">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 <a href="/particulier.html" class="btn-outline-secondary">Nos solutions</a>
 </div>
-<div class="hero-social-proof hero-fade">
+<div class="hero-bottom-row hero-fade">
+<div class="hero-social-proof">
 <div class="avatar-stack">
 <img src="client-1.webp" alt="Client IRV'OHM satisfait" loading="lazy" decoding="async" width="40" height="40"/>
 <img src="client-2.webp" alt="Client IRV'OHM satisfait" loading="lazy" decoding="async" width="40" height="40"/>
@@ -301,11 +303,6 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 </div>
 <p class="proof-label"><strong>+500 installations</strong><br/>réalisées avec succès</p>
 </div>
-</div>
-<div class="hero-img-wrap hero-fade">
-<div class="hero-img-glow" aria-hidden="true"></div>
-<div class="hero-img-card">
-<img src="borne-recharge.webp" alt="Borne de recharge pour véhicule électrique installée par IRV'OHM" fetchpriority="high" width="800" height="500"/>
 <div class="hero-badge glass-card">
 <div>
 <p class="badge-label">Disponibilité</p>
@@ -315,8 +312,8 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 </div>
 </div>
 </div>
-</div>
 </section>
+
 
 <section class="advantages py-xl" aria-labelledby="avantages-title">
 <div class="max-w px-page">
@@ -406,7 +403,7 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <div>
 <h4 class="footer-title">Services</h4>
 <nav class="footer-nav" aria-label="Services">
-<a href="/particulier.html">Installation Bornes</a>
+<a href="/particulier">Installation Bornes</a>
 <a href="#">Maintenance</a>
 <a href="#">Audit Énergétique</a>
 </nav>
@@ -479,8 +476,7 @@ window.addEventListener('DOMContentLoaded', function () {
       .fromTo('.hero h1', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 }, 0.15)
       .fromTo('.hero-desc', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0.25)
       .fromTo('.hero-actions', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0.35)
-      .fromTo('.hero-social-proof', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.45)
-      .fromTo('.hero-img-wrap', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9 }, 0.2);
+      .fromTo('.hero-bottom-row', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.45);
 
     // Reveal simple au scroll
     gsap.utils.toArray('.reveal').forEach(function (el) {
@@ -510,10 +506,11 @@ window.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // Léger parallax sur l'image hero (desktop uniquement)
+    // Léger parallax sur la photo de fond du hero (desktop uniquement)
     if (window.innerWidth > 768) {
-      gsap.to('.hero-img-card img', {
-        yPercent: 8, ease: 'none',
+      gsap.set('.hero', { backgroundPosition: '50% 0%' });
+      gsap.to('.hero', {
+        backgroundPositionY: '30%', ease: 'none',
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
       });
     }
