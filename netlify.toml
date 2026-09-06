@@ -13,3 +13,11 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+# ✅ SEO : consolide les signaux sur un seul domaine canonique (www),
+# cohérent avec sitemap.xml, robots.txt et les balises canonical de toutes les pages.
+[[redirects]]
+  from = "https://irvohm.fr/*"
+  to = "https://www.irvohm.fr/:splat"
+  status = 301
+  force = true

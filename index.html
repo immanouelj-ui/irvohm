@@ -7,17 +7,18 @@
 <title>IRV'OHM – Installation Borne de Recharge IRVE | Sarcelles & Île-de-France</title>
 <meta name="description" content="IRV'OHM installe vos bornes de recharge pour véhicules électriques. Particuliers et entreprises. Certifiés IRVE, devis gratuit sous 48h. Sarcelles et Île-de-France."/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://irvohm.fr/"/>
+<link rel="canonical" href="https://www.irvohm.fr/"/>
 <meta property="og:title" content="IRV'OHM – Installation Borne de Recharge IRVE"/>
 <meta property="og:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
-<meta property="og:url" content="https://irvohm.fr/"/>
+<meta property="og:url" content="https://www.irvohm.fr/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:image" content="https://irvohm.fr/borne-recharge.webp"/>
+<meta property="og:site_name" content="IRV'OHM"/>
+<meta property="og:image" content="https://www.irvohm.fr/borne-recharge.webp"/>
 <meta property="og:locale" content="fr_FR"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="IRV'OHM – Installation Borne de Recharge IRVE"/>
 <meta name="twitter:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
-<meta name="twitter:image" content="https://irvohm.fr/borne-recharge.webp"/>
+<meta name="twitter:image" content="https://www.irvohm.fr/borne-recharge.webp"/>
 
 <!-- ✅ PERF : preload de l'image LCP -->
 <link rel="preload" as="image" href="borne-recharge.webp" fetchpriority="high"/>
@@ -67,6 +68,8 @@ a { text-decoration: none; color: inherit; }
 0%, 100% { transform: translate(0, 0) rotate(0deg); }
 50% { transform: translate(-12px, -16px) rotate(2deg); }
 }
+.hero-bg-icon { position:absolute; top:8%; right:4%; opacity:.12; color:#fff; z-index:0; display:none; }
+@media (min-width:640px){ .hero-bg-icon{ display:block; } }
 @media (prefers-reduced-motion: no-preference) {
 .hero-bg-icon { animation: floatSlow 14s ease-in-out infinite; }
 }
@@ -97,6 +100,16 @@ background: linear-gradient(135deg,#006d37,#006397); transition: right .25s cubi
 .btn-menu { background:none; border:none; cursor:pointer; color:var(--on-surface); font-size:24px; display:flex; transition: transform .2s; }
 .btn-menu:active { transform: scale(0.9); }
 @media (min-width:768px){ .btn-menu{ display:none; } }
+.mobile-menu { position:fixed; top:80px; left:0; right:0; bottom:0; background:var(--surface); z-index:49;
+opacity:0; visibility:hidden; transform:translateY(-8px);
+transition: opacity .25s ease, transform .25s ease, visibility 0s linear .25s; overflow-y:auto; }
+.mobile-menu.open { opacity:1; visibility:visible; transform:translateY(0); transition: opacity .25s ease, transform .25s ease; }
+@media (min-width:768px){ .mobile-menu{ display:none; } }
+body.menu-open { overflow:hidden; }
+.mobile-menu-nav { display:flex; flex-direction:column; padding:8px 24px 32px; }
+.mobile-menu-link { padding:18px 4px; font-size:18px; font-weight:600; color:var(--on-surface); border-bottom:1px solid rgba(187,203,187,0.3); display:flex; align-items:center; gap:10px; transition: color .2s ease, padding-left .2s ease; }
+.mobile-menu-link:hover { color:var(--primary); padding-left:8px; }
+.mobile-menu-tel { color:var(--primary); }
 
 /* Hero */
 .hero { position:relative; overflow:hidden; min-height:640px; display:flex; align-items:center; padding-block:120px 80px;
@@ -166,8 +179,8 @@ background-image: url('borne-recharge.webp'); background-size:cover; background-
 .service-content { position:absolute; bottom:0; left:0; padding:48px; color:#fff; max-width:28rem; }
 .service-tag { display:inline-block; padding:4px 12px; border-radius:9999px; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); font-size:12px; font-weight:600; margin-bottom:8px; transition: transform .3s cubic-bezier(0.16,1,0.3,1); }
 .service-card:hover .service-tag { transform: translateY(-4px); }
-.service-content h2 { font-family:var(--display); font-size:32px; font-weight:600; margin-bottom:12px; transition: transform .35s cubic-bezier(0.16,1,0.3,1); transition-delay: .03s; }
-.service-card:hover .service-content h2 { transform: translateY(-4px); }
+.service-content h3 { font-family:var(--display); font-size:32px; font-weight:600; margin-bottom:12px; transition: transform .35s cubic-bezier(0.16,1,0.3,1); transition-delay: .03s; }
+.service-card:hover .service-content h3 { transform: translateY(-4px); }
 .service-content p { font-size:16px; color:rgba(255,255,255,0.8); margin-bottom:24px; }
 .service-link { display:inline-flex; align-items:center; gap:4px; font-size:14px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; transition:color .2s, gap .2s; }
 .service-link:hover { gap: 10px; }
@@ -220,7 +233,8 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <!-- ✅ SEO : LocalBusiness enrichi (geo + zone de service) -->
 <script type="application/ld+json">
 {
-"@context":"https://schema.org","@type":"LocalBusiness","name":"IRV'OHM","url":"https://irvohm.fr",
+"@context":"https://schema.org","@type":["LocalBusiness","Electrician"],"name":"IRV'OHM","url":"https://www.irvohm.fr/",
+"image":"https://www.irvohm.fr/borne-recharge.webp",
 "telephone":"+33651078828","email":"contact@irvohm.fr",
 "address":{"@type":"PostalAddress","addressLocality":"Sarcelles","postalCode":"95200","addressRegion":"Île-de-France","addressCountry":"FR"},
 "geo":{"@type":"GeoCoordinates","latitude":48.9959,"longitude":2.3781},
@@ -234,7 +248,7 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <script type="application/ld+json">
 {
 "@context":"https://schema.org","@type":"BreadcrumbList",
-"itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://irvohm.fr/"}]
+"itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.irvohm.fr/"}]
 }
 </script>
 </head>
@@ -254,6 +268,7 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
 <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 0 1 2.8 2.8L12 14.5 8 15.5l1-4z"/></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
 </svg>
 
 <header class="header" id="site-header">
@@ -267,16 +282,27 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 </nav>
 <div style="display:flex;align-items:center;gap:12px;">
 <a href="/devis.html" class="btn-primary gradient-brand">Devis Gratuit</a>
-<button class="btn-menu" aria-label="Ouvrir le menu" aria-expanded="false">
-<svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
+<button class="btn-menu" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+<svg class="ic" id="menu-toggle-icon" aria-hidden="true"><use href="#i-menu"/></svg>
 </button>
 </div>
 </div>
 </header>
 
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+<nav class="mobile-menu-nav" aria-label="Navigation mobile">
+<a class="mobile-menu-link" href="/">Accueil</a>
+<a class="mobile-menu-link" href="/particulier.html">Particuliers</a>
+<a class="mobile-menu-link" href="/entreprise.html">Entreprises</a>
+<a class="mobile-menu-link" href="/devis.html">Devis</a>
+<a class="mobile-menu-link mobile-menu-tel" href="tel:+33651078828"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 06 51 07 88 28</a>
+</nav>
+</div>
+
 <main>
 <section class="hero py-xl">
 <div class="hero-overlay" aria-hidden="true"></div>
+<svg class="hero-bg-icon" width="220" height="220" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bolt"/></svg>
 <div class="max-w px-page hero-content">
 <svg class="hero-logo hero-fade" width="220" height="52" viewBox="0 0 260 60" role="img" aria-label="Logo IRV'OHM">
 <defs>
@@ -348,7 +374,7 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <div class="service-overlay-1" aria-hidden="true"></div>
 <div class="service-content">
 <span class="service-tag">Habitat Individuel</span>
-<h2>Pour les Particuliers</h2>
+<h3>Pour les Particuliers</h3>
 <p>Rechargez votre véhicule en toute sérénité depuis votre garage ou votre place de parking privée. Solutions clé en main incluant conseil, matériel et installation.</p>
 <a href="/particulier.html" class="service-link service-link-1">Découvrir l'offre <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
 </div>
@@ -358,7 +384,7 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <div class="service-overlay-2" aria-hidden="true"></div>
 <div class="service-content">
 <span class="service-tag">Tertiaire &amp; Flottes</span>
-<h2>Pour les Entreprises</h2>
+<h3>Pour les Entreprises</h3>
 <p>Valorisez vos parkings, proposez un service à vos clients et électrifiez votre flotte de véhicules.</p>
 <a href="/entreprise.html" class="service-link service-link-2">Solutions business <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
 </div>
@@ -443,6 +469,44 @@ header.classList.toggle('scrolled', window.scrollY > 8);
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
+})();
+
+// Menu mobile
+(function () {
+var btn = document.getElementById('menu-toggle');
+var icon = document.getElementById('menu-toggle-icon');
+var menu = document.getElementById('mobile-menu');
+if (!btn || !menu) return;
+
+function closeMenu() {
+menu.classList.remove('open');
+menu.setAttribute('aria-hidden', 'true');
+btn.setAttribute('aria-expanded', 'false');
+btn.setAttribute('aria-label', 'Ouvrir le menu');
+document.body.classList.remove('menu-open');
+if (icon) icon.querySelector('use').setAttribute('href', '#i-menu');
+}
+function openMenu() {
+menu.classList.add('open');
+menu.setAttribute('aria-hidden', 'false');
+btn.setAttribute('aria-expanded', 'true');
+btn.setAttribute('aria-label', 'Fermer le menu');
+document.body.classList.add('menu-open');
+if (icon) icon.querySelector('use').setAttribute('href', '#i-close');
+}
+
+btn.addEventListener('click', function () {
+menu.classList.contains('open') ? closeMenu() : openMenu();
+});
+menu.querySelectorAll('a').forEach(function (a) {
+a.addEventListener('click', closeMenu);
+});
+document.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') closeMenu();
+});
+window.addEventListener('resize', function () {
+if (window.innerWidth >= 768) closeMenu();
+});
 })();
 
 // Attend que GSAP soit chargé (scripts en defer) avant de lancer les animations
