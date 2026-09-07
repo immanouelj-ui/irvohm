@@ -29,6 +29,9 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
 
+<!-- ✅ PERF : preconnect GSAP CDN -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -549,6 +552,10 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 </div>
 </footer>
 
+<!-- ✅ GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
 <script>
 // Header shadow on scroll
 (function () {
@@ -599,83 +606,176 @@ if (window.innerWidth >= 768) closeMenu();
 });
 })();
 
-// Reveal au scroll (natif, sans dépendance externe)
+// Animations : GSAP + ScrollTrigger quand disponibles (dont le "scrub" vidéo du hero,
+// qui fait défiler les images de la vidéo au fil du scroll), avec repli natif complet
+// (IntersectionObserver) si le CDN échoue — jamais de contenu bloqué invisible.
 (function () {
-  var els = document.querySelectorAll('.reveal, .reveal-stagger');
-  if (!els.length) return;
-  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    els.forEach(function (e) { e.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries, obs) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) { entry.target.classList.add('in'); obs.unobserve(entry.target); }
-    });
-  }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(function (e) { io.observe(e); });
-  // Filet de sécurité : si un élément n'a jamais croisé le viewport (page jamais
-  // scrollée, onglet en arrière-plan, capture automatisée...), on l'affiche quand
-  // même après un délai plutôt que de le laisser invisible indéfiniment.
-  setTimeout(function () {
-    els.forEach(function (e) { e.classList.add('in'); });
-    io.disconnect();
-  }, 2500);
-})();
-
-// Compteurs animés
-(function () {
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
   var stats = document.querySelectorAll('.stat-val[data-target]');
-  if (!stats.length) return;
-  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function run(el) {
-    if (el.dataset.counted) return;
-    el.dataset.counted = '1';
-    var target = parseFloat(el.getAttribute('data-target'));
-    var suffix = el.getAttribute('data-suffix') || '';
-    if (reduceMotion) { el.textContent = target + suffix; return; }
-    var duration = 1400, start = null;
-    function step(ts) {
-      if (start === null) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(target * eased) + suffix;
-      if (progress < 1) requestAnimationFrame(step); else el.textContent = target + suffix;
-    }
-    requestAnimationFrame(step);
-  }
-  if (!('IntersectionObserver' in window)) { stats.forEach(run); return; }
-  var io = new IntersectionObserver(function (entries, obs) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) { run(entry.target); obs.unobserve(entry.target); }
-    });
-  }, { threshold: 0.4 });
-  stats.forEach(function (e) { io.observe(e); });
-  // Filet de sécurité : si les stats ne croisent jamais le viewport, on les affiche
-  // quand même après un délai plutôt que de les laisser bloquées à 0.
-  setTimeout(function () {
-    stats.forEach(run);
-    io.disconnect();
-  }, 2500);
-})();
-
-// Vidéo du hero : activée en JS seulement (léger, réactif, respectueux des préférences)
-(function () {
   var video = document.getElementById('hero-video');
-  if (!video) return;
-  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var saveData = !!(navigator.connection && navigator.connection.saveData);
-  if (reduceMotion || saveData || window.innerWidth < 680) return; // l'image poster suffit
 
-  var webm = document.createElement('source');
-  webm.src = video.getAttribute('data-webm'); webm.type = 'video/webm';
-  var mp4 = document.createElement('source');
-  mp4.src = video.getAttribute('data-mp4'); mp4.type = 'video/mp4';
-  video.appendChild(webm);
-  video.appendChild(mp4);
-  video.addEventListener('canplay', function () { video.classList.add('is-visible'); }, { once: true });
-  video.load();
-  var playPromise = video.play();
-  if (playPromise && playPromise.catch) playPromise.catch(function () {});
+  function statText(el) {
+    return el.getAttribute('data-target') + (el.getAttribute('data-suffix') || '');
+  }
+
+  function showEverythingNow() {
+    revealEls.forEach(function (e) { e.classList.add('in'); e.style.opacity = 1; e.style.transform = 'none'; });
+    stats.forEach(function (e) {
+      if (!e.dataset.counted) { e.dataset.counted = '1'; e.textContent = statText(e); }
+    });
+  }
+
+  // Ajoute les <source> et lance le chargement — mais seulement pour les visiteurs
+  // desktop, sans préférence "mouvement réduit" ni économiseur de données (l'image
+  // poster reste affichée sinon, sans aucun octet de vidéo téléchargé).
+  function enableHeroVideo() {
+    if (!video) return null;
+    var saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduceMotion || saveData || window.innerWidth < 680) return null;
+    video.preload = 'auto';
+    var webm = document.createElement('source');
+    webm.src = video.getAttribute('data-webm'); webm.type = 'video/webm';
+    var mp4 = document.createElement('source');
+    mp4.src = video.getAttribute('data-mp4'); mp4.type = 'video/mp4';
+    video.appendChild(webm);
+    video.appendChild(mp4);
+    video.load();
+    return video;
+  }
+
+  function playVideoLoop(v) {
+    v.loop = true;
+    v.addEventListener('loadeddata', function () { v.classList.add('is-visible'); }, { once: true });
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
+  function initVanilla() {
+    if (revealEls.length) {
+      if (!('IntersectionObserver' in window) || reduceMotion) {
+        revealEls.forEach(function (e) { e.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('in'); obs.unobserve(entry.target); }
+          });
+        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function (e) { io.observe(e); });
+        // Filet de sécurité : si un élément n'a jamais croisé le viewport (page jamais
+        // scrollée, onglet en arrière-plan, capture automatisée...), on l'affiche quand
+        // même après un délai plutôt que de le laisser invisible indéfiniment.
+        setTimeout(function () { revealEls.forEach(function (e) { e.classList.add('in'); }); io.disconnect(); }, 2500);
+      }
+    }
+    if (stats.length) {
+      var runCount = function (el) {
+        if (el.dataset.counted) return;
+        el.dataset.counted = '1';
+        var target = parseFloat(el.getAttribute('data-target'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        if (reduceMotion) { el.textContent = target + suffix; return; }
+        var duration = 1400, start = null;
+        function step(ts) {
+          if (start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(step); else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+      };
+      if (!('IntersectionObserver' in window)) {
+        stats.forEach(runCount);
+      } else {
+        var io2 = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) { if (entry.isIntersecting) { runCount(entry.target); obs.unobserve(entry.target); } });
+        }, { threshold: 0.4 });
+        stats.forEach(function (e) { io2.observe(e); });
+        setTimeout(function () { stats.forEach(runCount); io2.disconnect(); }, 2500);
+      }
+    }
+    var v = enableHeroVideo();
+    if (v) playVideoLoop(v);
+  }
+
+  function initGSAP() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray('.reveal').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 28 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+    gsap.utils.toArray('.reveal-stagger').forEach(function (group) {
+      gsap.fromTo(group.children, { opacity: 0, y: 28 }, {
+        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1,
+        scrollTrigger: { trigger: group, start: 'top 85%' }
+      });
+    });
+    gsap.utils.toArray('.stat-val[data-target]').forEach(function (el) {
+      var target = parseFloat(el.getAttribute('data-target'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      var obj = { val: 0 };
+      gsap.to(obj, {
+        val: target, duration: 1.4, ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el, start: 'top 85%',
+          onEnter: function () { el.dataset.counted = '1'; }
+        },
+        onUpdate: function () { el.textContent = Math.round(obj.val) + suffix; }
+      });
+    });
+
+    // Filet de sécurité : si ScrollTrigger ne se déclenche jamais pour une raison ou
+    // une autre (page jamais scrollée, mesure de viewport ratée...), on force
+    // l'affichage après un délai plutôt que de laisser des éléments bloqués invisibles/à zéro.
+    setTimeout(function () {
+      revealEls.forEach(function (e) { e.classList.add('in'); gsap.set(e, { opacity: 1, y: 0 }); });
+      stats.forEach(function (e) {
+        if (!e.dataset.counted) { e.dataset.counted = '1'; e.textContent = statText(e); }
+      });
+    }, 3500);
+
+    // Vidéo du hero : le scroll "scrubbe" directement la lecture, comme un défilement
+    // d'images qui s'anime au fil du scroll plutôt qu'une lecture automatique classique.
+    var v = enableHeroVideo();
+    if (v) {
+      v.addEventListener('loadeddata', function () {
+        v.classList.add('is-visible');
+        v.pause();
+        gsap.to(v, {
+          currentTime: v.duration || 8,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 }
+        });
+      }, { once: true });
+    }
+  }
+
+  function safeInit() {
+    try {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !reduceMotion) {
+        initGSAP();
+      } else {
+        initVanilla();
+      }
+    } catch (e) {
+      // Si GSAP a démarré puis échoué en cours de route, on ne laisse rien à moitié
+      // configuré : tout s'affiche, et la vidéo repasse en lecture classique si besoin.
+      showEverythingNow();
+      if (video && video.children.length && !video.classList.contains('is-visible')) {
+        playVideoLoop(video);
+      }
+    }
+  }
+
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    safeInit();
+  } else {
+    window.addEventListener('load', safeInit);
+  }
 })();
 </script>
 </body>
