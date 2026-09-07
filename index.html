@@ -20,32 +20,29 @@
 <meta name="twitter:description" content="Installation de bornes de recharge intelligentes pour véhicules électriques. Devis gratuit sous 48h."/>
 <meta name="twitter:image" content="https://www.irvohm.fr/borne-recharge.webp"/>
 
-<!-- ✅ PERF : preload de l'image LCP -->
-<link rel="preload" as="image" href="borne-recharge.webp" fetchpriority="high"/>
+<!-- ✅ PERF : preload de l'image LCP (poster de la vidéo hero) -->
+<link rel="preload" as="image" href="hero-video-poster.webp" fetchpriority="high"/>
 
 <!-- ✅ PERF : polices chargées en ASYNCHRONE (ne bloque plus le rendu = -450 ms) -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
-
-<!-- ✅ PERF : preconnect GSAP CDN -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
 font-family: 'Inter', -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-background-color: #f7f9fb; color: #191c1e; line-height: 1.5; -webkit-font-smoothing: antialiased;
+background-color: #faf6ef; color: #1b1a16; line-height: 1.5; -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 :root {
---primary:#006d37; --secondary:#006397; --tertiary:#006b58;
---surface:#f7f9fb; --surface-container-low:#f2f4f6; --surface-container:#eceef0;
---on-surface:#191c1e; --on-surface-variant:#3d4a3e; --outline-variant:#bbcbbb;
---inverse-surface:#2d3133; --inverse-on-surface:#eff1f3;
+--primary:#006d37; --secondary:#006397; --tertiary:#006b58; --emerald:#2ecc71; --sky:#5cb8fd;
+--surface:#faf6ef; --surface-container-low:#f2ebdf; --surface-container:#ede3d0;
+--on-surface:#1b1a16; --on-surface-variant:#4a463b; --outline-variant:#e6ddce;
+--inverse-surface:#07221a; --inverse-on-surface:#dfeee6;
 --display:'Montserrat', -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 .ic { display:inline-block; width:1em; height:1em; vertical-align:-0.15em; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
@@ -57,9 +54,14 @@ a { text-decoration: none; color: inherit; }
 .text-gradient-brand { background:linear-gradient(135deg,#2ecc71 0%,#5cb8fd 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .glass-card { background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border:1px solid rgba(226,232,240,0.5); }
 
-/* ============ ANIMATIONS (état initial GSAP, sans transition CSS pour éviter les doublons) ============ */
+/* ============ ANIMATIONS (IntersectionObserver natif, sans dépendance externe) ============ */
 @media (prefers-reduced-motion: no-preference) {
-  .reveal, .reveal-stagger > * { opacity: 0; will-change: opacity, transform; }
+  .reveal, .reveal-stagger > * { opacity: 0; transform:translateY(28px); transition:opacity .7s cubic-bezier(0.16,1,0.3,1), transform .7s cubic-bezier(0.16,1,0.3,1); will-change: opacity, transform; }
+  .reveal.in, .reveal-stagger.in > * { opacity: 1; transform:none; }
+  .reveal-stagger.in > *:nth-child(1){ transition-delay:0s }
+  .reveal-stagger.in > *:nth-child(2){ transition-delay:.1s }
+  .reveal-stagger.in > *:nth-child(3){ transition-delay:.2s }
+  .reveal-stagger.in > *:nth-child(4){ transition-delay:.3s }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
@@ -68,23 +70,25 @@ a { text-decoration: none; color: inherit; }
 0%, 100% { transform: translate(0, 0) rotate(0deg); }
 50% { transform: translate(-12px, -16px) rotate(2deg); }
 }
-.hero-bg-icon { position:absolute; top:8%; right:4%; opacity:.12; color:#fff; z-index:0; display:none; }
-@media (min-width:640px){ .hero-bg-icon{ display:block; } }
+@keyframes spinSlow { to { transform:rotate(360deg); } }
+.hero-omega { position:absolute; top:-100px; right:-140px; width:560px; height:560px; opacity:.05; color:#fff; pointer-events:none; z-index:0; }
+@media (prefers-reduced-motion: no-preference) { .hero-omega { animation: spinSlow 70s linear infinite; } }
+@keyframes fadeUp { from{ opacity:0; transform:translateY(20px); } to{ opacity:1; transform:none; } }
 @media (prefers-reduced-motion: no-preference) {
-.hero-bg-icon { animation: floatSlow 14s ease-in-out infinite; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hero-fade { opacity: 0; }
+  .load { opacity: 0; animation: fadeUp .8s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .load.l1{ animation-delay:.05s } .load.l2{ animation-delay:.16s } .load.l3{ animation-delay:.27s }
+  .load.l4{ animation-delay:.38s } .load.l5{ animation-delay:.49s }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-fade { opacity: 1; }
+  .load { opacity: 1; }
 }
 
 /* Header */
-.header { background:rgba(247,249,251,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(187,203,187,0.3); box-shadow:0 1px 3px rgba(0,0,0,0.06); position:sticky; top:0; z-index:50; transition: box-shadow .25s ease; }
+.header { background:rgba(250,246,239,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(230,221,206,0.3); box-shadow:0 1px 3px rgba(0,0,0,0.06); position:sticky; top:0; z-index:50; transition: box-shadow .25s ease; }
 .header.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
 .header-inner { display:flex; justify-content:space-between; align-items:center; height:80px; }
 .logo { font-family:var(--display); font-size:24px; font-weight:700; background:linear-gradient(135deg,#006d37,#006397); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.logo .om { -webkit-text-fill-color:var(--emerald); }
 .nav-desktop { display:none; gap:24px; align-items:center; }
 @media (min-width:768px){ .nav-desktop{ display:flex; } }
 .nav-link { position: relative; font-size:14px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--on-surface-variant); transition:color .2s; padding-bottom: 2px; }
@@ -107,16 +111,20 @@ transition: opacity .25s ease, transform .25s ease, visibility 0s linear .25s; o
 @media (min-width:768px){ .mobile-menu{ display:none; } }
 body.menu-open { overflow:hidden; }
 .mobile-menu-nav { display:flex; flex-direction:column; padding:8px 24px 32px; }
-.mobile-menu-link { padding:18px 4px; font-size:18px; font-weight:600; color:var(--on-surface); border-bottom:1px solid rgba(187,203,187,0.3); display:flex; align-items:center; gap:10px; transition: color .2s ease, padding-left .2s ease; }
+.mobile-menu-link { padding:18px 4px; font-size:18px; font-weight:600; color:var(--on-surface); border-bottom:1px solid rgba(230,221,206,0.3); display:flex; align-items:center; gap:10px; transition: color .2s ease, padding-left .2s ease; }
 .mobile-menu-link:hover { color:var(--primary); padding-left:8px; }
 .mobile-menu-tel { color:var(--primary); }
 
 /* Hero */
-.hero { position:relative; overflow:hidden; min-height:640px; display:flex; align-items:center; padding-block:120px 80px;
-background-image: url('borne-recharge.webp'); background-size:cover; background-position:center; }
-.hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,20,15,0.62) 0%, rgba(8,20,15,0.8) 100%); z-index:0; }
+.hero { position:relative; overflow:hidden; min-height:680px; display:flex; align-items:center; padding-block:120px 80px;
+background-image: url('hero-video-poster.webp'); background-size:cover; background-position:center; }
+.hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; opacity:0; transition:opacity 1s ease; }
+.hero-video.is-visible { opacity:1; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,25,18,0.55) 0%, rgba(7,25,18,0.86) 100%); z-index:0; }
 .hero-content { position:relative; z-index:1; max-width:640px; }
-.hero-logo { display:block; margin-bottom:24px; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:12px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--emerald); }
+.hero-eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--emerald); box-shadow:0 0 0 4px rgba(46,204,113,0.25); animation:pulse 2.4s infinite; }
+@media (prefers-reduced-motion:reduce){ .hero-eyebrow .dot{ animation:none; } }
 .hero h1 { font-family:var(--display); font-size:32px; font-weight:700; line-height:1.2; color:#fff; margin-top:24px; }
 @media (min-width:768px){ .hero h1{ font-size:48px; letter-spacing:-0.02em; line-height:1.1; } }
 .hero-desc { font-size:18px; line-height:1.6; color:rgba(255,255,255,0.85); max-width:32rem; margin-top:24px; }
@@ -153,7 +161,7 @@ background-image: url('borne-recharge.webp'); background-size:cover; background-
 .advantages h2 { font-family:var(--display); font-size:32px; font-weight:600; text-align:center; color:var(--on-surface); margin-bottom:80px; }
 .cards-grid { display:grid; grid-template-columns:1fr; gap:24px; }
 @media (min-width:768px){ .cards-grid{ grid-template-columns:repeat(3,1fr); } }
-.adv-card { padding:48px; background:var(--surface); border-radius:24px; border:1px solid rgba(187,203,187,0.2); transition: border-color .25s ease, transform .25s cubic-bezier(0.16,1,0.3,1), box-shadow .25s ease; }
+.adv-card { padding:48px; background:var(--surface); border-radius:24px; border:1px solid rgba(230,221,206,0.2); transition: border-color .25s ease, transform .25s cubic-bezier(0.16,1,0.3,1), box-shadow .25s ease; }
 .adv-card:hover { transform: translateY(-6px); border-color: rgba(0,109,55,0.3); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
 .adv-icon { width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:36px; transition: transform .35s cubic-bezier(0.34,1.56,0.64,1); }
 .adv-card:hover .adv-icon { transform: scale(1.12) rotate(-6deg); }
@@ -190,7 +198,7 @@ background-image: url('borne-recharge.webp'); background-size:cover; background-
 .service-link-2 { color:#92ccff; } .service-link-2:hover { color:#fff; }
 
 /* Stats */
-.stats-card { background:#fff; border-radius:40px; padding:80px; border:1px solid rgba(187,203,187,0.3); display:grid; grid-template-columns:1fr 1fr; gap:80px; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+.stats-card { background:#fff; border-radius:40px; padding:80px; border:1px solid rgba(230,221,206,0.3); display:grid; grid-template-columns:1fr 1fr; gap:80px; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
 @media (min-width:768px){ .stats-card{ grid-template-columns:repeat(4,1fr); } }
 .stat-val { font-family:var(--display); font-size:48px; font-weight:700; line-height:1.1; letter-spacing:-0.02em; margin-bottom:4px; font-variant-numeric: tabular-nums; }
 .stat-val-1 { color:var(--primary); } .stat-val-2 { color:var(--secondary); }
@@ -226,13 +234,13 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 .footer-nav a { color:var(--on-surface-variant); font-size:16px; transition:color .2s, padding-left .2s; }
 .footer-nav a:hover { color:var(--primary); padding-left: 4px; }
 .footer-contact p { display:flex; align-items:center; gap:8px; font-size:16px; color:var(--on-surface-variant); margin-bottom:8px; }
-.footer-zones { margin-top:36px; padding-top:26px; border-top:1px solid rgba(187,203,187,0.35); }
+.footer-zones { margin-top:36px; padding-top:26px; border-top:1px solid rgba(230,221,206,0.35); }
 .footer-zones-title { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--primary); margin-bottom:14px; }
 .footer-zones-links { display:flex; flex-wrap:wrap; gap:7px 14px; }
 .footer-zones-links a { font-size:13px; color:var(--on-surface-variant); transition:color .2s; }
 .footer-zones-links a:hover { color:var(--primary); }
-.footer-copy { text-align:center; padding-top:24px; margin-top:24px; border-top:1px solid rgba(187,203,187,0.3); }
-.footer-copy p { font-size:16px; color:rgba(61,74,62,0.6); }
+.footer-copy { text-align:center; padding-top:24px; margin-top:24px; border-top:1px solid rgba(230,221,206,0.3); }
+.footer-copy p { font-size:16px; color:rgba(74,70,59,0.6); }
 </style>
 
 <!-- ✅ SEO : LocalBusiness enrichi (geo + zone de service) -->
@@ -274,11 +282,12 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 0 1 2.8 2.8L12 14.5 8 15.5l1-4z"/></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
 <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-omega" viewBox="0 0 100 100"><path d="M50 8C29 8 12 25 12 46c0 12 6 22 15 28v9H16v9h26V73c-11-4-19-15-19-27 0-15 12-27 27-27s27 12 27 27c0 12-8 23-19 27v9h26v-9H73v-9c9-6 15-16 15-28C88 25 71 8 50 8z" fill="currentColor" stroke="none"/></symbol>
 </svg>
 
 <header class="header" id="site-header">
 <div class="max-w px-page header-inner">
-<div class="logo">IRV'OHM</div>
+<a href="/" class="logo">IRV'<span class="om">Ω</span>HM</a>
 <nav class="nav-desktop" aria-label="Navigation principale">
 <a class="nav-link" href="/">Accueil</a>
 <a class="nav-link" href="/particulier.html">Particuliers</a>
@@ -306,26 +315,18 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 
 <main>
 <section class="hero py-xl">
+<video class="hero-video" id="hero-video" muted loop playsinline preload="none" poster="hero-video-poster.webp" aria-hidden="true" data-mp4="hero-charging.mp4" data-webm="hero-charging.webm"></video>
 <div class="hero-overlay" aria-hidden="true"></div>
-<svg class="hero-bg-icon" width="220" height="220" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bolt"/></svg>
+<svg class="hero-omega" aria-hidden="true"><use href="#i-omega"/></svg>
 <div class="max-w px-page hero-content">
-<svg class="hero-logo hero-fade" width="220" height="52" viewBox="0 0 260 60" role="img" aria-label="Logo IRV'OHM">
-<defs>
-<linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#2ecc71"/>
-<stop offset="100%" stop-color="#5cb8fd"/>
-</linearGradient>
-</defs>
-<path d="M20 6 L36 6 L25 27 L37 27 L15 54 L22 30 L10 30 Z" fill="url(#logoGrad)"/>
-<text x="48" y="41" font-family="Montserrat, sans-serif" font-size="30" font-weight="700" fill="#ffffff">IRV'OHM</text>
-</svg>
-<h1 class="hero-fade">Rechargez l'avenir,<br/><span class="text-gradient-brand">simplement chez vous.</span></h1>
-<p class="hero-desc hero-fade">Installation de bornes de recharge intelligentes pour véhicules électriques. Profitez d'une recharge rapide, sécurisée et éco-responsable.</p>
-<div class="hero-actions hero-fade">
+<span class="hero-eyebrow load l1"><span class="dot"></span> Installateur IRVE certifié</span>
+<h1 class="load l2">Rechargez l'avenir,<br/><span class="text-gradient-brand">simplement chez vous.</span></h1>
+<p class="hero-desc load l3">Installation de bornes de recharge intelligentes pour véhicules électriques. Profitez d'une recharge rapide, sécurisée et éco-responsable.</p>
+<div class="hero-actions load l4">
 <a href="/devis.html" class="btn-hero btn-hero-primary gradient-brand">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 <a href="/particulier.html" class="btn-outline-secondary">Nos solutions</a>
 </div>
-<div class="hero-bottom-row hero-fade">
+<div class="hero-bottom-row load l5">
 <div class="hero-social-proof">
 <div class="avatar-stack" aria-hidden="true">
 <span>A</span><span>M</span><span>L</span>
@@ -548,10 +549,6 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 </div>
 </footer>
 
-<!-- ✅ GSAP + ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-
 <script>
 // Header shadow on scroll
 (function () {
@@ -602,92 +599,84 @@ if (window.innerWidth >= 768) closeMenu();
 });
 })();
 
-// Attend que GSAP soit chargé (scripts en defer) avant de lancer les animations
-window.addEventListener('DOMContentLoaded', function () {
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function showEverything() {
-    // Filet de sécurité : si GSAP/ScrollTrigger n'ont pas pu charger (bloqueur de script,
-    // CDN indisponible, erreur imprévue) ou si l'utilisateur préfère un mouvement réduit,
-    // on affiche tout immédiatement plutôt que de laisser le contenu invisible (opacity:0).
-    document.querySelectorAll('.reveal, .reveal-stagger > *, .hero-fade').forEach(function (el) {
-      el.style.opacity = 1;
-    });
-    document.querySelectorAll('.stat-val[data-target]').forEach(function (el) {
-      el.textContent = el.getAttribute('data-target') + (el.getAttribute('data-suffix') || '');
-    });
+// Reveal au scroll (natif, sans dépendance externe)
+(function () {
+  var els = document.querySelectorAll('.reveal, .reveal-stagger');
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(function (e) { e.classList.add('in'); });
+    return;
   }
+  var io = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); obs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (e) { io.observe(e); });
+  // Filet de sécurité : si un élément n'a jamais croisé le viewport (page jamais
+  // scrollée, onglet en arrière-plan, capture automatisée...), on l'affiche quand
+  // même après un délai plutôt que de le laisser invisible indéfiniment.
+  setTimeout(function () {
+    els.forEach(function (e) { e.classList.add('in'); });
+    io.disconnect();
+  }, 2500);
+})();
 
-  function initAnimations() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || reduceMotion) {
-      showEverything();
-      return;
+// Compteurs animés
+(function () {
+  var stats = document.querySelectorAll('.stat-val[data-target]');
+  if (!stats.length) return;
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function run(el) {
+    if (el.dataset.counted) return;
+    el.dataset.counted = '1';
+    var target = parseFloat(el.getAttribute('data-target'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    var duration = 1400, start = null;
+    function step(ts) {
+      if (start === null) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (progress < 1) requestAnimationFrame(step); else el.textContent = target + suffix;
     }
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero : timeline d'entrée
-    gsap.timeline({ defaults: { ease: 'power3.out' } })
-      .to('.hero-logo', { opacity: 1, y: 0, duration: 0.7 }, 0)
-      .fromTo('.hero h1', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 }, 0.15)
-      .fromTo('.hero-desc', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0.25)
-      .fromTo('.hero-actions', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0.35)
-      .fromTo('.hero-bottom-row', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.45);
-
-    // Reveal simple au scroll
-    gsap.utils.toArray('.reveal').forEach(function (el) {
-      gsap.fromTo(el, { opacity: 0, y: 28 }, {
-        opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' }
-      });
-    });
-
-    // Reveal en cascade pour les grilles
-    gsap.utils.toArray('.reveal-stagger').forEach(function (group) {
-      gsap.fromTo(group.children, { opacity: 0, y: 28 }, {
-        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1,
-        scrollTrigger: { trigger: group, start: 'top 85%' }
-      });
-    });
-
-    // Compteurs animés
-    gsap.utils.toArray('.stat-val[data-target]').forEach(function (el) {
-      var target = parseFloat(el.getAttribute('data-target'));
-      var suffix = el.getAttribute('data-suffix') || '';
-      var obj = { val: 0 };
-      gsap.to(obj, {
-        val: target, duration: 1.4, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' },
-        onUpdate: function () { el.textContent = Math.round(obj.val) + suffix; }
-      });
-    });
-
-    // Léger parallax sur la photo de fond du hero (desktop uniquement)
-    if (window.innerWidth > 768) {
-      gsap.set('.hero', { backgroundPosition: '50% 0%' });
-      gsap.to('.hero', {
-        backgroundPositionY: '30%', ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-      });
-    }
+    requestAnimationFrame(step);
   }
+  if (!('IntersectionObserver' in window)) { stats.forEach(run); return; }
+  var io = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { run(entry.target); obs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.4 });
+  stats.forEach(function (e) { io.observe(e); });
+  // Filet de sécurité : si les stats ne croisent jamais le viewport, on les affiche
+  // quand même après un délai plutôt que de les laisser bloquées à 0.
+  setTimeout(function () {
+    stats.forEach(run);
+    io.disconnect();
+  }, 2500);
+})();
 
-  function safeInit() {
-    try {
-      initAnimations();
-    } catch (e) {
-      showEverything();
-    }
-  }
+// Vidéo du hero : activée en JS seulement (léger, réactif, respectueux des préférences)
+(function () {
+  var video = document.getElementById('hero-video');
+  if (!video) return;
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData = !!(navigator.connection && navigator.connection.saveData);
+  if (reduceMotion || saveData || window.innerWidth < 680) return; // l'image poster suffit
 
-  // Les scripts GSAP sont en defer : on attend qu'ils soient prêts (ou le load complet en
-  // dernier recours, au cas où l'un des deux scripts CDN échoue silencieusement).
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    safeInit();
-  } else {
-    window.addEventListener('load', safeInit);
-  }
-});
+  var webm = document.createElement('source');
+  webm.src = video.getAttribute('data-webm'); webm.type = 'video/webm';
+  var mp4 = document.createElement('source');
+  mp4.src = video.getAttribute('data-mp4'); mp4.type = 'video/mp4';
+  video.appendChild(webm);
+  video.appendChild(mp4);
+  video.addEventListener('canplay', function () { video.classList.add('is-visible'); }, { once: true });
+  video.load();
+  var playPromise = video.play();
+  if (playPromise && playPromise.catch) playPromise.catch(function () {});
+})();
 </script>
 </body>
 </html>
