@@ -4,18 +4,18 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>IRV'OHM — Solutions de recharge pour particuliers</title>
-<meta name="description" content="Bornes de recharge IRVE pour maison individuelle et copropriété. Commande en ligne, paiement sécurisé, TVA 5,5%. IRV'OHM, Sarcelles & Île-de-France."/>
+<meta name="description" content="Bornes de recharge IRVE pour maison individuelle et copropriété. Électricien certifié IRVE, TVA 5,5 %, prime ADVENIR. Devis gratuit sous 48h — IRV'OHM, Sarcelles & Île-de-France."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://www.irvohm.fr/particulier.html"/>
 <meta property="og:title" content="IRV'OHM — Solutions de recharge pour particuliers"/>
-<meta property="og:description" content="Bornes de recharge IRVE pour maison individuelle et copropriété. Commande en ligne, paiement sécurisé, TVA 5,5%."/>
+<meta property="og:description" content="Bornes de recharge IRVE pour maison individuelle et copropriété. Devis gratuit, TVA 5,5 %, prime ADVENIR."/>
 <meta property="og:url" content="https://www.irvohm.fr/particulier.html"/>
 <meta property="og:type" content="website"/>
+<meta property="og:image" content="https://www.irvohm.fr/particuliers.webp"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="IRV'OHM — Solutions de recharge pour particuliers"/>
-<meta name="twitter:description" content="Bornes de recharge IRVE pour maison individuelle et copropriété. Commande en ligne, paiement sécurisé, TVA 5,5%."/>
-<meta name="twitter:image" content="https://www.irvohm.fr/borne-recharge.webp"/>
-<meta property="og:image" content="https://www.irvohm.fr/borne-recharge.webp"/>
+<meta name="twitter:description" content="Bornes de recharge IRVE pour maison individuelle et copropriété. Devis gratuit, TVA 5,5 %, prime ADVENIR."/>
+<meta name="twitter:image" content="https://www.irvohm.fr/particuliers.webp"/>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -28,10 +28,48 @@
   "address":{"@type":"PostalAddress","addressLocality":"Sarcelles","postalCode":"95200","addressCountry":"FR"}
 }
 </script>
-<script src="https://js.stripe.com/v3/"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Quelles sont les aides disponibles pour installer une borne de recharge chez un particulier ?",
+      "acceptedAnswer":{"@type":"Answer","text":"Les particuliers bénéficient d'une TVA réduite à 5,5 % sur l'installation d'une borne de recharge. En copropriété, la prime ADVENIR peut également financer une partie des travaux, notamment pour l'infrastructure collective. IRV'OHM vous accompagne dans le montage complet de votre dossier d'aides."}
+    },
+    {
+      "@type":"Question",
+      "name":"Ma puissance électrique actuelle suffit-elle pour une borne de recharge ?",
+      "acceptedAnswer":{"@type":"Answer","text":"Dans la plupart des cas, oui. Nous intégrons systématiquement un module de gestion dynamique de la charge, qui adapte la puissance délivrée par la borne à celle disponible sur votre compteur, sans risque de disjonction."}
+    },
+    {
+      "@type":"Question",
+      "name":"Combien de temps dure l'installation d'une borne de recharge ?",
+      "acceptedAnswer":{"@type":"Answer","text":"Pour une maison individuelle standard, l'installation prend généralement une demi-journée, mise en service comprise. En copropriété, le délai dépend surtout du montage du dossier technique à soumettre au syndic."}
+    },
+    {
+      "@type":"Question",
+      "name":"Peut-on installer une borne de recharge en copropriété sans l'accord du syndic ?",
+      "acceptedAnswer":{"@type":"Answer","text":"Oui, grâce au droit à la prise. Tout occupant d'un immeuble en copropriété peut faire installer une borne de recharge sur son emplacement de parking privatif ; le syndic ne peut s'y opposer que pour un motif sérieux et légitime. IRV'OHM prend en charge le montage du dossier technique à lui soumettre."}
+    },
+    {
+      "@type":"Question",
+      "name":"Quelle puissance de borne choisir pour un usage particulier ?",
+      "acceptedAnswer":{"@type":"Answer","text":"Une wallbox 7,4 kW en monophasé convient à la majorité des véhicules et des trajets quotidiens. Une borne 11 ou 22 kW en triphasé permet une recharge plus rapide si votre installation électrique le permet et que vous roulez beaucoup. IRV'OHM vous conseille sur la puissance adaptée lors du devis gratuit."}
+    },
+    {
+      "@type":"Question",
+      "name":"Quelle garantie sur le matériel et l'installation ?",
+      "acceptedAnswer":{"@type":"Answer","text":"Nos bornes bénéficient d'une garantie constructeur pouvant aller jusqu'à 5 ans selon les marques, et notre intervention est couverte par notre garantie décennale et notre assurance responsabilité civile professionnelle."}
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"/></noscript>
 
@@ -157,36 +195,19 @@
   .proc-card h4 { font-family:var(--display); font-weight:600; font-size:18px; }
   .proc-card p { color:var(--ink-soft); font-size:14.5px; margin-top:8px; line-height:1.55; }
 
-  /* Bornes */
-  .bornes { position:relative; overflow:hidden; }
-  .bornes .omega { position:absolute; right:-90px; top:80px; width:420px; height:420px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
-  .bornes-top { display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:flex-end; margin-bottom:14px; position:relative; z-index:1; }
-  .bornes-top h2 { font-family:var(--display); font-weight:600; font-size:clamp(26px,3.4vw,34px); letter-spacing:-0.025em; }
-  .bornes-top p { color:var(--ink-soft); margin-top:8px; font-size:15px; }
-  .badge-tva { font-family:var(--mono); font-size:12px; font-weight:500; color:var(--blue); background:rgba(92,184,253,0.12); border:1px solid rgba(0,99,151,0.2); padding:8px 14px; border-radius:999px; }
-  .tabs { display:flex; gap:10px; margin:22px 0 30px; position:relative; z-index:1; }
-  .tab { font-family:var(--body); font-size:14px; font-weight:600; padding:11px 22px; border-radius:var(--r-sm); border:1.5px solid rgba(187,203,187,0.6); background:var(--white); color:var(--ink-soft); cursor:pointer; transition:all .2s; }
-  .tab:hover { border-color:var(--green); color:var(--green); }
-  .tab.on { border-color:transparent; background:linear-gradient(120deg,var(--green),var(--blue)); color:#fff; box-shadow:0 6px 16px rgba(0,109,55,0.22); }
-  .cards-grid { display:grid; grid-template-columns:1fr; gap:24px; position:relative; z-index:1; }
-  @media (min-width:760px){ .cards-grid { grid-template-columns:repeat(3,1fr); } }
-  .prod { background:var(--white); border:1px solid rgba(187,203,187,0.35); border-radius:var(--r-xl); overflow:hidden; transition:transform .25s var(--ease), box-shadow .25s, border-color .25s; display:flex; flex-direction:column; }
-  .prod:hover { transform:translateY(-7px); box-shadow:0 22px 50px rgba(7,34,26,0.1); border-color:rgba(0,109,55,0.25); }
-  .prod-media { height:230px; background:radial-gradient(120% 120% at 50% 0%, var(--surface) 0%, var(--surface-2) 100%); display:flex; align-items:center; justify-content:center; padding:24px; position:relative; overflow:hidden; }
-  .borne-img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; mix-blend-mode:multiply; transition:transform .4s var(--ease); }
-  .prod:hover .borne-img { transform:scale(1.06); }
-  .prod-flag { position:absolute; top:16px; right:16px; font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:5px 11px; border-radius:999px; }
-  .prod-body { padding:26px; display:flex; flex-direction:column; flex:1; }
-  .prod-brand { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
-  .prod-name { font-family:var(--display); font-weight:600; font-size:20px; margin-top:2px; }
-  .prod-ip { font-family:var(--mono); font-size:11px; font-weight:700; color:var(--green); background:rgba(0,109,55,0.1); padding:3px 9px; border-radius:6px; }
-  .prod-row { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
-  .prod-desc { color:var(--ink-soft); font-size:14px; margin-top:12px; line-height:1.55; }
-  .spec { list-style:none; margin:16px 0 22px; display:flex; flex-direction:column; gap:9px; }
-  .spec li { display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--ink); }
-  .spec .ic { color:var(--green); font-size:17px; flex-shrink:0; }
-  .prod-cta { margin-top:auto; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; font-size:14.5px; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--green),var(--blue)); padding:13px; border-radius:var(--r-sm); cursor:pointer; transition:opacity .2s, transform .15s; }
-  .prod-cta:hover { opacity:.92; transform:translateY(-1px); }
+  /* Puissances (types de bornes) */
+  .pow { background:var(--white); position:relative; overflow:hidden; }
+  .pow .omega { position:absolute; right:-90px; top:60px; width:420px; height:420px; opacity:0.04; color:var(--green); pointer-events:none; animation:spin 60s linear infinite; }
+  .pow-grid { display:grid; grid-template-columns:1fr; gap:20px; position:relative; z-index:1; }
+  @media (min-width:760px){ .pow-grid { grid-template-columns:repeat(3,1fr); } }
+  .pow-card { background:var(--surface); border:1px solid rgba(187,203,187,0.35); border-radius:var(--r-lg); padding:28px; display:flex; flex-direction:column; transition:transform .25s var(--ease), box-shadow .25s, border-color .25s; }
+  .pow-card:hover { transform:translateY(-5px); box-shadow:0 16px 38px rgba(7,34,26,0.07); border-color:rgba(0,109,55,0.25); }
+  .pow-card .pow-kw { font-family:var(--display); font-weight:700; font-size:32px; color:var(--green); letter-spacing:-0.02em; }
+  .pow-card h4 { font-family:var(--display); font-weight:600; font-size:19px; margin-top:6px; }
+  .pow-card p { color:var(--ink-soft); font-size:14.5px; margin-top:10px; line-height:1.6; flex:1; }
+  .pow-card a { display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-size:13px; font-weight:600; color:var(--blue); }
+  .pow-media { border-radius:var(--r-lg); overflow:hidden; margin-top:36px; position:relative; z-index:1; }
+  .pow-media img { width:100%; max-height:360px; object-fit:cover; }
 
   /* Trust strip */
   .trust { background:linear-gradient(150deg,var(--deep-2),var(--deep)); }
@@ -216,19 +237,6 @@
   .btn-emerald:hover { transform:scale(1.04); box-shadow:0 10px 30px rgba(46,204,113,0.35); }
   .btn-white-ghost { display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:var(--on-deep); background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.22); padding:15px 26px; border-radius:var(--r-sm); cursor:pointer; transition:background .2s; }
   .btn-white-ghost:hover { background:rgba(255,255,255,0.16); }
-
-  /* Footer */
-  footer { background:var(--surface-2); border-top:1px solid var(--line); margin-top:0; padding:54px 0 28px; }
-  .foot-grid { display:grid; grid-template-columns:1fr; gap:28px; }
-  @media (min-width:768px){ .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1fr; } }
-  .foot-logo { font-family:var(--display); font-weight:700; font-size:21px; color:var(--ink); }
-  .foot-desc { color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:30ch; }
-  .foot h5 { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
-  .foot nav { display:flex; flex-direction:column; gap:9px; }
-  .foot nav a { color:var(--ink-soft); font-size:14px; transition:color .2s, padding-left .2s; }
-  .foot nav a:hover { color:var(--green); padding-left:4px; }
-  .foot-copy { border-top:1px solid rgba(187,203,187,0.35); margin-top:36px; padding-top:20px; }
-  .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
 
   :focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
   @media (prefers-reduced-motion:reduce){
@@ -267,12 +275,8 @@
   <symbol id="i-speed" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
   <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 13a10 10 0 0 1 14 0M8.5 16.5a5 5 0 0 1 7 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></symbol>
   <symbol id="i-cable" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7"/><path d="M7 3v2a4 4 0 0 0 4 4h6"/><circle cx="5" cy="3" r="2"/><circle cx="19" cy="21" r="2"/></symbol>
-  <symbol id="i-meter" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8M12 7v.01M17 12h-.01M7 12H7"/></symbol>
-  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0 0-9 6 6 0 0 0-11.6 1.5A4 4 0 0 0 6 19z"/></symbol>
-  <symbol id="i-rfid" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9v6M11 9v6M15 9v6"/></symbol>
   <symbol id="i-verified" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><path d="M12 2 4 5v6c0 5.5 3.8 9.3 8 11 4.2-1.7 8-5.5 8-11V5z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
-  <symbol id="i-agent" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8v6"/><path d="M20 16v-6a8 8 0 0 0-8-8"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></symbol>
   <symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
   <symbol id="i-assign" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 14l2 2 4-4"/></symbol>
   <symbol id="i-build" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2z"/></symbol>
@@ -304,16 +308,16 @@
       <div>
         <span class="eyebrow load l1"><span class="dot"></span> Recharge à domicile</span>
         <h1 class="load l2">La recharge intelligente <span class="accent">chez vous</span>.</h1>
-        <p class="load l3">Transformez votre garage ou votre place de parking en station de recharge haute performance. IRV'OHM vous accompagne de l'étude technique à la mise en service.</p>
+        <p class="load l3">Transformez votre garage ou votre place de parking en station de recharge haute performance. IRV'OHM vous accompagne de l'étude technique à la mise en service, en maison individuelle comme en copropriété.</p>
         <div class="hero-cta load l4">
-          <button class="btn-solid" onclick="document.getElementById('bornes-section').scrollIntoView({behavior:'smooth'})">Voir les solutions <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          <button class="btn-ghost" onclick="openOrder(null,null)">Commander une borne</button>
+          <a href="devis.html" class="btn-solid">Demander mon devis gratuit <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="#processus" class="btn-ghost">Comment ça marche</a>
         </div>
       </div>
-      <div class="hero-media load l3">
+      <div class="hero-media load l3" id="hero-media">
         <div class="glow" aria-hidden="true"></div>
         <div class="hero-card">
-          <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1400&auto=format&fit=crop" alt="Voiture électrique en recharge"/>
+          <img src="borne-murale-detail.webp" alt="Wallbox murale de recharge pour véhicule électrique à domicile" loading="eager"/>
         </div>
       </div>
     </div>
@@ -330,7 +334,7 @@
       </div>
       <div class="sol-grid stagger">
         <article class="sol-card">
-          <div class="sol-media"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85&fit=crop&auto=format" alt="Borne en maison individuelle" onerror="this.style.display='none'"/></div>
+          <div class="sol-media"><img src="particuliers.webp" alt="Wallbox installée dans le garage d'une maison individuelle" loading="lazy" onerror="this.style.display='none'"/></div>
           <div class="sol-body">
             <div class="sol-glyph g"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg></div>
             <h3>Maison individuelle</h3>
@@ -340,11 +344,11 @@
               <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Pilotage via application mobile</li>
               <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Compatible panneaux solaires</li>
             </ul>
-            <button class="sol-more" onclick="document.getElementById('bornes-section').scrollIntoView({behavior:'smooth'})">Voir les bornes <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a href="devis.html" class="sol-more">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
         <article class="sol-card b">
-          <div class="sol-media"><img src="https://images.unsplash.com/photo-1573074617613-fc8ef27e6f9d?w=700&q=85&fit=crop&auto=format" alt="Borne en copropriété" onerror="this.style.display='none'"/></div>
+          <div class="sol-media"><img src="borne-sur-pied.webp" alt="Borne de recharge sur pied installée sur un parking de copropriété" loading="lazy" onerror="this.style.display='none'"/></div>
           <div class="sol-body">
             <div class="sol-glyph b"><svg class="ic" aria-hidden="true"><use href="#i-apt"/></svg></div>
             <h3>Copropriété</h3>
@@ -354,7 +358,7 @@
               <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Accompagnement syndic inclus</li>
               <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Bornes sécurisées par RFID</li>
             </ul>
-            <button class="sol-more" onclick="switchTab('copro');document.getElementById('bornes-section').scrollIntoView({behavior:'smooth'})">Voir le processus <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a href="devis.html" class="sol-more">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
       </div>
@@ -362,11 +366,12 @@
   </section>
 
   <!-- PROCESS -->
-  <section class="proc section">
+  <section id="processus" class="proc section">
     <div class="wrap">
       <div class="head reveal">
         <span class="eyebrow"><span class="dot"></span> Simplicité avant tout</span>
         <h2>Votre installation en 3 étapes</h2>
+        <p>Aucune surprise : chaque étape est cadrée, du premier contact à la mise en service.</p>
         <div class="current" aria-hidden="true"></div>
       </div>
       <div class="proc-grid stagger">
@@ -374,125 +379,56 @@
           <div class="proc-num">01</div>
           <div class="proc-glyph"><svg class="ic" aria-hidden="true"><use href="#i-assign"/></svg></div>
           <h4>Étude &amp; devis</h4>
-          <p>Analyse gratuite de votre installation électrique et devis sur-mesure sous 48h.</p>
+          <p>Analyse gratuite de votre installation électrique — puissance disponible, distance au tableau, configuration du logement — et devis sur-mesure sous 48h, sans engagement.</p>
         </div>
         <div class="proc-card">
           <div class="proc-num">02</div>
           <div class="proc-glyph"><svg class="ic" aria-hidden="true"><use href="#i-build"/></svg></div>
           <h4>Pose certifiée</h4>
-          <p>Installation par nos techniciens IRVE qualifiés, conforme aux normes.</p>
+          <p>Installation par nos techniciens IRVE qualifiés, conforme à la norme NF C 15-100, avec attestation de conformité pour débloquer vos aides.</p>
         </div>
         <div class="proc-card">
           <div class="proc-num">03</div>
           <div class="proc-glyph"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></div>
           <h4>Mise en route</h4>
-          <p>Configuration de la borne, tests de charge et prise en main de votre matériel.</p>
+          <p>Configuration de la borne, tests de charge avec votre véhicule et prise en main complète de votre matériel et de son application.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BORNES -->
-  <section id="bornes-section" class="bornes section">
+  <!-- PUISSANCES -->
+  <section class="pow section">
     <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
     <div class="wrap">
-      <div class="bornes-top reveal">
-        <div>
-          <h2>Bornes sélectionnées</h2>
-          <p>Le meilleur de la technologie européenne pour votre domicile.</p>
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span> Bien choisir</span>
+        <h2>Quelle puissance de recharge pour vous ?</h2>
+        <p>Trois niveaux de puissance, à adapter à votre véhicule et à votre installation électrique.</p>
+        <div class="current" aria-hidden="true"></div>
+      </div>
+      <div class="pow-grid stagger">
+        <div class="pow-card">
+          <div class="pow-kw">3,2 kW</div>
+          <h4>Prise renforcée</h4>
+          <p>La solution d'entrée de gamme, en monophasé, pour une recharge d'appoint peu coûteuse — environ une nuit complète pour une pleine charge.</p>
+          <a href="blog/prise-renforcee-ou-wallbox.html">Prise ou wallbox, que choisir ? <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <span class="badge-tva">TVA réduite 5,5 %</span>
+        <div class="pow-card">
+          <div class="pow-kw">7,4 kW</div>
+          <h4>Wallbox monophasée</h4>
+          <p>Le standard pour la maison individuelle : recharge complète en une nuit, pilotage via application mobile et compatibilité avec la plupart des véhicules du marché.</p>
+          <a href="devis.html">Demander un devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="pow-card">
+          <div class="pow-kw">11-22 kW</div>
+          <h4>Borne triphasée</h4>
+          <p>Pour les gros rouleurs ou les copropriétés : recharge nettement plus rapide, sous réserve d'une installation électrique compatible en triphasé.</p>
+          <a href="blog/borne-7kw-ou-22kw-quelle-puissance-choisir.html">7 ou 22 kW, quelle puissance choisir ? <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
-
-      <div class="tabs reveal">
-        <button id="tab-btn-maison" class="tab on" onclick="switchTab('maison')">Maison individuelle</button>
-        <button id="tab-btn-copro" class="tab" onclick="switchTab('copro')">Copropriété</button>
-      </div>
-
-      <!-- Maison -->
-      <div id="cards-maison" class="cards-grid">
-        <article class="prod">
-          <div class="prod-media"><img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max" onerror="this.style.display='none'"/><span class="prod-flag">Populaire</span></div>
-          <div class="prod-body">
-            <div class="prod-row"><div><div class="prod-brand">Wallbox</div><div class="prod-name">Pulsar Max</div></div><span class="prod-ip">IP55</span></div>
-            <p class="prod-desc">La plus compacte du marché, connectée en Wi-Fi et Bluetooth, idéale pour maison et garage.</p>
-            <ul class="spec">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi + Bluetooth + App myWallbox</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg> Câble Type 2 (5 m) ou prise T2</li>
-            </ul>
-            <button class="prod-cta" onclick="openOrder('Wallbox Pulsar Max','wallbox','maison')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          </div>
-        </article>
-        <article class="prod">
-          <div class="prod-media"><img class="borne-img" src="hager_witty.png" alt="Hager Witty Home" onerror="this.style.display='none'"/></div>
-          <div class="prod-body">
-            <div class="prod-row"><div><div class="prod-brand">Hager</div><div class="prod-name">Witty Home</div></div><span class="prod-ip">IP54</span></div>
-            <p class="prod-desc">Design compact et élégant signé Hager, avec gestion dynamique de la charge intégrée.</p>
-            <ul class="spec">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-meter"/></svg> Gestion dynamique de la charge</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg> Connectivité Wi-Fi + App Hager</li>
-            </ul>
-            <button class="prod-cta" onclick="openOrder('Hager Witty Home','hager','maison')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          </div>
-        </article>
-        <article class="prod">
-          <div class="prod-media"><img class="borne-img" src="/borne+.png" alt="Borne +" onerror="this.style.display='none'"/></div>
-          <div class="prod-body">
-            <div class="prod-row"><div><div class="prod-brand">IRV'OHM</div><div class="prod-name">Borne +</div></div><span class="prod-ip">IP54</span></div>
-            <p class="prod-desc">Solution d'entrée de gamme fiable et efficace pour une recharge quotidienne simple à domicile.</p>
-            <ul class="spec">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 7,4 kW (monophasé)</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg> Prise Type 2 universelle</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-verified"/></svg> Installation certifiée IRVE</li>
-            </ul>
-            <button class="prod-cta" onclick="openOrder('Borne +','borne','maison')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          </div>
-        </article>
-      </div>
-
-      <!-- Copro -->
-      <div id="cards-copro" class="cards-grid" style="display:none">
-        <article class="prod">
-          <div class="prod-media"><img class="borne-img" src="/walbox_pulsar.png" alt="Wallbox Pulsar Max" onerror="this.style.display='none'"/><span class="prod-flag">Populaire</span></div>
-          <div class="prod-body">
-            <div class="prod-row"><div><div class="prod-brand">Wallbox</div><div class="prod-name">Pulsar Max</div></div><span class="prod-ip">IP55</span></div>
-            <p class="prod-desc">Compacte et connectée, adaptée au parking privatif avec gestion individuelle de la recharge.</p>
-            <ul class="spec">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi + Bluetooth + App myWallbox</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-cable"/></svg> Câble Type 2 (5 m) ou prise T2</li>
-            </ul>
-            <button class="prod-cta" onclick="openOrder('Wallbox Pulsar Max','wallbox','copro')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          </div>
-        </article>
-        <article class="prod">
-          <div class="prod-media"><img class="borne-img" src="hager_witty.png" alt="Hager Witty Share" onerror="this.style.display='none'"/></div>
-          <div class="prod-body">
-            <div class="prod-row"><div><div class="prod-brand">Hager</div><div class="prod-name">Witty Share</div></div><span class="prod-ip">IP54</span></div>
-            <p class="prod-desc">Solution multi-utilisateurs pour copropriétés, avec gestion dynamique et supervision à distance.</p>
-            <ul class="spec">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-agent"/></svg> Multi-utilisateurs · Facturation</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg> Supervision cloud + App Hager</li>
-            </ul>
-            <button class="prod-cta" onclick="openOrder('Hager Witty Share','hager','copro')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          </div>
-        </article>
-        <article class="prod">
-          <div class="prod-media"><img class="borne-img" src="/teltocharge.png" alt="Teltocharge TC100" onerror="this.style.display='none'"/></div>
-          <div class="prod-body">
-            <div class="prod-row"><div><div class="prod-brand">Teltonika</div><div class="prod-name">Teltocharge</div></div><span class="prod-ip">IP55</span></div>
-            <p class="prod-desc">Borne robuste dédiée aux copropriétés : gestion RFID, protocole OCPP et supervision intégrée.</p>
-            <ul class="spec">
-              <li><svg class="ic" aria-hidden="true"><use href="#i-speed"/></svg> Jusqu'à 22 kW (triphasé)</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-rfid"/></svg> RFID · Protocole OCPP 1.6</li>
-              <li><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg> Supervision cloud temps réel</li>
-            </ul>
-            <button class="prod-cta" onclick="openOrder('Teltocharge TC100','teltocharge','copro')">Commander <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          </div>
-        </article>
+      <div class="pow-media reveal">
+        <img src="connecteur-recharge-detail.webp" alt="Connecteur de recharge branché sur une borne de recharge" loading="lazy" onerror="this.style.display='none'"/>
       </div>
     </div>
   </section>
@@ -501,9 +437,9 @@
   <section class="trust section">
     <div class="wrap">
       <div class="trust-grid stagger">
-        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-verified"/></svg><div class="v">+1 200</div><div class="l">Installations réalisées</div></div>
+        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-verified"/></svg><div class="v"><span class="v-pref">+</span><span class="stat-val" data-target="1200" data-suffix="">0</span></div><div class="l">Installations réalisées</div></div>
         <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><div class="v">IRVE</div><div class="l">Techniciens certifiés</div></div>
-        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><div class="v">48h</div><div class="l">Devis personnalisé</div></div>
+        <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><div class="v"><span class="stat-val" data-target="48" data-suffix="h">0h</span></div><div class="l">Devis personnalisé</div></div>
         <div class="trust-item"><svg class="ic" aria-hidden="true"><use href="#i-percent"/></svg><div class="v">5,5 %</div><div class="l">TVA réduite</div></div>
       </div>
     </div>
@@ -520,15 +456,27 @@
       <div class="faq-list reveal">
         <div class="faq-item">
           <button class="faq-q">Quelles sont les aides disponibles ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
-          <div class="faq-a"><p>Les particuliers bénéficient d'une TVA réduite à 5,5 % sur l'installation de bornes de recharge. En copropriété, la prime ADVENIR peut également s'appliquer.</p></div>
+          <div class="faq-a"><p>Les particuliers bénéficient d'une TVA réduite à 5,5 % sur l'installation de bornes de recharge. En copropriété, la prime ADVENIR peut également s'appliquer. IRV'OHM vous accompagne dans le montage complet de votre dossier d'aides.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q">Ma puissance électrique actuelle suffit-elle ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
-          <div class="faq-a"><p>Nous intégrons systématiquement un module de gestion dynamique de la charge, qui adapte la puissance de la borne à votre installation existante.</p></div>
+          <div class="faq-a"><p>Dans la plupart des cas, oui. Nous intégrons systématiquement un module de gestion dynamique de la charge, qui adapte la puissance de la borne à votre installation existante, sans risque de disjonction.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q">Combien de temps dure l'installation ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
-          <div class="faq-a"><p>Pour une maison individuelle standard, l'installation prend environ une demi-journée, mise en service comprise.</p></div>
+          <div class="faq-a"><p>Pour une maison individuelle standard, l'installation prend environ une demi-journée, mise en service comprise. En copropriété, le délai dépend surtout du montage du dossier technique.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Peut-on installer une borne en copropriété sans l'accord du syndic ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <div class="faq-a"><p>Oui, grâce au droit à la prise. Le syndic ne peut s'opposer à votre projet que pour un motif sérieux et légitime. IRV'OHM prend en charge le montage du dossier technique à lui soumettre.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Quelle puissance de borne choisir pour un usage particulier ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <div class="faq-a"><p>Une wallbox 7,4 kW en monophasé convient à la majorité des véhicules et des trajets quotidiens. Une borne 11 ou 22 kW en triphasé permet une recharge plus rapide si votre installation électrique le permet.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Quelle garantie sur le matériel et l'installation ? <svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></button>
+          <div class="faq-a"><p>Nos bornes bénéficient d'une garantie constructeur pouvant aller jusqu'à 5 ans selon les marques, et notre intervention est couverte par notre garantie décennale et notre assurance responsabilité civile professionnelle.</p></div>
         </div>
       </div>
     </div>
@@ -540,10 +488,10 @@
       <div class="cta-box reveal">
         <svg class="omega" aria-hidden="true"><use href="#i-omega"/></svg>
         <h2>Prêt à passer à l'électrique ?</h2>
-        <p>Configurez votre borne et obtenez votre prix en ligne, avec paiement sécurisé.</p>
+        <p>Recevez votre devis personnalisé et gratuit sous 48h, sans engagement.</p>
         <div class="cta-actions">
-          <button class="btn-emerald" onclick="openOrder(null,null)">Commander maintenant <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          <a href="devis.html" class="btn-white-ghost">Demander un devis</a>
+          <a href="devis.html" class="btn-emerald">Demander mon devis <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="tel:+33651078828" class="btn-white-ghost">06 51 07 88 28</a>
         </div>
       </div>
     </div>
@@ -675,164 +623,12 @@
   </div>
 </footer>
 
-<!-- ============================================================
-     MODALE DE COMMANDE — HTML conservé à l'identique (Stripe/calendrier/adresse)
-     ============================================================ -->
-<div id="irve-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);overflow-y:auto;padding:24px 16px;">
-  <div id="irve-box" style="background:#fff;max-width:680px;margin:0 auto;border-radius:32px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.25);font-family:Inter,sans-serif;">
-    <div style="background:linear-gradient(135deg,#006d37,#006397);padding:28px 32px 24px;color:#fff;position:relative;">
-      <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.7;margin-bottom:6px">IRV'OHM — Commande en ligne</div>
-      <h2 id="modal-title" style="font-family:Montserrat,sans-serif;font-size:22px;font-weight:700;margin:0">Configurer mon installation</h2>
-      <button onclick="closeOrder()" style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.15);border:none;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;line-height:1">×</button>
-      <div style="margin-top:20px;display:flex;gap:6px;align-items:center">
-        <div id="pb1" class="pb-step pb-active" style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.9);transition:background 0.3s"></div>
-        <div id="pb2" class="pb-step" style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.3);transition:background 0.3s"></div>
-        <div id="pb3" class="pb-step" style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.3);transition:background 0.3s"></div>
-        <div id="pb4" class="pb-step" style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.3);transition:background 0.3s"></div>
-        <div id="pb5" class="pb-step" style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.3);transition:background 0.3s"></div>
-      </div>
-      <div style="margin-top:8px;font-size:12px;opacity:0.7" id="step-label">Étape 1 sur 5 — Votre borne</div>
-    </div>
-    <div style="padding:32px">
-      <div id="step1" class="irve-step">
-        <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:600;margin:0 0 6px">Choisissez votre borne</h3>
-        <p style="color:#6c7b6d;font-size:14px;margin:0 0 20px">Sélectionnez d'abord votre type d'installation puis votre borne.</p>
-        <div style="margin-bottom:20px">
-          <div style="font-size:14px;font-weight:600;margin-bottom:10px">🏠 Type d'installation</div>
-          <div style="display:flex;gap:10px">
-            <label id="lbl-type-maison" class="opt-choice" style="flex:1;display:flex;align-items:center;gap:10px;border:2px solid #e0e3e5;border-radius:12px;padding:14px 16px;cursor:pointer"><input type="radio" name="steptype" value="maison" style="accent-color:#006d37;flex-shrink:0"> <div><div style="font-size:14px;font-weight:500">Maison individuelle</div></div></label>
-            <label id="lbl-type-copro" class="opt-choice" style="flex:1;display:flex;align-items:center;gap:10px;border:2px solid #e0e3e5;border-radius:12px;padding:14px 16px;cursor:pointer"><input type="radio" name="steptype" value="copro" style="accent-color:#006d37;flex-shrink:0"> <div><div style="font-size:14px;font-weight:500">Copropriété / Parking</div></div></label>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px" id="borne-choices">
-          <label id="lbl-wallbox" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Wallbox Pulsar Max" data-brand="wallbox" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Wallbox</div><div style="font-weight:600;font-size:15px">Pulsar Max</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP55 · 22 kW · Wi-Fi + Bluetooth</div></div></label>
-          <label id="lbl-hager" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Hager Witty Home" data-brand="hager" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Hager</div><div style="font-weight:600;font-size:15px">Witty Home / Share</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP54 · 22 kW · Gestion dynamique</div></div></label>
-          <label id="lbl-schneider" class="borne-option" style="display:flex;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Borne +" data-brand="borne" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">IRV'OHM</div><div style="font-weight:600;font-size:15px">Borne +</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP54 · 7,4 kW · Prise Type 2</div></div></label>
-          <label id="lbl-teltocharge" class="borne-option" style="display:none;align-items:center;gap:16px;border:2px solid #e0e3e5;border-radius:16px;padding:16px;cursor:pointer;transition:border-color 0.2s"><input type="radio" name="borne" value="Teltocharge TC100" data-brand="teltocharge" style="width:18px;height:18px;accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-size:10px;color:#6c7b6d;text-transform:uppercase;letter-spacing:0.1em">Teltocharge</div><div style="font-weight:600;font-size:15px">TC100</div><div style="font-size:13px;color:#6c7b6d;margin-top:2px">IP55 · 22 kW · RFID + OCPP</div></div></label>
-        </div>
-      </div>
-      <div id="step2" class="irve-step" style="display:none">
-        <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:600;margin:0 0 6px">Diagnostic technique</h3>
-        <p style="color:#6c7b6d;font-size:14px;margin:0 0 24px">Ces informations nous permettent de calculer le prix exact de votre installation.</p>
-        <div style="margin-bottom:24px">
-          <label style="font-size:14px;font-weight:600;display:block;margin-bottom:10px">📏 Distance entre votre tableau électrique et l'emplacement de la borne</label>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <label style="display:flex;align-items:center;gap:10px;border:2px solid #e0e3e5;border-radius:12px;padding:12px 16px;cursor:pointer" class="opt-choice"><input type="radio" name="distance" value="0" data-surcharge="0" style="accent-color:#006d37"> <span style="flex:1;font-size:14px">Moins de 5 mètres</span></label>
-            <label style="display:flex;align-items:center;gap:10px;border:2px solid #e0e3e5;border-radius:12px;padding:12px 16px;cursor:pointer" class="opt-choice"><input type="radio" name="distance" value="1" data-surcharge="250" style="accent-color:#006d37"> <span style="flex:1;font-size:14px">Entre 5 et 10 mètres</span></label>
-            <label style="display:flex;align-items:center;gap:10px;border:2px solid #e0e3e5;border-radius:12px;padding:12px 16px;cursor:pointer" class="opt-choice"><input type="radio" name="distance" value="2" data-surcharge="600" style="accent-color:#006d37"> <span style="flex:1;font-size:14px">Entre 10 et 15 mètres</span></label>
-          </div>
-        </div>
-        <div style="margin-bottom:24px">
-          <label style="font-size:14px;font-weight:600;display:block;margin-bottom:10px">Présence d'une terre dans votre installation électrique</label>
-          <div style="display:flex;gap:10px">
-            <label style="flex:1;display:flex;align-items:center;gap:10px;border:2px solid #e0e3e5;border-radius:12px;padding:14px 16px;cursor:pointer" class="opt-choice" id="lbl-terre-oui"><input type="radio" name="terre" value="oui" data-surcharge="0" style="accent-color:#006d37"> <div><div style="font-size:14px;font-weight:500">Oui, présente</div><div style="font-size:12px;color:#6c7b6d">Installation aux normes</div></div></label>
-            <label style="flex:1;display:flex;align-items:center;gap:10px;border:2px solid #e0e3e5;border-radius:12px;padding:14px 16px;cursor:pointer" class="opt-choice" id="lbl-terre-non"><input type="radio" name="terre" value="non" data-surcharge="350" style="accent-color:#006d37"> <div><div style="font-size:14px;font-weight:500">Non / Je ne sais pas</div><div style="font-size:12px;color:#6c7b6d">Mise à la terre requise</div></div></label>
-          </div>
-          <div id="terre-warning" style="display:none;background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:12px 14px;margin-top:10px;font-size:13px;color:#856404">Une mise à la terre sera nécessaire avant l'installation. Nos techniciens s'en chargeront lors de l'intervention.</div>
-        </div>
-      </div>
-      <div id="step3" class="irve-step" style="display:none">
-        <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:600;margin:0 0 6px">Votre devis personnalisé</h3>
-        <p style="color:#6c7b6d;font-size:14px;margin:0 0 24px">Prix calculé selon votre configuration.</p>
-        <div id="recap-box" style="background:#f7f9fb;border-radius:20px;padding:24px;margin-bottom:24px">
-          <div id="recap-lines" style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px"></div>
-          <div style="height:1px;background:#e0e3e5;margin:16px 0"></div>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div><div id="total-label" style="font-size:13px;color:#6c7b6d">Total TTC (TVA 5,5%)</div><div id="total-ttc" style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:700;color:#006d37"></div></div>
-          </div>
-        </div>
-        <div style="margin-bottom:8px">
-          <div style="font-size:14px;font-weight:600;margin-bottom:12px">💳 Mode de paiement</div>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <label class="opt-choice pay-option" style="display:flex;align-items:center;gap:12px;border:2px solid #e0e3e5;border-radius:12px;padding:14px 16px;cursor:pointer"><input type="radio" name="paiement" value="comptant" style="accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-weight:600;font-size:14px">Paiement comptant</div><div style="font-size:12px;color:#6c7b6d">Paiement sécurisé par carte bancaire</div></div><div style="font-size:13px;font-weight:600;color:#006d37" id="pay-full-amount"></div></label>
-            <label class="opt-choice pay-option" style="display:flex;align-items:center;gap:12px;border:2px solid #e0e3e5;border-radius:12px;padding:14px 16px;cursor:pointer"><input type="radio" name="paiement" value="acompte" style="accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="font-weight:600;font-size:14px">Acompte 40% maintenant</div><div style="font-size:12px;color:#6c7b6d">Solde 60% à la fin de l'installation</div></div><div style="font-size:13px;font-weight:600;color:#006397" id="pay-acompte-amount"></div></label>
-            <label class="opt-choice pay-option" style="display:flex;align-items:center;gap:12px;border:2px solid #e0e3e5;border-radius:12px;padding:14px 16px;cursor:pointer"><input type="radio" name="paiement" value="klarna" style="accent-color:#006d37;flex-shrink:0"><div style="flex:1"><div style="display:flex;align-items:center;gap:8px"><div style="font-weight:600;font-size:14px">Payer en 3× sans frais</div><img src="https://x.klarnacdn.net/payment-method/assets/badges/generic/klarna.svg" alt="Klarna" style="height:18px"></div><div style="font-size:12px;color:#6c7b6d">Via Klarna — sans intérêts</div></div><div style="font-size:13px;font-weight:600;color:#6c7b6d" id="pay-3-amount"></div></label>
-          </div>
-        </div>
-      </div>
-      <div id="step4" class="irve-step" style="display:none">
-        <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:600;margin:0 0 6px">Choisissez votre créneau</h3>
-        <p style="color:#6c7b6d;font-size:14px;margin:0 0 24px">Sélectionnez la date et l'heure qui vous conviennent pour l'intervention.</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-          <button onclick="prevMonth()" style="background:#f2f4f6;border:none;border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:18px">‹</button>
-          <div id="cal-month-label" style="font-weight:600;font-size:15px"></div>
-          <button onclick="nextMonth()" style="background:#f2f4f6;border:none;border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:18px">›</button>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px">
-          <div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Lun</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Mar</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Mer</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Jeu</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Ven</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Sam</div><div style="text-align:center;font-size:11px;color:#6c7b6d;font-weight:600;padding:4px">Dim</div>
-        </div>
-        <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:20px"></div>
-        <div id="time-slots-section" style="display:none">
-          <div style="font-size:14px;font-weight:600;margin-bottom:10px">Créneaux disponibles</div>
-          <div id="time-slots" style="display:flex;flex-wrap:wrap;gap:8px"></div>
-        </div>
-        <div id="selected-slot-display" style="display:none;background:#e8f5e9;border-radius:12px;padding:14px 16px;margin-top:16px;font-size:14px;color:#2e7d32;font-weight:500"></div>
-      </div>
-      <div id="step5" class="irve-step" style="display:none">
-        <h3 style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:600;margin:0 0 6px">Vos coordonnées</h3>
-        <p style="color:#6c7b6d;font-size:14px;margin:0 0 20px">Dernière étape avant confirmation de votre commande.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-          <div><label style="font-size:12px;color:#6c7b6d;display:block;margin-bottom:4px">Prénom *</label><input id="inp-prenom" type="text" placeholder="Jean" style="width:100%;padding:10px 14px;border:2px solid #e0e3e5;border-radius:10px;font-size:14px;font-family:Inter,sans-serif;outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#006d37'" onblur="this.style.borderColor='#e0e3e5'"></div>
-          <div><label style="font-size:12px;color:#6c7b6d;display:block;margin-bottom:4px">Nom *</label><input id="inp-nom" type="text" placeholder="Dupont" style="width:100%;padding:10px 14px;border:2px solid #e0e3e5;border-radius:10px;font-size:14px;font-family:Inter,sans-serif;outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#006d37'" onblur="this.style.borderColor='#e0e3e5'"></div>
-        </div>
-        <div style="margin-bottom:12px"><label style="font-size:12px;color:#6c7b6d;display:block;margin-bottom:4px">Email *</label><input id="inp-email" type="email" placeholder="jean.dupont@email.fr" style="width:100%;padding:10px 14px;border:2px solid #e0e3e5;border-radius:10px;font-size:14px;font-family:Inter,sans-serif;outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#006d37'" onblur="this.style.borderColor='#e0e3e5'"></div>
-        <div style="margin-bottom:12px"><label style="font-size:12px;color:#6c7b6d;display:block;margin-bottom:4px">Téléphone *</label><input id="inp-tel" type="tel" placeholder="06 00 00 00 00" style="width:100%;padding:10px 14px;border:2px solid #e0e3e5;border-radius:10px;font-size:14px;font-family:Inter,sans-serif;outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#006d37'" onblur="this.style.borderColor='#e0e3e5'"></div>
-        <div style="margin-bottom:12px;position:relative">
-          <label style="font-size:12px;color:#6c7b6d;display:block;margin-bottom:4px">Ville (Île-de-France) *</label>
-          <input id="inp-ville-search" type="text" placeholder="Tapez le nom de votre ville..." autocomplete="off" style="width:100%;padding:10px 14px;border:2px solid #e0e3e5;border-radius:10px;font-size:14px;font-family:Inter,sans-serif;outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#006d37'">
-          <div id="ville-suggestions" style="display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border:2px solid #006d37;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);z-index:1001;max-height:200px;overflow-y:auto;margin-top:2px"></div>
-          <input type="hidden" id="inp-ville" value="">
-          <div id="ville-selected" style="display:none;margin-top:6px;font-size:12px;color:#006d37;font-weight:600"></div>
-        </div>
-        <div style="margin-bottom:20px;position:relative">
-          <label style="font-size:12px;color:#6c7b6d;display:block;margin-bottom:4px">Adresse d'installation *</label>
-          <input id="inp-adresse" type="text" placeholder="Saisissez votre adresse..." autocomplete="off" style="width:100%;padding:10px 14px;border:2px solid #e0e3e5;border-radius:10px;font-size:14px;font-family:Inter,sans-serif;outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#006d37'">
-          <div id="adresse-suggestions" style="display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border:2px solid #006d37;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);z-index:1000;max-height:220px;overflow-y:auto;margin-top:2px"></div>
-        </div>
-        <div style="background:#f7f9fb;border-radius:16px;padding:18px 20px;margin-bottom:20px;font-size:13px">
-          <div style="font-weight:600;margin-bottom:10px;font-size:14px">Récapitulatif de votre commande</div>
-          <div id="final-recap" style="display:flex;flex-direction:column;gap:6px;color:#3d4a3e"></div>
-        </div>
-        <div id="stripe-section" style="margin-bottom:20px">
-          <div style="font-size:13px;font-weight:600;color:#3d4a3e;margin-bottom:8px" id="stripe-section-label">💳 Informations de paiement</div>
-          <div id="card-element" style="border:2px solid #e0e3e5;border-radius:10px;padding:12px 14px;background:#fff"></div>
-          <div id="card-errors" style="color:#ba1a1a;font-size:12px;margin-top:6px;display:none"></div>
-          <div style="display:flex;align-items:center;gap:6px;margin-top:8px">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#006d37" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span style="font-size:11px;color:#6c7b6d">Paiement 100% sécurisé — chiffrement SSL Stripe</span>
-          </div>
-        </div>
-        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13px;color:#6c7b6d;margin-bottom:20px">
-          <input type="checkbox" id="cgv-check" style="margin-top:2px;accent-color:#006d37;flex-shrink:0">
-          J'accepte les <a href="#" style="color:#006d37">conditions générales de vente</a> et j'autorise IRV'OHM à me contacter pour confirmer mon rendez-vous.
-        </label>
-        <div id="error-msg" style="display:none;background:#ffdad6;border-radius:10px;padding:10px 14px;font-size:13px;color:#ba1a1a;margin-bottom:16px"></div>
-      </div>
-      <div id="step6" class="irve-step" style="display:none;text-align:center;padding:20px 0">
-        <div style="width:72px;height:72px;background:#e8f5e9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px">✅</div>
-        <h3 style="font-family:Montserrat,sans-serif;font-size:22px;font-weight:700;color:#006d37;margin:0 0 10px">Commande confirmée !</h3>
-        <p style="color:#6c7b6d;font-size:15px;max-width:400px;margin:0 auto 24px">Un email de confirmation a été envoyé. Notre équipe vous contactera sous 24h pour finaliser les détails de votre installation.</p>
-        <div id="confirm-details" style="background:#f7f9fb;border-radius:16px;padding:18px 20px;text-align:left;font-size:13px;margin-bottom:24px;display:inline-block;min-width:280px"></div>
-        <div><button onclick="closeOrder()" style="background:linear-gradient(135deg,#006d37,#006397);color:#fff;border:none;border-radius:14px;padding:14px 32px;font-size:15px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Fermer</button></div>
-      </div>
-    </div>
-    <div id="modal-footer" style="padding:0 32px 28px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0e3e5;padding-top:20px">
-      <button id="btn-back" onclick="prevStep()" style="background:#f2f4f6;border:none;border-radius:12px;padding:12px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:none">Retour</button>
-      <div style="flex:1"></div>
-      <button id="btn-next" onclick="nextStep()" style="background:linear-gradient(135deg,#006d37,#006397);color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;min-width:140px">Continuer</button>
-    </div>
-  </div>
-</div>
-
+<!-- ✅ GSAP + ScrollTrigger, avec repli natif (IntersectionObserver) si le CDN échoue -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script>
-/* === Chrome de page : header scroll, reveal, FAQ accordéon === */
 (function(){ var h=document.getElementById('hdr'); var on=function(){ h.classList.toggle('scrolled', window.scrollY>8); }; window.addEventListener('scroll',on,{passive:true}); on(); })();
-(function(){
-  var els=document.querySelectorAll('.reveal,.stagger'); if(!els.length) return;
-  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){ els.forEach(function(e){e.classList.add('in');}); return; }
-  var io=new IntersectionObserver(function(en,o){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); o.unobserve(x.target);} }); },{threshold:0.14,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e){ io.observe(e); });
-})();
+
 (function(){
   document.querySelectorAll('.faq-item').forEach(function(item){
     var q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
@@ -844,227 +640,136 @@
   });
 })();
 
-/* === MODALE DE COMMANDE — logique conservée à l'identique === */
-var state = { step:1, borne:null, borneBrand:'wallbox', distanceSurcharge:0, terreSurcharge:0, lieusurcharge:0, totalHT:0, tvaAmount:0, totalTTC:0, deduction:0, totalAPayer:0, paiement:'comptant', date:null, heure:null, calYear:0, calMonth:0, adresseValidee:false };
-var TVA = 0.055;
-var GRILLE = { wallbox:[1685,1810,1935], borne:[1045,1170,1295], hager:[1565,1690,1815], teltocharge:[1915,2040,2165] };
-function getPrixTTC(){ var brand=state.borneBrand||'wallbox'; var dist=state.distanceIndex!==undefined?state.distanceIndex:0; var base=GRILLE[brand][dist]||GRILLE[brand][0]; return base+state.terreSurcharge+state.lieusurcharge; }
-function openOrder(borne,brand,type){ document.getElementById('irve-modal').style.display='block'; document.body.style.overflow='hidden'; var now=new Date(); state.calYear=now.getFullYear(); state.calMonth=now.getMonth(); state.terreSurcharge=0; state.lieusurcharge=0; state.distanceIndex=0; state.adresseValidee=false; selectedVilleData=null; var vs=document.getElementById('inp-ville-search'); if(vs){vs.value='';} var vh=document.getElementById('inp-ville'); if(vh){vh.value='';} var vsel=document.getElementById('ville-selected'); if(vsel){vsel.style.display='none';} var ia=document.getElementById('inp-adresse'); if(ia){ia.value='';ia.disabled=true;ia.placeholder="Sélectionnez d'abord une ville";} var btnNext=document.getElementById('btn-next'); btnNext.disabled=false; btnNext.style.opacity='1'; btnNext.style.cursor='pointer'; btnNext.title=''; if(borne){state.borne=borne; state.borneBrand=brand; document.querySelectorAll('input[name=borne]').forEach(function(r){r.checked=(r.value===borne);}); highlightBorne();} var selType=type||'maison'; state.typelieu=selType; state.lieusurcharge=0; document.querySelectorAll('input[name=steptype]').forEach(function(r){r.checked=(r.value===selType);}); filterBornes(selType); document.querySelectorAll('#lbl-type-maison,#lbl-type-copro').forEach(function(l){var r=l.querySelector('input'); l.style.borderColor=r&&r.checked?'#006d37':'#e0e3e5'; l.style.background=r&&r.checked?'#f0faf4':'#fff';}); goStep(1); }
-function closeOrder(){ document.getElementById('irve-modal').style.display='none'; document.body.style.overflow=''; }
-document.getElementById('irve-modal').addEventListener('click',function(e){if(e.target===this)closeOrder();});
-function goStep(n){ state.step=n; document.querySelectorAll('.irve-step').forEach(function(el){el.style.display='none';}); var el=document.getElementById('step'+n); if(el)el.style.display='block'; for(var i=1;i<=5;i++){var pb=document.getElementById('pb'+i); if(pb)pb.style.background=i<=n?'rgba(255,255,255,0.9)':'rgba(255,255,255,0.3)';} var labels=['','Votre borne','Diagnostic technique','Votre devis','Créneau d\'intervention','Vos coordonnées']; document.getElementById('step-label').textContent='Étape '+n+' sur 5 — '+(labels[n]||''); document.getElementById('btn-back').style.display=n>1&&n<6?'block':'none'; document.getElementById('btn-next').style.display=n<6?'flex':'none'; if(n===5){updatePayBtn();}else{document.getElementById('btn-next').textContent='Continuer';} document.getElementById('modal-footer').style.display=n===6?'none':'flex'; if(n===3)buildRecap(); if(n===4)renderCalendar(); if(n===5){buildFinalRecap();initStripe();updateStripeSectionLabel();} document.getElementById('irve-box').scrollTop=0; }
-function nextStep(){ var s=state.step; if(s===1){var t0=document.querySelector('input[name=steptype]:checked'); if(!t0){alert('Veuillez choisir le type d\'installation.');return;} var r=document.querySelector('input[name=borne]:checked'); if(!r){alert('Veuillez choisir une borne.');return;} state.borne=r.value; state.borneBrand=r.dataset.brand; state.typelieu=t0.value; state.lieusurcharge=0;} if(s===2){var d=document.querySelector('input[name=distance]:checked'),t=document.querySelector('input[name=terre]:checked'); if(!d||!t){alert('Veuillez répondre à toutes les questions.');return;} state.distanceIndex=parseInt(d.value); state.terreSurcharge=parseInt(t.dataset.surcharge); computeTotal();} if(s===3){var p=document.querySelector('input[name=paiement]:checked'); if(!p){alert('Veuillez choisir un mode de paiement.');return;} state.paiement=p.value;} if(s===4){if(!state.date||!state.heure){alert('Veuillez choisir un créneau d\'intervention.');return;}} if(s===5){var pr=document.getElementById('inp-prenom').value.trim(),no=document.getElementById('inp-nom').value.trim(),em=document.getElementById('inp-email').value.trim(),te=document.getElementById('inp-tel').value.trim(),ad=document.getElementById('inp-adresse').value.trim(); var ville=document.getElementById('inp-ville').value; var err=''; if(!pr||!no)err='Veuillez saisir votre prénom et nom.'; else if(!em||em.indexOf('@')<0)err='Veuillez saisir un email valide.'; else if(!te)err='Veuillez saisir votre téléphone.'; else if(!ville)err='Veuillez sélectionner votre ville en Île-de-France.'; else if(!ad)err="Veuillez saisir l'adresse d'installation."; else if(!state.adresseValidee)err='Veuillez sélectionner une adresse dans la liste proposée.'; else if(!document.getElementById('cgv-check').checked)err='Veuillez accepter les conditions générales de vente.'; document.getElementById('error-msg').style.display=err?'block':'none'; document.getElementById('error-msg').textContent=err; if(err)return; processPayment(pr,no,em,te,ad); return;} if(s<6)goStep(s+1); }
-function prevStep(){ if(state.step>1){var btnNext=document.getElementById('btn-next'); btnNext.disabled=false; btnNext.style.opacity='1'; btnNext.style.cursor='pointer'; btnNext.title=''; goStep(state.step-1);} }
-function highlightBorne(){ document.querySelectorAll('.borne-option').forEach(function(l){var r=l.querySelector('input[type=radio]'); l.style.borderColor=r&&r.checked?'#006d37':'#e0e3e5'; l.style.background=r&&r.checked?'#f0faf4':'#fff';}); }
-function filterBornes(type){ var maison=['lbl-wallbox','lbl-hager','lbl-schneider']; var copro=['lbl-wallbox','lbl-hager','lbl-teltocharge']; var show=type==='copro'?copro:maison; ['lbl-wallbox','lbl-hager','lbl-schneider','lbl-teltocharge'].forEach(function(id){var el=document.getElementById(id); if(el)el.style.display=show.includes(id)?'flex':'none';}); var checked=document.querySelector('input[name=borne]:checked'); if(checked){var brand=checked.dataset.brand; var valid=type==='copro'?['wallbox','hager','teltocharge']:['wallbox','hager','borne']; if(!valid.includes(brand)){checked.checked=false; highlightBorne();}} }
+(function () {
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  var staggerEls = document.querySelectorAll('.stagger');
+  var stats = document.querySelectorAll('.stat-val[data-target]');
 
-/* ▸ Seule fonction adaptée au nouveau design (onglets en classes CSS au lieu de Tailwind) */
-function switchTab(type){
-  document.getElementById('cards-maison').style.display = type==='maison' ? 'grid' : 'none';
-  document.getElementById('cards-copro').style.display  = type==='copro'  ? 'grid' : 'none';
-  var mb=document.getElementById('tab-btn-maison'), cb=document.getElementById('tab-btn-copro');
-  if(mb) mb.classList.toggle('on', type==='maison');
-  if(cb) cb.classList.toggle('on', type==='copro');
-}
+  function statText(el) {
+    return el.getAttribute('data-target') + (el.getAttribute('data-suffix') || '');
+  }
+  function showEverythingNow() {
+    revealEls.forEach(function (e) { e.classList.add('in'); e.style.opacity = 1; e.style.transform = 'none'; });
+    staggerEls.forEach(function (e) { e.classList.add('in'); });
+    stats.forEach(function (e) {
+      if (!e.dataset.counted) { e.dataset.counted = '1'; e.textContent = statText(e); }
+    });
+  }
 
-document.addEventListener('change',function(e){ if(e.target.name==='borne')highlightBorne(); if(['distance','terre','steptype'].includes(e.target.name)){e.target.closest('.opt-choice').parentElement.querySelectorAll('.opt-choice').forEach(function(l){var r=l.querySelector('input'); l.style.borderColor=r&&r.checked?'#006d37':'#e0e3e5'; l.style.background=r&&r.checked?'#f0faf4':'#fff';}); if(e.target.name==='terre'){document.getElementById('terre-warning').style.display=e.target.value==='non'?'block':'none';} if(e.target.name==='steptype'){filterBornes(e.target.value);}} if(e.target.name==='paiement'){document.querySelectorAll('.pay-option').forEach(function(l){var r=l.querySelector('input'); l.style.borderColor=r&&r.checked?'#006d37':'#e0e3e5'; l.style.background=r&&r.checked?'#f0faf4':'#fff';});} });
-function computeTotal(){ state.totalHT=getPrixTTC(); state.tvaAmount=Math.round(state.totalHT*TVA); state.totalTTC=state.totalHT+state.tvaAmount; state.deduction=state.typelieu==='copro'?Math.min(Math.round(state.totalTTC*0.5),1000):0; state.totalAPayer=state.totalTTC-state.deduction; }
-function fmt(n){ return n.toLocaleString('fr-FR')+'€'; }
-function buildRecap(){ computeTotal(); var baseHT=GRILLE[state.borneBrand][state.distanceIndex]||GRILLE[state.borneBrand][0]; var lines=[{label:state.borne+' — installation complète (HT)',val:fmt(baseHT)}]; if(state.terreSurcharge>0)lines.push({label:'Mise à la terre (HT)',val:'+'+fmt(state.terreSurcharge)}); lines.push({label:'TVA 5,5%',val:'+'+fmt(state.tvaAmount)}); if(state.deduction>0)lines.push({label:'Prime copropriété (50%, plafond 1 000 €)',val:'−'+fmt(state.deduction)}); var html=''; lines.forEach(function(l){html+='<div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:#3d4a3e">'+l.label+'</span><span style="font-weight:600">'+l.val+'</span></div>';}); document.getElementById('recap-lines').innerHTML=html; document.getElementById('total-label').textContent=state.deduction>0?'Total à payer (après prime)':'Total TTC (TVA 5,5%)'; document.getElementById('total-ttc').textContent=fmt(state.totalAPayer); document.getElementById('pay-full-amount').textContent=fmt(state.totalAPayer); document.getElementById('pay-acompte-amount').textContent=fmt(Math.ceil(state.totalAPayer*0.4))+' maintenant'; document.getElementById('pay-3-amount').textContent=Math.ceil(state.totalAPayer/3)+' €×3'; }
-var MONTHS=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-var SLOTS=['08h00–10h00','10h00–12h00','14h00–16h00','16h00–18h00'];
-var GCAL_API_KEY = 'AIzaSyCyHPczjzLlR_ktXeuTLOVws1oRyRKqB2g';
-var GCAL_ID = '8ab7f2171e818df6d15765427101d7cbc2b2af47043c4b3fbdf0b7592b3957ba@group.calendar.google.com';
-// Map des créneaux SLOTS vers leurs heures de début/fin (24h) pour comparaison avec Google Calendar
-var SLOT_RANGES = {
-  '08h00–10h00': [8, 10],
-  '10h00–12h00': [10, 12],
-  '14h00–16h00': [14, 16],
-  '16h00–18h00': [16, 18]
-};
-
-var busyDaysCache = {};
-// Retourne un objet { 'YYYY-MM-DD': { fullDay: bool, slots: ['08h00–10h00', ...] } }
-function fetchBusyDays(year, month, callback) {
-  var cacheKey = year + '-' + month;
-  if (busyDaysCache[cacheKey]) { callback(busyDaysCache[cacheKey]); return; }
-  if (!GCAL_API_KEY || GCAL_API_KEY === 'VOTRE_CLE_API_GOOGLE') { callback({}); return; }
-  var firstDay = new Date(year, month, 1).toISOString();
-  var lastDay = new Date(year, month + 1, 0, 23, 59, 59).toISOString();
-  var url = 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(GCAL_ID) + '/events?key=' + GCAL_API_KEY + '&timeMin=' + encodeURIComponent(firstDay) + '&timeMax=' + encodeURIComponent(lastDay) + '&singleEvents=true&maxResults=100';
-  fetch(url).then(function(r){return r.json();}).then(function(data){
-    var busy = {};
-    function ensureDay(dateKey){ if(!busy[dateKey]) busy[dateKey]={fullDay:false, slots:[]}; return busy[dateKey]; }
-    if (data.items) {
-      data.items.forEach(function(ev) {
-        if (ev.start.date) {
-          // Événement "journée entière" -> bloque toute la journée (ex: congés)
-          var start = ev.start.date;
-          var end = ev.end.date;
-          var d = new Date(start + 'T12:00:00');
-          var endD = new Date(end + 'T12:00:00');
-          while (d < endD) {
-            var dateKey=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-            ensureDay(dateKey).fullDay = true;
-            d.setDate(d.getDate()+1);
-          }
-        } else if (ev.start.dateTime) {
-          // Événement horaire -> ne bloque que le(s) créneau(x) chevauchés
-          var startDT = new Date(ev.start.dateTime);
-          var endDT = new Date(ev.end.dateTime);
-          var dateKey = ev.start.dateTime.substring(0,10);
-          var dayObj = ensureDay(dateKey);
-          var evStartH = startDT.getHours() + startDT.getMinutes()/60;
-          var evEndH = endDT.getHours() + endDT.getMinutes()/60;
-          // Si l'événement finit à minuit (00h00) le lendemain, traiter comme 24h pour le jour de début
-          var endDateKey = ev.end.dateTime.substring(0,10);
-          if (endDateKey !== dateKey && evEndH === 0) {
-            evEndH = 24;
-          }
-          Object.keys(SLOT_RANGES).forEach(function(slot){
-            var r = SLOT_RANGES[slot];
-            // chevauchement si l'événement commence avant la fin du créneau et finit après le début du créneau
-            if (evStartH < r[1] && evEndH > r[0]) {
-              if (dayObj.slots.indexOf(slot) === -1) dayObj.slots.push(slot);
-            }
+  function initVanilla() {
+    var els = document.querySelectorAll('.reveal, .stagger');
+    if (els.length) {
+      if (!('IntersectionObserver' in window) || reduceMotion) {
+        els.forEach(function (e) { e.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('in'); obs.unobserve(entry.target); }
           });
+        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function (e) { io.observe(e); });
+        setTimeout(function () { els.forEach(function (e) { e.classList.add('in'); }); io.disconnect(); }, 2500);
+      }
+    }
+    if (stats.length) {
+      var runCount = function (el) {
+        if (el.dataset.counted) return;
+        el.dataset.counted = '1';
+        var target = parseFloat(el.getAttribute('data-target'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        if (reduceMotion) { el.textContent = target + suffix; return; }
+        var duration = 1400, start = null;
+        function step(ts) {
+          if (start === null) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(step); else el.textContent = target + suffix;
         }
+        requestAnimationFrame(step);
+      };
+      if (!('IntersectionObserver' in window)) {
+        stats.forEach(runCount);
+      } else {
+        var io2 = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) { if (entry.isIntersecting) { runCount(entry.target); obs.unobserve(entry.target); } });
+        }, { threshold: 0.4 });
+        stats.forEach(function (e) { io2.observe(e); });
+        setTimeout(function () { stats.forEach(runCount); io2.disconnect(); }, 2500);
+      }
+    }
+  }
+
+  function initGSAP() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray('.reveal').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 26 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+    gsap.utils.toArray('.stagger').forEach(function (group) {
+      gsap.fromTo(group.children, { opacity: 0, y: 22 }, {
+        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.09,
+        scrollTrigger: { trigger: group, start: 'top 85%' }
+      });
+    });
+    gsap.utils.toArray('.stat-val[data-target]').forEach(function (el) {
+      var target = parseFloat(el.getAttribute('data-target'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      var obj = { val: 0 };
+      gsap.to(obj, {
+        val: target, duration: 1.4, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', onEnter: function () { el.dataset.counted = '1'; } },
+        onUpdate: function () { el.textContent = Math.round(obj.val) + suffix; }
+      });
+    });
+
+    // Entrée cinématique de la photo du hero au chargement de la page.
+    var heroMedia = document.getElementById('hero-media');
+    if (heroMedia) {
+      gsap.fromTo(heroMedia, { opacity: 0, scale: 0.92, y: 18 }, { opacity: 1, scale: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.15 });
+    }
+    // Léger parallaxe de la photo du hero au scroll.
+    var heroCard = document.querySelector('.hero-card img');
+    if (heroCard) {
+      gsap.to(heroCard, {
+        y: 40, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 }
       });
     }
-    busyDaysCache[cacheKey] = busy;
-    callback(busy);
-  }).catch(function(){ callback({}); });
-}
-function renderCalendar() {
-  var y=state.calYear, m=state.calMonth;
-  document.getElementById('cal-month-label').textContent=MONTHS[m]+' '+y;
-  document.getElementById('cal-grid').innerHTML='<div style="grid-column:span 7;text-align:center;padding:20px;color:#6c7b6d;font-size:13px">Chargement des disponibilités...</div>';
-  fetchBusyDays(y, m, function(busyDays) {
-    state.busyDays = busyDays;
-    var first=new Date(y,m,1).getDay(); first=(first+6)%7;
-    var days=new Date(y,m+1,0).getDate();
-    var now=new Date(); var todayY=now.getFullYear(),todayM=now.getMonth(),todayD=now.getDate();
-    var html='';
-    for(var i=0;i<first;i++) html+='<div></div>';
-    for(var d=1;d<=days;d++){
-      var dateKey=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
-      var isPast=(y<todayY)||(y===todayY&&m<todayM)||(y===todayY&&m===todayM&&d<todayD+1);
-      var dd=new Date(y,m,d).getDay(); var isWE=dd===0;
-      var dayInfo=busyDays[dateKey];
-      var isFullDay = dayInfo && dayInfo.fullDay;
-      var occupiedSlots = (dayInfo && dayInfo.slots) ? dayInfo.slots.length : 0;
-      var isFullyBooked = isFullDay || occupiedSlots >= SLOTS.length;
-      var isSelected=state.date&&state.date===dateKey;
-      var disabled=isPast||isWE||isFullyBooked;
-      var bg=isSelected?'#006d37':disabled?'#f2f4f6':'#fff';
-      var col=isSelected?'#fff':disabled?'#c0c0c0':'#191c1e';
-      var border=isSelected?'2px solid #006d37':disabled?'2px solid transparent':'2px solid #e0e3e5';
-      var cursor=disabled?'default':'pointer';
-      var titleAttr=isFullyBooked&&!isPast&&!isWE?' title="Indisponible"':'';
-      html+='<div onclick="'+(disabled?'':'selectDate('+y+','+m+','+d+')')+'"'+titleAttr+' style="text-align:center;padding:8px 0;border-radius:10px;font-size:14px;font-weight:500;background:'+bg+';color:'+col+';border:'+border+';cursor:'+cursor+'">'+d+'</div>';
-    }
-    document.getElementById('cal-grid').innerHTML=html;
-    document.getElementById('time-slots-section').style.display=state.date?'block':'none';
-    if(state.date)renderSlots();
-  });
-}
-function selectDate(y,m,d){ state.date=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'); state.heure=null; document.getElementById('selected-slot-display').style.display='none'; renderCalendar(); renderSlots(); }
-function renderSlots(){
-  var container=document.getElementById('time-slots');
-  container.innerHTML='';
-  var dayInfo = (state.busyDays && state.busyDays[state.date]) || {fullDay:false, slots:[]};
-  var occupiedSlots = dayInfo.fullDay ? SLOTS : (dayInfo.slots || []);
-  SLOTS.forEach(function(s){
-    var sel=state.heure===s;
-    var isOccupied = occupiedSlots.indexOf(s) >= 0;
-    var btn=document.createElement('button');
-    btn.textContent=isOccupied ? s+' (indisponible)' : s;
-    if(isOccupied){
-      btn.disabled=true;
-      btn.style.cssText='padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;border:2px solid #e0e3e5;background:#f2f4f6;color:#c0c0c0;cursor:default;font-family:Inter,sans-serif';
-    } else {
-      btn.onclick=function(){selectSlot(s);};
-      btn.style.cssText='padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;border:2px solid '+(sel?'#006d37':'#e0e3e5')+';background:'+(sel?'#006d37':'#fff')+';color:'+(sel?'#fff':'#191c1e')+';cursor:pointer;font-family:Inter,sans-serif';
-    }
-    container.appendChild(btn);
-  });
-}
-function selectSlot(s){ state.heure=s; var d=new Date(state.date); var opts={weekday:'long',day:'numeric',month:'long',year:'numeric'}; document.getElementById('selected-slot-display').style.display='block'; document.getElementById('selected-slot-display').innerHTML='✅ Intervention prévue le <strong>'+d.toLocaleDateString('fr-FR',opts)+'</strong> de <strong>'+s+'</strong>'; renderSlots(); }
-function prevMonth(){ state.calMonth--; if(state.calMonth<0){state.calMonth=11;state.calYear--;} renderCalendar(); }
-function nextMonth(){ state.calMonth++; if(state.calMonth>11){state.calMonth=0;state.calYear++;} renderCalendar(); }
-function payLabel(p){ if(p==='acompte')return 'Acompte 40 % ('+fmt(Math.ceil(state.totalAPayer*0.4))+') + solde à l\'installation'; if(p==='klarna')return '3x sans frais Klarna ('+Math.ceil(state.totalAPayer/3)+' euros/mois)'; return 'Comptant - '+fmt(state.totalAPayer); }
-function amountToPay(){ if(state.paiement==='acompte')return Math.ceil(state.totalAPayer*0.4); if(state.paiement==='klarna')return Math.ceil(state.totalAPayer/3); return state.totalAPayer; }
-function updatePayBtn(){ var btn=document.getElementById('btn-next'); var amt=amountToPay(); var label=state.paiement==='klarna'?'Payer avec Klarna — ':state.paiement==='acompte'?'Payer l\'acompte — ':'Payer — '; btn.textContent=label+fmt(amt)+' ✓'; }
-function dateLabel(){ if(!state.date)return '—'; var d=new Date(state.date); return d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+' · '+state.heure; }
-function buildFinalRecap(){ var html=[{label:'Borne',val:state.borne},{label:'Total à payer',val:fmt(state.totalAPayer)},{label:'Paiement',val:payLabel(state.paiement)},{label:'Intervention',val:dateLabel()}].map(function(r){return '<div style="display:flex;justify-content:space-between;gap:16px;padding:4px 0"><span style="color:#6c7b6d">'+r.label+'</span><span style="font-weight:600;text-align:right">'+r.val+'</span></div>';}).join(''); document.getElementById('final-recap').innerHTML=html; }
-function buildConfirm(pr,no,em,ad){ var html=['<div style="font-weight:600;margin-bottom:10px;color:#006d37">'+pr+' '+no+'</div>','<div style="color:#6c7b6d;margin-bottom:4px">'+em+'</div>','<div style="color:#6c7b6d;margin-bottom:12px">'+ad+'</div>','<div style="font-size:13px"><strong>Borne :</strong> '+state.borne+'</div>','<div style="font-size:13px"><strong>Total à payer :</strong> '+fmt(state.totalAPayer)+'</div>','<div style="font-size:13px"><strong>Paiement :</strong> '+payLabel(state.paiement)+'</div>','<div style="font-size:13px"><strong>Intervention :</strong> '+dateLabel()+'</div>'].join(''); document.getElementById('confirm-details').innerHTML=html; }
-var STRIPE_PK='pk_test_51Td6TKGhCoFnBVWAyqeTYzgBM7Og9F9aAPQI1iNZvXjKZfQ5to2vbuDuWWw39gvpU0jO4mnGPkIqJaHgWycGo0pm00dnmtCla9';
-var stripe,cardElement;
-function initStripe(){ if(stripe)return; stripe=Stripe(STRIPE_PK); var elements=stripe.elements({locale:'fr'}); cardElement=elements.create('card',{style:{base:{fontFamily:'Inter,sans-serif',fontSize:'15px',color:'#191c1e','::placeholder':{color:'#aab7c4'}},invalid:{color:'#ba1a1a'}}}); cardElement.mount('#card-element'); cardElement.on('change',function(e){var el=document.getElementById('card-errors'); if(e.error){el.textContent=e.error.message;el.style.display='block';}else{el.style.display='none';}}); }
-function updateStripeSectionLabel(){ var p=state.paiement; var lbl=''; if(p==='comptant')lbl='Paiement comptant - '+fmt(state.totalAPayer); else if(p==='acompte')lbl='Acompte 40 % - '+fmt(Math.ceil(state.totalAPayer*0.4)); else if(p==='klarna')lbl='Klarna 3x - '+Math.ceil(state.totalAPayer/3)+' euros/mois'; document.getElementById('stripe-section-label').textContent=lbl; document.getElementById('card-element').parentElement.style.display=(p==='klarna')?'none':'block'; }
-function setLoading(loading){ var btn=document.getElementById('btn-next'); btn.disabled=loading; if(loading){btn.textContent='Traitement...';btn.style.opacity='0.7';}else{btn.style.opacity='1';updatePayBtn();} }
-function showError(msg){ var el=document.getElementById('error-msg'); el.textContent=msg; el.style.display='block'; }
 
-function processPayment(pr,no,em,te,ad){
-  document.getElementById('error-msg').style.display='none';
-  setLoading(true);
-  if(state.paiement==='klarna'){processKlarna(pr,no,em,te,ad);return;}
-  stripe.createPaymentMethod({type:'card',card:cardElement,billing_details:{name:pr+' '+no,email:em,phone:te}}).then(function(result){
-    if(result.error){showError(result.error.message);setLoading(false);return;}
-    fetch('/api/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({paymentMethodId:result.paymentMethod.id,paiement:state.paiement,borne:state.borne,totalTTC:state.totalAPayer,client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},date:state.date,heure:state.heure})})
-    .then(function(r){return r.json();})
-    .then(function(data){
-      if(data.error){showError(data.error);setLoading(false);return;}
-      if(data.requiresAction){
-        stripe.confirmCardPayment(data.clientSecret).then(function(res){
-          if(res.error){
-            showError(res.error.message);
-            setLoading(false);
-          } else {
-            fetch('/api/create-payment-intent',{
-              method:'POST',
-              headers:{'Content-Type':'application/json'},
-              body:JSON.stringify({
-                paymentIntentId:res.paymentIntent.id,
-                paiement:state.paiement,
-                borne:state.borne,
-                totalTTC:state.totalAPayer,
-                client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},
-                date:state.date,
-                heure:state.heure
-              })
-            }).then(function(r){return r.json();})
-            .then(function(data2){
-              if(data2.error){showError(data2.error);setLoading(false);return;}
-              if(data2.success){buildConfirm(pr,no,em,ad);goStep(6);}
-              setLoading(false);
-            }).catch(function(){
-              showError('Erreur réseau. Vérifiez votre connexion et réessayez.');
-              setLoading(false);
-            });
-          }
-        });
-        return;
+    // Filet de sécurité : si ScrollTrigger ne se déclenche jamais (page jamais
+    // scrollée, mesure de viewport ratée...), on force l'affichage après un délai.
+    setTimeout(function () {
+      revealEls.forEach(function (e) { e.classList.add('in'); gsap.set(e, { opacity: 1, y: 0 }); });
+      staggerEls.forEach(function (e) { e.classList.add('in'); gsap.set(e.children, { opacity: 1, y: 0 }); });
+      stats.forEach(function (e) {
+        if (!e.dataset.counted) { e.dataset.counted = '1'; e.textContent = statText(e); }
+      });
+    }, 3500);
+  }
+
+  function safeInit() {
+    try {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !reduceMotion) {
+        initGSAP();
+      } else {
+        initVanilla();
       }
-      if(data.success){buildConfirm(pr,no,em,ad);goStep(6);}
-      setLoading(false);
-    }).catch(function(){showError('Erreur réseau. Vérifiez votre connexion et réessayez.');setLoading(false);});
-  });
-}
+    } catch (e) {
+      showEverythingNow();
+    }
+  }
 
-document.addEventListener('change',function(e){ if(e.target.name==='terre'){var btnNext=document.getElementById('btn-next'); if(e.target.value==='non'){btnNext.disabled=true;btnNext.style.opacity='0.4';btnNext.style.cursor='not-allowed';btnNext.title='Une mise à la terre est nécessaire. Contactez-nous pour un devis.';}else{btnNext.disabled=false;btnNext.style.opacity='1';btnNext.style.cursor='pointer';btnNext.title='';}} });
-var selectedVilleData=null;
-function normalize(s){ return s.toLowerCase().replace(/[àâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[îï]/g,'i').replace(/[ôö]/g,'o').replace(/[ùûü]/g,'u').replace(/[ç]/g,'c').replace(/[-'\s]+/g,' ').trim(); }
-var COMMUNES_IDF=[["Paris 1er","75001","75056"],["Paris 2e","75002","75056"],["Paris 3e","75003","75056"],["Paris 4e","75004","75056"],["Paris 5e","75005","75056"],["Paris 6e","75006","75056"],["Paris 7e","75007","75056"],["Paris 8e","75008","75056"],["Paris 9e","75009","75056"],["Paris 10e","75010","75056"],["Paris 11e","75011","75056"],["Paris 12e","75012","75056"],["Paris 13e","75013","75056"],["Paris 14e","75014","75056"],["Paris 15e","75015","75056"],["Paris 16e","75016","75056"],["Paris 17e","75017","75056"],["Paris 18e","75018","75056"],["Paris 19e","75019","75056"],["Paris 20e","75020","75056"],["Versailles","78000","78646"],["Boulogne-Billancourt","92100","92012"],["Saint-Denis","93200","93066"],["Créteil","94000","94028"],["Nanterre","92000","92050"],["Montreuil","93100","93048"],["Argenteuil","95100","95018"],["Cergy","95000","95127"],["Évry-Courcouronnes","91000","91228"],["Massy","91300","91377"],["Pontoise","95300","95500"],["Melun","77000","77288"],["Meaux","77100","77284"],["Fontainebleau","77300","77186"],["Antony","92160","92002"],["Asnières-sur-Seine","92600","92004"],["Courbevoie","92400","92026"],["Colombes","92700","92025"],["Levallois-Perret","92300","92044"],["Neuilly-sur-Seine","92200","92051"],["Rueil-Malmaison","92500","92063"],["Saint-Germain-en-Laye","78100","78551"],["Versailles","78000","78646"]];
-function searchVilles(q){ var nq=normalize(q); return COMMUNES_IDF.filter(function(c){return normalize(c[0]).indexOf(nq)===0||c[1].indexOf(q)===0;}).slice(0,10); }
-function makePickHandler(c){ return function(e){e.preventDefault();e.stopPropagation(); document.getElementById('inp-ville-search').value=c[0]+' ('+c[1]+')'; document.getElementById('inp-ville').value=c[1]; selectedVilleData={nom:c[0],codePostal:c[1],inseeCode:c[2]}; document.getElementById('ville-selected').style.display='block'; document.getElementById('ville-selected').textContent='✅ '+c[0]+' sélectionnée'; document.getElementById('ville-suggestions').style.display='none'; var inp=document.getElementById('inp-adresse'); inp.disabled=false; inp.value=''; inp.placeholder='Ex: 12 rue des Lilas'; state.adresseValidee=false;}; }
-document.getElementById('inp-ville-search').addEventListener('input',function(){ var q=this.value.trim(); var box=document.getElementById('ville-suggestions'); if(q.length<2){box.style.display='none';return;} var results=searchVilles(q); if(results.length===0){box.style.display='none';return;} box.innerHTML=''; results.forEach(function(c){var div=document.createElement('div'); div.textContent=c[0]+' ('+c[1]+')'; div.style.cssText='padding:12px 16px;font-size:14px;cursor:pointer;border-bottom:1px solid #f0f0f0;user-select:none'; div.addEventListener('pointerdown',makePickHandler(c)); box.appendChild(div);}); box.style.display='block'; });
-document.addEventListener('pointerdown',function(e){ var vs=document.getElementById('inp-ville-search'); var vb=document.getElementById('ville-suggestions'); if(vs&&!vs.contains(e.target)&&vb&&!vb.contains(e.target)){vb.style.display='none';} var ia=document.getElementById('inp-adresse'); var ab=document.getElementById('adresse-suggestions'); if(ia&&!ia.contains(e.target)&&ab&&!ab.contains(e.target)){ab.style.display='none';} });
-var adresseTimer=null;
-document.getElementById('inp-adresse').disabled=true;
-document.getElementById('inp-adresse').placeholder="Sélectionnez d'abord une ville";
-document.getElementById('inp-adresse').addEventListener('input',function(){var q=this.value.trim(); state.adresseValidee=false; clearTimeout(adresseTimer); if(q.length<3){document.getElementById('adresse-suggestions').style.display='none';return;} if(!selectedVilleData)return; adresseTimer=setTimeout(function(){fetch('https://api-adresse.data.gouv.fr/search/?q='+encodeURIComponent(q)+'&citycode='+encodeURIComponent(selectedVilleData.inseeCode)+'&limit=8').then(function(r){return r.json();}).then(function(data){if(!data.features||data.features.length===0){return fetch('https://api-adresse.data.gouv.fr/search/?q='+encodeURIComponent(q+' '+selectedVilleData.nom)+'&limit=8').then(function(r){return r.json();});} return data;}).then(function(data){var box=document.getElementById('adresse-suggestions'); if(!data.features||data.features.length===0){box.style.display='none';return;} box.innerHTML=''; data.features.forEach(function(f){var label=f.properties.label; var div=document.createElement('div'); div.textContent=label; div.style.cssText='padding:12px 16px;font-size:14px;cursor:pointer;border-bottom:1px solid #f0f0f0;user-select:none'; div.addEventListener('pointerdown',function(e){e.preventDefault(); document.getElementById('inp-adresse').value=label; state.adresseValidee=true; document.getElementById('adresse-suggestions').style.display='none';}); box.appendChild(div);}); box.style.display='block';}).catch(function(){});},300); });
-function processKlarna(pr,no,em,te,ad){ fetch('/api/create-klarna-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({borne:state.borne,totalTTC:state.totalAPayer,client:{prenom:pr,nom:no,email:em,tel:te,adresse:ad},date:state.date,heure:state.heure})}).then(function(r){return r.json();}).then(function(data){if(data.error){showError(data.error);setLoading(false);return;} window.location.href=data.url;}).catch(function(){showError('Erreur réseau. Vérifiez votre connexion et réessayez.');setLoading(false);}); }
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    safeInit();
+  } else {
+    window.addEventListener('load', safeInit);
+  }
+})();
 </script>
 </body>
 </html>
