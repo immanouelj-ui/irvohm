@@ -139,6 +139,7 @@
   @media (min-width:960px){ .city-grid { grid-template-columns:repeat(3,1fr); } }
   .city-card { display:block; padding:26px 26px; background:var(--white); border:1px solid rgba(187,203,187,0.3); border-radius:var(--r-lg); transition:transform .25s var(--ease), border-color .25s, box-shadow .25s; }
   .city-card:hover { transform:translateY(-4px); border-color:rgba(0,109,55,0.3); box-shadow:0 14px 34px rgba(7,34,26,0.08); }
+  .feat-city-card:hover { transform:translateY(-4px); border-color:rgba(0,109,55,0.3); box-shadow:0 14px 34px rgba(7,34,26,0.08); }
   .city-card h3 { font-family:var(--display); font-weight:600; font-size:18px; letter-spacing:-0.01em; color:var(--ink); display:flex; align-items:center; justify-content:space-between; gap:8px; }
   .city-card h3 .ic { color:var(--green); opacity:.6; transition:transform .2s, opacity .2s; }
   .city-card:hover h3 .ic { transform:translateX(3px); opacity:1; }
@@ -495,6 +496,24 @@
       </div>
     </div>
   </section>
+
+  <!-- VILLES A LA UNE (SEO) -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow"><span class="dot"></span> Forte demande</span>
+        <h2>Zone à la une : Argenteuil</h2>
+        <div class="current" aria-hidden="true"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,340px));justify-content:center;gap:18px">
+        <a href="argenteuil.html" style="display:block;padding:24px 26px;background:var(--white);border:1px solid rgba(187,203,187,0.3);border-radius:20px;text-decoration:none;transition:transform .25s ease,border-color .25s ease" class="feat-city-card">
+          <h3 style="font-family:var(--display);font-weight:600;font-size:17px;color:var(--ink);margin-bottom:6px">Installateur borne de recharge à Argenteuil</h3>
+          <p style="font-size:14px;color:var(--ink-soft);line-height:1.55">Bornes de recharge pour véhicules électriques, devis gratuit et sans engagement.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
 
   <!-- SERVICES -->
   <section class="services section">
