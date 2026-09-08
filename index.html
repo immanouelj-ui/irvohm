@@ -56,6 +56,8 @@ a { text-decoration: none; color: inherit; }
 .gradient-brand { background:linear-gradient(135deg,#006d37 0%,#006397 100%); }
 .text-gradient-brand { background:linear-gradient(135deg,#2ecc71 0%,#5cb8fd 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .glass-card { background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border:1px solid rgba(226,232,240,0.5); }
+.city-feat-card{display:block;padding:26px 28px;background:var(--surface);border:1px solid rgba(230,221,206,0.4);border-radius:20px;text-decoration:none;transition:transform .25s ease,border-color .25s ease}
+.city-feat-card:hover{transform:translateY(-4px);border-color:rgba(0,109,55,0.3)}
 
 /* ============ ANIMATIONS (IntersectionObserver natif, sans dépendance externe) ============ */
 @media (prefers-reduced-motion: no-preference) {
@@ -407,6 +409,43 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 <div><div class="stat-val stat-val-2" data-target="48" data-suffix="h">0h</div><div class="stat-label">Devis Rapide</div></div>
 <div><div class="stat-val stat-val-1" data-target="15" data-suffix="+">0+</div><div class="stat-label">Marques Partenaires</div></div>
 <div><div class="stat-val stat-val-2" data-target="5" data-suffix=" ans" data-format="years">0 ans</div><div class="stat-label">Garantie Matériel</div></div>
+</div>
+</div>
+</section>
+
+<section class="py-xl" aria-labelledby="villes-cles-title">
+<div class="max-w px-page">
+<span class="advantages-eyebrow reveal">Nos zones d'intervention</span>
+<h2 id="villes-cles-title" class="reveal">Installateur borne de recharge près de chez vous</h2>
+<p class="reveal" style="max-width:680px;margin:14px auto 0;text-align:center;color:var(--on-surface-variant);font-size:16px;line-height:1.7">IRV'OHM installe des bornes de recharge dans toute l'Île-de-France, avec une présence particulièrement forte dans ces secteurs :</p>
+<div class="reveal-stagger" style="display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+<a href="colombes.html" class="city-feat-card">
+<h3 style="font-family:var(--display);font-weight:600;font-size:18px;color:var(--on-surface);margin-bottom:8px">Installateur borne de recharge à Colombes</h3>
+<p style="font-size:14px;color:var(--on-surface-variant);line-height:1.55">Pose de wallbox et bornes de recharge à Colombes (92700), en maison comme en copropriété.</p>
+</a>
+<a href="meaux.html" class="city-feat-card">
+<h3 style="font-family:var(--display);font-weight:600;font-size:18px;color:var(--on-surface);margin-bottom:8px">Installateur borne de recharge à Meaux</h3>
+<p style="font-size:14px;color:var(--on-surface-variant);line-height:1.55">Installation et raccordement de bornes de recharge à Meaux (77100) par nos électriciens certifiés IRVE.</p>
+</a>
+<a href="nanterre.html" class="city-feat-card">
+<h3 style="font-family:var(--display);font-weight:600;font-size:18px;color:var(--on-surface);margin-bottom:8px">Installateur borne de recharge à Nanterre</h3>
+<p style="font-size:14px;color:var(--on-surface-variant);line-height:1.55">Bornes de recharge pour particuliers et entreprises à Nanterre (92000), devis gratuit sous 48h.</p>
+</a>
+<a href="creteil.html" class="city-feat-card">
+<h3 style="font-family:var(--display);font-weight:600;font-size:18px;color:var(--on-surface);margin-bottom:8px">Installateur borne de recharge à Créteil</h3>
+<p style="font-size:14px;color:var(--on-surface-variant);line-height:1.55">Installation de wallbox et bornes de recharge à Créteil (94000), en habitat individuel ou collectif.</p>
+</a>
+<a href="courbevoie.html" class="city-feat-card">
+<h3 style="font-family:var(--display);font-weight:600;font-size:18px;color:var(--on-surface);margin-bottom:8px">Installateur borne de recharge à Courbevoie</h3>
+<p style="font-size:14px;color:var(--on-surface-variant);line-height:1.55">Pose de bornes de recharge à Courbevoie (92400), au pied de La Défense.</p>
+</a>
+<a href="argenteuil.html" class="city-feat-card">
+<h3 style="font-family:var(--display);font-weight:600;font-size:18px;color:var(--on-surface);margin-bottom:8px">Installateur borne de recharge à Argenteuil</h3>
+<p style="font-size:14px;color:var(--on-surface-variant);line-height:1.55">Bornes de recharge pour véhicules électriques à Argenteuil (95100), devis gratuit et sans engagement.</p>
+</a>
+</div>
+<p style="text-align:center;margin-top:8px"><a href="val-doise.html" style="color:var(--primary);font-weight:600;font-size:15px">Voir toutes nos zones d'intervention en Île-de-France →</a></p>
 </div>
 </div>
 </section>
