@@ -1,0 +1,42 @@
+# IRV'OHM
+
+> IRV'OHM est un installateur de bornes de recharge pour véhicules électriques certifié IRVE, basé à Sarcelles (95200, Val-d'Oise), intervenant en Île-de-France et sur la Côte d'Azur.
+
+IRV'OHM installe, raccorde et met en service des bornes de recharge (wallbox 7,4 kW, 11 kW et 22 kW, ainsi que prises renforcées) pour :
+- les particuliers, en maison individuelle
+- les copropriétés, dans le cadre du droit à la prise
+- les entreprises, pour équiper un parking ou une flotte de véhicules
+
+Toutes les installations sont réalisées par des électriciens qualifiés IRVE, dans le respect de la norme NF C 15-100, avec attestation de conformité. Les clients bénéficient de la TVA réduite à 5,5 % et d'un accompagnement pour la prime ADVENIR quand elle s'applique. Devis gratuit sous 48h.
+
+Zones d'intervention : Val-d'Oise, Hauts-de-Seine, Yvelines, Val-de-Marne, Seine-Saint-Denis, Seine-et-Marne (Île-de-France), et la Côte d'Azur (Alpes-Maritimes).
+
+Contact : 06 51 07 88 28 · contact@irvohm.fr · 95200 Sarcelles, France
+
+## Pages principales
+
+- [Accueil](https://www.irvohm.fr/) : présentation générale de l'entreprise
+- [Particuliers](https://www.irvohm.fr/particulier.html) : installation en maison individuelle et copropriété
+- [Entreprises](https://www.irvohm.fr/entreprise.html) : installation pour parkings et flottes professionnelles
+- [Devis gratuit](https://www.irvohm.fr/devis.html) : formulaire de demande de devis
+- [FAQ](https://www.irvohm.fr/faq.html) : questions fréquentes sur l'installation d'une borne de recharge
+- [Blog](https://www.irvohm.fr/blog/) : guides pratiques (prix, aides, puissance, copropriété, entretien, normes...)
+
+## Zones desservies (pages détaillées par secteur)
+
+- [Val-d'Oise](https://www.irvohm.fr/val-doise.html)
+- [Hauts-de-Seine](https://www.irvohm.fr/hauts-de-seine.html)
+- [Yvelines](https://www.irvohm.fr/yvelines.html)
+- [Val-de-Marne](https://www.irvohm.fr/val-de-marne.html)
+- [Seine-Saint-Denis](https://www.irvohm.fr/seine-saint-denis.html)
+- [Seine-et-Marne](https://www.irvohm.fr/seine-et-marne.html)
+- [Côte d'Azur](https://www.irvohm.fr/cote-azur.html)
+
+## Guides du blog
+
+- [Prix d'installation d'une borne de recharge](https://www.irvohm.fr/blog/prix-installation-borne-recharge.html)
+- [Aides ADVENIR et TVA à 5,5 %](https://www.irvohm.fr/blog/aides-borne-recharge-advenir.html)
+- [Borne de recharge en copropriété : le droit à la prise](https://www.irvohm.fr/blog/borne-recharge-copropriete-droit-a-la-prise.html)
+- [Quelle puissance choisir (7, 11 ou 22 kW)](https://www.irvohm.fr/blog/borne-7kw-ou-22kw-quelle-puissance-choisir.html)
+- [Normes d'installation d'une borne de recharge](https://www.irvohm.fr/blog/normes-installation-borne-recharge.html)
+- [Combien coûte la recharge à domicile](https://www.irvohm.fr/blog/cout-recharge-voiture-electrique-maison.html)
