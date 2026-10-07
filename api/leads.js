@@ -1,9 +1,8 @@
 const nodemailer = require('nodemailer');
-const { supabaseFetch } = require('./_lib/supabase');
 
-// ── Envoi du lead au CRM (mêmes colonnes que les leads choisistaborne) ──────────
-const CRM_ENDPOINT = 'https://crm-pro-backend.fly.dev/api/public/leads';
-const CRM_API_KEY = 'b0b84ca9fd93429d993e4fae3b3322e77a783593e0184b90939abeeda87ae2e7';
+// ── Envoi du lead au CRM (plus de Supabase côté site) ──────────────────────────
+const CRM_ENDPOINT = process.env.CRM_ENDPOINT || 'https://crm-zeta-two-60.vercel.app/api/public/leads';
+const CRM_API_KEY = process.env.CRM_API_KEY; // à définir dans Vercel > Environment Variables
 
 // Mapping code funnel → valeur exacte des options des colonnes CRM.
 const CRM_MAP = {
@@ -15,7 +14,6 @@ const CRM_MAP = {
   distance: { '<5': '5 M', '5-15': '5 a 15 M', '>15': '15 et plus' },
   dlai: { asap: 'Urgent', '1m': '1 mois', '3m': '3 mois', compare: 'ne sais pas' },
 };
-// Valeur mappée, sinon la valeur brute (par sécurité si un code diffère), sinon vide.
 const crmVal = (key, value) =>
   !value ? '' : (CRM_MAP[key] && CRM_MAP[key][value]) || String(value);
 
@@ -32,6 +30,8 @@ const LBL = {
 const lbl = (k, v) => (LBL[k] && LBL[k][v]) || v || '—';
 
 async function forwardToCRM(body) {
+  if (!CRM_API_KEY) throw new Error('CRM_API_KEY manquante (variable d\'environnement Vercel)');
+
   const isPro = body.role === 'syndic';
   const marque = body.marque || '';
   const photoUrls = (Array.isArray(body.photos) ? body.photos : [])
@@ -62,7 +62,7 @@ async function forwardToCRM(body) {
     puissance: crmVal('puissance', body.puissance),
     compteur: crmVal('compteur', body.compteur),
     dlai: crmVal('dlai', body.delai),
-    photos: photoUrls, // → pièces jointes CRM (pas une colonne)
+    photos: photoUrls,
     ...(isPro
       ? {}
       : {
@@ -71,46 +71,43 @@ async function forwardToCRM(body) {
           distance: crmVal('distance', body.distance),
         }),
   };
-  // N'envoie pas les valeurs vides (évite de créer/polluer une colonne).
   for (const k of Object.keys(crmBody)) {
     if (k !== 'photos' && !crmBody[k]) delete crmBody[k];
   }
 
-  // Transfert avec réessais + timeout : absorbe un backend CRM momentanément
-  // indisponible (redéploiement Fly / cold start / veille). Les erreurs client (4xx,
-  // hors 429) ne sont pas réessayées puisqu'un réessai ne les corrigerait pas.
+  // 2 tentatives (immédiate, puis +1 s), timeout 3,5 s chacune : reste sous la limite Vercel.
+  // Les erreurs client (4xx hors 429) ne sont pas réessayées.
   const payload = JSON.stringify(crmBody);
-  const backoffs = [0, 1500]; // 2 tentatives : immédiate, puis +1,5 s (borné pour tenir sous la limite Vercel)
+  const backoffs = [0, 1000];
   let lastErr;
   for (let i = 0; i < backoffs.length; i++) {
     if (backoffs[i]) await new Promise((r) => setTimeout(r, backoffs[i]));
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 3500);
     try {
-      const ctrl = new AbortController();
-      const to = setTimeout(() => ctrl.abort(), 2500);
-      let res;
-      try {
-        res = await fetch(CRM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'X-API-Key': CRM_API_KEY, 'Content-Type': 'application/json' },
-          body: payload,
-          signal: ctrl.signal,
-        });
-      } finally {
-        clearTimeout(to);
-      }
+      const res = await fetch(CRM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'X-API-Key': CRM_API_KEY, 'Content-Type': 'application/json' },
+        body: payload,
+        signal: ctrl.signal,
+      });
       if (res.ok) return;
-      lastErr = new Error(`CRM ${res.status}: ${await res.text().catch(() => '')}`);
-      if (res.status >= 400 && res.status < 500 && res.status !== 429) throw lastErr; // client → définitif
+      const text = await res.text().catch(() => '');
+      lastErr = new Error(`CRM ${res.status}: ${text}`);
+      lastErr.permanent = res.status >= 400 && res.status < 500 && res.status !== 429;
+      if (lastErr.permanent) throw lastErr;
     } catch (e) {
       lastErr = e;
-      if (e instanceof Error && /^CRM 4/.test(e.message)) throw e; // 4xx : inutile de réessayer
+      if (e && e.permanent) throw e;
+    } finally {
+      clearTimeout(to);
     }
   }
   throw lastErr;
 }
 
 async function notifyNewLead(lead) {
-  if (!process.env.GMAIL_USER || !process.env.GMAIL_PASSWORD) return;
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_PASSWORD) return false;
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -149,11 +146,12 @@ async function notifyNewLead(lead) {
               ${row('Délai souhaité', lead.delai)}
             </table>
           </div>
-          <p style="color:#6c7b6d;font-size:13px;margin:24px 0 0">Consultez le CRM pour gérer ce lead : <a href="${process.env.SITE_URL || 'https://irvohm.fr'}/admin.html" style="color:#006d37">${process.env.SITE_URL || 'https://irvohm.fr'}/admin.html</a></p>
+          <p style="color:#6c7b6d;font-size:13px;margin:24px 0 0">Consultez le CRM pour gérer ce lead.</p>
         </div>
       </div>
     `,
   });
+  return true;
 }
 
 module.exports = async (req, res) => {
@@ -168,47 +166,22 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'Nom, email et téléphone sont requis.' });
   }
 
-  const lead = {
-    nom,
-    email,
-    telephone,
-    logement: body.logement || null,
-    role: body.role || null,
-    code_postal: body.codePostal || null,
-    vehicule: body.vehicule || null,
-    marque: body.marque || null,
-    puissance: body.puissance ? String(body.puissance) : null,
-    nb_bornes: body.nbBornes || null,
-    compteur: body.compteur || null,
-    distance: body.distance || null,
-    delai: body.delai || null,
-    photos: Array.isArray(body.photos) ? body.photos : [],
-  };
+  // CRM et email en parallèle ; on attend les deux (Vercel peut geler la fonction après la réponse).
+  const [crmResult, mailResult] = await Promise.allSettled([
+    forwardToCRM({ ...body, nom, email, telephone }),
+    notifyNewLead({ ...body, nom, email, telephone }),
+  ]);
 
-  try {
-    const [inserted] = await supabaseFetch('irvohm_leads', {
-      method: 'POST',
-      headers: { Prefer: 'return=representation' },
-      body: JSON.stringify(lead),
-    });
+  const crmOk = crmResult.status === 'fulfilled';
+  const mailOk = mailResult.status === 'fulfilled' && mailResult.value === true;
 
-    // Email de notification (best-effort), lancé en parallèle du transfert CRM.
-    const emailP = notifyNewLead(body).catch((err) => console.error('notifyNewLead:', err));
+  if (!crmOk) console.error('forwardToCRM:', crmResult.reason);
+  if (mailResult.status === 'rejected') console.error('notifyNewLead:', mailResult.reason);
 
-    // Transfert CRM : on l'ATTEND (avec réessais). Sur Vercel, un appel « fire-and-forget »
-    // peut être gelé après l'envoi de la réponse et ne jamais s'exécuter — l'attendre garantit
-    // que les réessais tournent bien. Non bloquant en cas d'échec final : le lead reste
-    // enregistré dans Supabase et notifié par email.
-    try {
-      await forwardToCRM(body);
-    } catch (err) {
-      console.error('forwardToCRM (après réessais):', err);
-    }
-    await emailP; // laisse l'email se terminer avant que la fonction ne gèle
-
-    return res.status(200).json({ ok: true, id: inserted && inserted.id });
-  } catch (err) {
-    console.error('Erreur création lead:', err);
-    return res.status(500).json({ error: "Erreur lors de l'enregistrement du lead." });
+  // Le lead est considéré reçu s'il est arrivé dans le CRM, ou à défaut par email
+  // (il n'est alors pas perdu). Erreur 500 uniquement si les deux ont échoué.
+  if (crmOk || mailOk) {
+    return res.status(200).json({ ok: true, crm: crmOk });
   }
+  return res.status(500).json({ error: "Erreur lors de l'enregistrement du lead." });
 };
