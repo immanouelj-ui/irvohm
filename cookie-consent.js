@@ -84,7 +84,11 @@
   }
 
   function init() {
-    injectStyles();
+ 
+    if (typeof window.gtag === 'function') {
+      window.gtag('config', 'AW-18513056497');
+    }
+   injectStyles();
     var reopenBtn = buildReopenButton();
     document.body.appendChild(reopenBtn);
 
