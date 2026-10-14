@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/demande-envoyee", "destination": "/demande-envoyee.html" }
+  ]
+}
