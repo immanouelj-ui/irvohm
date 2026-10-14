@@ -598,6 +598,10 @@ async function submit() {
       }),
     });
     if (!res.ok) throw new Error('Envoi du lead échoué');
+    // Envoi réussi : on redirige vers la page de remerciement dédiée (suivi des conversions)
+    try { sessionStorage.setItem('irvohm_lead_sent', '1'); } catch (e) {}
+    window.location.href = '/demande-envoyee';
+    return;
   } catch (err) { console.error('Erreur envoi:', err); }
   isSubmitting = false;
   isDone = true;
