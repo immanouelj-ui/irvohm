@@ -50,14 +50,14 @@
 
   <url>
     <loc>https://www.irvohm.fr/blog/</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.irvohm.fr/blog/prix-installation-borne-recharge.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -92,7 +92,7 @@
 
   <url>
     <loc>https://www.irvohm.fr/blog/temps-de-recharge-voiture-electrique.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -798,4 +798,5 @@
   <url><loc>https://www.irvohm.fr/blog/marques-bornes-recharge-comparatif.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://www.irvohm.fr/blog/normes-installation-borne-recharge.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://www.irvohm.fr/blog/recharger-voiture-electrique-hiver.html</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://www.irvohm.fr/blog/borne-de-recharge-electrique.html</loc><lastmod>2026-10-20</lastmod></url>
 </urlset>
