@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Bloquer les pages non indexables
+# Bloquer les routes API
 Disallow: /api/
+
+# Les pages HTML internes restent explorables pour permettre la lecture de noindex.
+# Ne pas ajouter Disallow sur admin.html, code.html, confirmation.html ou demande-envoyee.html.
 
 # Sitemap
 Sitemap: https://www.irvohm.fr/sitemap.xml
