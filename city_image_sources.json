@@ -1,0 +1,116 @@
+{
+  "antony": {
+    "name": "Antony",
+    "wiki": "https://fr.wikipedia.org/wiki/Antony",
+    "file": "https://commons.wikimedia.org/wiki/File%3ACommune_antony_fontaine.jpg",
+    "author": "User:Wikialine",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Commune_antony_fontaine.jpg",
+    "postal_codes": [
+      "92160"
+    ],
+    "insee": "92002",
+    "coordinates": [
+      2.2976,
+      48.7507
+    ],
+    "width": 800,
+    "height": 600
+  },
+  "clichy": {
+    "name": "Clichy",
+    "wiki": "https://fr.wikipedia.org/wiki/Clichy",
+    "file": "https://commons.wikimedia.org/wiki/File%3A%C3%89gliseclichyjpg.jpg",
+    "author": "Parisette",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/34/%C3%89gliseclichyjpg.jpg",
+    "postal_codes": [
+      "92110"
+    ],
+    "insee": "92024",
+    "coordinates": [
+      2.3041,
+      48.9041
+    ],
+    "width": 825,
+    "height": 1100
+  },
+  "ivry-sur-seine": {
+    "name": "Ivry-sur-Seine",
+    "wiki": "https://fr.wikipedia.org/wiki/Ivry-sur-Seine",
+    "file": "https://commons.wikimedia.org/wiki/File%3AMairie_d%27Ivry_et_centre_ville.jpg",
+    "author": "H4stings",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Mairie_d%27Ivry_et_centre_ville.jpg",
+    "postal_codes": [
+      "94200"
+    ],
+    "insee": "94041",
+    "coordinates": [
+      2.3872,
+      48.8125
+    ],
+    "width": 1600,
+    "height": 899
+  },
+  "choisy-le-roi": {
+    "name": "Choisy-le-Roi",
+    "wiki": "https://fr.wikipedia.org/wiki/Choisy-le-Roi",
+    "file": "https://commons.wikimedia.org/wiki/File%3AMairie_Choisy-le-Roi.JPG",
+    "author": "1quidam",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/05/Mairie_Choisy-le-Roi.JPG",
+    "postal_codes": [
+      "94600"
+    ],
+    "insee": "94022",
+    "coordinates": [
+      2.4202,
+      48.7635
+    ],
+    "width": 1467,
+    "height": 1100
+  },
+  "osny": {
+    "name": "Osny",
+    "wiki": "https://fr.wikipedia.org/wiki/Osny",
+    "file": "https://commons.wikimedia.org/wiki/File%3ACh%C3%A2teau_d%27Osny%2C_fa%C3%A7ade.JPG",
+    "author": "Sébastien Daniel",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Ch%C3%A2teau_d%27Osny%2C_fa%C3%A7ade.JPG",
+    "postal_codes": [
+      "95520"
+    ],
+    "insee": "95476",
+    "coordinates": [
+      2.0618,
+      49.0668
+    ],
+    "width": 1467,
+    "height": 1100
+  },
+  "elancourt": {
+    "name": "Élancourt",
+    "wiki": "https://fr.wikipedia.org/wiki/%C3%89lancourt",
+    "file": "https://commons.wikimedia.org/wiki/File%3AElancourt_Mairie.JPG",
+    "author": "Henry Salomé (Jaser !) 11:21, 27 October 2006 (UTC)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/91/Elancourt_Mairie.JPG",
+    "postal_codes": [
+      "78990"
+    ],
+    "insee": "78208",
+    "coordinates": [
+      1.9612,
+      48.7771
+    ],
+    "width": 1467,
+    "height": 1100
+  }
+}
