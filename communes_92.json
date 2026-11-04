@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Antony",
+    "slug": "antony",
+    "insee": "92002"
+  },
+  {
+    "name": "Asnières-sur-Seine",
+    "slug": "asnieres-sur-seine",
+    "insee": "92004"
+  },
+  {
+    "name": "Bagneux",
+    "slug": "bagneux",
+    "insee": "92007"
+  },
+  {
+    "name": "Bois-Colombes",
+    "slug": "bois-colombes",
+    "insee": "92009"
+  },
+  {
+    "name": "Boulogne-Billancourt",
+    "slug": "boulogne-billancourt",
+    "insee": "92012"
+  },
+  {
+    "name": "Bourg-la-Reine",
+    "slug": "bourg-la-reine",
+    "insee": "92014"
+  },
+  {
+    "name": "Châtenay-Malabry",
+    "slug": "chatenay-malabry",
+    "insee": "92019"
+  },
+  {
+    "name": "Châtillon",
+    "slug": "chatillon",
+    "insee": "92020"
+  },
+  {
+    "name": "Chaville",
+    "slug": "chaville",
+    "insee": "92022"
+  },
+  {
+    "name": "Clamart",
+    "slug": "clamart",
+    "insee": "92023"
+  },
+  {
+    "name": "Clichy",
+    "slug": "clichy",
+    "insee": "92024"
+  },
+  {
+    "name": "Colombes",
+    "slug": "colombes",
+    "insee": "92025"
+  },
+  {
+    "name": "Courbevoie",
+    "slug": "courbevoie",
+    "insee": "92026"
+  },
+  {
+    "name": "Fontenay-aux-Roses",
+    "slug": "fontenay-aux-roses",
+    "insee": "92032"
+  },
+  {
+    "name": "Garches",
+    "slug": "garches",
+    "insee": "92033"
+  },
+  {
+    "name": "La Garenne-Colombes",
+    "slug": "la-garenne-colombes",
+    "insee": "92035"
+  },
+  {
+    "name": "Gennevilliers",
+    "slug": "gennevilliers",
+    "insee": "92036"
+  },
+  {
+    "name": "Issy-les-Moulineaux",
+    "slug": "issy-les-moulineaux",
+    "insee": "92040"
+  },
+  {
+    "name": "Levallois-Perret",
+    "slug": "levallois-perret",
+    "insee": "92044"
+  },
+  {
+    "name": "Malakoff",
+    "slug": "malakoff",
+    "insee": "92046"
+  },
+  {
+    "name": "Marnes-la-Coquette",
+    "slug": "marnes-la-coquette",
+    "insee": "92047"
+  },
+  {
+    "name": "Meudon",
+    "slug": "meudon",
+    "insee": "92048"
+  },
+  {
+    "name": "Montrouge",
+    "slug": "montrouge",
+    "insee": "92049"
+  },
+  {
+    "name": "Nanterre",
+    "slug": "nanterre",
+    "insee": "92050"
+  },
+  {
+    "name": "Neuilly-sur-Seine",
+    "slug": "neuilly-sur-seine",
+    "insee": "92051"
+  },
+  {
+    "name": "Le Plessis-Robinson",
+    "slug": "le-plessis-robinson",
+    "insee": "92060"
+  },
+  {
+    "name": "Puteaux",
+    "slug": "puteaux",
+    "insee": "92062"
+  },
+  {
+    "name": "Rueil-Malmaison",
+    "slug": "rueil-malmaison",
+    "insee": "92063"
+  },
+  {
+    "name": "Saint-Cloud",
+    "slug": "saint-cloud",
+    "insee": "92064"
+  },
+  {
+    "name": "Sceaux",
+    "slug": "sceaux",
+    "insee": "92071"
+  },
+  {
+    "name": "Sèvres",
+    "slug": "sevres",
+    "insee": "92072"
+  },
+  {
+    "name": "Suresnes",
+    "slug": "suresnes",
+    "insee": "92073"
+  },
+  {
+    "name": "Vanves",
+    "slug": "vanves",
+    "insee": "92075"
+  },
+  {
+    "name": "Vaucresson",
+    "slug": "vaucresson",
+    "insee": "92076"
+  },
+  {
+    "name": "Ville-d’Avray",
+    "slug": "ville-d-avray",
+    "insee": "92077"
+  },
+  {
+    "name": "Villeneuve-la-Garenne",
+    "slug": "villeneuve-la-garenne",
+    "insee": "92078"
+  }
+]
