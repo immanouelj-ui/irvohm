@@ -199,6 +199,20 @@ background-image: url('hero-video-poster.webp'); background-size:cover; backgrou
 .adv-card p { font-size:16px; color:var(--on-surface-variant); text-align:center; }
 @media (min-width:768px){ .adv-card p{ text-align:left; } }
 
+/* Guides de préparation : mêmes marges et rythme que les sections de l’accueil. */
+.home-guides { background:var(--surface); }
+.home-guides h2 { font-family:var(--display); font-size:clamp(26px,3vw,36px); line-height:1.25; font-weight:600; color:var(--on-surface); max-width:760px; margin-bottom:20px; }
+.home-guides h2 + p { max-width:800px; color:var(--on-surface-variant); font-size:17px; line-height:1.7; margin-bottom:32px; }
+.home-guides-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.home-guide-card { min-width:0; padding:28px; border:1px solid var(--outline-variant); border-radius:20px; background:#fff; }
+.home-guide-card h3 { font-family:var(--display); font-size:20px; line-height:1.4; font-weight:600; color:var(--on-surface); margin-bottom:14px; }
+.home-guide-card p { font-size:16px; line-height:1.7; color:var(--on-surface-variant); }
+.home-guide-card a { color:var(--primary); text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+.home-guide-card a:hover { color:var(--secondary); }
+.home-guide-card a:focus-visible { outline:3px solid var(--secondary); outline-offset:3px; border-radius:2px; }
+@media (max-width:900px) { .home-guides-grid { grid-template-columns:1fr; } }
+@media (max-width:540px) { .home-guides { padding-block:48px; } .home-guide-card { padding:24px; } }
+
 /* Services */
 .services { background:var(--surface-container-low); }
 .services-grid { display:grid; grid-template-columns:1fr; gap:24px; }
@@ -470,16 +484,24 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 </div>
 </div>
 </section>
-<section class="section" aria-labelledby="guides-recharge-title">
-  <div class="wrap">
+<section class="home-guides py-xl" aria-labelledby="guides-recharge-title">
+  <div class="max-w px-page">
     <h2 id="guides-recharge-title">Préparer votre installation de borne de recharge</h2>
     <p>Pour choisir un installateur de borne de recharge, comparez le matériel proposé, les travaux de raccordement et les essais prévus. Le projet dépend du véhicule, du stationnement et de la puissance disponible.</p>
+    <div class="home-guides-grid">
+    <article class="home-guide-card">
     <h3>Installer une borne de recharge chez soi</h3>
     <p>Maison individuelle ou place en copropriété : découvrez notre <a href="particulier.html">service d’installation de borne de recharge à domicile</a> et les informations à réunir pour étudier votre raccordement.</p>
+    </article>
+    <article class="home-guide-card">
     <h3>Comprendre le prix d’une borne avec pose</h3>
     <p>Le tarif de la borne seule ne comprend pas nécessairement les protections et le raccordement. Consultez notre <a href="blog/prix-installation-borne-recharge.html">guide du prix d’une borne de recharge avec installation</a> pour comparer les postes du devis.</p>
+    </article>
+    <article class="home-guide-card">
     <h3>Choisir une solution pour votre voiture électrique</h3>
     <p>Wallbox, puissance et durée de stationnement : notre <a href="blog/borne-de-recharge-electrique.html">guide des bornes de recharge électriques</a> explique les critères de choix. Pour plusieurs véhicules, consultez nos <a href="entreprise.html">solutions de recharge en entreprise</a>.</p>
+    </article>
+    </div>
   </div>
 </section>
 </main>
