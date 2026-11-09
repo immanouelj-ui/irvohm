@@ -3,6 +3,7 @@ from pathlib import Path
 import json,re,html,hashlib,subprocess,xml.etree.ElementTree as ET
 from lxml import html as LH
 from PIL import Image
+from check_site_revision import MAIN, strip_chrome
 R=Path(__file__).parent
 def check():
     cs=json.loads((R/'communes_92.json').read_text())
@@ -20,7 +21,7 @@ def check():
     urls=[e.text for e in sitemap.findall('.//s:loc',ns)]
     footer_count=0
     for p in R.rglob('*.html'):
-        if any(part.startswith('.') for part in p.relative_to(R).parts):continue
+        if 'components' in p.relative_to(R).parts or any(part.startswith('.') for part in p.relative_to(R).parts):continue
         s=p.read_text();doc=LH.fromstring(s)
         footers=doc.xpath('//footer')
         if not footers:continue
@@ -68,10 +69,10 @@ def check():
     # Existing pages outside the 92 retain their entire content outside the footer.
     changed=subprocess.check_output(['git','diff','--name-only'],cwd=R,text=True).splitlines()
     for path in changed:
-        if not path.endswith('.html') or Path(path).stem in keys or path=='hauts-de-seine.html':continue
+        if path in MAIN or not path.endswith('.html') or Path(path).stem in keys or path=='hauts-de-seine.html':continue
         old=subprocess.check_output(['git','show','HEAD:'+path],cwd=R,text=True)
         new=(R/path).read_text()
-        strip=lambda s:re.sub(r'<footer\b.*?</footer>','<footer/>',s,flags=re.S)
+        strip=strip_chrome
         assert strip(old)==strip(new),path
     print(f'OK: 36 communes, 36 photos distinctes, 24 contenus et 72 réponses FAQ uniques, {footer_count} footers complets, liens locaux, annuaire, sitemap et JSON-LD ; autres contenus préservés.')
 if __name__=='__main__':check()

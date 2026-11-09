@@ -97,7 +97,7 @@ def main():
     citypaths='(?:'+'|'.join(re.escape(c['slug']) for c in cs)+')'
     count=0
     for p in R.rglob('*.html'):
-        if any(part.startswith('.') for part in p.relative_to(R).parts):continue
+        if 'components' in p.relative_to(R).parts or any(part.startswith('.') for part in p.relative_to(R).parts):continue
         s=p.read_text()
         if '<footer' not in s:continue
         def update(m):
