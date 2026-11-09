@@ -382,7 +382,7 @@ const state = {
   nom: '', telephone: '', email: '', rgpd: false,
 };
 
-const STEPS = ['Logement', 'Véhicule', 'Projet', 'Photos', 'Contact'];
+const STEPS = ['Installation', 'Véhicule / projet', 'Projet', 'Photos', 'Contact'];
 const MARQUES = ['Tesla', 'Renault', 'Peugeot', 'BMW', 'Hyundai', 'Kia', 'Autre'];
 const PUISSANCES = [
   { v: '7.4', l: '7,4 kW' }, { v: '11', l: '11 kW' },
@@ -392,7 +392,7 @@ const PUISSANCES = [
 /* =========================================================
    HELPERS
    ========================================================= */
-function isPro() { return state.role === 'syndic'; }
+function isPro() { return state.logement === 'entreprise' || state.role === 'syndic'; }
 
 function canNext() {
   if (currentStep === 0)
@@ -461,7 +461,7 @@ function fullRender() {
 /* Full re-render needed: layout changes */
 function setLogement(v) {
   arrivedViaBack = false;
-  state.logement = v; state.role = '';
+  state.logement = v; state.role = v === 'entreprise' ? 'entreprise' : '';
   fullRender();
 }
 function setMarque(v) {
@@ -699,15 +699,16 @@ function lbl(key) { return '<div style="font-size:0.875rem;font-weight:500;color
 
 /* ---- Step 1 ---- */
 function renderStep1() {
-  let h = stepTitle('Étape 1 · Logement', 'Où souhaitez-vous installer votre borne ?',
+  let h = stepTitle('Étape 1 · Installation', 'Où souhaitez-vous installer votre borne ?',
     'Ces informations nous permettent de qualifier votre projet en quelques secondes.');
 
   h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">';
   h += optCard('logement', 'domicile',    'Borne à domicile', 'Maison individuelle',     'home',      state.logement === 'domicile');
   h += optCard('logement', 'copropriete', 'Copropriété',       'Immeuble, parking commun', 'apartment', state.logement === 'copropriete');
+  h += optCard('logement', 'entreprise', 'Entreprise', 'Parking, salariés ou flotte', 'business', state.logement === 'entreprise');
   h += '</div>';
 
-  if (state.logement) {
+  if (state.logement && state.logement !== 'entreprise') {
     const roleGrid = state.logement === 'copropriete'
       ? 'class="grid-3"'
       : 'style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem"';
