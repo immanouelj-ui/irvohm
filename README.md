@@ -1,5 +1,11 @@
 # IRV'OHM — Backend Paiement Stripe + Netlify Functions
 
+## Pages locales du Val-d’Oise
+
+Les 183 communes sont recensées dans `communes_95.json`, avec les codes postaux et centres du référentiel officiel dans `geo_95_verified.json`. Les 155 nouvelles pages utilisent les textes dédiés de `city_95_editorial.tsv` ; leurs photographies et les deux remplacements d’images génériques sont documentés dans `city_95_image_sources.json` (auteur, licence, source et empreinte du fichier).
+
+Pour reproduire l’intégration après modification des textes : `python complete_95.py`. Le script conserve les corps des 28 pages déjà présentes. Le contrôle `python check_complete_95.py` vérifie notamment les liens, les données structurées, les photographies et la préservation des autres contenus ; il nécessite Pillow et lxml. Le téléchargement des photographies peut être reproduit avec `python fetch_95_assets.py` (Pillow et lxml), en utilisant son cache local ignoré par Git.
+
 ## Structure du projet
 
 ```
