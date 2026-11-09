@@ -19,8 +19,8 @@ const crmVal = (key, value) =>
 
 // Libellés lisibles pour les notes.
 const LBL = {
-  logement: { domicile: 'Maison individuelle', copropriete: 'Copropriété' },
-  role: { proprietaire: 'Propriétaire', locataire: 'Locataire', syndic: 'Syndic' },
+  logement: { domicile: 'Maison individuelle', copropriete: 'Copropriété', entreprise: 'Entreprise' },
+  role: { proprietaire: 'Propriétaire', locataire: 'Locataire', syndic: 'Syndic', entreprise: 'Entreprise' },
   vehicule: { oui: 'Déjà équipé', commande: 'Véhicule commandé', projet: "En projet d'achat" },
   puissance: { '7.4': '7,4 kW', '11': '11 kW', '22': '22 kW', unknown: 'Ne sait pas' },
   compteur: { mono: 'Monophasé', tri: 'Triphasé', unknown: 'Ne sait pas' },
@@ -32,7 +32,8 @@ const lbl = (k, v) => (LBL[k] && LBL[k][v]) || v || '—';
 async function forwardToCRM(body) {
   if (!CRM_API_KEY) throw new Error('CRM_API_KEY manquante (variable d\'environnement Vercel)');
 
-  const isPro = body.role === 'syndic';
+  const isEntreprise = body.logement === 'entreprise';
+  const isPro = isEntreprise || body.role === 'syndic';
   const marque = body.marque || '';
   const photoUrls = (Array.isArray(body.photos) ? body.photos : [])
     .map((u) => String(u).trim())
@@ -56,8 +57,12 @@ async function forwardToCRM(body) {
     statut: 'Lead',
     source: 'irvohm.fr',
     notes: `🌐 Lead irvohm.fr\n${details.join('\n')}`,
-    statut_du_bien: crmVal('statut_du_bien', body.role),
-    logement: crmVal('logement', body.logement),
+    // Les colonnes CRM ont des options fermées : le profil entreprise est
+    // conservé dans les notes sans envoyer une option non configurée.
+    ...(isEntreprise ? {} : {
+      statut_du_bien: crmVal('statut_du_bien', body.role),
+      logement: crmVal('logement', body.logement),
+    }),
     cp: body.codePostal || '',
     puissance: crmVal('puissance', body.puissance),
     compteur: crmVal('compteur', body.compteur),
