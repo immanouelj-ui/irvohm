@@ -1,0 +1,36 @@
+/* Shared footer, scoped to avoid changing municipal page layouts. */
+.site-footer { background:#f2f4f6; color:#191c1e; padding:56px 24px 24px; font:400 15px/1.6 Inter,Arial,sans-serif; }
+.site-footer * { box-sizing:border-box; }
+.site-footer .sf-wrap { max-width:1240px; margin:auto; }
+.site-footer .sf-grid { display:grid; grid-template-columns:1.35fr 1fr 1fr 1.15fr; gap:32px; }
+.site-footer h2 { font:600 16px/1.4 Montserrat,Arial,sans-serif; margin:0 0 16px; color:#191c1e; }
+.site-footer p { margin:12px 0; max-width:65ch; color:#3d4a3e; }
+.site-footer a { color:#3d4a3e; text-decoration:none; overflow-wrap:anywhere; }
+.site-footer a:hover { color:#006d37; text-decoration:underline; }
+.site-footer a:focus-visible,.site-footer summary:focus-visible { outline:3px solid #006397; outline-offset:4px; border-radius:3px; }
+.site-footer .sf-brand { font:700 25px/1.4 Montserrat,Arial,sans-serif; color:#006d37; }
+.site-footer nav:not(.sf-cities):not(.sf-departments),.site-footer address { display:flex; flex-direction:column; align-items:flex-start; gap:10px; font-style:normal; }
+.site-footer .sf-cta { display:inline-block; margin-top:8px; padding:10px 16px; background:#006d37; color:#fff; border-radius:8px; }
+.site-footer .sf-zones { margin-top:36px; border-top:1px solid #bbcbbb; padding-top:28px; }
+.site-footer .sf-departments { display:flex; flex-wrap:wrap; gap:10px 20px; }
+.site-footer .sf-departments a { color:#006d37; font-weight:600; }
+.site-footer details { border-top:1px solid #d8dadc; margin-top:12px; padding:0; }
+.site-footer summary { padding:16px 0; cursor:pointer; color:#191c1e; font-weight:600; }
+.site-footer .sf-cities { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:8px 20px; padding:8px 0 20px; }
+.site-footer .sf-cities a { font-size:14px; padding:3px 0; }
+.site-footer .sf-bottom { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; border-top:1px solid #bbcbbb; padding-top:20px; margin-top:24px; font-size:13px; }
+.site-footer .sf-bottom p { margin:0; }
+/* Native details keeps the full main navigation available without JavaScript. */
+.site-main-nav { display:flex; align-items:center; gap:20px; }
+.site-main-nav a,.site-mobile-nav a { color:#3d4a3e; font:500 14px/1.5 Inter,Arial,sans-serif; text-decoration:none; padding:8px 0; }
+.site-main-nav a[aria-current],.site-mobile-nav a[aria-current] { color:#006d37; text-decoration:underline; text-underline-offset:6px; }
+.site-mobile-nav { display:none; position:relative; }
+.site-mobile-nav summary { cursor:pointer; padding:10px; color:#006d37; font:600 14px/1.5 Inter,Arial,sans-serif; }
+.site-mobile-nav nav { position:absolute; right:0; top:100%; width:min(280px,85vw); display:flex; flex-direction:column; background:#fff; border:1px solid #bbcbbb; border-radius:12px; padding:16px 24px; box-shadow:0 10px 30px #191c1e1a; z-index:1000; }
+.site-mobile-nav a { display:block; }
+.site-main-nav a:focus-visible,.site-mobile-nav a:focus-visible,.site-mobile-nav summary:focus-visible { outline:3px solid #006397; outline-offset:3px; }
+@media(max-width:1000px) { .site-main-nav { display:none; } .site-mobile-nav { display:block; } }
+@media(max-width:900px) { .site-footer .sf-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { .site-footer { padding:36px 20px 24px; } .site-footer .sf-grid { grid-template-columns:1fr; gap:28px; } .site-footer .sf-cities { grid-template-columns:1fr; } }
+
+@media(max-width:540px) { .header .cta-pill,.header .btn-primary { display:none; } }

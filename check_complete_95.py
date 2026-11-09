@@ -3,6 +3,7 @@ from pathlib import Path
 import json,re,hashlib,subprocess,xml.etree.ElementTree as ET
 from lxml import html as LH
 from PIL import Image
+from check_site_revision import MAIN, strip_chrome
 from complete_95 import inputs,at
 R=Path(__file__).parent
 BASE='1640ebda2066c256de39f064a4843fc8e33c44c2'
@@ -15,7 +16,7 @@ def main():
     urls=[x.text for x in ET.parse(R/'sitemap.xml').findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
     footer_count=0
     for p in R.rglob('*.html'):
-        if any(part.startswith('.') for part in p.relative_to(R).parts):continue
+        if 'components' in p.relative_to(R).parts or any(part.startswith('.') for part in p.relative_to(R).parts):continue
         s=p.read_text();doc=LH.fromstring(s);footer=doc.xpath('//footer')
         if not footer:continue
         footer_count+=1;f=footer[0]
@@ -69,9 +70,9 @@ def main():
     for key in keys:assert dep.xpath('//main//a[@href="'+key+'.html"]'),key
     # Compare to the merged 92 baseline, independently of current staging or commits.
     tracked=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE],cwd=R,text=True).splitlines()
-    strip=lambda s:re.sub(r'<footer\b.*?</footer>','<footer/>',s,flags=re.S)
+    strip=strip_chrome
     for path in tracked:
-        if not path.endswith('.html') or path in ['val-doise.html','bezons.html','eragny.html']:continue
+        if path in MAIN or not path.endswith('.html') or path in ['val-doise.html','bezons.html','eragny.html']:continue
         old=subprocess.check_output(['git','show',BASE+':'+path],cwd=R,text=True)
         assert strip(old)==strip((R/path).read_text()),path
     print(f'OK : 183 communes ; 155 textes, préparations et FAQ dédiés ; 157 photos vérifiées ; {footer_count} footers repliables ; liens, sitemap, JSON-LD et contenu des autres pages préservés.')

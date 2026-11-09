@@ -6,6 +6,14 @@ Les 183 communes sont recensées dans `communes_95.json`, avec les codes postaux
 
 Pour reproduire l’intégration après modification des textes : `python complete_95.py`. Le script conserve les corps des 28 pages déjà présentes. Le contrôle `python check_complete_95.py` vérifie notamment les liens, les données structurées, les photographies et la préservation des autres contenus ; il nécessite Pillow et lxml. Le téléchargement des photographies peut être reproduit avec `python fetch_95_assets.py` (Pillow et lxml), en utilisant son cache local ignoré par Git.
 
+## Navigation et pieds de page
+
+Les six pages principales partagent une navigation complète sur ordinateur et un menu mobile natif sans dépendance JavaScript. Le pied de page de 328 pages est produit depuis `components/footer.html` avec `python sync_footers.py` et mis en forme par `site-chrome.css`. Les 293 communes restent présentes dans le HTML, dans trois annuaires repliables.
+
+Après une génération de pages locales, lancer `python sync_footers.py` pour réappliquer le modèle partagé. Contrôles : `python check_site_revision.py`, `python check_complete_92.py` et `python check_complete_95.py`. Le premier vérifie aussi la conservation des liens des anciens pieds de page et du contenu hors navigation des pages locales, ainsi que la logique du formulaire de devis. Les deux contrôles géographiques réservent désormais les modifications éditoriales aux six pages principales.
+
+La révision retire les chiffres et témoignages non documentés, les promesses de délai contradictoires et les garanties uniformes non justifiées. L’éligibilité aux aides et les conditions de garantie sont à confirmer pour chaque projet. Sources de référence : [ADVENIR](https://advenir.mobi/beneficier-dadvenir/) et [droit à la prise](https://www.energie-info.fr/fiche_pratique/je-fais-installer-une-borne-de-rechargement-pour-un-vehicule-electrique/).
+
 ## Structure du projet
 
 ```
