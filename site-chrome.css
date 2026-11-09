@@ -34,3 +34,46 @@
 @media(max-width:540px) { .site-footer { padding:36px 20px 24px; } .site-footer .sf-grid { grid-template-columns:1fr; gap:28px; } .site-footer .sf-cities { grid-template-columns:1fr; } }
 
 @media(max-width:540px) { .header .cta-pill,.header .btn-primary { display:none; } }
+
+/* Responsive and keyboard usability for the principal pages. */
+.ui-main .skip-link { position:fixed; top:8px; left:16px; z-index:10000; transform:translateY(-180%); padding:12px 20px; background:#fff; color:#006d37; border:2px solid #006d37; border-radius:8px; font-weight:600; }
+.ui-main .skip-link:focus { transform:none; }
+.ui-main :where(a,button,input,summary,[tabindex]):focus-visible { outline:3px solid #006397; outline-offset:4px; }
+.ui-main [id] { scroll-margin-top:104px; }
+.ui-main .site-mobile-nav nav { max-height:calc(100dvh - 110px); overflow-y:auto; overscroll-behavior:contain; }
+.ui-main .site-mobile-nav a { min-height:44px; display:flex; align-items:center; }
+.ui-main .site-mobile-nav summary { min-height:44px; }
+.ui-main .hero-grid > *, .ui-main .layout > *, .ui-main .posts > * { min-width:0; }
+.ui-main .devis-options-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.ui-main .devis-contact-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.ui-main .opt-card,.ui-main .pill { font-family:inherit; min-height:44px; }
+.ui-main .opt-card > span { display:flex; }
+.ui-main .opt-card .ci { display:grid; }
+.ui-main .opt-card span > span { display:block; }
+.ui-main .field-in { min-width:0; width:100%; min-height:48px; font-size:16px; }
+.ui-main .btn-main,.ui-main .btn-back { min-height:44px; }
+.ui-main .submit-error { margin:16px 28px; padding:16px; border:1px solid #ba1a1a; border-radius:8px; background:#fff5f4; color:#93000a; font-size:16px; line-height:1.6; }
+.ui-main .submit-error[hidden] { display:none; }
+@media (max-width:1100px) and (min-width:768px) { .ui-main .steps { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:600px) {
+  .ui-main .devis-options-grid,.ui-main .devis-contact-grid { grid-template-columns:1fr; }
+  .ui-main .funnel-card { min-height:0; }
+  .ui-main #funnel-body { padding:24px 18px; overflow:visible; }
+  .ui-main .funnel-head,.ui-main #funnel-footer { padding-inline:18px; }
+  .ui-main .submit-error { margin-inline:18px; }
+  .ui-main .opt-card { padding:16px; }
+  .ui-main .proc-grid,.ui-main .pow-grid { grid-template-columns:1fr; }
+  .ui-main .cta-actions { flex-wrap:wrap; gap:16px; }
+  .ui-main .cta-box { padding:32px 24px; border-radius:24px; }
+  .ui-main .cta-box h2 { font-size:28px; }
+  .ui-main .cta-box p { margin-bottom:32px; }
+  .ui-main .service-content { padding:24px; }
+  .ui-main .adv-card { padding:28px 24px; }
+  .ui-main .hero h1 { font-size:clamp(30px,8vw,42px); overflow-wrap:break-word; }
+  .ui-main .header-row,.ui-main .header-inner { gap:12px; }
+  .ui-main .site-footer .sf-cities a { min-height:44px; display:flex; align-items:center; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .ui-main *, .ui-main *::before, .ui-main *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+  .ui-main .reveal,.ui-main .stagger > *,.ui-main .reveal-stagger > *,.ui-main .load { opacity:1 !important; transform:none !important; }
+}

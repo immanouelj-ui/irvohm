@@ -14,6 +14,12 @@ Après une génération de pages locales, lancer `python sync_footers.py` pour r
 
 La révision retire les chiffres et témoignages non documentés, les promesses de délai contradictoires et les garanties uniformes non justifiées. L’éligibilité aux aides et les conditions de garantie sont à confirmer pour chaque projet. Sources de référence : [ADVENIR](https://advenir.mobi/beneficier-dadvenir/) et [droit à la prise](https://www.energie-info.fr/fiche_pratique/je-fais-installer-une-borne-de-rechargement-pour-un-vehicule-electrique/).
 
+## Responsive et utilisation du devis
+
+Les six pages principales utilisent `site-ux.js` et les règles `.ui-main` de `site-chrome.css` : accès direct au contenu au clavier, gestion de fermeture du menu, états accessibles des FAQ, focus visible et prise en compte des animations réduites. Sur mobile, les choix du devis et les coordonnées passent en une colonne, les champs restent à 16 px et les contrôles principaux ont une hauteur minimale de 44 px.
+
+Le devis avance et s’envoie uniquement avec les boutons Continuer / Envoyer. Les choix et le consentement utilisent des boutons natifs, les champs disposent de libellés associés et d’autocomplétion. Une erreur d’envoi conserve les réponses et affiche un message permettant de réessayer. `node test_site_ux.cjs` vérifie les contrôles natifs, les libellés, l’absence d’envoi automatique, le traitement d’échec et la nouvelle tentative avec réseau simulé. Compléter avec `node test_devis_entreprise.cjs` et `python check_site_revision.py`.
+
 ## Structure du projet
 
 ```

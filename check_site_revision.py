@@ -60,8 +60,8 @@ def check():
                 with tempfile.NamedTemporaryFile(suffix='.js',mode='w') as f:
                     f.write(script.text or '');f.flush()
                     subprocess.run(['node','--check',f.name],check=True,capture_output=True)
-    # Keep the submission and upload path stable; branching is covered separately.
-    submission = lambda s: re.search(r'async function submit\(\) \{.*?(?=/\* ={10,})', s, re.S)[0]
+    # Keep quote transport stable; explicit-send and error behavior are tested separately.
+    submission = lambda s: re.search(r"const photoUrls = \[\];.*?if \(!res.ok\) throw new Error\('Envoi du lead échoué'\);", s, re.S)[0]
     assert submission(before('devis.html')) == submission((ROOT/'devis.html').read_text()), 'quote submission changed'
     print(f'OK: {count} shared footers, all old footer links preserved, 293 communes; local bodies preserved; six navigation/FAQ/script checks; quote funnel logic preserved.')
 

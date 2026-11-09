@@ -239,8 +239,10 @@
   .foot-copy p { font-size:13px; color:rgba(61,74,62,0.65); text-align:center; }
 </style>
 <link rel="stylesheet" href="/site-chrome.css"/>
+<script src="/site-ux.js" defer></script>
 </head>
-<body>
+<body class="ui-main">
+<a class="skip-link" href="#main-content">Aller au contenu</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol></svg>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -268,7 +270,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
   <div class="wrap">
 
     <!-- Hero -->
@@ -286,7 +288,7 @@
       <div>
         <div class="funnel-card">
           <div class="funnel-head">
-            <div id="step-label"></div>
+            <div id="step-label" role="status" aria-live="polite"></div>
             <div class="progress-track">
               <div id="progress-fill" style="height:100%;border-radius:99px;width:0%;background:linear-gradient(90deg,#006d37,#006397);transition:width .5s ease"></div>
             </div>
@@ -294,6 +296,7 @@
           <div id="funnel-body">
             <div id="step-content" class="step-enter"></div>
           </div>
+          <p id="submit-error" class="submit-error" role="alert" tabindex="-1" hidden></p>
           <div id="funnel-footer">
             <button id="prev-btn" class="btn-back" onclick="prev()">
               <span class="material-symbols-outlined" style="font-size:18px">arrow_back</span> Retour
@@ -426,10 +429,12 @@ function quickUpdate(key, val) {
   const sval = String(val);
   document.querySelectorAll('.pill[data-key="' + key + '"]').forEach(btn => {
     btn.classList.toggle('sel', btn.dataset.val === sval);
+    btn.setAttribute('aria-pressed', String(btn.dataset.val === sval));
   });
   document.querySelectorAll('.opt-card[data-key="' + key + '"]').forEach(card => {
     const active = card.dataset.val === sval;
     card.classList.toggle('sel', active);
+    card.setAttribute('aria-pressed', String(active));
     const icon = card.querySelector('.ci');
     if (icon) {
       icon.style.background = active ? '#006d37' : '#f1f5f9';
@@ -449,9 +454,16 @@ function fullRender() {
   updateHeader();
   updateFooter();
   const content = document.getElementById('step-content');
+  const focused = document.activeElement;
+  const focusKey = focused && focused.dataset && focused.dataset.key;
+  const focusValue = focused && focused.dataset && focused.dataset.val;
   if (isDone) { renderSuccess(); return; }
   const renderers = [renderStep1, renderStep2, renderStep3, renderStep4, renderStep5];
   content.innerHTML = renderers[currentStep]();
+  if (focusKey) {
+    const replacement = Array.from(content.querySelectorAll('[data-key]')).find(el => el.dataset.key === focusKey && el.dataset.val === focusValue);
+    if (replacement) replacement.focus({ preventScroll: true });
+  }
   checkAutoAdvance();
 }
 
@@ -491,6 +503,7 @@ function toggleRgpd() {
   const card = document.querySelector('.opt-card[data-key="rgpd"]');
   if (!card) { fullRender(); return; }
   card.classList.toggle('sel', state.rgpd);
+  card.setAttribute('aria-pressed', String(state.rgpd));
   const icon = card.querySelector('.ci');
   if (icon) {
     icon.style.background = state.rgpd ? '#006d37' : '#f1f5f9';
@@ -520,6 +533,11 @@ function setMail(val) { softUpdate('email', val); }
 /* =========================================================
    NAVIGATION
    ========================================================= */
+function focusStepTitle() {
+  const title = document.querySelector('#step-content h2');
+  if (title) { title.tabIndex = -1; title.focus(); }
+}
+
 function nextStep() {
   if (!canNext() || isSubmitting) return;
   if (currentStep < STEPS.length - 1) {
@@ -527,6 +545,7 @@ function nextStep() {
     stepTransition = true;
     currentStep++;
     render();
+    focusStepTitle();
   } else {
     submit();
   }
@@ -541,21 +560,14 @@ function prev() {
   autoAdvancedSteps.delete(currentStep - 1);
   currentStep--;
   render();
+  focusStepTitle();
 }
 
 /* =========================================================
    AUTO-ADVANCE
    ========================================================= */
 function checkAutoAdvance() {
-  if (!canNext() || isDone || isSubmitting) return;
-  if (autoAdvancedSteps.has(currentStep)) return;
-  if (currentStep === 3) return;
-  if (arrivedViaBack) return;
-  const delay = currentStep === 4 ? 1400 : 550;
-  autoTimer = setTimeout(() => {
-    autoAdvancedSteps.add(currentStep);
-    nextStep();
-  }, delay);
+  // Each step and the final send require the explicit Continue / Send action.
 }
 
 function clearAutoAdvance() {
@@ -566,6 +578,9 @@ function clearAutoAdvance() {
    SUBMIT
    ========================================================= */
 async function submit() {
+  if (isSubmitting) return;
+  const errorBox = document.getElementById('submit-error');
+  errorBox.hidden = true;
   isSubmitting = true;
   updateFooter();
   try {
@@ -599,9 +614,10 @@ async function submit() {
     return;
   } catch (err) { console.error('Erreur envoi:', err); }
   isSubmitting = false;
-  isDone = true;
-  stepTransition = true;
-  render();
+  updateFooter();
+  errorBox.textContent = 'Votre demande n’a pas pu être envoyée. Vos réponses sont conservées. Réessayez ou appelez le 06 51 07 88 28.';
+  errorBox.hidden = false;
+  errorBox.focus();
 }
 
 /* =========================================================
@@ -665,18 +681,18 @@ function stepTitle(kicker, title, sub) {
 /* data-key + data-val enable quickUpdate() to find elements without re-render */
 function optCard(key, value, label, desc, icon, active) {
   const ib = active ? '#006d37' : '#f1f5f9', ic = active ? '#ffffff' : '#0f172a';
-  return '<div onclick="' + key + 'Handler(\'' + e(String(value)) + '\')" data-key="' + key + '" data-val="' + e(String(value)) + '" class="opt-card' + (active ? ' sel' : '') + '">'
-    + '<div style="display:flex;align-items:center;gap:0.75rem">'
-    + '<div class="ci" style="width:2.5rem;height:2.5rem;border-radius:0.75rem;display:grid;place-items:center;flex-shrink:0;background:' + ib + ';transition:background 0.15s">'
+  return '<button type="button" aria-pressed="' + active + '" onclick="' + key + 'Handler(\'' + e(String(value)) + '\')" data-key="' + key + '" data-val="' + e(String(value)) + '" class="opt-card' + (active ? ' sel' : '') + '">'
+    + '<span style="display:flex;align-items:center;gap:0.75rem">'
+    + '<span class="ci" style="width:2.5rem;height:2.5rem;border-radius:0.75rem;display:grid;place-items:center;flex-shrink:0;background:' + ib + ';transition:background 0.15s">'
     + '<span class="material-symbols-outlined" style="font-size:20px;color:' + ic + '">' + icon + '</span>'
-    + '</div>'
-    + '<div style="flex:1"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;letter-spacing:-0.01em">' + label + '</div>'
-    + (desc ? '<div style="font-size:0.75rem;color:#64748b;margin-top:2px">' + desc + '</div>' : '')
-    + '</div></div></div>';
+    + '</span>'
+    + '<span style="flex:1"><span style="font-size:0.875rem;font-weight:500;color:#0f172a;letter-spacing:-0.01em">' + label + '</span>'
+    + (desc ? '<span style="font-size:0.75rem;color:#64748b;margin-top:2px">' + desc + '</span>' : '')
+    + '</span></span></button>';
 }
 
 function pill(key, value, label, active) {
-  return '<button onclick="' + key + 'Handler(\'' + e(String(value)) + '\')" data-key="' + key + '" data-val="' + e(String(value)) + '" class="pill' + (active ? ' sel' : '') + '">' + label + '</button>';
+  return '<button type="button" aria-pressed="' + active + '" onclick="' + key + 'Handler(\'' + e(String(value)) + '\')" data-key="' + key + '" data-val="' + e(String(value)) + '" class="pill' + (active ? ' sel' : '') + '">' + label + '</button>';
 }
 
 /* Per-key handler dispatch (avoids eval, keeps onclick concise) */
@@ -702,7 +718,7 @@ function renderStep1() {
   let h = stepTitle('Étape 1 · Installation', 'Où souhaitez-vous installer votre borne ?',
     'Ces informations nous permettent de qualifier votre projet en quelques secondes.');
 
-  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">';
+  h += '<div class="devis-options-grid">';
   h += optCard('logement', 'domicile',    'Borne à domicile', 'Maison individuelle',     'home',      state.logement === 'domicile');
   h += optCard('logement', 'copropriete', 'Copropriété',       'Immeuble, parking commun', 'apartment', state.logement === 'copropriete');
   h += optCard('logement', 'entreprise', 'Entreprise', 'Parking, salariés ou flotte', 'business', state.logement === 'entreprise');
@@ -711,7 +727,7 @@ function renderStep1() {
   if (state.logement && state.logement !== 'entreprise') {
     const roleGrid = state.logement === 'copropriete'
       ? 'class="grid-3"'
-      : 'style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem"';
+      : 'class="devis-options-grid"';
     h += '<div style="padding-top:1.5rem"><div style="font-size:0.875rem;font-weight:500;color:#0f172a;margin-bottom:0.5rem">Vous êtes…</div>'
       + '<div ' + roleGrid + '>';
     h += optCard('role', 'proprietaire', 'Propriétaire', '', 'key',    state.role === 'proprietaire');
@@ -722,9 +738,9 @@ function renderStep1() {
   }
 
   h += '<div style="padding-top:1.5rem">'
-    + '<label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.25rem">Code postal</label>'
-    + '<div style="font-size:0.75rem;color:#64748b;margin-bottom:0.5rem">Pour identifier les installateurs près de chez vous.</div>'
-    + '<input type="text" inputmode="numeric" maxlength="5" placeholder="75001" value="' + e(state.codePostal) + '" oninput="setCP(this)" class="field-in" /></div>';
+    + '<label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.25rem" for="devis-cp">Code postal</label>'
+    + '<div id="cp-help" style="font-size:0.75rem;color:#64748b;margin-bottom:0.5rem">Pour identifier les installateurs près de chez vous.</div>'
+    + '<input id="devis-cp" autocomplete="postal-code" aria-describedby="cp-help" type="text" inputmode="numeric" maxlength="5" placeholder="75001" value="' + e(state.codePostal) + '" oninput="setCP(this)" class="field-in" /></div>';
   return h;
 }
 
@@ -830,24 +846,24 @@ function renderStep4() {
 function renderStep5() {
   let h = stepTitle('Étape 5 · Contact', 'Recevez votre devis sur mesure', 'Vos coordonnées restent confidentielles.');
   h += '<div style="display:flex;flex-direction:column;gap:1rem">'
-    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem">Nom et prénom</label>'
-    + '<input type="text" placeholder="Jean Dupont" value="' + e(state.nom) + '" oninput="setNom(this.value)" class="field-in" autofocus /></div>'
-    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">'
-    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem">Téléphone</label>'
-    + '<input type="tel" inputmode="tel" placeholder="06 12 34 56 78" value="' + e(state.telephone) + '" oninput="setTel(this.value)" class="field-in" /></div>'
-    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem">Email</label>'
-    + '<input type="email" inputmode="email" placeholder="jean@exemple.fr" value="' + e(state.email) + '" oninput="setMail(this.value)" class="field-in" /></div>'
+    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem" for="devis-nom">Nom et prénom</label>'
+    + '<input id="devis-nom" autocomplete="name" type="text" placeholder="Jean Dupont" value="' + e(state.nom) + '" oninput="setNom(this.value)" class="field-in" autofocus /></div>'
+    + '<div class="devis-contact-grid">'
+    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem" for="devis-telephone">Téléphone</label>'
+    + '<input id="devis-telephone" autocomplete="tel" type="tel" inputmode="tel" placeholder="06 12 34 56 78" value="' + e(state.telephone) + '" oninput="setTel(this.value)" class="field-in" /></div>'
+    + '<div><label style="font-size:0.875rem;font-weight:500;color:#0f172a;display:block;margin-bottom:0.375rem" for="devis-email">Email</label>'
+    + '<input id="devis-email" autocomplete="email" type="email" inputmode="email" placeholder="jean@exemple.fr" value="' + e(state.email) + '" oninput="setMail(this.value)" class="field-in" /></div>'
     + '</div>';
 
   const ib = state.rgpd ? '#006d37' : '#f1f5f9', ic = state.rgpd ? '#ffffff' : '#0f172a';
-  h += '<div onclick="toggleRgpd()" data-key="rgpd" data-val="true" class="opt-card' + (state.rgpd ? ' sel' : '') + '">'
-    + '<div style="display:flex;align-items:center;gap:0.75rem">'
-    + '<div class="ci" style="width:2.5rem;height:2.5rem;border-radius:0.75rem;display:grid;place-items:center;flex-shrink:0;background:' + ib + '">'
-    + '<span class="material-symbols-outlined" style="font-size:20px;color:' + ic + '">shield</span></div>'
-    + '<div style="flex:1"><div style="font-size:0.875rem;font-weight:500;color:#0f172a">J\'accepte d\'être contacté</div>'
-    + '<div style="font-size:0.75rem;color:#64748b;margin-top:2px">Mes données restent confidentielles — RGPD.</div></div>'
+  h += '<button type="button" aria-pressed="' + state.rgpd + '" onclick="toggleRgpd()" data-key="rgpd" data-val="true" class="opt-card' + (state.rgpd ? ' sel' : '') + '">'
+    + '<span style="display:flex;align-items:center;gap:0.75rem">'
+    + '<span class="ci" style="width:2.5rem;height:2.5rem;border-radius:0.75rem;display:grid;place-items:center;flex-shrink:0;background:' + ib + '">'
+    + '<span class="material-symbols-outlined" style="font-size:20px;color:' + ic + '">shield</span></span>'
+    + '<span style="flex:1"><span style="font-size:0.875rem;font-weight:500;color:#0f172a">J\'accepte d\'être contacté</span>'
+    + '<span style="font-size:0.75rem;color:#64748b;margin-top:2px">Mes données restent confidentielles — RGPD.</span></span>'
     + '<span class="rgpd-chk material-symbols-outlined" style="font-size:20px;color:#006d37;margin-left:auto;display:' + (state.rgpd ? '' : 'none') + '">check_circle</span>'
-    + '</div></div>';
+    + '</span></button>';
   h += '</div>';
   return h;
 }

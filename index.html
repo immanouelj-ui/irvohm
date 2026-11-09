@@ -315,8 +315,10 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 }
 </script>
 <link rel="stylesheet" href="/site-chrome.css"/>
+<script src="/site-ux.js" defer></script>
 </head>
-<body>
+<body class="ui-main">
+<a class="skip-link" href="#main-content">Aller au contenu</a>
 <!-- ✅ Sprite SVG des icônes (chargé instantanément, aucun décalage de layout) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
 <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
@@ -349,7 +351,7 @@ footer { background:var(--surface-container); padding-block:48px; margin-top:80p
 
 
 
-<main>
+<main id="main-content" tabindex="-1">
 <section class="hero py-xl">
 <video class="hero-video" id="hero-video" muted loop playsinline preload="none" poster="hero-video-poster.webp" aria-hidden="true" data-mp4="hero-charging.mp4" data-webm="hero-charging.webm"></video>
 <div class="hero-overlay" aria-hidden="true"></div>
