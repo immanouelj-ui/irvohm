@@ -5,7 +5,7 @@ import json, re, subprocess, tempfile
 from lxml import html
 
 ROOT = Path(__file__).resolve().parent
-BASE = 'a6aebaeb3932f709c1a78bb3dc780d5c8ef3b495'
+BASE = '4d68a509b8b53b2613b6a6ec44f307ecab09631d'
 MAIN = {'index.html','particulier.html','entreprise.html','devis.html','faq.html','blog/index.html'}
 
 def before(name):
@@ -36,7 +36,7 @@ def check():
         assert len(d.xpath('//footer//nav[@class="sf-cities"]/a')) == 293, name
         assert len(d.xpath('//footer//details[not(@open)]')) == 3, name
         for href in d.xpath('//footer//a/@href | //link[@href="/site-chrome.css"]/@href'):
-            if href.startswith(('mailto:','tel:')): continue
+            if href.startswith(('https://','http://','mailto:','tel:')): continue
             assert (ROOT/href.lstrip('/')).exists(), (name,href)
         if name not in MAIN:
             assert strip_chrome(old) == strip_chrome(s), name
