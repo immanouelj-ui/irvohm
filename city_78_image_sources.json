@@ -1,0 +1,128 @@
+{
+  "acheres": {
+    "file": "https://commons.wikimedia.org/wiki/File:Chambourcy_Vue_d%27Ach%C3%A8res.jpg",
+    "author": "ℍenry Salomé",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Chambourcy_Vue_d%27Ach%C3%A8res.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Ach%C3%A8res_(Yvelines)",
+    "sha256": "79e939044b405f4c356466fe7e5d6b709db3f293eb0ea466dba6e897c11e5a74"
+  },
+  "carrieres-sous-poissy": {
+    "file": "https://commons.wikimedia.org/wiki/File:%C3%89glise_Saint-Joseph_de_Carri%C3%A8re-sous-Poissy._Ext%C3%A9rieur.jpg",
+    "author": "VVVCFFrance",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/c/cd/%C3%89glise_Saint-Joseph_de_Carri%C3%A8re-sous-Poissy._Ext%C3%A9rieur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Carri%C3%A8res-sous-Poissy",
+    "sha256": "9abbcbd882828660dca7a2d9ddc3196982a85832b524a42ea1d9fb4578eead3e"
+  },
+  "guyancourt": {
+    "file": "https://commons.wikimedia.org/wiki/File:%C3%89glise_Saint-Victor_de_Guyancourt_01.jpg",
+    "author": "mfbfrance",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/ac/%C3%89glise_Saint-Victor_de_Guyancourt_01.jpg",
+    "wiki": "https://fr.wikipedia.org/wiki/Guyancourt",
+    "sha256": "d6a75e87567c39951a9febe94dfadeeaf3c15b3bd1d813e4dfdc9f87de152744"
+  },
+  "la-celle-saint-cloud": {
+    "file": "https://commons.wikimedia.org/wiki/File:La_Celle_Saint-Cloud_parvis_Mairie_d%C3%A9c_2025.jpg",
+    "author": "Crazy horse",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/7/77/La_Celle_Saint-Cloud_parvis_Mairie_d%C3%A9c_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/La_Celle-Saint-Cloud",
+    "sha256": "0f26defeb65fa8fcb4e743f3bbb1f8efb5148fa33bb008c288700a5d75654d4b"
+  },
+  "le-chesnay-rocquencourt": {
+    "file": "https://commons.wikimedia.org/wiki/File:Le_Chesnay_Mairie.JPG",
+    "author": "ℍenry Salomé",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Le_Chesnay_Mairie.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Le_Chesnay-Rocquencourt",
+    "sha256": "b08a17a54c25d69f2db82b1afdac41a765cbad6e22c6215b4d51778b229924c7"
+  },
+  "les-mureaux": {
+    "file": "https://commons.wikimedia.org/wiki/File:Les_Mureaux_-_Musiciens.jpg",
+    "author": "Matgrt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Les_Mureaux_-_Musiciens.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Les_Mureaux",
+    "sha256": "9f27295f0abaf50bafe246f3d6ac6e7dbfada7d015dfe3a0ea274fd5cb83ccf9"
+  },
+  "limay": {
+    "file": "https://commons.wikimedia.org/wiki/File:Limay_-_Gare01.jpg",
+    "author": "Spedona",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/af/Limay_-_Gare01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Limay",
+    "sha256": "621d919813c87286499103b04731909832e62c745449cde858780fbf2f020964"
+  },
+  "mantes-la-ville": {
+    "file": "https://commons.wikimedia.org/wiki/File:Mantes-la-Ville_mairie01.jpg",
+    "author": "The original uploader was Spedona at French Wikipedia.",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Mantes-la-Ville_mairie01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Mantes-la-Ville",
+    "sha256": "ff85753a4fb856bbec8bf9c39af3cac22270573183e79ff50aa398e98f806c02"
+  },
+  "maurepas": {
+    "file": "https://commons.wikimedia.org/wiki/File:Donjon_de_Maurepas_20.jpg",
+    "author": "Lionel Allorge",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Donjon_de_Maurepas_20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Maurepas_(Yvelines)",
+    "sha256": "ab0da994efc5a97ca2a1a39e8c4b6cf3585ae5552ccfb275eb54c3777e9c398c"
+  },
+  "plaisir": {
+    "file": "https://commons.wikimedia.org/wiki/File:Plaisir_78_Gare_de_Plaisir-Grignon.JPG",
+    "author": "ℍenry Salomé",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Plaisir_78_Gare_de_Plaisir-Grignon.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Plaisir_(Yvelines)",
+    "sha256": "94e0e09926131fb5db5fd6cb83cfdf1e1d5de41b1f132ee80d60d2edb7a0673d"
+  },
+  "rambouillet": {
+    "file": "https://commons.wikimedia.org/wiki/File:Mairie_de_Rambouillet.JPG",
+    "author": "Jules78120",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Mairie_de_Rambouillet.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Rambouillet",
+    "sha256": "a4270f4516968d20b9713892ef92066349ec33bd56d36271a8f63049f0bbb1c9"
+  },
+  "saint-cyr-l-ecole": {
+    "file": "https://commons.wikimedia.org/wiki/File:Hotel_de_ville_St-Cyr-l%27Ecole.jpg",
+    "author": "Laocoonmagnus",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Hotel_de_ville_St-Cyr-l%27Ecole.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Saint-Cyr-l'%C3%89cole",
+    "sha256": "f7113330f47a9b100821408b0a3f439b4b3d6202c9d66f1f67f6d2b5094a376b"
+  },
+  "trappes": {
+    "file": "https://commons.wikimedia.org/wiki/File:Trappes_Mairie.JPG",
+    "author": "ℍenry Salomé",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/6/61/Trappes_Mairie.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Trappes",
+    "sha256": "093f4b1a87486bf3ea72977254bb3b26abe4e9381d3bec6069ffcc548e3a4c4c"
+  },
+  "velizy-villacoublay": {
+    "file": "https://commons.wikimedia.org/wiki/File:V%C3%A9lizy-Villacoublay_Mairie.JPG",
+    "author": "Michaël JANOT",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/5d/V%C3%A9lizy-Villacoublay_Mairie.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/V%C3%A9lizy-Villacoublay",
+    "sha256": "ff55161315e58a64e7d0e9069eb26dc181254e84367664563c4a86110b49df38"
+  }
+}

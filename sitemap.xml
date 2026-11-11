@@ -156,7 +156,7 @@
 
   <url>
     <loc>https://www.irvohm.fr/yvelines.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -817,9 +817,9 @@
   <url><loc>https://www.irvohm.fr/bezons.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://www.irvohm.fr/osny.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://www.irvohm.fr/eragny.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://www.irvohm.fr/trappes.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://www.irvohm.fr/trappes.html</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://www.irvohm.fr/elancourt.html</loc><lastmod>2026-11-02</lastmod></url>
-  <url><loc>https://www.irvohm.fr/plaisir.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://www.irvohm.fr/plaisir.html</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://www.irvohm.fr/combs-la-ville.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://www.irvohm.fr/ozoir-la-ferriere.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://www.irvohm.fr/tournan-en-brie.html</loc><lastmod>2026-11-02</lastmod></url>
@@ -1067,4 +1067,16 @@
   <url><loc>https://www.irvohm.fr/villeneuve-le-roi.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.irvohm.fr/villeneuve-saint-georges.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.irvohm.fr/villiers-sur-marne.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/acheres.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/carrieres-sous-poissy.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/guyancourt.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/la-celle-saint-cloud.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/le-chesnay-rocquencourt.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/les-mureaux.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/limay.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/mantes-la-ville.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/maurepas.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/rambouillet.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/saint-cyr-l-ecole.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.irvohm.fr/velizy-villacoublay.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
