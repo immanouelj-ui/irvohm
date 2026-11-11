@@ -8,9 +8,9 @@ Pour reproduire l’intégration après modification des textes : `python comple
 
 ## Navigation et pieds de page
 
-Les six pages principales partagent une navigation complète sur ordinateur et un menu mobile natif sans dépendance JavaScript. Le pied de page de 328 pages est produit depuis `components/footer.html` avec `python sync_footers.py` et mis en forme par `site-chrome.css`. Les 293 communes restent présentes dans le HTML, dans trois annuaires repliables.
+Les six pages principales partagent une navigation complète sur ordinateur et un menu mobile natif sans dépendance JavaScript. Le pied de page est produit depuis `components/footer.html` au déploiement Vercel et mis en forme par `site-chrome.css`. Les liens communaux sont inscrits dans le HTML et regroupés par territoire. Pour prévisualiser une modification du pied de page en local, exécuter `node sync_footers.cjs`.
 
-Après une génération de pages locales, lancer `python sync_footers.py` pour réappliquer le modèle partagé. Contrôles : `python check_site_revision.py`, `python check_complete_92.py` et `python check_complete_95.py`. Le premier vérifie aussi la conservation des liens des anciens pieds de page et du contenu hors navigation des pages locales, ainsi que la logique du formulaire de devis. Les deux contrôles géographiques réservent désormais les modifications éditoriales aux six pages principales.
+Après une génération de pages locales, lancer `node sync_footers.cjs` pour réappliquer le modèle partagé. Contrôles : `python check_site_revision.py`, `python check_complete_92.py` et `python check_complete_95.py`. Le premier vérifie aussi la conservation des liens des anciens pieds de page et du contenu hors navigation des pages locales, ainsi que la logique du formulaire de devis. Les deux contrôles géographiques réservent désormais les modifications éditoriales aux six pages principales.
 
 La révision retire les chiffres et témoignages non documentés, les promesses de délai contradictoires et les garanties uniformes non justifiées. L’éligibilité aux aides et les conditions de garantie sont à confirmer pour chaque projet. Sources de référence : [ADVENIR](https://advenir.mobi/beneficier-dadvenir/) et [droit à la prise](https://www.energie-info.fr/fiche_pratique/je-fais-installer-une-borne-de-rechargement-pour-un-vehicule-electrique/).
 

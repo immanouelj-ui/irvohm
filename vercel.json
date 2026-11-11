@@ -1,4 +1,6 @@
 {
+  "buildCommand": "node sync_footers.cjs",
+  "outputDirectory": ".",
   "rewrites": [
     { "source": "/demande-envoyee", "destination": "/demande-envoyee.html" }
   ]
