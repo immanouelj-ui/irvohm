@@ -1,0 +1,263 @@
+{
+  "aubervilliers": {
+    "file": "https://commons.wikimedia.org/wiki/File:Place_H%C3%B4tel_Ville_Aubervilliers_1.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Place_H%C3%B4tel_Ville_Aubervilliers_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Aubervilliers",
+    "sha256": "8e6cd3babe7cbcbf1ba50313aa1ccc1f1b3091c025767e791fa158e26a3585e0"
+  },
+  "bagnolet": {
+    "file": "https://commons.wikimedia.org/wiki/File:Tours_Mercuriales_et_ancien_h%C3%B4tel_de_ville_de_Bagnolet_(20251007)_1.jpg",
+    "author": "ArtyElAnanas",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Tours_Mercuriales_et_ancien_h%C3%B4tel_de_ville_de_Bagnolet_%2820251007%29_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Bagnolet",
+    "sha256": "988c83b72bbba880f4e79d38dde419544c446cfe8fe4d7af05b5c16fdde85e5c"
+  },
+  "bobigny": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_ville_de_Bobigny_-_Septembre_2024_-_1.jpg",
+    "author": "ZeusUpsistos",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/c/c4/H%C3%B4tel_de_ville_de_Bobigny_-_Septembre_2024_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Bobigny",
+    "sha256": "0d36c387df5d38fab826c1cb795d135d9f71657632b05ff93491393e251e99db"
+  },
+  "clichy-sous-bois": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_Clichy_Bois_9.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a5/H%C3%B4tel_Ville_Clichy_Bois_9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Clichy-sous-Bois",
+    "sha256": "96ded87806a256ddbd8bcf32b5d68ac75c43d2856b0fc75a96eda1e80d684c4c"
+  },
+  "coubron": {
+    "file": "https://commons.wikimedia.org/wiki/File:Coubron_-_Arbre_aux_quarante_ecus.jpg",
+    "author": "Clicsouris (talk · contribs)",
+    "license": "CC BY-SA 2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Coubron_-_Arbre_aux_quarante_ecus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Coubron",
+    "sha256": "180e32a7f97ffb0552d3fcdbd5e09beab26b087f6243b528c20380651cf1cf5d"
+  },
+  "drancy": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_Drancy_3.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/29/H%C3%B4tel_ville_Drancy_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Drancy",
+    "sha256": "5b2b3066402640f8a6f2d1c211c763f37362b5adf5721d65b09fdd43b3aa1ea0"
+  },
+  "dugny": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_Dugny_3.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/b/b9/H%C3%B4tel_ville_Dugny_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Dugny",
+    "sha256": "d970ed490525d93e36d46d80a7385572f849268cf5ab313b60e90c91c1425a12"
+  },
+  "epinay-sur-seine": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_%C3%89pinay_Seine_3.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/23/H%C3%B4tel_ville_%C3%89pinay_Seine_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/%C3%89pinay-sur-Seine",
+    "sha256": "0dcadfeec9999da25d4507c596a8ad43a0b9c3de1b2100003e1f440fd4f0c0aa"
+  },
+  "gournay-sur-marne": {
+    "file": "https://commons.wikimedia.org/wiki/File:Pont_Charles-de-Gaulle_-_Gournay-sur-Marne_-_Novembre_2015.JPG",
+    "author": "Akiry",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pont_Charles-de-Gaulle_-_Gournay-sur-Marne_-_Novembre_2015.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Gournay-sur-Marne",
+    "sha256": "45c5869c722500d49cb5c42c9ce133fbcf402bfc3a52c409262b5d05a6091a6f"
+  },
+  "l-ile-saint-denis": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_%C3%8Ele_St_Denis_1.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/6/6d/H%C3%B4tel_ville_%C3%8Ele_St_Denis_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/L'%C3%8Ele-Saint-Denis",
+    "sha256": "4244e167a30deb606a4522ec88b1e8bac1a53b95483500a831034c4be780f751"
+  },
+  "la-courneuve": {
+    "file": "https://commons.wikimedia.org/wiki/File:Mairie_la_Courneuve.JPG",
+    "author": "fr:Utilisateur:Olivier2000",
+    "license": "CC BY 1.0",
+    "license_url": "https://creativecommons.org/licenses/by/1.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Mairie_la_Courneuve.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/La_Courneuve",
+    "sha256": "2b7e754b6abcc5d8125d5014c3d9babfec68793e070050b61e4a7b43aa3be9b6"
+  },
+  "le-bourget": {
+    "file": "https://commons.wikimedia.org/wiki/File:Le_Bourget_Mairie_bis.jpg",
+    "author": "User:B-nji3",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/15/Le_Bourget_Mairie_bis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Le_Bourget_(Seine-Saint-Denis)",
+    "sha256": "2a055da8c5b1fa786edd8f9bbaf45495e0cc6cfc48575d87348fff50651e331d"
+  },
+  "le-pre-saint-gervais": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_-_Le_Pr%C3%A9-Saint-Gervais_(FR93)_-_2021-04-28_-_1.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/34/H%C3%B4tel_Ville_-_Le_Pr%C3%A9-Saint-Gervais_%28FR93%29_-_2021-04-28_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Le_Pr%C3%A9-Saint-Gervais",
+    "sha256": "d34f8b9ad8c9411a80698527e4bbfa320cf3e5f4c2240d054bfeed1acb8f027d"
+  },
+  "les-lilas": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_-_Les_Lilas_(FR93)_-_2021-05-01_-_2.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3b/H%C3%B4tel_Ville_-_Les_Lilas_%28FR93%29_-_2021-05-01_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Les_Lilas",
+    "sha256": "e2b5706f733bfedf3b2f4eea298dac88e24c917ba8fd99ee40bdeb3993e88099"
+  },
+  "les-pavillons-sous-bois": {
+    "file": "https://commons.wikimedia.org/wiki/File:Pavillons_Garde_-_Les_Pavillons-sous-Bois_(FR93)_-_2026-04-17_-_15.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/19/Pavillons_Garde_-_Les_Pavillons-sous-Bois_%28FR93%29_-_2026-04-17_-_15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Les_Pavillons-sous-Bois",
+    "sha256": "c07c274dd679dec77c01bfe01c0bb1ae98da6eb7385a1fb5af3d80f2c94cb32d"
+  },
+  "montfermeil": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_-_Montfermeil_(FR93)_-_2022-10-23_-_3.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/d9/H%C3%B4tel_Ville_-_Montfermeil_%28FR93%29_-_2022-10-23_-_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Montfermeil",
+    "sha256": "95e8c8b2ae30e427072a5a4693ce9e72365877c82e8289898b18b49e0661d684"
+  },
+  "neuilly-plaisance": {
+    "file": "https://commons.wikimedia.org/wiki/File:Mairie_-_Neuilly-Plaisance_(FR93)_-_2024-05-17_-_4.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/57/Mairie_-_Neuilly-Plaisance_%28FR93%29_-_2024-05-17_-_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Neuilly-Plaisance",
+    "sha256": "e105c9e9bf5c0c0835f909a7724e7be69d692db8caed80b8369437de30c15466"
+  },
+  "neuilly-sur-marne": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_-_Neuilly-sur-Marne_(FR93)_-_2025-09-05_-_2.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/d3/H%C3%B4tel_Ville_-_Neuilly-sur-Marne_%28FR93%29_-_2025-09-05_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Neuilly-sur-Marne",
+    "sha256": "afa7d1898483849d1e957db3421fbfd8cf55c614ed7bb9fecf765636b303e130"
+  },
+  "noisy-le-sec": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_Noisy_Sec_9.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/4/41/H%C3%B4tel_Ville_Noisy_Sec_9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Noisy-le-Sec",
+    "sha256": "65a252f4c2dea3c02a0d76f778c13eff226c34b8eff394adfd4b0c6624e6addd"
+  },
+  "pantin": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_-_Pantin_(FR93)_-_2022-07-12_-_1.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/f/f2/H%C3%B4tel_Ville_-_Pantin_%28FR93%29_-_2022-07-12_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Pantin",
+    "sha256": "7af1c130c4038a4ac666f3e8e217f9877e864726637f64aebaae66bf0d3da31b"
+  },
+  "romainville": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_Ville_-_Romainville_(FR93)_-_2021-04-25_-_1.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/03/H%C3%B4tel_Ville_-_Romainville_%28FR93%29_-_2021-04-25_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Romainville",
+    "sha256": "ebe67cb6c03033f5c21acfeb27cb3b9ef6f1ea5e6ce5a68595718b6b75ddcf83"
+  },
+  "saint-denis": {
+    "file": "https://commons.wikimedia.org/wiki/File:Basilique_Saint_Denis_01.jpg",
+    "author": "Olivier2000",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/da/Basilique_Saint_Denis_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Saint-Denis_(Seine-Saint-Denis)",
+    "sha256": "b194da05628a346f9dd7292e4dac7f2a6cde887897634361dbe2de2760759ddf"
+  },
+  "saint-ouen-sur-seine": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_St_Ouen_Seine_2.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/9/9e/H%C3%B4tel_ville_St_Ouen_Seine_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Saint-Ouen-sur-Seine",
+    "sha256": "8b2794b3726ef0a02ae1a032e4158f1be4e44da51e4b3ba946786709b6288392"
+  },
+  "stains": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_Stains_2.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/27/H%C3%B4tel_ville_Stains_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Stains",
+    "sha256": "f2cf25b7a6a10379d4f18483d13602374831b9a9f42237a07b720362fa784e5d"
+  },
+  "tremblay-en-france": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_Tremblay_France_2.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/dd/H%C3%B4tel_ville_Tremblay_France_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Tremblay-en-France",
+    "sha256": "741ee3670cd2e3a4c48e9b8a6b3df1914d1c152732860cf6b50153f0f95b666e"
+  },
+  "vaujours": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_Vaujours_4.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/4/48/H%C3%B4tel_ville_Vaujours_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Vaujours",
+    "sha256": "556d9c56f45050c66bdcca07cfc9447a9248c534fd0f072bbb4f71dc3e6fb258"
+  },
+  "villemomble": {
+    "file": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_seigneurial_de_Villemomble_en_2012,_apr%C3%A8s_r%C3%A9novation.jpg",
+    "author": "Mairie de Villemomble",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/12/Ch%C3%A2teau_seigneurial_de_Villemomble_en_2012%2C_apr%C3%A8s_r%C3%A9novation.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Villemomble",
+    "sha256": "7b6eb5138644e296f21bf3394d938c3409b39a1c913efde3d0ce3eb474ec686c"
+  },
+  "villepinte": {
+    "file": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_ville_Villepinte_Seine_St_Denis_2.jpg",
+    "author": "Chabe01",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/09/H%C3%B4tel_ville_Villepinte_Seine_St_Denis_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Villepinte_(Seine-Saint-Denis)",
+    "sha256": "681218b2dcef47c36bf8ad2278360a6fb350c9d78eb7e6b0385d7cff68a9bf6e"
+  },
+  "villetaneuse": {
+    "file": "https://commons.wikimedia.org/wiki/File:Tramway_au_terminus_de_Villetaneuse-Universit%C3%A9.jpg",
+    "author": "Remontees",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Tramway_au_terminus_de_Villetaneuse-Universit%C3%A9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "wiki": "https://fr.wikipedia.org/wiki/Villetaneuse",
+    "sha256": "2f919e0efd17a18cae96e93126b2d28411dbdc0a2b292bcb4b37aad2f726ae21"
+  }
+}
