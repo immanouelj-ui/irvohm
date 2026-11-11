@@ -1,18 +1,28 @@
 """Apply the shared footer without reserializing page content.
 
-Run after regenerating municipal pages: python sync_footers.py
+Run locally after regenerating municipal pages. Vercel runs this at build time.
 """
+import os
 from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parent
 
+def pages():
+    for directory, subdirectories, files in os.walk(ROOT):
+        subdirectories[:] = [
+            name for name in subdirectories
+            if not name.startswith('.') and name not in {'components', 'node_modules'}
+        ]
+        for name in files:
+            if not name.startswith('.') and name.endswith('.html'):
+                yield Path(directory) / name
+
+
 def sync():
     template = (ROOT / 'components/footer.html').read_text().strip()
     count = 0
-    for path in ROOT.rglob('*.html'):
-        if path.parent == ROOT / 'components' or any(p.startswith('.') for p in path.relative_to(ROOT).parts):
-            continue
+    for path in pages():
         source = path.read_text()
         if not re.search(r'<footer\b', source):
             continue

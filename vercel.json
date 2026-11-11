@@ -1,4 +1,5 @@
 {
+  "buildCommand": "python3 sync_footers.py",
   "rewrites": [
     { "source": "/demande-envoyee", "destination": "/demande-envoyee.html" }
   ]
