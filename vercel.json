@@ -1,5 +1,6 @@
 {
-  "buildCommand": "python3 sync_footers.py",
+  "buildCommand": "node sync_footers.cjs",
+  "outputDirectory": ".",
   "rewrites": [
     { "source": "/demande-envoyee", "destination": "/demande-envoyee.html" }
   ]
