@@ -37,11 +37,11 @@ async function forwardToCRM(body) {
     statut: 'Lead',
     source: 'irvohm.fr',
     notes: typeof body.notes === 'string' ? body.notes.trim() : '',
-    type_de_projet: isEntreprise ? 'Entreprise' : '',
+    entreprise: isEntreprise ? String(body.entreprise || '').trim() : '',
+    logement: isEntreprise ? 'Entreprise' : crmVal('logement', body.logement),
     nb_bornes: isPro ? String(body.nbBornes ?? '').trim() : '',
     ...(isEntreprise ? {} : {
       statut_du_bien: crmVal('statut_du_bien', body.role),
-      logement: crmVal('logement', body.logement),
     }),
     cp: body.codePostal || '',
     puissance: crmVal('puissance', body.puissance),
@@ -120,6 +120,7 @@ async function notifyNewLead(lead) {
               ${row('Prénom', lead.prenom)}
               ${row('Adresse', lead.adresse)}
               ${row('Ville', lead.ville)}
+              ${row('Entreprise', lead.entreprise)}
               ${row('Téléphone', lead.telephone)}
               ${row('Email', lead.email)}
               ${row('Code postal', lead.codePostal)}
