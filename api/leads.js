@@ -29,6 +29,9 @@ async function forwardToCRM(body) {
 
   const crmBody = {
     nom: body.nom,
+    prenom: body.prenom,
+    adresse: body.adresse,
+    ville: body.ville,
     email: body.email,
     phone: body.telephone,
     statut: 'Lead',
@@ -114,6 +117,9 @@ async function notifyNewLead(lead) {
           <div style="background:#f7f9fb;border-radius:12px;padding:20px">
             <table style="width:100%;border-collapse:collapse;font-size:14px">
               ${row('Nom', lead.nom)}
+              ${row('Prénom', lead.prenom)}
+              ${row('Adresse', lead.adresse)}
+              ${row('Ville', lead.ville)}
               ${row('Téléphone', lead.telephone)}
               ${row('Email', lead.email)}
               ${row('Code postal', lead.codePostal)}
@@ -141,6 +147,9 @@ module.exports = async (req, res) => {
 
   const body = req.body || {};
   const nom = String(body.nom || '').trim();
+  const prenom = String(body.prenom || '').trim();
+  const adresse = String(body.adresse || '').trim();
+  const ville = String(body.ville || '').trim();
   const email = String(body.email || '').trim();
   const telephone = String(body.telephone || '').trim();
 
@@ -150,8 +159,8 @@ module.exports = async (req, res) => {
 
   // CRM et email en parallèle ; on attend les deux (Vercel peut geler la fonction après la réponse).
   const [crmResult, mailResult] = await Promise.allSettled([
-    forwardToCRM({ ...body, nom, email, telephone }),
-    notifyNewLead({ ...body, nom, email, telephone }),
+    forwardToCRM({ ...body, nom, prenom, adresse, ville, email, telephone }),
+    notifyNewLead({ ...body, nom, prenom, adresse, ville, email, telephone }),
   ]);
 
   const crmOk = crmResult.status === 'fulfilled';
