@@ -5,12 +5,14 @@ const vm = require('node:vm');
 const source = fs.readFileSync('devis.html', 'utf8');
 const script = [...source.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)]
   .map(m => m[1]).find(s => s.includes('function renderStep1()'));
-const context = vm.createContext({ console, setTimeout, clearTimeout });
+const context = vm.createContext({ console, setTimeout, clearTimeout, document: { addEventListener() {} } });
 vm.runInContext(script.slice(0, script.indexOf('/* =========================================================\n   INIT')), context);
 vm.runInContext(`
   fullRender = () => {}; quickUpdate = () => {};
   if (!renderStep1().includes('Entreprise')) throw Error('missing business option');
-  setLogement('entreprise'); state.codePostal = '95200';
+  setLogement('entreprise'); state.codePostal = '95200'; state.adresse = '8 rue de Paris'; state.ville = 'Sarcelles';
+  if (canNext()) throw Error('missing company');
+  state.entreprise = 'Entreprise Exemple';
   if (!isPro() || !canNext() || state.role !== 'entreprise') throw Error('business step 1');
   currentStep = 1;
   if (canNext()) throw Error('missing project requirements');
@@ -28,6 +30,10 @@ vm.runInContext(`
   if (!canNext()) throw Error('household step 2');
   setLogement('copropriete'); state.role = 'syndic';
   if (!isPro()) throw Error('syndic regression');
+  if (renderStep5().includes('devis-cp') || renderStep5().includes('devis-ville') || renderStep5().includes('devis-adresse')) throw Error('duplicate address');
+  if ((renderStep1().match(/id="devis-cp"/g) || []).length !== 1) throw Error('postal field count');
+  if (renderStep1().includes('<datalist')) throw Error('native suggestions regression');
+
 `, context);
 
 (async () => {
@@ -44,7 +50,7 @@ vm.runInContext(`
   await api.module.exports({ method: 'POST', body: {
     nom: 'Dupont', prenom: 'Jean', adresse: '8 Boulevard du Port', ville: 'Cergy', email: 'test@example.invalid', telephone: '0600000000',
     logement: 'entreprise', role: 'entreprise', codePostal: '95200',
-    nbBornes: 4, puissance: '22', compteur: 'tri', delai: '1m',
+    entreprise: 'Entreprise Exemple', nbBornes: 4, puissance: '22', compteur: 'tri', delai: '1m',
     vehicule: 'oui', marque: 'Tesla', distance: '<5',
   } }, res);
   assert.equal(res.code, 200);
@@ -54,7 +60,9 @@ vm.runInContext(`
   assert.equal(captured.adresse, '8 Boulevard du Port');
   assert.equal(captured.ville, 'Cergy');
   assert.equal(captured.cp, '95200');
-  for (const field of ['vehicule', 'marque', 'distance', 'statut_du_bien', 'logement']) assert.equal(captured[field], undefined);
+  for (const field of ['vehicule', 'marque', 'distance', 'statut_du_bien', 'type_de_projet']) assert.equal(captured[field], undefined);
+  assert.equal(captured.logement, 'Entreprise');
+  assert.equal(captured.entreprise, 'Entreprise Exemple');
   assert.equal(captured.puissance, '22 KW');
   console.log('OK: entreprise, household and syndic paths; business CRM payload verified without network or email.');
 })().catch(err => { console.error(err); process.exitCode = 1; });
