@@ -42,14 +42,18 @@ vm.runInContext(`
   vm.runInContext(fs.readFileSync('api/leads.js', 'utf8'), api);
   const res = { status(code) { this.code = code; return this; }, json(body) { this.body = body; return this; } };
   await api.module.exports({ method: 'POST', body: {
-    nom: 'Test entreprise', email: 'test@example.invalid', telephone: '0600000000',
+    nom: 'Dupont', prenom: 'Jean', adresse: '8 Boulevard du Port', ville: 'Cergy', email: 'test@example.invalid', telephone: '0600000000',
     logement: 'entreprise', role: 'entreprise', codePostal: '95200',
     nbBornes: 4, puissance: '22', compteur: 'tri', delai: '1m',
     vehicule: 'oui', marque: 'Tesla', distance: '<5',
   } }, res);
   assert.equal(res.code, 200);
-  assert.match(captured.notes, /Entreprise/);
-  assert.match(captured.notes, /Projet pro : 4 borne/);
+  assert.equal(captured.notes, undefined);
+  assert.equal(captured.nom, 'Dupont');
+  assert.equal(captured.prenom, 'Jean');
+  assert.equal(captured.adresse, '8 Boulevard du Port');
+  assert.equal(captured.ville, 'Cergy');
+  assert.equal(captured.cp, '95200');
   for (const field of ['vehicule', 'marque', 'distance', 'statut_du_bien', 'logement']) assert.equal(captured[field], undefined);
   assert.equal(captured.puissance, '22 KW');
   console.log('OK: entreprise, household and syndic paths; business CRM payload verified without network or email.');
