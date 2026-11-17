@@ -17,18 +17,6 @@ const CRM_MAP = {
 const crmVal = (key, value) =>
   !value ? '' : (CRM_MAP[key] && CRM_MAP[key][value]) || String(value);
 
-// Libellés lisibles pour les notes.
-const LBL = {
-  logement: { domicile: 'Maison individuelle', copropriete: 'Copropriété', entreprise: 'Entreprise' },
-  role: { proprietaire: 'Propriétaire', locataire: 'Locataire', syndic: 'Syndic', entreprise: 'Entreprise' },
-  vehicule: { oui: 'Déjà équipé', commande: 'Véhicule commandé', projet: "En projet d'achat" },
-  puissance: { '7.4': '7,4 kW', '11': '11 kW', '22': '22 kW', unknown: 'Ne sait pas' },
-  compteur: { mono: 'Monophasé', tri: 'Triphasé', unknown: 'Ne sait pas' },
-  distance: { '<5': 'Moins de 5 m', '5-15': '5 à 15 m', '>15': 'Plus de 15 m' },
-  delai: { asap: 'Dès que possible', '1m': 'Sous 1 mois', '3m': 'Sous 3 mois', compare: 'Compare les offres' },
-};
-const lbl = (k, v) => (LBL[k] && LBL[k][v]) || v || '—';
-
 async function forwardToCRM(body) {
   if (!CRM_API_KEY) throw new Error('CRM_API_KEY manquante (variable d\'environnement Vercel)');
 
@@ -39,26 +27,15 @@ async function forwardToCRM(body) {
     .map((u) => String(u).trim())
     .filter((u) => /^https?:\/\//i.test(u));
 
-  const details = [
-    `Logement : ${lbl('logement', body.logement)} (${lbl('role', body.role)}) — CP ${body.codePostal || '—'}`,
-    isPro
-      ? `Projet pro : ${body.nbBornes || '—'} borne(s)`
-      : `Véhicule : ${lbl('vehicule', body.vehicule)}${marque ? ` — ${marque}` : ''}`,
-    `Puissance : ${lbl('puissance', body.puissance)}`,
-    `Compteur : ${lbl('compteur', body.compteur)}${!isPro && body.distance ? ` · Distance tableau-borne : ${lbl('distance', body.distance)}` : ''}`,
-    `Délai : ${lbl('delai', body.delai)}`,
-    photoUrls.length ? `Photos (${photoUrls.length}) : ${photoUrls.join(' | ')}` : 'Photos : aucune',
-  ];
-
   const crmBody = {
     nom: body.nom,
     email: body.email,
     phone: body.telephone,
     statut: 'Lead',
     source: 'irvohm.fr',
-    notes: `🌐 Lead irvohm.fr\n${details.join('\n')}`,
-    // Les colonnes CRM ont des options fermées : le profil entreprise est
-    // conservé dans les notes sans envoyer une option non configurée.
+    notes: typeof body.notes === 'string' ? body.notes.trim() : '',
+    type_de_projet: isEntreprise ? 'Entreprise' : '',
+    nb_bornes: isPro ? String(body.nbBornes ?? '').trim() : '',
     ...(isEntreprise ? {} : {
       statut_du_bien: crmVal('statut_du_bien', body.role),
       logement: crmVal('logement', body.logement),
